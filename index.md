@@ -4,7 +4,7 @@ The MysteryTony Site
 ## Notes
 
 ### Math 136
-[Chapter 4](/chapter4.html)
+[Chapter 4](http://mysterytony.github.io/chapter4.html)
 
 Found mistakes, typo, error, issue, or else? [Add Issue On Github](https://github.com/mysterytony/mysterytony.github.io/issues)
 
