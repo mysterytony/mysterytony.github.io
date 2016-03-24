@@ -1040,15 +1040,120 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>index</title></head><body><article class="markdown-body"><h1 id="the-mysterytony-site"><a name="user-content-the-mysterytony-site" href="#the-mysterytony-site" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The MysteryTony Site</h1>
-<h2 id="notes"><a name="user-content-notes" href="#notes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Notes</h2>
-<h3 id="math-136"><a name="user-content-math-136" href="#math-136" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Math 136</h3>
-<p><a href="///C://Users/lihen/Documents/GitHub/mysterytony.github.io/chapter4.html">Chapter 4</a></p>
-<p>Found mistakes, typo, error, issue, or else? <a href="https://github.com/mysterytony/mysterytony.github.io/issues">Add Issue On Github</a></p>
-<h2 id="projects"><a name="user-content-projects" href="#projects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Projects</h2>
-<p><a href="http://progressor.azurewebsites.net/">Progressor</a></p>
-<p><a href="http://wattask.tk/">WatTask</a></p>
-<h2 id="about-me"><a name="user-content-about-me" href="#about-me" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>About Me</h2>
-<p><a href="https://github.com/mysterytony">Github</a></p>
-<p><a href="https://ca.linkedin.com/in/tony-li-281b59b9">LinkedIn</a></p>
-<p><a href="https://onedrive.live.com/redir?resid=7C604C88796DF83E!12013&amp;authkey=!AIcvZqNAqZw_42o&amp;ithint=file%2cpdf">Resume</a></p></article></body></html>
+<title>chapter4</title></head><body><article class="markdown-body"><p><a href="index.html">&lt;- Go Back</a></p>
+<h1 id="chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv"><a name="user-content-chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv" href="#chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 4: Vector Spaces$\newcommand{\v}{\vec}$$\newcommand{\b}{\mathbb}$$\newcommand{\vsetk}{\v{v_1},\cdots,\v{v_k}}$$\newcommand{\vsetn}{\v{v_1},\cdots,\v{v_n}}$$\newcommand{\vx}{\vec{x}}$$\newcommand{\bv}{\mathbb{V}}$</h1>
+<h2 id="41-vector-spaces"><a name="user-content-41-vector-spaces" href="#41-vector-spaces" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1: Vector Spaces</h2>
+<h4 id="definition-vector-space"><a name="user-content-definition-vector-space" href="#definition-vector-space" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Vector Space</h4>
+<p>A set $\bv$ with an operation of <strong>addition</strong>, denoted $\v{x}+\v{y}$, and an operation of <strong>scalar multiplication</strong>, denoted $c\v{x}$, is called a <strong>vector space over</strong> $\b{R}$ if for every $\v{v},\v{x},\v{y}\in\bv$ and $c,d\in\b{R}$ we have:</p>
+<ul>
+<li>V1: $\v{x}+\v{y}\in\bv$</li>
+<li>V2: $(\v{x}+\v{y})+\v{v}=\v{x}+(\v{y}+\v{v})$</li>
+<li>V3: $\v{x}+\v{y}=\v{y}+\v{x}$</li>
+<li>V4: There is a vector $\v{0}\in\bv$, called the <strong>zero vector</strong>, such that $\v{x}+\v{0}=\v{x}$ for all $\v{x}\in\bv$</li>
+<li>V5: There exists an element $(-\v{x})\in\bv$, called the <strong>additive inverse</strong> of $\v{x}$, such that $\v{x}+(-\v{x})=\v{0}$</li>
+<li>V6: $c\v{x}\in\bv$</li>
+<li>V7: $c(d\v{x})=(cd)\v{x}$</li>
+<li>V8: $(c+d)\v{x}=c\v{x}+d\v{x}$</li>
+<li>V9: $c(\v(x)+\v{y})=c\v{x}+c\v{y}$</li>
+<li>V10: $1\v{x}=\v{x}$</li>
+</ul>
+<p>We call the elements of $\bv$ vectors</p>
+<h4 id="remarks"><a name="user-content-remarks" href="#remarks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remarks</h4>
+<ol>
+<li>We sometimes denote addition by $\v{x}\bigoplus\v{y}$ and scalar multiplication by $c\bigotimes\v{x}$ to distinguish these from &ldquo;normal&rdquo; operation of addition and scalar multiplication</li>
+<li>In some cases, when working with multiple vector spaces, we denote the zero vector in a vector space $\bv$ by $\v{0}_\bv$</li>
+<li>Then ten vector space axioms define a &ldquo;structure&rdquo; for the set based on the operations of addition and scalar multiplication. The study of vector spaces is the study of this structure. Note that there may be additional operation defined on some vector spaces that are not included in this structure. </li>
+<li>The definition of a vector space makes sense if the scalars are allowed to be taken from any set that has all the same important properties as $\b{R}$. Such sets are call <strong>fields</strong>.</li>
+</ol>
+<p>Let $\v{V}={\v{0}}$, it is called the <strong>trivial vector space</strong></p>
+<h4 id="theorem-1"><a name="user-content-theorem-1" href="#theorem-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+<p>If $\bv$ is a vector space, then</p>
+<ol>
+<li>$0\v{x}=\v{0}$ for all $\v{x}\in\bv$</li>
+<li>$(-\v{x})=(-1)\v{x}$ for all $\v{x}\in\bv$</li>
+</ol>
+<h4 id="remark"><a name="user-content-remark" href="#remark" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
+<p>Observe that Theorem 1 implies that the zero vector in a vector space is unique, as is the additive inverse of any vector in the vector space.</p>
+<h4 id="definition-subspace"><a name="user-content-definition-subspace" href="#definition-subspace" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Subspace</h4>
+<p>Let $\bv$ be a vector space. If $\b{S}$ is a subspace of $\bv$ and $\b{S}$ is a vector space under the same operation as $\bv$, then $\b{S}$ is called a <strong>subspace</strong> of $\bv$</p>
+<h4 id="theorem-2-subspace-test"><a name="user-content-theorem-2-subspace-test" href="#theorem-2-subspace-test" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2: Subspace Test</h4>
+<p>If $\b{S}$ is a non-empty subset of $\bv$ such that $\v{x}+\v{y}\in\b{S}$ and $c\v{x}\in\b{S}$ for all $\v{x},\v{y}\in\b{S}$ and $c\in\b{R}$ under the operation of $\bv$, then $\b{S}$ is a subspace of $\bv$.</p>
+<h4 id="remark_1"><a name="user-content-remark_1" href="#remark_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
+<ol>
+<li>It is very important to always remember to check that $\b{S}$ is a subset of $\bv$ and is non-empty as part of the Subspace Test.</li>
+<li>As before, we will say that $\b{S}$ is <strong>closed under addition</strong> if $\v{x}+\v{y}\in\b{S}$ for all $\v{x},\v{y}\in\b{S}$, and we will say that $\b{S}$ is <strong>closed under scalar multiplication</strong> if $c\v{s}\in\b{S}$ for all $\v{x}\in\b{S}$ and $c\in\b{R}$</li>
+</ol>
+<p>As with subspaces in Chapter 1, normally the easiest way to verify the set $\b{S}$ is non-empty is to check if the zero vector of $\bv$, is in $\b{S}$. Moreover, if $\v{0}_V\notin\b{S}$, then $\b{S}$ is not closed under scalar multiplication and hence is not subspace.</p>
+<h4 id="definition-span"><a name="user-content-definition-span" href="#definition-span" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Span</h4>
+<p>Let $\b{B}=$ { $\vsetk$ } be a set of vector space $\bv$. We define the <strong>span</strong> of $\b{B}$ by </p>
+<p>Span $\b{B}$ = { $c_1\v{v_1}+\cdots+c_k\v{v_k}\|c_1,\cdots,c_k\in\b{R}$ }</p>
+<p>We say the Span$\b{B}$ is <strong>spanned</strong> by $\b{B}$ and that $\b{B}$ is a <strong>spanning set</strong> for Span$\b{B}$</p>
+<h4 id="theorem-3"><a name="user-content-theorem-3" href="#theorem-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+<p>If $\b{B}$ = {$\vsetk$} is a set of vectors in a vector space $\bv$, then Span$\b{B}$ is a subspace of $\bv$.</p>
+<h4 id="theorem-4"><a name="user-content-theorem-4" href="#theorem-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+<p>Let $\bv$ be a vector space and $\vsetk\in\bv$. Then $\v{v_i}\in$ Span{$\v{v_1},\cdots,\v{v_{i-1}},\v{v_{i+1}},\cdots,\v{v_k}$} if and only if</p>
+<p>Span{$\vsetk$}=Span{$\v{v_1},\cdots,\v{v_{i-1}},\v{v_{i+1}},\cdots,\v{v_k}$}</p>
+<h4 id="definition-linearly-dependent-linearly-independent"><a name="user-content-definition-linearly-dependent-linearly-independent" href="#definition-linearly-dependent-linearly-independent" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Linearly Dependent &amp; Linearly Independent</h4>
+<p>A set of vectors {$\vsetk$} in a vector space $\bv$ is said to be <strong>linearly dependent</strong> if there exist coefficients $c_1,&hellip;,c_k$ not all zero such that</p>
+<p>$$ \v{0}=c_1\v{v_1}+\cdots+c_k\v{v_k} $$</p>
+<p>A set of vectors {$\vsetk$} is said to be <strong>linearly independent</strong> if the only solution to</p>
+<p>$$ \v{0}=c_1\v{v_1}+\cdots+c_k\v{v_k} $$</p>
+<p>is the trivial solution $c_1=\cdots=c_k=0$</p>
+<h4 id="theorem-5"><a name="user-content-theorem-5" href="#theorem-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 5</h4>
+<p>A set of vectors {$\vsetk$} in a vector space is linearly dependent if and only if $\v{v_i}\in$ Span{$\v{v_1},\cdots,\v{v_{i-1}},\v{v_{i+1}},\cdots,\v{v_k}$ for some $i$, $1\leq i\leq k$ </p>
+<h4 id="theorem-6"><a name="user-content-theorem-6" href="#theorem-6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 6</h4>
+<p>Any Set of vectors {$\vsetk$} in a vector space which contains the zero vector is linearly dependent</p>
+<h2 id="42-bases-and-dimension"><a name="user-content-42-bases-and-dimension" href="#42-bases-and-dimension" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Bases and Dimension</h2>
+<h4 id="definition-basis"><a name="user-content-definition-basis" href="#definition-basis" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Basis</h4>
+<p>Let $\bv$ be a vector space. The set B is call a <strong>basis</strong> for $\bv$ if B is linearly independent spanning set for $\bv$.</p>
+<p>We define a basis for {$\v{0_\bv}$} to be the empty set.</p>
+<h4 id="algorithm-finding-a-basis"><a name="user-content-algorithm-finding-a-basis" href="#algorithm-finding-a-basis" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Algorithm: Finding a basis</h4>
+<p>Let $\bv$ be a vector space. To find a basis for $\bv$,<br />
+1.  Find the general form of a vector $\v{x}$<br />
+2.  Write the general form of $\v{x}$ as a linear combination of $\vsetk$ in $\bv$<br />
+3.  Check if B={$\vsetk$} is linearly independent. It it is, then stop as B is a basis.<br />
+4.  If B is linearly dependent, pick some vector that can be written as a linear combination of the other vectors in B and remove it from the set using Theorem 4.1.4. Repeat this until the set is linearly independent.</p>
+<h4 id="theorem-1_1"><a name="user-content-theorem-1_1" href="#theorem-1_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+<p>Let B={$\vsetn$} be a basis for a vector space $\bv$ and let C={$\v{w_1},\cdots,\v{w_k}$} be a set in $vb$. If $k&gt;n$, then C is linearly dependent.</p>
+<h4 id="theorem-2"><a name="user-content-theorem-2" href="#theorem-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
+<p>If B={$\vsetn$} and C={$\v{w_1},\cdots,\v{w_k}$} are bases for a vector space $\bv$, then $k=n$.</p>
+<h4 id="definition-dimension"><a name="user-content-definition-dimension" href="#definition-dimension" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Dimension</h4>
+<p>If B={$\vsetn$} is a basis for a vector space $bv$, then we say the <strong>dimension</strong> of $bv$ is $n$ and write<br />
+$$ dimV=n $$<br />
+If $\bv$ is the trivial vector space, then dimV=0. If $bv$ does not have a basis with a finite number of vectors in it, then $bv$ is said to be infinite <strong>dimensional</strong>.</p>
+<h4 id="theorem-3_1"><a name="user-content-theorem-3_1" href="#theorem-3_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+<p>If $bv$ is an n-dimensional vector space with $n&gt;0$, then<br />
+1.  a set of more than n vectors in $bv$ must be linearly dependent<br />
+2.  a set of fewer than n vectors in $bv$ cannot span $\bv$<br />
+3.  a Set of n vectors in $\bv$ is linearly independent if and only if it spans $\bv$</p>
+<h4 id="theorem-4_1"><a name="user-content-theorem-4_1" href="#theorem-4_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+<p>If $\bv$ is an n-dimensional vector space and {$\vsetk$} is a linearly independent set in $bv$ with $k&lt;n$, then there exist vectors $\v{w_{k+1}},\cdots,\v{w_n}$ in $\bv$ such that {$\vsetk, \v{w_{k+1}},\cdots,\v{w_n}$} is a basis for $\bv$</p>
+<h4 id="corollary-5"><a name="user-content-corollary-5" href="#corollary-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 5</h4>
+<p>If $\b{S}$ is a subspace of a finite dimensional vector space $\bv$, then $dim\b{S}\leq dim\bv$</p>
+<h2 id="43-coordinates"><a name="user-content-43-coordinates" href="#43-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3: Coordinates</h2>
+<h4 id="theorem-1_2"><a name="user-content-theorem-1_2" href="#theorem-1_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+<p>If B={$vsetk$} is a basis for a vector space $\bv$, then every $\v{v}\in\bv$ can be written as a unique linear combination of the vectors in B</p>
+<h4 id="definition-b-coordinates"><a name="user-content-definition-b-coordinates" href="#definition-b-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: B-Coordinates</h4>
+<p>Let B={$\vsetn$} be a basis for a vector space $\bv$. If $\v{v}=b_1\v{v_1}+\cdots+b_n\v{v_n}$, then $b_1,\cdots,b_n$ are called the <strong>B-coordinates</strong> of $\v{v}$, and we define the <strong>B-coordinate vector</strong> by</p>
+<p>$$[\v{v}]_B=\begin{bmatrix}b_1 \\ \vdots \\ b_n\end{bmatrix}$$</p>
+<h4 id="theorem-2_1"><a name="user-content-theorem-2_1" href="#theorem-2_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
+<p>If $\bv$ is a vector space with basis B={$\vsetn$}, then for any $\v{v},\v{w}\in\bv$ and $s,t\in\b{R}$ we have<br />
+$$[s\v{v}+t\v{w}]_B=s[\v{v}]_B+t[\v{w}]_B$$</p>
+<h4 id="change-of-coordinates"><a name="user-content-change-of-coordinates" href="#change-of-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Change of Coordinates</h4>
+<p>We have seen how to find different bases for a vector space $\bv$ and how to find the coordinates of a vector $\v{v}\in\bv$ with respect to any basis B of $\bv$. In some cases, it is useful to have a quick way of determining the coordinates of $\v{v}$ with respect to some basis C for $\bv$ if we are given the coordinates of $\v{v}$ with respect to the basis B of $\bv$.</p>
+<p>For example, in some applications it is useful to write polynomials in terms of powers of x-c for some real c. That is, given a polynomial $p(x)=a_0+a_1x+&hellip;+a_nx^n$, we want to write it in the form $p(x)=b_0+b_1(x-c)+b_2(x-c)^2+&hellip;+b_n(x-c)^n$. Such a situation may arise if the values of x you are working with are very close to c. If you are working with many polynomials, then it would be very helpful to have a fast way of converting each polynomial. We can rephrase this problem in terms of linear algebra.</p>
+<p>Let S={$1,x,&hellip;,x^n$} be the standard basis for $P_n(\b{R})$. Given $[p(x)]_S=\begin{bmatrix}a_0 \\ \vdots \\ a_n\end{bmatrix}$ we want to determine $[p(x)]_B$ where B is the basis B={$1,x-c,(x-c)^2,&hellip;,(x-c)^n$} for $P_n(\b{R})$</p>
+<p>Since taking coordinates is a linear operation by Theorem 2, we get<br />
+$$\begin{align*}<br />
+[p(x)]_B &amp;= [a_01+a_1x+&hellip;+a_nx^n]_B \\<br />
+&amp;= a_0[1]_B + a_1[x]_B + &hellip; + a_n[x^n]_B \\<br />
+&amp;= \begin{bmatrix} [1]_B &amp; [x]_B &amp; \cdots &amp; [x^n]_B\end{bmatrix}<br />
+    \begin{bmatrix} a_0 \\ \vdots \\ a_n \end{bmatrix}\end{align*}$$</p>
+<p>So, the multiplication of this matrix and the coordinate vector of p(x) with respect to the standard basis gives us the coordinates of p(x) with respect to the new basis B.</p>
+<h4 id="definition-change-of-coordinates-matrix"><a name="user-content-definition-change-of-coordinates-matrix" href="#definition-change-of-coordinates-matrix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Change of Coordinates Matrix</h4>
+<p>Let B = {$\vsetn$} and C both be bases for a vector space $\bv$. The <strong>change of coordinates matrix</strong> from B-coordinates to C-coordinates is defined by<br />
+$$_CP_B=\begin{bmatrix}[\v{v_1}]_C &amp; \cdots &amp; [\v{v_n}]_C \end{bmatrix}$$<br />
+and for any $\vx\in\bv$ we have<br />
+$$[\vx]_C=_CP_B[\vx]_B$$</p>
+<h4 id="theorem-3_2"><a name="user-content-theorem-3_2" href="#theorem-3_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+<p>If B and C are bases for an n-dimensional vector space $\bv$, then the change of coordinate matrices $_CP_B$ and $_BP_C$ satisfy $_CP_B$$_BP_C=I=_BP_C$$_CP_B$</p></article></body></html>
