@@ -1040,31 +1040,39 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-75666948-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<title>index</title></head><body><article class="markdown-body"><h1 id="the-mysterytony-site"><a name="user-content-the-mysterytony-site" href="#the-mysterytony-site" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The MysteryTony Site</h1>
-<h2 id="notes"><a name="user-content-notes" href="#notes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Notes</h2>
-<h3 id="math-136"><a name="user-content-math-136" href="#math-136" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Math 136</h3>
-<p><strong>Last Update 2016-03-19</strong><br />
-<a href="http://mysterytony.github.io/notes/math136/chapter4.html">Chapter 4</a></p>
-<p><strong>Last Update 2016-03-27</strong><br />
-<a href="http://mysterytony.github.io/notes/math136/chapter5.html">Chapter 5</a></p>
-<h3 id="stat-230"><a name="user-content-stat-230" href="#stat-230" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>STAT 230</h3>
-<p><strong>Last Update 2016-03-28</strong><br />
-<a href="http://mysterytony.github.io/notes/stat230/chapter9.html">Chapter 9</a></p>
-<p>Found mistakes, typo, error, issue, or else? <a href="https://github.com/mysterytony/mysterytony.github.io/issues">Add Issue On Github</a></p>
-<h2 id="projects"><a name="user-content-projects" href="#projects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Projects</h2>
-<p><a href="http://progressor.azurewebsites.net/">Progressor</a></p>
-<p><a href="http://wattask.tk/">WatTask</a></p>
-<h2 id="about-me"><a name="user-content-about-me" href="#about-me" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>About Me</h2>
-<p><a href="https://github.com/mysterytony">Github</a></p>
-<p><a href="https://ca.linkedin.com/in/tony-li-281b59b9">LinkedIn</a></p>
-<p><a href="https://onedrive.live.com/redir?resid=7C604C88796DF83E!12013&amp;authkey=!AIcvZqNAqZw_42o&amp;ithint=file%2cpdf">Resume</a></p></article></body></html>
+<title>chapter9</title></head><body><article class="markdown-body"><p><a href="///C://Users/lihen/Documents/GitHub/mysterytony.github.io/index.html">&lt;- Go Back</a></p>
+<h1 id="chapter-9-multivariate-distribution"><a name="user-content-chapter-9-multivariate-distribution" href="#chapter-9-multivariate-distribution" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 9: Multivariate Distribution</h1>
+<h2 id="91-basic-terminology-and-techniques"><a name="user-content-91-basic-terminology-and-techniques" href="#91-basic-terminology-and-techniques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9.1 Basic Terminology and Techniques</h2>
+<h4 id="joint-probability-functions"><a name="user-content-joint-probability-functions" href="#joint-probability-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Joint Probability Functions:</h4>
+<p>First, suppose there are two discrete random variables $X$ and $Y$, and define the function<br />
+$$\begin{align*} f(x,y) &amp;= P(X=x \quad and \quad Y=y) \\ &amp;= P(X=x, Y=y)\end{align*}$$</p>
+<p>We call $f(x,y)$ the joint probability function of $(X,Y)$. The properties of a joint probability function are similar for those for a single variable; for two random variables we have $f(x,y)\geq 0$ for all $(x,y)$ and<br />
+$$\sum_{all(x,y)}f(x,y)=1$$</p>
+<p>In general,<br />
+$$f(x_1,&hellip;,x_n)=P(X_1=x_1,&hellip;,X_n=x_n)$$<br />
+if there are $n$ random variables $X_1,&hellip;,X_n$</p>
+<h4 id="marginal-distributions"><a name="user-content-marginal-distributions" href="#marginal-distributions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Marginal Distributions</h4>
+<p>If we&rsquo;re only interested in $X$, and don&rsquo;t care what value $Y$ takes, we can see that<br />
+$$\begin{align*}P(X=0) &amp;= P(X=0,Y=1)+P(X=0,Y=2) \\ &amp;= f(0,1) + f(0,2) \\ &amp;= 0.3\end{align*}$$</p>
+<p>In general, to find $f_1(x)$ we add over all values of $y$ where $X=x$, and to find $f_2(y)$ we add over all values of $x$ with $Y=y$. Then<br />
+$$f_1(x)=\sum_{all y}f(x,y)$$<br />
+$$f_2(y)=\sum_{all x}f(x,y)$$</p>
+<h4 id="independent-random-variables"><a name="user-content-independent-random-variables" href="#independent-random-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Independent Random Variables</h4>
+<p>For events $A$ and $B$, we have defined $A$ and $B$ to be independent if and only if $P(AB)=P(A)P(B)$. This definition can be extended to random variables $(X,Y)$. Two random variable are independent if their joint probability function is the product of the marginal probability functions.</p>
+<h4 id="definition"><a name="user-content-definition" href="#definition" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+<p>$X$ and $Y$ are <strong>independent</strong> random variables if $f(x,y)=f_1(x)f_2(y)$ for all values $(x,y)$.</p>
+<blockquote>
+<p>Be careful applying this definition. You can only conclude that $X$ and $Y$ are independent after checking all $(x,y)$ combinations. Each a single case where $f_1(x)f_2(y)\neq f(x,y)$ makes $X$ and $Y$ dependent random variables.</p>
+</blockquote>
+<h4 id="conditional-probability-functions"><a name="user-content-conditional-probability-functions" href="#conditional-probability-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Conditional Probability Functions</h4>
+<p>Again we can extend a definition from events to random variables. For events $A$ and $B$, re call that<br />
+$$P(A|B)=\frac{P(AB)}{P(B)}$$ provided $P(B)&gt;0$</p>
+<p>Since<br />
+$$P(X=x|Y=y)=\frac{P(X=x, Y=y)}{P(Y=y)}$$ provided $P(Y=y)&gt;0$,<br />
+we make the following definition.</p>
+<h4 id="definition_1"><a name="user-content-definition_1" href="#definition_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+<p>The conditional probability function of $X$ given $Y=y$ is<br />
+$$f_1(x|y)=\frac{f(x,y)}{f_2{y}}$$<br />
+Similarly, the conditional probability function of $Y$ given $X=x$ is<br />
+$$f_2(y|x)=\frac{f(x,y)}{f_1(x)}$$</p>
+<h4 id="functions-of-random-variables"><a name="user-content-functions-of-random-variables" href="#functions-of-random-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functions of Random Variables</h4></article></body></html>

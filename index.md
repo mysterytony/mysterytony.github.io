@@ -4,9 +4,16 @@ The MysteryTony Site
 ## Notes
 
 ### Math 136
-[Chapter 4](http://mysterytony.github.io/chapter4.html)
+**Last Update 2016-03-19**
+[Chapter 4](http://mysterytony.github.io/notes/math136/chapter4.html)
 
-[Chapter 5](http://mysterytony.github.io/chapter5.html)
+**Last Update 2016-03-27**
+[Chapter 5](http://mysterytony.github.io/notes/math136/chapter5.html)
+
+### STAT 230
+
+**Last Update 2016-03-28**
+[Chapter 9](http://mysterytony.github.io/notes/stat230/chapter9.html)
 
 Found mistakes, typo, error, issue, or else? [Add Issue On Github](https://github.com/mysterytony/mysterytony.github.io/issues)
 
