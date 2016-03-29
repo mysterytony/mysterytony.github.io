@@ -1,4 +1,4 @@
-[<- Go Back](../../index.html)
+[<- Go Back](http://tonyli.tk/)
 
 # Chapter 9: Multivariate Distribution
 
