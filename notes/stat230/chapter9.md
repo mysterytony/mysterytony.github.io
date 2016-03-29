@@ -53,5 +53,52 @@ $$f_2(y|x)=\frac{f(x,y)}{f_1(x)}$$
 
 #### Functions of Random Variables
 
+The most general method for finding the probability function for some function of random variables $X$ and $Y$ involves looking at every combination $(x,y)$ to see what values the function takes.
 
+#### Theorem
 
+If $X~Poi(\mu_1)$ and  $Y~Poi(\mu_2)$ independently then $T=X+Y~Poi(\mu_1+\mu_2)$
+
+#### Theorem
+
+If $X~Bin(n,p)$ and $Y~Bin(m,p)$ independently then $T=X+Y~Bin(n+m,p)$
+
+## 9.2 Multinomial Distribution
+
+It is a generalization of the Binomial model to the case where each trial has $k$ possible outcomes.
+
+#### Physical Setup
+
+Suppose an experiment is repeated independently $n$ times with $k$ distinct types of outcome each time. Let the probabilities of these $k$ types be $p_1,...,p_k$ each time. Let $X_1$ be the number of times the first type occurs, and $X_k$ the number of times the k-th type occurs. Then $(X_1,...,X_k)$ has a Multinomial distribution.
+
+#### Note
+
+1.	$p_1+\cdots+p_k=1$
+2.	$X_1+\cdots+X_k=n$
+
+#### Joint Probability Function
+
+$$f(x_1,...,x_k)=\frac{n!}{x_1!\cdots x_k!}p_1^{x_1}\cdots p_k^{x_k}$$
+
+The restriction on the $x_i$ are $x_i=0,1,...,n$ and $\sum_{i=1}^{k}x_i=n$
+
+## 9.4 Expectation for Multivariate Distributions: Covariance and Correlation
+
+#### Definition
+
+$$E[g(X,Y)]=\sum_{all (x,y)}g(x,y)f(x,y)$$
+
+#### Property of Multivariate Expectation
+
+$$E[ag_1(X,Y)+bg_2(X,Y)]=aE[g_1(X,Y)]+bE[g_2(X,Y)]$$
+
+#### Relationship between variables
+
+Independence is a "yes/no" way of defining a relationship between variables. We all know that there can be different types of relationships between variables which are dependent. More generally, two random variables may be related (non-independent) in a probabilistic sense.
+
+#### Definition
+
+The **covariance** of $X$ and $Y$, denoted $Cov(X,Y)$ or $\sigma_{XY}$, is
+$$Cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$$
+
+Note that $Cov(X,Y)=E(XY)-E(X)E(Y)$

@@ -1075,4 +1075,32 @@ we make the following definition.</p>
 $$f_1(x|y)=\frac{f(x,y)}{f_2{y}}$$<br />
 Similarly, the conditional probability function of $Y$ given $X=x$ is<br />
 $$f_2(y|x)=\frac{f(x,y)}{f_1(x)}$$</p>
-<h4 id="functions-of-random-variables"><a name="user-content-functions-of-random-variables" href="#functions-of-random-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functions of Random Variables</h4></article></body></html>
+<h4 id="functions-of-random-variables"><a name="user-content-functions-of-random-variables" href="#functions-of-random-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functions of Random Variables</h4>
+<p>The most general method for finding the probability function for some function of random variables $X$ and $Y$ involves looking at every combination $(x,y)$ to see what values the function takes.</p>
+<h4 id="theorem"><a name="user-content-theorem" href="#theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+<p>If $X~Poi(\mu_1)$ and  $Y~Poi(\mu_2)$ independently then $T=X+Y~Poi(\mu_1+\mu_2)$</p>
+<h4 id="theorem_1"><a name="user-content-theorem_1" href="#theorem_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+<p>If $X~Bin(n,p)$ and $Y~Bin(m,p)$ independently then $T=X+Y~Bin(n+m,p)$</p>
+<h2 id="92-multinomial-distribution"><a name="user-content-92-multinomial-distribution" href="#92-multinomial-distribution" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9.2 Multinomial Distribution</h2>
+<p>It is a generalization of the Binomial model to the case where each trial has $k$ possible outcomes.</p>
+<h4 id="physical-setup"><a name="user-content-physical-setup" href="#physical-setup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Physical Setup</h4>
+<p>Suppose an experiment is repeated independently $n$ times with $k$ distinct types of outcome each time. Let the probabilities of these $k$ types be $p_1,&hellip;,p_k$ each time. Let $X_1$ be the number of times the first type occurs, and $X_k$ the number of times the k-th type occurs. Then $(X_1,&hellip;,X_k)$ has a Multinomial distribution.</p>
+<h4 id="note"><a name="user-content-note" href="#note" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h4>
+<ol>
+<li>$p_1+\cdots+p_k=1$</li>
+<li>$X_1+\cdots+X_k=n$</li>
+</ol>
+<h4 id="joint-probability-function"><a name="user-content-joint-probability-function" href="#joint-probability-function" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Joint Probability Function</h4>
+<p>$$f(x_1,&hellip;,x_k)=\frac{n!}{x_1!\cdots x_k!}p_1^{x_1}\cdots p_k^{x_k}$$</p>
+<p>The restriction on the $x_i$ are $x_i=0,1,&hellip;,n$ and $\sum_{i=1}^{k}x_i=n$</p>
+<h2 id="94-expectation-for-multivariate-distributions-covariance-and-correlation"><a name="user-content-94-expectation-for-multivariate-distributions-covariance-and-correlation" href="#94-expectation-for-multivariate-distributions-covariance-and-correlation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9.4 Expectation for Multivariate Distributions: Covariance and Correlation</h2>
+<h4 id="definition_2"><a name="user-content-definition_2" href="#definition_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+<p>$$E[g(X,Y)]=\sum_{all (x,y)}g(x,y)f(x,y)$$</p>
+<h4 id="property-of-multivariate-expectation"><a name="user-content-property-of-multivariate-expectation" href="#property-of-multivariate-expectation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Property of Multivariate Expectation</h4>
+<p>$$E[ag_1(X,Y)+bg_2(X,Y)]=aE[g_1(X,Y)]+bE[g_2(X,Y)]$$</p>
+<h4 id="relationship-between-variables"><a name="user-content-relationship-between-variables" href="#relationship-between-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Relationship between variables</h4>
+<p>Independence is a &ldquo;yes/no&rdquo; way of defining a relationship between variables. We all know that there can be different types of relationships between variables which are dependent. More generally, two random variables may be related (non-independent) in a probabilistic sense.</p>
+<h4 id="definition_3"><a name="user-content-definition_3" href="#definition_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+<p>The <strong>covariance</strong> of $X$ and $Y$, denoted $Cov(X,Y)$ or $\sigma_{XY}$, is<br />
+$$Cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$$</p>
+<p>Note that $Cov(X,Y)=E(XY)-E(X)E(Y)$</p></article></body></html>
