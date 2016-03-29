@@ -15,6 +15,11 @@ The MysteryTony Site
 **Last Update 2016-03-29**
 [Chapter 9](http://mysterytony.github.io/notes/stat230/chapter9.html)
 
+### CS 136
+
+**Last Update 2016-03-29**
+[Section 11](http://mysterytony.github.io/notes/cs136/section11.html)
+
 Found mistakes, typo, error, issue, or else? [Add Issue On Github](https://github.com/mysterytony/mysterytony.github.io/issues)
 
 ## Projects

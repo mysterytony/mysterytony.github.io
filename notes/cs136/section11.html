@@ -1040,24 +1040,91 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>index</title></head><body><article class="markdown-body"><h1 id="the-mysterytony-site"><a name="user-content-the-mysterytony-site" href="#the-mysterytony-site" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The MysteryTony Site</h1>
-<h2 id="notes"><a name="user-content-notes" href="#notes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Notes</h2>
-<h3 id="math-136"><a name="user-content-math-136" href="#math-136" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Math 136</h3>
-<p><strong>Last Update 2016-03-19</strong><br />
-<a href="http://mysterytony.github.io/notes/math136/chapter4.html">Chapter 4</a></p>
-<p><strong>Last Update 2016-03-27</strong><br />
-<a href="http://mysterytony.github.io/notes/math136/chapter5.html">Chapter 5</a></p>
-<h3 id="stat-230"><a name="user-content-stat-230" href="#stat-230" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>STAT 230</h3>
-<p><strong>Last Update 2016-03-29</strong><br />
-<a href="http://mysterytony.github.io/notes/stat230/chapter9.html">Chapter 9</a></p>
-<h3 id="cs-136"><a name="user-content-cs-136" href="#cs-136" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CS 136</h3>
-<p><strong>Last Update 2016-03-29</strong><br />
-<a href="http://mysterytony.github.io/notes/cs136/section11.html">Section 11</a></p>
-<p>Found mistakes, typo, error, issue, or else? <a href="https://github.com/mysterytony/mysterytony.github.io/issues">Add Issue On Github</a></p>
-<h2 id="projects"><a name="user-content-projects" href="#projects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Projects</h2>
-<p><a href="http://progressor.azurewebsites.net/">Progressor</a></p>
-<p><a href="http://wattask.tk/">WatTask</a></p>
-<h2 id="about-me"><a name="user-content-about-me" href="#about-me" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>About Me</h2>
-<p><a href="https://github.com/mysterytony">Github</a></p>
-<p><a href="https://ca.linkedin.com/in/tony-li-281b59b9">LinkedIn</a></p>
-<p><a href="https://onedrive.live.com/redir?resid=7C604C88796DF83E!12013&amp;authkey=!AIcvZqNAqZw_42o&amp;ithint=file%2cpdf">Resume</a></p></article></body></html>
+<title>section11</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
+<h2 id="section-11-linked-data-structures"><a name="user-content-section-11-linked-data-structures" href="#section-11-linked-data-structures" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Section 11: Linked Data Structures</h2>
+<h4 id="linked-lists"><a name="user-content-linked-lists" href="#linked-lists" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Linked lists</h4>
+<p>Racket&rsquo;s like type is more commonly known as a <strong>linked list</strong></p>
+<p><img alt="linked list" src="http://mysterytony.github.io/notes/cs136/sec11pg2.png" /></p>
+<p>Each <strong>node</strong> contains an <strong>item</strong> and a <strong>link</strong> (pointer) to the <strong>next</strong> node in the list.</p>
+<p>The last node&rsquo;s link contains a special <strong>sentinel value</strong> to indicate it is the last node.</p>
+<p>A linked list is usually represent as a link to the <strong>front</strong> of the list.</p>
+<p><img alt="linked list front" src="http://mysterytony.github.io/notes/cs136/sec11pg3.png" /></p>
+<p>Unlike arrays, linked list nodes are not arranged sequentially in memory. In general, there is no convenient way to &ldquo;jump&rdquo; to the $i$-th element in a linked list. The linked list must be <strong>traversed</strong> from the front. Traversing a linked list is $O(n)$.</p>
+<p>A significant advantage of a linked list is that its length can easily change, and the length does not need to be known in advance.</p>
+<p>The memory for each node is allocated dynamically.</p>
+<h4 id="functional-vs-imperative-approach"><a name="user-content-functional-vs-imperative-approach" href="#functional-vs-imperative-approach" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functional vs. Imperative approach</h4>
+<p>The core concept of a linked list data structure is independent of any single paradigm.</p>
+<p>However, the approach used to <strong>implement</strong> and write functions that process linked lists are very different.</p>
+<p>Programming with linked lists further illustrates the differences between the two paradigms.</p>
+<h4 id="dynamic-memory-in-racket"><a name="user-content-dynamic-memory-in-racket" href="#dynamic-memory-in-racket" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Dynamic memory in Racket</h4>
+<p>Racket uses dynamic memory, but it is mostly <em>hidden</em> from the programmer.</p>
+<p>The <code>cons</code> function dynamically creates a <strong>new</strong> linked list node.</p>
+<p>The <code>list</code> function and quote list notation <code>'(1 2 3)</code> implicitly use <code>cons</code>.</p>
+<p>The only other method of using dynamic memory in Racket is the constructor to <code>make</code> a <strong>new</strong> structure.</p>
+<p>Knowing how <code>cons</code> uses dynamic memory, consider how the following Racket function <code>sqr-list</code> constructs a <strong>new list</strong></p>
+<pre><code class="Racket">(define (sqr-list lst)
+    (cond   [(empty? lst) empty]
+            [else (cons (sqr (first lst) (sqr-list (rest lst))))]))
+
+(define a '(10 3 5 7))
+(define b (sqr-list a))
+</code></pre>
+
+<p><img alt="linked list racket" src="http://mysterytony.github.io/notes/cs136/sec11pg7.png" /></p>
+<p>In the functional programming paradigm, this is the only sensical meaning, because there is no mutation.</p>
+<p>In the imperative programming paradigm, a &ldquo;square list&rdquo; function is more likely to <strong>mutate</strong> an existing list instead of producing a new list.</p>
+<blockquote>
+<p>In practice, most imperative list functions perform mutation. If the caller wants a new list (instead of mutating an existing one), they can first make a copy of the original list and then mutate the new copy.</p>
+</blockquote>
+<h4 id="mixing-paradigms"><a name="user-content-mixing-paradigms" href="#mixing-paradigms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Mixing paradigms</h4>
+<p>Problems may arise if we naively use the functional paradigm in an imperative environment without considering the consequences.</p>
+<p>This is especially important in C, where there is no garbage collector.</p>
+<table>
+<thead>
+<tr>
+<th>Functional (Racket)</th>
+<th>Imperative (C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no mutation</td>
+<td>mutation</td>
+</tr>
+<tr>
+<td>garbage collector</td>
+<td>no garbage collector</td>
+</tr>
+<tr>
+<td>hidden pointers</td>
+<td>explicit pointers</td>
+</tr>
+</tbody>
+</table>
+<p>The following example highlights the potential problems.</p>
+<p>Recall the <code>insert</code> function used in Racket&rsquo;s <code>insertion sort</code>.</p>
+<pre><code class="Racket">;; (insert n slon) inserts n into a sorted list of numbers
+(define (insert n slon)
+    (cons   [(empty? slon) (cons n empty)]
+            [(&lt;= n (first slon)) (cons n slon)]
+            [else (cons (first slon) (insert n (rest slon)))]))
+
+(define a '(10 20 50 100))
+(define b (insert 30 a))
+</code></pre>
+
+<p><img alt="racket insert linked list" src="http://mysterytony.github.io/notes/cs136/sec11pg10.png" /></p>
+<p>The lists <strong>share the last two nodes</strong></p>
+<p>In Racket this behavior is completely transparent because there is <strong>no mutation</strong>, and there is ad <strong>garbage collector</strong>.</p>
+<p>In an imperative language like C, this configuration is problematic.<br />
+<em>   If we apply a mutative function such as &ldquo;square list&rdquo; on <code>a</code>, then some of the elements of <code>b</code> will unexpectedly change.<br />
+</em>   If we explicitly <code>free</code> all of the memory for list <code>a</code>, then list <code>b</code>will become invalid.</p>
+<p>List functions that perform computations and do not modify the list (or produce a new list) work well in both paradigms.</p>
+<p>If a function mutates a list (or produces a &ldquo;new&rdquo; list), you should use caution to ensure that the result will not create further problems.</p>
+<blockquote>
+<p>In Racket, lists are immutable, and there is a special <code>mcons</code> function to generate a mutable list.<br />
+In the Scheme language, lists are mutable. This is one of the significant differences between Racket and Scheme.</p>
+</blockquote>
+<h4 id="linked-lists-in-c"><a name="user-content-linked-lists-in-c" href="#linked-lists-in-c" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Linked lists in C</h4>
+<p>There is no &ldquo;official&rdquo; way of implementing a linked list in C.</p>
+<p>In this section we present a typical linked list structure that uses a <strong>wrapper</strong> strategy.</p></article></body></html>
