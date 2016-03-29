@@ -102,3 +102,33 @@ The **covariance** of $X$ and $Y$, denoted $Cov(X,Y)$ or $\sigma_{XY}$, is
 $$Cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$$
 
 Note that $Cov(X,Y)=E(XY)-E(X)E(Y)$
+
+#### Interpretation of Covariance
+
+1. Suppose large values of X tend to occur with large values of Y and small values of X with small values of Y. Then $(X-\mu_X)$ and $(Y-\mu_Y)$ will tend to be of the same sign, whether positive or negative. Thus $(X-\mu_X)(Y-\mu_Y)$ will be positive. Hence $Cov(X,Y)>0$.
+2.	Suppose large values of X tend to occur with small values of Y and small values of X with large values of Y. Then $(X-\mu_X)$ and $(Y-\mu_Y)$ will tend to be opposite signs. Thus $(X-\mu_X)(Y-\mu_Y)$ will be negative. Hence $Cov(X,Y)<0$.
+
+#### Theorem
+
+If $X$ and $Y$ are independent then $Cov(X,Y)=0$
+
+#### Theorem
+
+Suppose random variables $X$ and $Y$ are independent random variables. Then if $g_1(X)$ and $g_2(Y)$ are any two functions,
+$$E[g_1(X)g_2(Y)]=E[g_1(X)]E[g_2(Y)]$$
+
+#### Caution
+
+This result is not reversible. If $Cov(X,Y)=0$ we cannot conclude that $X$ and $Y$ are independent random variables.
+
+#### Definition
+
+The **correlation coefficient** of $X$ and $Y$ is
+$$\rho=\frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
+
+The correlation coefficient measures the strength of the linear relationship between $X$ and $Y$ and is simply a rescaled version of the covariance, scaled to lie in the interval [-1,1].
+
+#### Properties of $\rho$
+
+1.	Since $\sigma_X$ and $\sigma_Y$, the standard deviations of $X$ and $Y$, are both positive, $\rho$ will have the same sign as $Cov(X,Y)$. Hence the interpretation of the sign of $rho$ is the same as for $Cov(X,Y)$, and $\rho=0$ if $X$ and $Y$ are independent. When $\rho=0$ we way that $X$ and $Y$ are uncorrelated.
+2.	$-1\leq \rho \leq 1$ and as $\rho \rightarrow \pm 1$ the relation between $X$ and $Y$ becomes one to one and linear.
