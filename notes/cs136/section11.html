@@ -1044,11 +1044,11 @@ MathJax.Hub.Config({
 <h2 id="section-11-linked-data-structures"><a name="user-content-section-11-linked-data-structures" href="#section-11-linked-data-structures" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Section 11: Linked Data Structures</h2>
 <h4 id="linked-lists"><a name="user-content-linked-lists" href="#linked-lists" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Linked lists</h4>
 <p>Racket&rsquo;s like type is more commonly known as a <strong>linked list</strong></p>
-<p><img alt="linked list" src="http://mysterytony.github.io/notes/cs136/sec11pg2.png" /></p>
+<p><img alt="linked list" src="http://tonyli.tk/notes/cs136/sec11pg2.PNG" /></p>
 <p>Each <strong>node</strong> contains an <strong>item</strong> and a <strong>link</strong> (pointer) to the <strong>next</strong> node in the list.</p>
 <p>The last node&rsquo;s link contains a special <strong>sentinel value</strong> to indicate it is the last node.</p>
 <p>A linked list is usually represent as a link to the <strong>front</strong> of the list.</p>
-<p><img alt="linked list front" src="http://mysterytony.github.io/notes/cs136/sec11pg3.png" /></p>
+<p><img alt="linked list front" src="http://tonyli.tk/notes/cs136/sec11pg3.PNG" /></p>
 <p>Unlike arrays, linked list nodes are not arranged sequentially in memory. In general, there is no convenient way to &ldquo;jump&rdquo; to the $i$-th element in a linked list. The linked list must be <strong>traversed</strong> from the front. Traversing a linked list is $O(n)$.</p>
 <p>A significant advantage of a linked list is that its length can easily change, and the length does not need to be known in advance.</p>
 <p>The memory for each node is allocated dynamically.</p>
@@ -1063,14 +1063,14 @@ MathJax.Hub.Config({
 <p>The only other method of using dynamic memory in Racket is the constructor to <code>make</code> a <strong>new</strong> structure.</p>
 <p>Knowing how <code>cons</code> uses dynamic memory, consider how the following Racket function <code>sqr-list</code> constructs a <strong>new list</strong></p>
 <pre><code class="Racket">(define (sqr-list lst)
-    (cond   [(empty? lst) empty]
-            [else (cons (sqr (first lst) (sqr-list (rest lst))))]))
+(cond   [(empty? lst) empty]
+[else (cons (sqr (first lst) (sqr-list (rest lst))))]))
 
 (define a '(10 3 5 7))
 (define b (sqr-list a))
 </code></pre>
 
-<p><img alt="linked list racket" src="http://mysterytony.github.io/notes/cs136/sec11pg7.png" /></p>
+<p><img alt="linked list racket" src="http://tonyli.tk/notes/cs136/sec11pg7.PNG" /></p>
 <p>In the functional programming paradigm, this is the only sensical meaning, because there is no mutation.</p>
 <p>In the imperative programming paradigm, a &ldquo;square list&rdquo; function is more likely to <strong>mutate</strong> an existing list instead of producing a new list.</p>
 <blockquote>
@@ -1105,15 +1105,15 @@ MathJax.Hub.Config({
 <p>Recall the <code>insert</code> function used in Racket&rsquo;s <code>insertion sort</code>.</p>
 <pre><code class="Racket">;; (insert n slon) inserts n into a sorted list of numbers
 (define (insert n slon)
-    (cons   [(empty? slon) (cons n empty)]
-            [(&lt;= n (first slon)) (cons n slon)]
-            [else (cons (first slon) (insert n (rest slon)))]))
+(cons   [(empty? slon) (cons n empty)]
+[(&lt;= n (first slon)) (cons n slon)]
+[else (cons (first slon) (insert n (rest slon)))]))
 
 (define a '(10 20 50 100))
 (define b (insert 30 a))
 </code></pre>
 
-<p><img alt="racket insert linked list" src="http://mysterytony.github.io/notes/cs136/sec11pg10.png" /></p>
+<p><img alt="racket insert linked list" src="http://tonyli.tk/notes/cs136/sec11pg10.PNG" /></p>
 <p>The lists <strong>share the last two nodes</strong></p>
 <p>In Racket this behavior is completely transparent because there is <strong>no mutation</strong>, and there is ad <strong>garbage collector</strong>.</p>
 <p>In an imperative language like C, this configuration is problematic.<br />
@@ -1127,4 +1127,675 @@ In the Scheme language, lists are mutable. This is one of the significant differ
 </blockquote>
 <h4 id="linked-lists-in-c"><a name="user-content-linked-lists-in-c" href="#linked-lists-in-c" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Linked lists in C</h4>
 <p>There is no &ldquo;official&rdquo; way of implementing a linked list in C.</p>
-<p>In this section we present a typical linked list structure that uses a <strong>wrapper</strong> strategy.</p></article></body></html>
+<p>In this section we present a typical linked list structure that uses a <strong>wrapper</strong> strategy.</p>
+<p>First, we declare a <em>linked list node</em> (<code>llnode</code>) that stores an &ldquo;item&rdquo; and a link (pointer) to the next node.</p>
+<pre><code class="C">struct llnode {
+    int item;
+    struct llnode *next;
+};
+</code></pre>
+
+<p>A C structure can contain a <em>pointer</em> to its own structure type. This is the first <strong>recursive data structure</strong> we have seen in C.</p>
+<p>For the last pointer in the list (or an empty list) we use a <code>NULL</code> pointer as a sentinel value.</p>
+<p>As mentioned previously, we use a <strong>wrapper</strong> strategy, where we wrap the link to the first node inside of another structure (<code>llist</code>).</p>
+<p>This makes some of the following code more straightforward.</p>
+<pre><code class="C">struct llist {
+    struct llnode *front;
+}
+</code></pre>
+
+<p>We also define a <code>list_create</code> function to create an empty list.</p>
+<pre><code class="C">struct llist *list_create(void) {
+    struct llist *lst = malloc(sizeof(struct llist));
+    list-&gt;front = NULL;
+    return lst;
+}
+</code></pre>
+
+<p>Of course, we need to add items to our linked list.</p>
+<p>The following code creates a new node, and insert it at the front of the list.</p>
+<pre><code class="C">void add_front(int i, struct llist *lst) {
+    struct llnode *node = malloc(sizeof(struct llnode));
+    node-&gt;item = i;
+    node-&gt;next = lst-&gt;front;
+    lst-&gt;front = node;
+}
+</code></pre>
+
+<h4 id="traversing-a-list"><a name="user-content-traversing-a-list" href="#traversing-a-list" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Traversing a list</h4>
+<p>We can traverse a list <strong>iteratively</strong> or <strong>recursively</strong>.</p>
+<p>When iterating through a list, we typically use a (<code>llnode</code>) pointer to keep track of the &ldquo;current&rdquo; node.</p>
+<pre><code class="C">int length(struct llist *lst) {
+    int length = 0;
+    struct llnode *node = lst-&gt;front;
+    while (node) {
+        ++length;
+        node = node-&gt;next;
+    }
+    return length;
+}
+</code></pre>
+
+<p>Remember (<code>node</code>) will be false at the end of the list (<code>NULL</code>)</p>
+<p>When using <strong>recursion</strong>, remember to recurse on a node (<code>llnode</code>) not the wrapper list itself (<code>llist</code>).</p>
+<pre><code class="C">int length_nodes(struct llnode *node) {
+    if (node == NULL) return 0;
+    return 1 + length_nodes(node-&gt;next);
+}
+</code></pre>
+
+<p>You can write a corresponding wrapper function:</p>
+<pre><code class="C">int list_length(struct llist *lst) {
+    return length_nodes(lst-&gt;front);
+}
+</code></pre>
+
+<p>or call the recursive function directly on the front of the list.</p>
+<pre><code class="C">int len = length_nodes(lst-&gt;front);
+</code></pre>
+
+<h4 id="destroying-a-list"><a name="user-content-destroying-a-list" href="#destroying-a-list" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Destroying a list</h4>
+<p>In C, we don&rsquo;t have a <em>garbage collector</em>, so we must be able to <code>free</code> our linked list. We need to free every node and the list wrapper.</p>
+<p>When using an iterative approach, we are going to need two node pointers to ensure that the nodes are <code>freed</code> in a safe way.</p>
+<pre><code class="C">void list_destroy(struct llist *lst) {
+    struct llnode *curnode = lst-&gt;front;
+    while (curnode) {
+        struct llnode *nextnode = curnode-&gt;next;
+        free(curnode);
+        curnode = nextnode;
+    }
+    free(lst);
+}
+</code></pre>
+
+<p>For more advanced list traversal functions, the technique of maintaining more than one node pointer is often necessary. It may take some practice and diagrams to master this technique.</p>
+<p>For extra practice, consider this slightly different implementation:</p>
+<pre><code class="C">void list_destroy(struct llist *lst) {
+    struct llnode *curnode = lst-&gt;front;
+    while (curnode) {
+        struct llnode *backup = curnode;
+        curnode = curnode-&gt;next;
+        free(backup);
+    }
+    free(lst);
+}
+</code></pre>
+
+<p>With a recursive approach, it is more convenient to free the rest of list before we <code>free</code> the first node.</p>
+<pre><code class="C">void free_nodes(struct llnode *node) {
+    if (node) {
+        free_nodes(node-&gt;next);
+        free(node);
+    }
+}
+
+void list_destroy(struct llist *lst) {
+    free_nodes(lst-&gt;front);
+    free(lst);
+}
+</code></pre>
+
+<h4 id="duplicating-a-list"><a name="user-content-duplicating-a-list" href="#duplicating-a-list" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Duplicating a list</h4>
+<p>Previously, we used the &ldquo;square list&rdquo; function to illustrate the differences between the functional and imperative paradigms.</p>
+<pre><code class="C">// list_sqr(lst) squares each item in lst
+// effects: modifies lst
+
+void list_sqr(struct llist *lst) {
+    struct llnode *node = lst-&gt;front;
+    while (node) {
+        node-&gt;item *= node-&gt;item;
+        node = node-&gt;next;
+    }
+}
+</code></pre>
+
+<p>But what if we do want a new list that is squared instead of mutating an existing one?</p>
+<p>One solution is to provide a <code>list_dup</code> function, that makes a duplicate of an existing list.</p>
+<p>The recursive function is the most straightforward.</p>
+<pre><code class="C">void node_dup(struct llnode *node, struct llist *newlist) {
+    if (node) {
+        node_dup(node-&gt;next, newlist);
+        add_front(node-&gt;item, newlist);
+    }
+}
+
+struct llist *list_dup(struct llist *oldlist) {
+    struct llist *newlist = list_create();
+    node_dup(oldlist-&gt;front, newlist);
+    return newlist;
+}
+</code></pre>
+
+<p>The iterative solution is more complicated:</p>
+<pre><code class="C">struct llist *list_dup(struct llist *oldlist) {
+    struct llist *newlist = list_create();
+    struct llnode *oldnode = oldlist-&gt;front;
+    struct llnode *prevnode = NULL;
+    while (oldnode) {
+        struct llnode *newnode = malloc(sizeof(struct llnode));
+        newnode-&gt;item = oldnode-&gt;item;
+        newnode-&gt;next = NULL;
+        if (prevnode) {
+            prevnode-&gt;next = newnode;
+        } else {
+            newlist-&gt;front = newnode;
+        }
+        prevnode = newnode;
+        oldnode = oldnode-&gt;next;
+    }
+    return newlist;
+}
+</code></pre>
+
+<h4 id="imperative-insert"><a name="user-content-imperative-insert" href="#imperative-insert" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Imperative insert</h4>
+<p>Earlier, we saw how the Racket (functional) implementation of insert would be problematic in C.</p>
+<p>For an <code>insert</code> function in C, we expect the following behavior:</p>
+<p><img alt="racket insert" src="http://tonyli.tk/notes/cs136/sec11pg26_1.PNG" /></p>
+<pre><code class="C">insert( 5, a);
+insert(30, a);
+</code></pre>
+
+<p><img alt="racket insert" src="http://tonyli.tk/notes/cs136/sec11pg26_2.PNG" /></p>
+<pre><code class="C">// insert(i, slst) inserts i into list slst
+// effects: modifies slst
+// time: O(n), where n is the length of slst
+
+void insert(int i, struct llist *slst) {
+    if (slst-&gt;front == NULL || i &lt; slst-&gt;front-&gt;item) {
+        add_front(i, slst);
+    } else {
+        struct llnode *prevnode = slst-&gt;front;
+        while (prevnode-&gt;next &amp;&amp; i &gt; prevnode-&gt;next-&gt;item) {
+            prevnode = prevnode-&gt;next;
+        }
+        struct llnode *newnode = malloc(sizeof(struct llnode));
+        newnode-&gt;item = i;
+        newnode-&gt;next = prevnode-&gt;next;
+        prevnode-&gt;next = newnode;
+    }
+}
+</code></pre>
+
+<h4 id="removing-nodes"><a name="user-content-removing-nodes" href="#removing-nodes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Removing nodes</h4>
+<p>In Racket, the <code>rest</code> function does not actually remove the first element, instead it provides a pointer to the next node.</p>
+<p>In C, we can implement a function that removes the first node.</p>
+<pre><code class="C">int remove_front(struct llist *lst) {
+    assert(lst-&gt;front);
+    int retval = lst-&gt;front-&gt;item;
+    struct llnode *backup = lst-&gt;front;
+    lst-&gt;front = lst-&gt;front-&gt;next;
+    free(backup);
+    return retval;
+}
+</code></pre>
+
+<p>Instead of returning nothing (<code>void</code>), it is more useful to return the value of the item being removed.</p>
+<p>Removing a node from an arbitrary list position is more complicated.</p>
+<pre><code class="C">// remove_item(i, lst) removes the first occurrence of i in lst
+//   return value indicates if item is successfully removed
+
+bool remove_item(int i, struct llist *lst) {
+    if (lst-&gt;front == NULL) return false;
+    if (lst-&gt;front-&gt;item == i) {
+        remove_front(lst);
+        return true;
+    }
+    struct llnode *prevnode = lst-&gt;front;
+    while (prevnode-&gt;next &amp;&amp; i != prevnode-&gt;next-&gt;item) {
+        prevnode = prevnode-&gt;next;
+    }
+    if (prevnode-&gt;next == NULL) return false;
+    struct llnode *backup = prevnode-&gt;next;
+    prevnode-&gt;next = prevnode-&gt;next-&gt;next;
+    free(backup);
+    return true;
+}
+</code></pre>
+
+<h4 id="revisiting-the-wrapper-approach"><a name="user-content-revisiting-the-wrapper-approach" href="#revisiting-the-wrapper-approach" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Revisiting the wrapper approach</h4>
+<p>Throughout these slides we have used a <strong>wrapper</strong> strategy, where we wrap the link to the first node inside of another structure (<code>llist</code>).</p>
+<p>Some of the advantages of this strategy are:<br />
+<em>   cleaner function interfaces<br />
+</em>   reduced need for double pointers<br />
+<em>   reinforces the imperative paradigm<br />
+</em>   less susceptible to misuse and list corruption</p>
+<p>The disadvantages of the wrapper approach include:<br />
+<em>   slightly more awkward recursive implementations<br />
+</em>   extra &ldquo;special case&rdquo; code around the first term</p>
+<p>However, there is one more significant advantage of the wrapper approach: <strong>additional information</strong> can be stored in the list structure.</p>
+<p>Consider that we are writing an application where the <code>length</code> of a linked list will be queried often.</p>
+<p>Typically, finding the length of a linked list is $O(n)$.</p>
+<p>However, we can store (or &ldquo;cache&rdquo;) the length in the wrapper structure, so the length can be retrieved in $O(1)$ time.</p>
+<pre><code class="C">struct llist {
+    struct llnode *front;
+    int length;
+};
+</code></pre>
+
+<p>Naturally, other list functions would have to update the <code>length</code> as necessary<br />
+<em>   <code>list_create</code> would initialize length to zero<br />
+</em>   <code>add_front</code> would increment length<br />
+*   <code>remove_front</code> would decrement length</p>
+<h4 id="data-integrity"><a name="user-content-data-integrity" href="#data-integrity" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Data integrity</h4>
+<p>The introduction of the <code>length</code> field to the linked list may seem like a great idea to improve efficiency.</p>
+<p>However, it introduces new ways that the structure can be corrupted. What if the <code>lenth</code> field does not accurately reflect the true length?</p>
+<p>For example, imagine that someone implements the <code>remove_item</code> function, but forgets to update the <code>length</code> field?</p>
+<p>Or a naive coder may think that the following statement removes all of the codes from the list.</p>
+<pre><code class="C">lst-&gt;length = 0;
+</code></pre>
+
+<p><strong>Whenever the same information is stored in more than one way, it is susceptible to integrity (consistency) issues.</strong></p>
+<p>Advanced testing methods can often find these types of errors, but you must exercise caution.</p>
+<p>If data integrity is an issue, it is often better to repackage the data structure as a separate ADT module and only provide interface functions to the client.</p>
+<p>This is an example of <strong>security</strong> (protecting the client from themselves).</p>
+<h4 id="queue-adt"><a name="user-content-queue-adt" href="#queue-adt" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Queue ADT</h4>
+<p>A queue is like a &ldquo;lineup&rdquo;, where new items go to the &ldquo;back&rdquo; of the line, and the items are removed from the &ldquo;front&rdquo; of the line. While a stack is LIFO, a queue is FIFO (first in, first out).</p>
+<p>Typical queue ADT operations:<br />
+<em>   <code>add_back</code>: adds an item to the end of the queue<br />
+</em>   <code>remove_front</code>: removes the item at the front of the queue<br />
+<em>   <code>front</code>: returns the item at the front<br />
+</em>   <code>is_empty</code>: determines if the queue is empty</p>
+<p>A Stack ADT can be easily implemented using a dynamic array or with a linked list.</p>
+<p>When it is possible to implement a Queue ADT with a dynamic array, the implementation is a bit tricky. Queues are typically implemented with linked lists.</p>
+<p>The only concern is that an add_back operation is normally $O(n)$.</p>
+<p>However, if we maintain a pointer to the back (last element) of the list, in addition to a pointer to the front of the list, we can implement <code>add_back</code> in $O(1)$.</p>
+<blockquote>
+<p>Maintaining a <code>back</code> pointer is a popular modification to a traditional linked list, and another reason to use a wrapper.</p>
+</blockquote>
+<pre><code class="C">// queue.h
+// all operations are O(1) (except destroy)
+
+struct queue;
+
+struct queue *queue_create(void);
+
+void queue_add_back(int i, struct queue *q);
+
+int queue_remove_front(struct queue *q);
+
+int queue_front(struct queue *q);
+
+bool queue_is_empty(struct queue *q);
+
+void queue_destroy(struct queue *q);
+</code></pre>
+
+<pre><code class="C">// queue.c (IMPLEMENTATION)
+
+struct llnode {
+    int item;
+    struct llnode *next;
+};
+
+struct queue {
+    struct llnode *front;
+    struct llnode *back;
+};
+
+struct queue *queue_create(void) {
+    struct queue *q = malloc(sizeof(struct queue));
+    q-&gt;front = NULL;
+    q-&gt;back = NULL;
+    return q;
+}
+
+void queue_add_back(int i, struct queue *q) {
+    struct llnode *node = malloc(sizeof(struct llnode));
+    node-&gt;item = i;
+    node-&gt;next = NULL;
+    if (q-&gt;front == NULL) {
+        q-&gt;front = node;
+    } else {
+        q-&gt;back-&gt;next = node;
+    }
+    q-&gt;back = node;
+}
+
+int queue_remove_front (struct queue *q) {
+    assert(q-&gt;front);
+    int retval = q-&gt;front-&gt;item;
+    struct llnode *backup = q-&gt;front;
+    q-&gt;front = q-&gt;front-&gt;next;
+    free(backup);
+    if (q-&gt;front == NULL) q-&gt;back = NULL;
+    return retval;
+}
+
+int queue_front(struct queue *q) {
+    assert(q-&gt;front);
+    return q-&gt;front-&gt;item;
+}
+bool queue_is_empty(struct queue *q) {
+    return q-&gt;front == NULL;
+}
+void queue_destroy(struct queue *q) {
+    while (!queue_is_empty(q)) {
+        queue_remove_front(q);
+    }
+    free(q);
+}
+</code></pre>
+
+<h4 id="node-augmentation-strategy"><a name="user-content-node-augmentation-strategy" href="#node-augmentation-strategy" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Node augmentation strategy</h4>
+<p>In an <strong>node augmentation strategy</strong>, each node is augmented to include additional information about the node or the structure.</p>
+<p>For example, a <strong>dictionary</strong> node can contain both a <em>key</em> (item) and a corresponding <em>value</em>.</p>
+<p>Or for a <strong>priority queue</strong>, each node can additionally store the priority of the item.</p>
+<p>The most common node augmentation for a linked list is to create a <strong>double linked list</strong>, where each node also contains a pointer to the previous node. When combined with <code>back</code> pointer in a wrapper, a double linked list can add or remove from the front and back in $O(1)$ time.</p>
+<p><img alt="double linked list" src="http://tonyli.tk/notes/cs136/sec11pg43.PNG" /></p>
+<p>Many programming environments provide a Double-Ended Queue (dequeue or deque) ADT, which can be used as a stack or a Queue ADT.</p>
+<h4 id="trees"><a name="user-content-trees" href="#trees" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Trees</h4>
+<p>At the implementation level, <strong>trees</strong> are very similar to linked lists.</p>
+<p>Each node can <em>link</em> to more than one node.</p>
+<p><img alt="tree" src="http://tonyli.tk/notes/cs136/sec11pg44.PNG" /></p>
+<h4 id="tree-terminology"><a name="user-content-tree-terminology" href="#tree-terminology" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tree terminology</h4>
+<ul>
+<li>the <strong>root node</strong> has no <strong>parent</strong></li>
+<li>all other nodes have exactly one parent</li>
+<li>nodes can have multiple <strong>children</strong></li>
+<li>in a <strong>binary tree</strong>, each node has at most two children</li>
+<li>a <strong>leaf node</strong> has no children</li>
+<li>the <strong>height</strong> of a tree is the maximum possible number of nodes from the root to a leaf (inclusive)B</li>
+<li>the height of an empty tree is zero</li>
+</ul>
+<h4 id="binary-search-trees-bsts"><a name="user-content-binary-search-trees-bsts" href="#binary-search-trees-bsts" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Binary Search Trees (BSTs)</h4>
+<p>Binary Search Tree (BST) enforce the <strong>ordering property</strong>: for every node with an item $i$, all items in the left child subtree are less than $i$, and all items in the right child subtree are greater than $i$.</p>
+<p><img alt="tree" src="http://tonyli.tk/notes/cs136/sec11pg44.PNG" /></p>
+<h4 id="mixing-paradigms_1"><a name="user-content-mixing-paradigms_1" href="#mixing-paradigms_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Mixing paradigms</h4>
+<p>As with linked lists, we have to be careful not to mix functional and imperative paradigms, especially when adding nodes. The following example visualizes what Racket produces when a node (45) is added to the BST illustrated earlier.</p>
+<p><img alt="racket tree" src="http://tonyli.tk/notes/cs136/sec11pg47.PNG" /></p>
+<p>Our BST node (<code>bstnode</code>) is very similar to our linked list node definition.</p>
+<pre><code class="C">struct bstnode {
+    int item;
+    struct bstnode *left;
+    struct bstnode *right;
+};
+
+struct bst {
+    struct bstnode *root;
+};
+</code></pre>
+
+<p>As with linked lists, we will need a function to create a new BST.</p>
+<pre><code class="C">// bst_create() creates a new BST
+// effects: allocates memory: call bst_destroy
+struct bst *bst_create(void) {
+    struct bst *t = malloc(sizeof(struct bst));
+    t-&gt;root = NULL;
+    return t;
+}
+</code></pre>
+
+<p>Before writing code to insert a new node, first we write a helper to create a new leaf node.</p>
+<pre><code class="C">struct bstnode *new_leaf(int i) {
+    struct bstnode *leaf = malloc(sizeof(struct bstnode));
+    leaf-&gt;item = i;
+    leaf-&gt;left = NULL;
+    leaf-&gt;right = NULL;
+    return leaf;
+}
+</code></pre>
+
+<p>As with lists, we can write tree functions recursively or iteratively.</p>
+<p>Wee need to <strong>recurse</strong> on nodes. This code emulates a functional approach, but is careful to only allocate one new (leaf) node.</p>
+<pre><code class="C">struct bstnode *insert_bstnode(int i, struct bstnode *node) {
+    if (node == NULL) {
+        node = new_leaf(i);
+    } else if (i &lt; node-&gt;item) {
+        node-&gt;left = insert_bstnode(i, node-&gt;left);
+    } else if (i &gt; node-&gt;item) {
+        node-&gt;right = insert_bstnode(i, node-&gt;right);
+    } // else do nothing, as item already exists.
+    return node;
+}
+
+void bst_insert(int i, struct bst *t) {
+    t-&gt;root = insert_bstnode(i, t-&gt;root);
+}
+</code></pre>
+
+<p>The iterative version is similar to the linked list approach.</p>
+<pre><code class="C">void bst_insert(int i, struct bst *t) {
+    struct bstnode *curnode = t-&gt;root;
+    struct bstnode *prevnode = NULL;
+    while (curnode) {
+        if (curnode-&gt;item == i) return;
+        prevnode = curnode;
+        if (i &lt; curnode-&gt;item) {
+            curnode = curnode-&gt;left;
+        } else {
+            curnode = curnode-&gt;right;
+        }
+    }
+    if (prevnode == NULL) { // tree was empty
+        t-&gt;root = new_leaf(i);
+    } else if (i &lt; prevnode-&gt;item) {
+        prevnode-&gt;left = new_leaf(i);
+    } else {
+        prevnode-&gt;right = new_leaf(i);
+    }
+}
+</code></pre>
+
+<h4 id="trees-and-efficiency"><a name="user-content-trees-and-efficiency" href="#trees-and-efficiency" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Trees and efficiency</h4>
+<p>What is the efficiency of <code>bst_insert</code>?</p>
+<p>The worst case is when the tree is <strong>unbalanced</strong>, and every node in the tree must be visited.</p>
+<p><img alt="unbalanced" src="http://tonyli.tk/notes/cs136/sec11pg54.PNG" /></p>
+<p>In this example, the running time of <code>bst_insert</code> is $O(n)$, where $n$ is the number of nodes in the tree.</p>
+<p>The running time of <code>bst_insert</code> is $O(h)$: it depends more on the height of the tree (h) than the size of the tree (n),</p>
+<p>The definition of a <strong>balanced tree</strong> is a tree where the height (h) is $O(\log n)$.</p>
+<p>Conversely, an unbalanced tree is a tree with a height that is not $O(\log n)$. The height of an unbalanced tree is $O(n)$.</p>
+<p>Using the <code>bst_insert</code> function we provided, inserting the nodes in sorted order creates an unbalanced tree.</p>
+<p>With a <strong>balanced</strong> tree, the running time of standard tree functions (e.g. <code>insert</code>, <code>remove</code>, <code>search</code>) are all $O(\log n)$.</p>
+<p>With an <strong>unbalanced</strong> tree, the running time of each function is $O(h)$.</p>
+<p>A <strong>self-balancing tree</strong> &ldquo;re-arranges&rdquo; the nodes to ensure that tree is always balanced.</p>
+<p>With a good self-balancing implementation, all standard tree functions preserve the balance of the tree and have an $O(\log n)$ running time.</p>
+<h4 id="size-node-augmentation"><a name="user-content-size-node-augmentation" href="#size-node-augmentation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Size node augmentation</h4>
+<p>A popular tree <strong>node augmentation</strong> is to store in each node the size of its subtree.</p>
+<pre><code class="C">struct bstnode {
+    int item;
+    struct bstnode *left;
+    struct bstnode *right;
+    int size;d
+};
+</code></pre>
+
+<p>This augmentation allows us to retrieve the size of the tree in $O(1)$ time.</p>
+<p>It also allows us to implement a <code>select</code> function in $O(h)$ time.</p>
+<p><code>select(k)</code> finds the k-th smallest item in the tree.</p>
+<p><img alt="size node augmentation" src="http://tonyli.tk/notes/cs136/sec11pg58.PNG" /></p>
+<p>The following code illustrate how to select the k-th item in a BST with a size node augmentation.</p>
+<pre><code class="C">int select_node(int k, struct bstnode *node) {
+    assert(node &amp;&amp; 0 &lt;= k &amp;&amp; k &lt; node-&gt;size);
+    int left_size = 0;
+    if (node-&gt;left) left_size = node-&gt;left-&gt;size;
+    if (k &lt; left_size) return select_node(k, node-&gt;left);
+    if (k == left_size) return node-&gt;item;
+    return select_node(k - left_size - 1, node-&gt;right);
+}
+
+int bst_select(int k, struct bst *t) {
+    return select_node(k, t-&gt;root);
+}
+</code></pre>
+
+<p><code>select(0, t)</code> finds the smallest item in the tree.</p>
+<h4 id="array-based-trees"><a name="user-content-array-based-trees" href="#array-based-trees" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Array-based trees</h4>
+<p>For some types of trees, it is possible to use an <strong>array</strong> to store a tree.<br />
+<em>   the root is stored at <code>a[0]</code><br />
+</em>   for the node at <code>a[i]</code>, its <code>left</code> is stored at <code>a[2*i+1]</code><br />
+<em>   its <code>right</code> is stored at <code>a[2*i+2]</code><br />
+</em>   its <code>parent</code> is stored at <code>a[(i-1)/2]</code><br />
+<em>   a special </em>sentinel value<em> can be used to indicate an empty node<br />
+</em>   a tree of height $h$ requires an array of size $2^h-1$<br />
+(a dynamic array can be realloc&rsquo;d as the tree height grows)</p>
+<p><img alt="array based tree" src="http://tonyli.tk/notes/cs136/sec11pg61.PNG" /></p>
+<blockquote>
+<p>Array-based trees are often used to implement “complete trees”,<br />
+where there are no empty nodes, and every level of the tree is<br />
+filled (except the bottom).<br />
+The heap data structure (not the section of memory) is often<br />
+implemented as a complete tree in an array.<br />
+For self-balancing trees, the self-balancing (e.g., rotations) is<br />
+often more awkward in the array notation. However, arrays work<br />
+well with lazy rebalancing, where a rebalancing occurs<br />
+infrequently (i.e., when a large inbalance is detected). The tree<br />
+can be rebalanced in $O(n)$ time, typically achieving amortized<br />
+$O(log n)$ operations.</p>
+</blockquote>
+<h4 id="dictionary-adt-revisited"><a name="user-content-dictionary-adt-revisited" href="#dictionary-adt-revisited" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Dictionary ADT (revisited)</h4>
+<p>The dictionary ADT (also called a map, associative array, or symbol<br />
+table), is a collection of <strong>pairs</strong> of <strong>keys</strong> and <strong>values</strong>. Each key is unique and has a corresponding value, but more than one key may have the same value.</p>
+<p>Typical dictionary ADT operations:<br />
+<em>   <strong>look up</strong>: for a given key, retrieve the corresponding value or &ldquo;not found&rdquo;<br />
+</em>   <strong>insert</strong>: adds a new key/value pair (or replaces the value of an existing key)<br />
+*   <strong>remove</strong>: deletes a key and its value</p>
+<p>In the following example, we implement a Dictionary ADT using a BST data structure.</p>
+<pre><code class="C">// dictionary.h
+
+struct dictionary;
+struct dictionary *dict_create(void);
+void dict_insert(int key, const char *val, struct dictionary *d);
+const char *dict_lookup(int key, struct dictionary *d);
+void dict_remove(int key, struct dictionary *d);
+void dict_destroy(struct dictionary *d);
+</code></pre>
+
+<p>Using the same <code>bstnode</code> structure, we augment each node by adding an additional <code>value</code> field.</p>
+<pre><code class="C">struct bstnode {
+    int item; // key
+    char *value; // additional value
+    struct bstnode *left;
+    struct bstnode *right;
+};
+struct dictionary {
+    struct bstnode *root;
+};
+struct dictionary *dict_create(void) {
+    struct dictionary *d = malloc(sizeof(struct dictionary));
+    d-&gt;root = NULL;
+    return d;
+}
+</code></pre>
+
+<p>When inserting key/value pairs to the dictionary, we make a copy of the string passed by the client. When removing nodes, we also <code>free</code> the value.</p>
+<p>If the client tries to insert a duplicate key, we replace the old value with the new value.</p>
+<p>The following recursive implementation of the <code>insert</code> operation is nearly identical to our previous <code>bst_insert</code>. The differences are noted with comments.</p>
+<pre><code class="C">struct bstnode *insert_bstnode(int key, const char *val, struct bstnode *node) {
+    if (node == NULL) {
+        node = malloc(sizeof(struct bstnode));
+        node-&gt;item = key;
+        node-&gt;value = my_strdup(val); // make copy
+        node-&gt;left = NULL;
+        node-&gt;right = NULL;
+    } else if (key &lt; node-&gt;item) {
+        node-&gt;left = insert_bstnode(key, val, node-&gt;left);
+    } else if (key &gt; node-&gt;item) {
+        node-&gt;right = insert_bstnode(key, val, node-&gt;right);
+    } else { // key == node-&gt;item: must replace the old value
+        free(node-&gt;value);
+        node-&gt;value = my_strdup(val);
+    }
+    return node;
+}
+
+void dict_insert(int key, const char *val, struct dictionary *d) {
+    d-&gt;root = insert_bstnode(key, val, d-&gt;root);
+}
+</code></pre>
+
+<p>This implementation of the <code>lookup</code> operation will return <code>NULL</code> if unsuccessful.</p>
+<pre><code class="C">const char *dict_lookup(int key, struct dictionary *d) {
+    struct bstnode *curnode = d-&gt;root;
+    while (curnode) {
+        if (curnode-&gt;item == key) {
+            return curnode-&gt;value;
+        }
+        if (key &lt; curnode-&gt;item) {
+            curnode = curnode-&gt;left;
+        } else {
+            curnode = curnode-&gt;right;
+        }
+    }
+    return NULL;
+}
+</code></pre>
+
+<p>There are several different ways of removing a node from a BST.</p>
+<p>We implement <code>remove</code> with the following strategy:<br />
+<em>   If the node with the key (&ldquo;key node&rdquo;) is a leaf, we remove it.<br />
+</em>   If one child of the key node is empty (<code>NULL</code>), the other child is &ldquo;promoted&rdquo; to replace the key node.<br />
+*   Otherwise, we find the node with the next largest key (&ldquo;next node&rdquo;) in the tree (i.e. the smallest key in the right subtree). We replace the key/value of the key node with the key/value of the next node, and then remove the next node from the right subtree.</p>
+<pre><code class="C">void dict_remove(int key, struct dictionary *d) {
+    d-&gt;root = remove_bstnode(key, d-&gt;root);
+}
+
+struct bstnode *remove_bstnode(int key, struct bstnode *node) {
+    // key did not exist:
+    if (node == NULL) return NULL;
+
+    // search for the node that contains the key
+    if (key &lt; node-&gt;item) {
+        node-&gt;left = remove_bstnode(key, node-&gt;left);
+    } else if (key &gt; node-&gt;item) {
+        node-&gt;right = remove_bstnode(key, node-&gt;right);
+    } else if (node-&gt;left == NULL) {
+        struct bstnode *backup = node-&gt;right;
+        free(node-&gt;value);
+        free(node);
+        return backup;
+    } else if (node-&gt;right == NULL) {
+        struct bstnode *backup = node-&gt;left;
+        free(node-&gt;value);
+        free(node);
+        return backup;
+    } else {
+        // find the next largest key
+        struct bstnode *next = node-&gt;right;
+        while (next-&gt;left) {
+            next = next-&gt;left;
+        }
+
+        // remove the old value
+        free(node-&gt;value);
+
+        // replace the key/value of this node
+        node-&gt;item = next-&gt;item;
+        node-&gt;value = my_strdup(next-&gt;value);
+
+        // remove the next largest key
+        node-&gt;right = remove_bstnode(next-&gt;item, node-&gt;right);
+    }
+
+    return node;
+}
+</code></pre>
+
+<p>Finally, the recursive <code>destroy</code> operation frees the children and the (string) value before itself.</p>
+<pre><code class="C">void free_bstnode(struct bstnode *node) {
+    if (node) {
+        free_bstnode(node-&gt;left);
+        free_bstnode(node-&gt;right);
+        free(node-&gt;value);
+        free(node);
+    }
+}
+void dict_destroy(struct dictionary *d) {
+    free_bstnode(d-&gt;root);
+    free(d);
+}
+</code></pre>
+
+<h4 id="graphs"><a name="user-content-graphs" href="#graphs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Graphs</h4>
+<p>Linked lists and trees can be thought of as “special cases” of a<br />
+<strong>graph</strong> data structure.</p>
+<p><img alt="graphs" src="http://tonyli.tk/notes/cs136/sec11pg74.PNG" /></p>
+<p>Graphs link <strong>nodes</strong> with <strong>edges</strong>. Graphs may be undirected (i) or<br />
+directed (ii), allow cycles (ii) or be acyclic (iii), and have labeled<br />
+edges (iv) or unlabeled edges (iii).</p>
+<h4 id="goals-of-this-section"><a name="user-content-goals-of-this-section" href="#goals-of-this-section" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Goals of this section</h4>
+<p>At the end of this section, you should be able to:<br />
+<em>   use the new linked list and tree terminology introduced<br />
+</em>   use linked lists and trees with a recursive or iterative approach<br />
+<em>   use wrapper structures and node augmentations to improve<br />
+efficiency<br />
+</em>   explain why an unbalanced tree can affect the efficiency of tree</p></article></body></html>
