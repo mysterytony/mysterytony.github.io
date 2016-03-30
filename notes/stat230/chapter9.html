@@ -1,39 +1,41 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
-  width: 45em;
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 16px auto;
-}
-
-body .markdown-body
-{
-  padding: 30px;
-}
-
-@font-face {
-  font-family: fontawesome-mini;
-  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
-}
-
-@font-face {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
   font-family: octicons-anchor;
   src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 .markdown-body {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #333333;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
 }
 
 .markdown-body a {
-  background: transparent;
+  background-color: transparent;
 }
 
 .markdown-body a:active,
@@ -41,30 +43,8 @@ body .markdown-body
   outline: 0;
 }
 
-.markdown-body b,
 .markdown-body strong {
   font-weight: bold;
-}
-
-.markdown-body mark {
-  background: #ff0;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body sub,
-.markdown-body sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-.markdown-body sup {
-  top: -0.5em;
-}
-.markdown-body sub {
-  bottom: -0.25em;
 }
 
 .markdown-body h1 {
@@ -77,7 +57,6 @@ body .markdown-body
 }
 
 .markdown-body hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -88,8 +67,7 @@ body .markdown-body
 
 .markdown-body code,
 .markdown-body kbd,
-.markdown-body pre,
-.markdown-body samp {
+.markdown-body pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
@@ -123,81 +101,16 @@ body .markdown-body
   padding: 0;
 }
 
-.markdown-body .codehilitetable {
-  border: 0;
-  border-spacing: 0;
-}
-
-.markdown-body .codehilitetable tr {
-  border: 0;
-}
-
-.markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite {
-  margin: 0;
-}
-
-.markdown-body .linenos,
-.markdown-body .code,
-.markdown-body .codehilitetable td {
-  border: 0;
-  padding: 0;
-}
-
-.markdown-body td:not(.linenos) .linenodiv {
-  padding: 0 !important;
-}
-
-.markdown-body .code {
-  width: 100%;
-}
-
-.markdown-body .linenos div pre,
-.markdown-body .linenodiv pre,
-.markdown-body .linenodiv {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.markdown-body .code div pre,
-.markdown-body .code div {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.markdown-body * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 .markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.4;
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .markdown-body a {
-  color: #4183c4;
+  color: #4078c0;
   text-decoration: none;
 }
 
 .markdown-body a:hover,
-.markdown-body a:focus,
 .markdown-body a:active {
   text-decoration: underline;
 }
@@ -211,14 +124,15 @@ body .markdown-body
   border-bottom: 1px solid #ddd;
 }
 
-.markdown-body hr:before,
-.markdown-body hr:after {
+.markdown-body hr:before {
   display: table;
-  content: " ";
+  content: "";
 }
 
 .markdown-body hr:after {
+  display: table;
   clear: both;
+  content: "";
 }
 
 .markdown-body h1,
@@ -283,9 +197,7 @@ body .markdown-body
   margin-left: 0;
 }
 
-.markdown-body code,
-.markdown-body pre,
-.markdown-body samp {
+.markdown-body code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
@@ -293,21 +205,39 @@ body .markdown-body
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-.markdown-body kbd {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-  background-image: linear-gradient(#fefefe, #e7e7e7);
-  background-repeat: repeat-x;
-  border-radius: 2px;
-  border: 1px solid #cfcfcf;
-  color: #000;
-  padding: 3px 5px;
-  line-height: 10px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
   display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
 }
 
 .markdown-body>*:first-child {
@@ -318,18 +248,18 @@ body .markdown-body
   margin-bottom: 0 !important;
 }
 
-.markdown-body .headeranchor-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  padding-right: 6px;
-  padding-left: 30px;
-  margin-left: -30px;
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
 }
 
-.markdown-body .headeranchor-link:focus {
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
   outline: none;
 }
 
@@ -339,44 +269,39 @@ body .markdown-body
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  position: relative;
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
 
-.markdown-body h1 .headeranchor,
-.markdown-body h2 .headeranchor,
-.markdown-body h3 .headeranchor,
-.markdown-body h4 .headeranchor,
-.markdown-body h5 .headeranchor,
-.markdown-body h6 .headeranchor {
-  display: none;
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
   color: #000;
   vertical-align: middle;
+  visibility: hidden;
 }
 
-.markdown-body h1:hover .headeranchor-link,
-.markdown-body h2:hover .headeranchor-link,
-.markdown-body h3:hover .headeranchor-link,
-.markdown-body h4:hover .headeranchor-link,
-.markdown-body h5:hover .headeranchor-link,
-.markdown-body h6:hover .headeranchor-link {
-  height: 1em;
-  padding-left: 8px;
-  margin-left: -30px;
-  line-height: 1;
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
   text-decoration: none;
 }
 
-.markdown-body h1:hover .headeranchor-link .headeranchor,
-.markdown-body h2:hover .headeranchor-link .headeranchor,
-.markdown-body h3:hover .headeranchor-link .headeranchor,
-.markdown-body h4:hover .headeranchor-link .headeranchor,
-.markdown-body h5:hover .headeranchor-link .headeranchor,
-.markdown-body h6:hover .headeranchor-link .headeranchor {
-  display: inline-block;
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
 }
 
 .markdown-body h1 {
@@ -386,6 +311,10 @@ body .markdown-body
   border-bottom: 1px solid #eee;
 }
 
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
 .markdown-body h2 {
   padding-bottom: 0.3em;
   font-size: 1.75em;
@@ -393,22 +322,42 @@ body .markdown-body
   border-bottom: 1px solid #eee;
 }
 
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
 .markdown-body h3 {
   font-size: 1.5em;
   line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
 }
 
 .markdown-body h4 {
   font-size: 1.25em;
 }
 
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
 .markdown-body h5 {
   font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
 }
 
 .markdown-body h6 {
   font-size: 1em;
   color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
 }
 
 .markdown-body p,
@@ -417,8 +366,7 @@ body .markdown-body
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
-.markdown-body pre,
-.markdown-body .admonition {
+.markdown-body pre {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -508,12 +456,11 @@ body .markdown-body
 
 .markdown-body img {
   max-width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: content-box;
+  background-color: #fff;
 }
 
-.markdown-body code,
-.markdown-body samp {
+.markdown-body code {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -539,11 +486,11 @@ body .markdown-body
   border: 0;
 }
 
-.markdown-body .codehilite {
+.markdown-body .highlight {
   margin-bottom: 16px;
 }
 
-.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -553,7 +500,7 @@ body .markdown-body
   border-radius: 3px;
 }
 
-.markdown-body .codehilite pre {
+.markdown-body .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
@@ -579,325 +526,136 @@ body .markdown-body
   content: normal;
 }
 
-/* Admonition */
-.markdown-body .admonition {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  position: relative;
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
   border-radius: 3px;
-  border: 1px solid #e0e0e0;
-  border-left: 6px solid #333;
-  padding: 10px 10px 10px 30px;
+  box-shadow: inset 0 -1px 0 #bbb;
 }
 
-.markdown-body .admonition table {
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
   color: #333;
 }
 
-.markdown-body .admonition p {
-  padding: 0;
+.markdown-body .pl-ent {
+  color: #63a35c;
 }
 
-.markdown-body .admonition-title {
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
   font-weight: bold;
-  margin: 0;
 }
 
-.markdown-body .admonition>.admonition-title {
-  color: #333;
+.markdown-body .pl-ml {
+  color: #693a17;
 }
 
-.markdown-body .attention>.admonition-title {
-  color: #a6d796;
-}
-
-.markdown-body .caution>.admonition-title {
-  color: #d7a796;
-}
-
-.markdown-body .hint>.admonition-title {
-  color: #96c6d7;
-}
-
-.markdown-body .danger>.admonition-title {
-  color: #c25f77;
-}
-
-.markdown-body .question>.admonition-title {
-  color: #96a6d7;
-}
-
-.markdown-body .note>.admonition-title {
-  color: #d7c896;
-}
-
-.markdown-body .admonition:before,
-.markdown-body .attention:before,
-.markdown-body .caution:before,
-.markdown-body .hint:before,
-.markdown-body .danger:before,
-.markdown-body .question:before,
-.markdown-body .note:before {
-  font: normal normal 16px fontawesome-mini;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  line-height: 1.5;
-  color: #333;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
-.markdown-body .admonition:before {
-  content: "\f056\00a0";
-  color: 333;
-}
-
-.markdown-body .attention:before {
-  content: "\f058\00a0";
-  color: #a6d796;
-}
-
-.markdown-body .caution:before {
-  content: "\f06a\00a0";
-  color: #d7a796;
-}
-
-.markdown-body .hint:before {
-  content: "\f05a\00a0";
-  color: #96c6d7;
-}
-
-.markdown-body .danger:before {
-  content: "\f057\00a0";
-  color: #c25f77;
-}
-
-.markdown-body .question:before {
-  content: "\f059\00a0";
-  color: #96a6d7;
-}
-
-.markdown-body .note:before {
-  content: "\f040\00a0";
-  color: #d7c896;
-}
-
-.markdown-body .admonition::after {
-  content: normal;
-}
-
-.markdown-body .attention {
-  border-left: 6px solid #a6d796;
-}
-
-.markdown-body .caution {
-  border-left: 6px solid #d7a796;
-}
-
-.markdown-body .hint {
-  border-left: 6px solid #96c6d7;
-}
-
-.markdown-body .danger {
-  border-left: 6px solid #c25f77;
-}
-
-.markdown-body .question {
-  border-left: 6px solid #96a6d7;
-}
-
-.markdown-body .note {
-  border-left: 6px solid #d7c896;
-}
-
-.markdown-body .admonition>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body .admonition>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* progress bar*/
-.markdown-body .progress {
-  display: block;
-  width: 300px;
-  margin: 10px 0;
-  height: 24px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #ededed;
-  position: relative;
-  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
-}
-
-.markdown-body .progress-label {
-  position: absolute;
-  text-align: center;
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
   font-weight: bold;
-  width: 100%; margin: 0;
-  line-height: 24px;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
   color: #333;
-  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
-  -webkit-font-smoothing: antialiased !important;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.markdown-body .progress-bar {
-  height: 24px;
-  float: left;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #96c6d7;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
-  background-size: 30px 30px;
-  background-image: -webkit-linear-gradient(
-    135deg, rgba(255, 255, 255, .4) 27%,
-    transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%,
-    transparent 77%, transparent
-  );
-  background-image: -moz-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -ms-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -o-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-}
-
-.markdown-body .progress-100plus .progress-bar {
-  background-color: #a6d796;
-}
-
-.markdown-body .progress-80plus .progress-bar {
-  background-color: #c6d796;
-}
-
-.markdown-body .progress-60plus .progress-bar {
-  background-color: #d7c896;
-}
-
-.markdown-body .progress-40plus .progress-bar {
-  background-color: #d7a796;
-}
-
-.markdown-body .progress-20plus .progress-bar {
-  background-color: #d796a6;
-}
-
-.markdown-body .progress-0plus .progress-bar {
-  background-color: #c25f77;
-}
-
-.markdown-body .candystripe-animate .progress-bar{
-  -webkit-animation: animate-stripes 3s linear infinite;
-  -moz-animation: animate-stripes 3s linear infinite;
-  animation: animate-stripes 3s linear infinite;
-}
-
-@-webkit-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@-moz-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-.markdown-body .gloss .progress-bar {
-  box-shadow:
-    inset 0 4px 12px rgba(255, 255, 255, .7),
-    inset 0 -12px 0 rgba(0, 0, 0, .05);
-}
-
-/* Multimarkdown Critic Blocks */
-.markdown-body .critic_mark {
-  background: #ff0;
-}
-
-.markdown-body .critic_delete {
-  color: #c82829;
-  text-decoration: line-through;
-}
-
-.markdown-body .critic_insert {
-  color: #718c00 ;
-  text-decoration: underline;
-}
-
-.markdown-body .critic_comment {
-  color: #8e908c;
   font-style: italic;
 }
 
-.markdown-body .headeranchor {
-  font: normal normal 16px octicons-anchor;
-  line-height: 1;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
 }
 
-.headeranchor:before {
-  content: '\f05c';
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
 }
 
 .markdown-body .task-list-item {
@@ -909,110 +667,59 @@ body .markdown-body
 }
 
 .markdown-body .task-list-item input {
-  margin: 0 4px 0.25em -20px;
+  margin: 0 0.35em 0.25em -1.6em;
   vertical-align: middle;
 }
 
-/* Media */
-@media only screen and (min-width: 480px) {
-  .markdown-body {
-    font-size:14px;
-  }
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
 }
 
-@media only screen and (min-width: 768px) {
-  .markdown-body {
-    font-size:16px;
-  }
+.markdown-body .plan-choice.open {
+  background-color: #fff;
 }
 
-@media print {
-  .markdown-body * {
-    background: transparent !important;
-    color: black !important;
-    filter:none !important;
-    -ms-filter: none !important;
-  }
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
 
-  .markdown-body {
-    font-size:12pt;
-    max-width:100%;
-    outline:none;
-    border: 0;
-  }
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
 
-  .markdown-body a,
-  .markdown-body a:visited {
-    text-decoration: underline;
-  }
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
 
-  .markdown-body .headeranchor-link {
-    display: none;
-  }
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
 
-  .markdown-body a[href]:after {
-    content: " (" attr(href) ")";
-  }
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
-  .markdown-body abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
 
-  .markdown-body .ir a:after,
-  .markdown-body a[href^="javascript:"]:after,
-  .markdown-body a[href^="#"]:after {
-    content: "";
-  }
-
-  .markdown-body pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  .markdown-body pre,
-  .markdown-body blockquote {
-    border: 1px solid #999;
-    padding-right: 1em;
-    page-break-inside: avoid;
-  }
-
-  .markdown-body .progress,
-  .markdown-body .progress-bar {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-
-  .markdown-body .progress {
-    border: 1px solid #ddd;
-  }
-
-  .markdown-body .progress-bar {
-    height: 22px;
-    border-right: 1px solid #ddd;
-  }
-
-  .markdown-body tr,
-  .markdown-body img {
-    page-break-inside: avoid;
-  }
-
-  .markdown-body img {
-    max-width: 100% !important;
-  }
-
-  .markdown-body p,
-  .markdown-body h2,
-  .markdown-body h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  .markdown-body h2,
-  .markdown-body h3 {
-    page-break-after: avoid;
-  }
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
 }
 </style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
@@ -1041,87 +748,171 @@ MathJax.Hub.Config({
 });
 </script>
 <title>chapter9</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
-<h1 id="chapter-9-multivariate-distribution"><a name="user-content-chapter-9-multivariate-distribution" href="#chapter-9-multivariate-distribution" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 9: Multivariate Distribution</h1>
-<h2 id="91-basic-terminology-and-techniques"><a name="user-content-91-basic-terminology-and-techniques" href="#91-basic-terminology-and-techniques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9.1 Basic Terminology and Techniques</h2>
-<h4 id="joint-probability-functions"><a name="user-content-joint-probability-functions" href="#joint-probability-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Joint Probability Functions:</h4>
-<p>First, suppose there are two discrete random variables $X$ and $Y$, and define the function<br />
+
+<h1>
+<a id="user-content-chapter-9-multivariate-distribution" class="anchor" href="#chapter-9-multivariate-distribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 9: Multivariate Distribution</h1>
+
+<h2>
+<a id="user-content-91-basic-terminology-and-techniques" class="anchor" href="#91-basic-terminology-and-techniques" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.1 Basic Terminology and Techniques</h2>
+
+<h4>
+<a id="user-content-joint-probability-functions" class="anchor" href="#joint-probability-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Joint Probability Functions:</h4>
+
+<p>First, suppose there are two discrete random variables $X$ and $Y$, and define the function
 $$\begin{align*} f(x,y) &amp;= P(X=x \quad and \quad Y=y) \\ &amp;= P(X=x, Y=y)\end{align*}$$</p>
-<p>We call $f(x,y)$ the joint probability function of $(X,Y)$. The properties of a joint probability function are similar for those for a single variable; for two random variables we have $f(x,y)\geq 0$ for all $(x,y)$ and<br />
+
+<p>We call $f(x,y)$ the joint probability function of $(X,Y)$. The properties of a joint probability function are similar for those for a single variable; for two random variables we have $f(x,y)\geq 0$ for all $(x,y)$ and
 $$\sum_{all(x,y)}f(x,y)=1$$</p>
-<p>In general,<br />
-$$f(x_1,&hellip;,x_n)=P(X_1=x_1,&hellip;,X_n=x_n)$$<br />
-if there are $n$ random variables $X_1,&hellip;,X_n$</p>
-<h4 id="marginal-distributions"><a name="user-content-marginal-distributions" href="#marginal-distributions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Marginal Distributions</h4>
-<p>If we&rsquo;re only interested in $X$, and don&rsquo;t care what value $Y$ takes, we can see that<br />
+
+<p>In general,
+$$f(x_1,...,x_n)=P(X_1=x_1,...,X_n=x_n)$$
+if there are $n$ random variables $X_1,...,X_n$</p>
+
+<h4>
+<a id="user-content-marginal-distributions" class="anchor" href="#marginal-distributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Marginal Distributions</h4>
+
+<p>If we're only interested in $X$, and don't care what value $Y$ takes, we can see that
 $$\begin{align*}P(X=0) &amp;= P(X=0,Y=1)+P(X=0,Y=2) \\ &amp;= f(0,1) + f(0,2) \\ &amp;= 0.3\end{align*}$$</p>
-<p>In general, to find $f_1(x)$ we add over all values of $y$ where $X=x$, and to find $f_2(y)$ we add over all values of $x$ with $Y=y$. Then<br />
-$$f_1(x)=\sum_{all y}f(x,y)$$<br />
+
+<p>In general, to find $f_1(x)$ we add over all values of $y$ where $X=x$, and to find $f_2(y)$ we add over all values of $x$ with $Y=y$. Then
+$$f_1(x)=\sum_{all y}f(x,y)$$
 $$f_2(y)=\sum_{all x}f(x,y)$$</p>
-<h4 id="independent-random-variables"><a name="user-content-independent-random-variables" href="#independent-random-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Independent Random Variables</h4>
+
+<h4>
+<a id="user-content-independent-random-variables" class="anchor" href="#independent-random-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Independent Random Variables</h4>
+
 <p>For events $A$ and $B$, we have defined $A$ and $B$ to be independent if and only if $P(AB)=P(A)P(B)$. This definition can be extended to random variables $(X,Y)$. Two random variable are independent if their joint probability function is the product of the marginal probability functions.</p>
-<h4 id="definition"><a name="user-content-definition" href="#definition" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+
+<h4>
+<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
 <p>$X$ and $Y$ are <strong>independent</strong> random variables if $f(x,y)=f_1(x)f_2(y)$ for all values $(x,y)$.</p>
+
 <blockquote>
 <p>Be careful applying this definition. You can only conclude that $X$ and $Y$ are independent after checking all $(x,y)$ combinations. Each a single case where $f_1(x)f_2(y)\neq f(x,y)$ makes $X$ and $Y$ dependent random variables.</p>
 </blockquote>
-<h4 id="conditional-probability-functions"><a name="user-content-conditional-probability-functions" href="#conditional-probability-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Conditional Probability Functions</h4>
-<p>Again we can extend a definition from events to random variables. For events $A$ and $B$, re call that<br />
+
+<h4>
+<a id="user-content-conditional-probability-functions" class="anchor" href="#conditional-probability-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conditional Probability Functions</h4>
+
+<p>Again we can extend a definition from events to random variables. For events $A$ and $B$, re call that
 $$P(A|B)=\frac{P(AB)}{P(B)}$$ provided $P(B)&gt;0$</p>
-<p>Since<br />
-$$P(X=x|Y=y)=\frac{P(X=x, Y=y)}{P(Y=y)}$$ provided $P(Y=y)&gt;0$,<br />
+
+<p>Since
+$$P(X=x|Y=y)=\frac{P(X=x, Y=y)}{P(Y=y)}$$ provided $P(Y=y)&gt;0$,
 we make the following definition.</p>
-<h4 id="definition_1"><a name="user-content-definition_1" href="#definition_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
-<p>The conditional probability function of $X$ given $Y=y$ is<br />
-$$f_1(x|y)=\frac{f(x,y)}{f_2{y}}$$<br />
-Similarly, the conditional probability function of $Y$ given $X=x$ is<br />
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>The conditional probability function of $X$ given $Y=y$ is
+$$f_1(x|y)=\frac{f(x,y)}{f_2{y}}$$
+Similarly, the conditional probability function of $Y$ given $X=x$ is
 $$f_2(y|x)=\frac{f(x,y)}{f_1(x)}$$</p>
-<h4 id="functions-of-random-variables"><a name="user-content-functions-of-random-variables" href="#functions-of-random-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functions of Random Variables</h4>
+
+<h4>
+<a id="user-content-functions-of-random-variables" class="anchor" href="#functions-of-random-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions of Random Variables</h4>
+
 <p>The most general method for finding the probability function for some function of random variables $X$ and $Y$ involves looking at every combination $(x,y)$ to see what values the function takes.</p>
-<h4 id="theorem"><a name="user-content-theorem" href="#theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+
+<h4>
+<a id="user-content-theorem" class="anchor" href="#theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+
 <p>If $X~Poi(\mu_1)$ and  $Y~Poi(\mu_2)$ independently then $T=X+Y~Poi(\mu_1+\mu_2)$</p>
-<h4 id="theorem_1"><a name="user-content-theorem_1" href="#theorem_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+
+<h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+
 <p>If $X~Bin(n,p)$ and $Y~Bin(m,p)$ independently then $T=X+Y~Bin(n+m,p)$</p>
-<h2 id="92-multinomial-distribution"><a name="user-content-92-multinomial-distribution" href="#92-multinomial-distribution" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9.2 Multinomial Distribution</h2>
+
+<h2>
+<a id="user-content-92-multinomial-distribution" class="anchor" href="#92-multinomial-distribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.2 Multinomial Distribution</h2>
+
 <p>It is a generalization of the Binomial model to the case where each trial has $k$ possible outcomes.</p>
-<h4 id="physical-setup"><a name="user-content-physical-setup" href="#physical-setup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Physical Setup</h4>
-<p>Suppose an experiment is repeated independently $n$ times with $k$ distinct types of outcome each time. Let the probabilities of these $k$ types be $p_1,&hellip;,p_k$ each time. Let $X_1$ be the number of times the first type occurs, and $X_k$ the number of times the k-th type occurs. Then $(X_1,&hellip;,X_k)$ has a Multinomial distribution.</p>
-<h4 id="note"><a name="user-content-note" href="#note" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h4>
+
+<h4>
+<a id="user-content-physical-setup" class="anchor" href="#physical-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Physical Setup</h4>
+
+<p>Suppose an experiment is repeated independently $n$ times with $k$ distinct types of outcome each time. Let the probabilities of these $k$ types be $p_1,...,p_k$ each time. Let $X_1$ be the number of times the first type occurs, and $X_k$ the number of times the k-th type occurs. Then $(X_1,...,X_k)$ has a Multinomial distribution.</p>
+
+<h4>
+<a id="user-content-note" class="anchor" href="#note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note</h4>
+
 <ol>
-<li>$p_1+\cdots+p_k=1$</li>
-<li>$X_1+\cdots+X_k=n$</li>
+<li> $p_1+\cdots+p_k=1$</li>
+<li> $X_1+\cdots+X_k=n$</li>
 </ol>
-<h4 id="joint-probability-function"><a name="user-content-joint-probability-function" href="#joint-probability-function" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Joint Probability Function</h4>
-<p>$$f(x_1,&hellip;,x_k)=\frac{n!}{x_1!\cdots x_k!}p_1^{x_1}\cdots p_k^{x_k}$$</p>
-<p>The restriction on the $x_i$ are $x_i=0,1,&hellip;,n$ and $\sum_{i=1}^{k}x_i=n$</p>
-<h2 id="94-expectation-for-multivariate-distributions-covariance-and-correlation"><a name="user-content-94-expectation-for-multivariate-distributions-covariance-and-correlation" href="#94-expectation-for-multivariate-distributions-covariance-and-correlation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>9.4 Expectation for Multivariate Distributions: Covariance and Correlation</h2>
-<h4 id="definition_2"><a name="user-content-definition_2" href="#definition_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+
+<h4>
+<a id="user-content-joint-probability-function" class="anchor" href="#joint-probability-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Joint Probability Function</h4>
+
+<p>$$f(x_1,...,x_k)=\frac{n!}{x_1!\cdots x_k!}p_1^{x_1}\cdots p_k^{x_k}$$</p>
+
+<p>The restriction on the $x_i$ are $x_i=0,1,...,n$ and $\sum_{i=1}^{k}x_i=n$</p>
+
+<h2>
+<a id="user-content-94-expectation-for-multivariate-distributions-covariance-and-correlation" class="anchor" href="#94-expectation-for-multivariate-distributions-covariance-and-correlation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.4 Expectation for Multivariate Distributions: Covariance and Correlation</h2>
+
+<h4>
+<a id="user-content-definition-2" class="anchor" href="#definition-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
 <p>$$E[g(X,Y)]=\sum_{all (x,y)}g(x,y)f(x,y)$$</p>
-<h4 id="property-of-multivariate-expectation"><a name="user-content-property-of-multivariate-expectation" href="#property-of-multivariate-expectation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Property of Multivariate Expectation</h4>
+
+<h4>
+<a id="user-content-property-of-multivariate-expectation" class="anchor" href="#property-of-multivariate-expectation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Property of Multivariate Expectation</h4>
+
 <p>$$E[ag_1(X,Y)+bg_2(X,Y)]=aE[g_1(X,Y)]+bE[g_2(X,Y)]$$</p>
-<h4 id="relationship-between-variables"><a name="user-content-relationship-between-variables" href="#relationship-between-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Relationship between variables</h4>
-<p>Independence is a &ldquo;yes/no&rdquo; way of defining a relationship between variables. We all know that there can be different types of relationships between variables which are dependent. More generally, two random variables may be related (non-independent) in a probabilistic sense.</p>
-<h4 id="definition_3"><a name="user-content-definition_3" href="#definition_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
-<p>The <strong>covariance</strong> of $X$ and $Y$, denoted $Cov(X,Y)$ or $\sigma_{XY}$, is<br />
+
+<h4>
+<a id="user-content-relationship-between-variables" class="anchor" href="#relationship-between-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Relationship between variables</h4>
+
+<p>Independence is a "yes/no" way of defining a relationship between variables. We all know that there can be different types of relationships between variables which are dependent. More generally, two random variables may be related (non-independent) in a probabilistic sense.</p>
+
+<h4>
+<a id="user-content-definition-3" class="anchor" href="#definition-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>The <strong>covariance</strong> of $X$ and $Y$, denoted $Cov(X,Y)$ or $\sigma_{XY}$, is
 $$Cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$$</p>
+
 <p>Note that $Cov(X,Y)=E(XY)-E(X)E(Y)$</p>
-<h4 id="interpretation-of-covariance"><a name="user-content-interpretation-of-covariance" href="#interpretation-of-covariance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Interpretation of Covariance</h4>
+
+<h4>
+<a id="user-content-interpretation-of-covariance" class="anchor" href="#interpretation-of-covariance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interpretation of Covariance</h4>
+
 <ol>
 <li>Suppose large values of X tend to occur with large values of Y and small values of X with small values of Y. Then $(X-\mu_X)$ and $(Y-\mu_Y)$ will tend to be of the same sign, whether positive or negative. Thus $(X-\mu_X)(Y-\mu_Y)$ will be positive. Hence $Cov(X,Y)&gt;0$.</li>
-<li>Suppose large values of X tend to occur with small values of Y and small values of X with large values of Y. Then $(X-\mu_X)$ and $(Y-\mu_Y)$ will tend to be opposite signs. Thus $(X-\mu_X)(Y-\mu_Y)$ will be negative. Hence $Cov(X,Y)&lt;0$.</li>
+<li> Suppose large values of X tend to occur with small values of Y and small values of X with large values of Y. Then $(X-\mu_X)$ and $(Y-\mu_Y)$ will tend to be opposite signs. Thus $(X-\mu_X)(Y-\mu_Y)$ will be negative. Hence $Cov(X,Y)&lt;0$.</li>
 </ol>
-<h4 id="theorem_2"><a name="user-content-theorem_2" href="#theorem_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+
+<h4>
+<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+
 <p>If $X$ and $Y$ are independent then $Cov(X,Y)=0$</p>
-<h4 id="theorem_3"><a name="user-content-theorem_3" href="#theorem_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
-<p>Suppose random variables $X$ and $Y$ are independent random variables. Then if $g_1(X)$ and $g_2(Y)$ are any two functions,<br />
+
+<h4>
+<a id="user-content-theorem-3" class="anchor" href="#theorem-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+
+<p>Suppose random variables $X$ and $Y$ are independent random variables. Then if $g_1(X)$ and $g_2(Y)$ are any two functions,
 $$E[g_1(X)g_2(Y)]=E[g_1(X)]E[g_2(Y)]$$</p>
-<h4 id="caution"><a name="user-content-caution" href="#caution" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Caution</h4>
+
+<h4>
+<a id="user-content-caution" class="anchor" href="#caution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Caution</h4>
+
 <p>This result is not reversible. If $Cov(X,Y)=0$ we cannot conclude that $X$ and $Y$ are independent random variables.</p>
-<h4 id="definition_4"><a name="user-content-definition_4" href="#definition_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
-<p>The <strong>correlation coefficient</strong> of $X$ and $Y$ is<br />
+
+<h4>
+<a id="user-content-definition-4" class="anchor" href="#definition-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>The <strong>correlation coefficient</strong> of $X$ and $Y$ is
 $$\rho=\frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$</p>
+
 <p>The correlation coefficient measures the strength of the linear relationship between $X$ and $Y$ and is simply a rescaled version of the covariance, scaled to lie in the interval [-1,1].</p>
-<h4 id="properties-of-rho"><a name="user-content-properties-of-rho" href="#properties-of-rho" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Properties of $\rho$</h4>
+
+<h4>
+<a id="user-content-properties-of-rho" class="anchor" href="#properties-of-rho" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties of $\rho$</h4>
+
 <ol>
-<li>Since $\sigma_X$ and $\sigma_Y$, the standard deviations of $X$ and $Y$, are both positive, $\rho$ will have the same sign as $Cov(X,Y)$. Hence the interpretation of the sign of $rho$ is the same as for $Cov(X,Y)$, and $\rho=0$ if $X$ and $Y$ are independent. When $\rho=0$ we way that $X$ and $Y$ are uncorrelated.</li>
-<li>$-1\leq \rho \leq 1$ and as $\rho \rightarrow \pm 1$ the relation between $X$ and $Y$ becomes one to one and linear.</li>
-</ol></article></body></html>
+<li> Since $\sigma_X$ and $\sigma_Y$, the standard deviations of $X$ and $Y$, are both positive, $\rho$ will have the same sign as $Cov(X,Y)$. Hence the interpretation of the sign of $rho$ is the same as for $Cov(X,Y)$, and $\rho=0$ if $X$ and $Y$ are independent. When $\rho=0$ we way that $X$ and $Y$ are uncorrelated.</li>
+<li> $-1\leq \rho \leq 1$ and as $\rho \rightarrow \pm 1$ the relation between $X$ and $Y$ becomes one to one and linear.</li>
+</ol>
+</article></body></html>

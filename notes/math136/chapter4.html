@@ -1,39 +1,41 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
-  width: 45em;
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 16px auto;
-}
-
-body .markdown-body
-{
-  padding: 30px;
-}
-
-@font-face {
-  font-family: fontawesome-mini;
-  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
-}
-
-@font-face {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
   font-family: octicons-anchor;
   src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 .markdown-body {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #333333;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
 }
 
 .markdown-body a {
-  background: transparent;
+  background-color: transparent;
 }
 
 .markdown-body a:active,
@@ -41,30 +43,8 @@ body .markdown-body
   outline: 0;
 }
 
-.markdown-body b,
 .markdown-body strong {
   font-weight: bold;
-}
-
-.markdown-body mark {
-  background: #ff0;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body sub,
-.markdown-body sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-.markdown-body sup {
-  top: -0.5em;
-}
-.markdown-body sub {
-  bottom: -0.25em;
 }
 
 .markdown-body h1 {
@@ -77,7 +57,6 @@ body .markdown-body
 }
 
 .markdown-body hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -88,8 +67,7 @@ body .markdown-body
 
 .markdown-body code,
 .markdown-body kbd,
-.markdown-body pre,
-.markdown-body samp {
+.markdown-body pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
@@ -123,81 +101,16 @@ body .markdown-body
   padding: 0;
 }
 
-.markdown-body .codehilitetable {
-  border: 0;
-  border-spacing: 0;
-}
-
-.markdown-body .codehilitetable tr {
-  border: 0;
-}
-
-.markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite {
-  margin: 0;
-}
-
-.markdown-body .linenos,
-.markdown-body .code,
-.markdown-body .codehilitetable td {
-  border: 0;
-  padding: 0;
-}
-
-.markdown-body td:not(.linenos) .linenodiv {
-  padding: 0 !important;
-}
-
-.markdown-body .code {
-  width: 100%;
-}
-
-.markdown-body .linenos div pre,
-.markdown-body .linenodiv pre,
-.markdown-body .linenodiv {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.markdown-body .code div pre,
-.markdown-body .code div {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.markdown-body * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 .markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.4;
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .markdown-body a {
-  color: #4183c4;
+  color: #4078c0;
   text-decoration: none;
 }
 
 .markdown-body a:hover,
-.markdown-body a:focus,
 .markdown-body a:active {
   text-decoration: underline;
 }
@@ -211,14 +124,15 @@ body .markdown-body
   border-bottom: 1px solid #ddd;
 }
 
-.markdown-body hr:before,
-.markdown-body hr:after {
+.markdown-body hr:before {
   display: table;
-  content: " ";
+  content: "";
 }
 
 .markdown-body hr:after {
+  display: table;
   clear: both;
+  content: "";
 }
 
 .markdown-body h1,
@@ -283,9 +197,7 @@ body .markdown-body
   margin-left: 0;
 }
 
-.markdown-body code,
-.markdown-body pre,
-.markdown-body samp {
+.markdown-body code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
@@ -293,21 +205,39 @@ body .markdown-body
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-.markdown-body kbd {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-  background-image: linear-gradient(#fefefe, #e7e7e7);
-  background-repeat: repeat-x;
-  border-radius: 2px;
-  border: 1px solid #cfcfcf;
-  color: #000;
-  padding: 3px 5px;
-  line-height: 10px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
   display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
 }
 
 .markdown-body>*:first-child {
@@ -318,18 +248,18 @@ body .markdown-body
   margin-bottom: 0 !important;
 }
 
-.markdown-body .headeranchor-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  padding-right: 6px;
-  padding-left: 30px;
-  margin-left: -30px;
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
 }
 
-.markdown-body .headeranchor-link:focus {
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
   outline: none;
 }
 
@@ -339,44 +269,39 @@ body .markdown-body
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  position: relative;
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
 
-.markdown-body h1 .headeranchor,
-.markdown-body h2 .headeranchor,
-.markdown-body h3 .headeranchor,
-.markdown-body h4 .headeranchor,
-.markdown-body h5 .headeranchor,
-.markdown-body h6 .headeranchor {
-  display: none;
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
   color: #000;
   vertical-align: middle;
+  visibility: hidden;
 }
 
-.markdown-body h1:hover .headeranchor-link,
-.markdown-body h2:hover .headeranchor-link,
-.markdown-body h3:hover .headeranchor-link,
-.markdown-body h4:hover .headeranchor-link,
-.markdown-body h5:hover .headeranchor-link,
-.markdown-body h6:hover .headeranchor-link {
-  height: 1em;
-  padding-left: 8px;
-  margin-left: -30px;
-  line-height: 1;
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
   text-decoration: none;
 }
 
-.markdown-body h1:hover .headeranchor-link .headeranchor,
-.markdown-body h2:hover .headeranchor-link .headeranchor,
-.markdown-body h3:hover .headeranchor-link .headeranchor,
-.markdown-body h4:hover .headeranchor-link .headeranchor,
-.markdown-body h5:hover .headeranchor-link .headeranchor,
-.markdown-body h6:hover .headeranchor-link .headeranchor {
-  display: inline-block;
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
 }
 
 .markdown-body h1 {
@@ -386,6 +311,10 @@ body .markdown-body
   border-bottom: 1px solid #eee;
 }
 
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
 .markdown-body h2 {
   padding-bottom: 0.3em;
   font-size: 1.75em;
@@ -393,22 +322,42 @@ body .markdown-body
   border-bottom: 1px solid #eee;
 }
 
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
 .markdown-body h3 {
   font-size: 1.5em;
   line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
 }
 
 .markdown-body h4 {
   font-size: 1.25em;
 }
 
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
 .markdown-body h5 {
   font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
 }
 
 .markdown-body h6 {
   font-size: 1em;
   color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
 }
 
 .markdown-body p,
@@ -417,8 +366,7 @@ body .markdown-body
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
-.markdown-body pre,
-.markdown-body .admonition {
+.markdown-body pre {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -508,12 +456,11 @@ body .markdown-body
 
 .markdown-body img {
   max-width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: content-box;
+  background-color: #fff;
 }
 
-.markdown-body code,
-.markdown-body samp {
+.markdown-body code {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -539,11 +486,11 @@ body .markdown-body
   border: 0;
 }
 
-.markdown-body .codehilite {
+.markdown-body .highlight {
   margin-bottom: 16px;
 }
 
-.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -553,7 +500,7 @@ body .markdown-body
   border-radius: 3px;
 }
 
-.markdown-body .codehilite pre {
+.markdown-body .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
@@ -579,325 +526,136 @@ body .markdown-body
   content: normal;
 }
 
-/* Admonition */
-.markdown-body .admonition {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  position: relative;
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
   border-radius: 3px;
-  border: 1px solid #e0e0e0;
-  border-left: 6px solid #333;
-  padding: 10px 10px 10px 30px;
+  box-shadow: inset 0 -1px 0 #bbb;
 }
 
-.markdown-body .admonition table {
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
   color: #333;
 }
 
-.markdown-body .admonition p {
-  padding: 0;
+.markdown-body .pl-ent {
+  color: #63a35c;
 }
 
-.markdown-body .admonition-title {
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
   font-weight: bold;
-  margin: 0;
 }
 
-.markdown-body .admonition>.admonition-title {
-  color: #333;
+.markdown-body .pl-ml {
+  color: #693a17;
 }
 
-.markdown-body .attention>.admonition-title {
-  color: #a6d796;
-}
-
-.markdown-body .caution>.admonition-title {
-  color: #d7a796;
-}
-
-.markdown-body .hint>.admonition-title {
-  color: #96c6d7;
-}
-
-.markdown-body .danger>.admonition-title {
-  color: #c25f77;
-}
-
-.markdown-body .question>.admonition-title {
-  color: #96a6d7;
-}
-
-.markdown-body .note>.admonition-title {
-  color: #d7c896;
-}
-
-.markdown-body .admonition:before,
-.markdown-body .attention:before,
-.markdown-body .caution:before,
-.markdown-body .hint:before,
-.markdown-body .danger:before,
-.markdown-body .question:before,
-.markdown-body .note:before {
-  font: normal normal 16px fontawesome-mini;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  line-height: 1.5;
-  color: #333;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
-.markdown-body .admonition:before {
-  content: "\f056\00a0";
-  color: 333;
-}
-
-.markdown-body .attention:before {
-  content: "\f058\00a0";
-  color: #a6d796;
-}
-
-.markdown-body .caution:before {
-  content: "\f06a\00a0";
-  color: #d7a796;
-}
-
-.markdown-body .hint:before {
-  content: "\f05a\00a0";
-  color: #96c6d7;
-}
-
-.markdown-body .danger:before {
-  content: "\f057\00a0";
-  color: #c25f77;
-}
-
-.markdown-body .question:before {
-  content: "\f059\00a0";
-  color: #96a6d7;
-}
-
-.markdown-body .note:before {
-  content: "\f040\00a0";
-  color: #d7c896;
-}
-
-.markdown-body .admonition::after {
-  content: normal;
-}
-
-.markdown-body .attention {
-  border-left: 6px solid #a6d796;
-}
-
-.markdown-body .caution {
-  border-left: 6px solid #d7a796;
-}
-
-.markdown-body .hint {
-  border-left: 6px solid #96c6d7;
-}
-
-.markdown-body .danger {
-  border-left: 6px solid #c25f77;
-}
-
-.markdown-body .question {
-  border-left: 6px solid #96a6d7;
-}
-
-.markdown-body .note {
-  border-left: 6px solid #d7c896;
-}
-
-.markdown-body .admonition>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body .admonition>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* progress bar*/
-.markdown-body .progress {
-  display: block;
-  width: 300px;
-  margin: 10px 0;
-  height: 24px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #ededed;
-  position: relative;
-  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
-}
-
-.markdown-body .progress-label {
-  position: absolute;
-  text-align: center;
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
   font-weight: bold;
-  width: 100%; margin: 0;
-  line-height: 24px;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
   color: #333;
-  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
-  -webkit-font-smoothing: antialiased !important;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.markdown-body .progress-bar {
-  height: 24px;
-  float: left;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #96c6d7;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
-  background-size: 30px 30px;
-  background-image: -webkit-linear-gradient(
-    135deg, rgba(255, 255, 255, .4) 27%,
-    transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%,
-    transparent 77%, transparent
-  );
-  background-image: -moz-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -ms-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -o-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-}
-
-.markdown-body .progress-100plus .progress-bar {
-  background-color: #a6d796;
-}
-
-.markdown-body .progress-80plus .progress-bar {
-  background-color: #c6d796;
-}
-
-.markdown-body .progress-60plus .progress-bar {
-  background-color: #d7c896;
-}
-
-.markdown-body .progress-40plus .progress-bar {
-  background-color: #d7a796;
-}
-
-.markdown-body .progress-20plus .progress-bar {
-  background-color: #d796a6;
-}
-
-.markdown-body .progress-0plus .progress-bar {
-  background-color: #c25f77;
-}
-
-.markdown-body .candystripe-animate .progress-bar{
-  -webkit-animation: animate-stripes 3s linear infinite;
-  -moz-animation: animate-stripes 3s linear infinite;
-  animation: animate-stripes 3s linear infinite;
-}
-
-@-webkit-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@-moz-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-.markdown-body .gloss .progress-bar {
-  box-shadow:
-    inset 0 4px 12px rgba(255, 255, 255, .7),
-    inset 0 -12px 0 rgba(0, 0, 0, .05);
-}
-
-/* Multimarkdown Critic Blocks */
-.markdown-body .critic_mark {
-  background: #ff0;
-}
-
-.markdown-body .critic_delete {
-  color: #c82829;
-  text-decoration: line-through;
-}
-
-.markdown-body .critic_insert {
-  color: #718c00 ;
-  text-decoration: underline;
-}
-
-.markdown-body .critic_comment {
-  color: #8e908c;
   font-style: italic;
 }
 
-.markdown-body .headeranchor {
-  font: normal normal 16px octicons-anchor;
-  line-height: 1;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
 }
 
-.headeranchor:before {
-  content: '\f05c';
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
 }
 
 .markdown-body .task-list-item {
@@ -909,110 +667,59 @@ body .markdown-body
 }
 
 .markdown-body .task-list-item input {
-  margin: 0 4px 0.25em -20px;
+  margin: 0 0.35em 0.25em -1.6em;
   vertical-align: middle;
 }
 
-/* Media */
-@media only screen and (min-width: 480px) {
-  .markdown-body {
-    font-size:14px;
-  }
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
 }
 
-@media only screen and (min-width: 768px) {
-  .markdown-body {
-    font-size:16px;
-  }
+.markdown-body .plan-choice.open {
+  background-color: #fff;
 }
 
-@media print {
-  .markdown-body * {
-    background: transparent !important;
-    color: black !important;
-    filter:none !important;
-    -ms-filter: none !important;
-  }
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
 
-  .markdown-body {
-    font-size:12pt;
-    max-width:100%;
-    outline:none;
-    border: 0;
-  }
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
 
-  .markdown-body a,
-  .markdown-body a:visited {
-    text-decoration: underline;
-  }
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
 
-  .markdown-body .headeranchor-link {
-    display: none;
-  }
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
 
-  .markdown-body a[href]:after {
-    content: " (" attr(href) ")";
-  }
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
-  .markdown-body abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
 
-  .markdown-body .ir a:after,
-  .markdown-body a[href^="javascript:"]:after,
-  .markdown-body a[href^="#"]:after {
-    content: "";
-  }
-
-  .markdown-body pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  .markdown-body pre,
-  .markdown-body blockquote {
-    border: 1px solid #999;
-    padding-right: 1em;
-    page-break-inside: avoid;
-  }
-
-  .markdown-body .progress,
-  .markdown-body .progress-bar {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-
-  .markdown-body .progress {
-    border: 1px solid #ddd;
-  }
-
-  .markdown-body .progress-bar {
-    height: 22px;
-    border-right: 1px solid #ddd;
-  }
-
-  .markdown-body tr,
-  .markdown-body img {
-    page-break-inside: avoid;
-  }
-
-  .markdown-body img {
-    max-width: 100% !important;
-  }
-
-  .markdown-body p,
-  .markdown-body h2,
-  .markdown-body h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  .markdown-body h2,
-  .markdown-body h3 {
-    page-break-after: avoid;
-  }
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
 }
 </style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
@@ -1041,10 +748,18 @@ MathJax.Hub.Config({
 });
 </script>
 <title>chapter4</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
-<h1 id="chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv"><a name="user-content-chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv" href="#chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 4: Vector Spaces$\newcommand{\v}{\vec}$$\newcommand{\b}{\mathbb}$$\newcommand{\vsetk}{\v{v_1},\cdots,\v{v_k}}$$\newcommand{\vsetn}{\v{v_1},\cdots,\v{v_n}}$$\newcommand{\vx}{\vec{x}}$$\newcommand{\bv}{\mathbb{V}}$</h1>
-<h2 id="41-vector-spaces"><a name="user-content-41-vector-spaces" href="#41-vector-spaces" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1: Vector Spaces</h2>
-<h4 id="definition-vector-space"><a name="user-content-definition-vector-space" href="#definition-vector-space" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Vector Space</h4>
+
+<h1>
+<a id="user-content-chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv" class="anchor" href="#chapter-4-vector-spacesnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbv" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 4: Vector Spaces$\newcommand{\v}{\vec}$$\newcommand{\b}{\mathbb}$$\newcommand{\vsetk}{\v{v_1},\cdots,\v{v_k}}$$\newcommand{\vsetn}{\v{v_1},\cdots,\v{v_n}}$$\newcommand{\vx}{\vec{x}}$$\newcommand{\bv}{\mathbb{V}}$</h1>
+
+<h2>
+<a id="user-content-41-vector-spaces" class="anchor" href="#41-vector-spaces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1: Vector Spaces</h2>
+
+<h4>
+<a id="user-content-definition-vector-space" class="anchor" href="#definition-vector-space" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Vector Space</h4>
+
 <p>A set $\bv$ with an operation of <strong>addition</strong>, denoted $\v{x}+\v{y}$, and an operation of <strong>scalar multiplication</strong>, denoted $c\v{x}$, is called a <strong>vector space over</strong> $\b{R}$ if for every $\v{v},\v{x},\v{y}\in\bv$ and $c,d\in\b{R}$ we have:</p>
+
 <ul>
 <li>V1: $\v{x}+\v{y}\in\bv$</li>
 <li>V2: $(\v{x}+\v{y})+\v{v}=\v{x}+(\v{y}+\v{v})$</li>
@@ -1057,105 +772,205 @@ MathJax.Hub.Config({
 <li>V9: $c(\v(x)+\v{y})=c\v{x}+c\v{y}$</li>
 <li>V10: $1\v{x}=\v{x}$</li>
 </ul>
+
 <p>We call the elements of $\bv$ vectors</p>
-<h4 id="remarks"><a name="user-content-remarks" href="#remarks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remarks</h4>
+
+<h4>
+<a id="user-content-remarks" class="anchor" href="#remarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remarks</h4>
+
 <ol>
-<li>We sometimes denote addition by $\v{x}\bigoplus\v{y}$ and scalar multiplication by $c\bigotimes\v{x}$ to distinguish these from &ldquo;normal&rdquo; operation of addition and scalar multiplication</li>
+<li>We sometimes denote addition by $\v{x}\bigoplus\v{y}$ and scalar multiplication by $c\bigotimes\v{x}$ to distinguish these from "normal" operation of addition and scalar multiplication</li>
 <li>In some cases, when working with multiple vector spaces, we denote the zero vector in a vector space $\bv$ by $\v{0}_\bv$</li>
-<li>Then ten vector space axioms define a &ldquo;structure&rdquo; for the set based on the operations of addition and scalar multiplication. The study of vector spaces is the study of this structure. Note that there may be additional operation defined on some vector spaces that are not included in this structure. </li>
+<li>Then ten vector space axioms define a "structure" for the set based on the operations of addition and scalar multiplication. The study of vector spaces is the study of this structure. Note that there may be additional operation defined on some vector spaces that are not included in this structure. </li>
 <li>The definition of a vector space makes sense if the scalars are allowed to be taken from any set that has all the same important properties as $\b{R}$. Such sets are call <strong>fields</strong>.</li>
 </ol>
+
 <p>Let $\v{V}={\v{0}}$, it is called the <strong>trivial vector space</strong></p>
-<h4 id="theorem-1"><a name="user-content-theorem-1" href="#theorem-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+
+<h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
 <p>If $\bv$ is a vector space, then</p>
+
 <ol>
 <li>$0\v{x}=\v{0}$ for all $\v{x}\in\bv$</li>
 <li>$(-\v{x})=(-1)\v{x}$ for all $\v{x}\in\bv$</li>
 </ol>
-<h4 id="remark"><a name="user-content-remark" href="#remark" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
+
+<h4>
+<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
 <p>Observe that Theorem 1 implies that the zero vector in a vector space is unique, as is the additive inverse of any vector in the vector space.</p>
-<h4 id="definition-subspace"><a name="user-content-definition-subspace" href="#definition-subspace" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Subspace</h4>
+
+<h4>
+<a id="user-content-definition-subspace" class="anchor" href="#definition-subspace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Subspace</h4>
+
 <p>Let $\bv$ be a vector space. If $\b{S}$ is a subspace of $\bv$ and $\b{S}$ is a vector space under the same operation as $\bv$, then $\b{S}$ is called a <strong>subspace</strong> of $\bv$</p>
-<h4 id="theorem-2-subspace-test"><a name="user-content-theorem-2-subspace-test" href="#theorem-2-subspace-test" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2: Subspace Test</h4>
+
+<h4>
+<a id="user-content-theorem-2-subspace-test" class="anchor" href="#theorem-2-subspace-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2: Subspace Test</h4>
+
 <p>If $\b{S}$ is a non-empty subset of $\bv$ such that $\v{x}+\v{y}\in\b{S}$ and $c\v{x}\in\b{S}$ for all $\v{x},\v{y}\in\b{S}$ and $c\in\b{R}$ under the operation of $\bv$, then $\b{S}$ is a subspace of $\bv$.</p>
-<h4 id="remark_1"><a name="user-content-remark_1" href="#remark_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
 <ol>
-<li>It is very important to always remember to check that $\b{S}$ is a subset of $\bv$ and is non-empty as part of the Subspace Test.</li>
-<li>As before, we will say that $\b{S}$ is <strong>closed under addition</strong> if $\v{x}+\v{y}\in\b{S}$ for all $\v{x},\v{y}\in\b{S}$, and we will say that $\b{S}$ is <strong>closed under scalar multiplication</strong> if $c\v{s}\in\b{S}$ for all $\v{x}\in\b{S}$ and $c\in\b{R}$</li>
+<li> It is very important to always remember to check that $\b{S}$ is a subset of $\bv$ and is non-empty as part of the Subspace Test.</li>
+<li> As before, we will say that $\b{S}$ is <strong>closed under addition</strong> if $\v{x}+\v{y}\in\b{S}$ for all $\v{x},\v{y}\in\b{S}$, and we will say that $\b{S}$ is <strong>closed under scalar multiplication</strong> if $c\v{s}\in\b{S}$ for all $\v{x}\in\b{S}$ and $c\in\b{R}$</li>
 </ol>
+
 <blockquote>
 <p>As with subspaces in Chapter 1, normally the easiest way to verify the set $\b{S}$ is non-empty is to check if the zero vector of $\bv$, is in $\b{S}$. Moreover, if $\v{0}_V\notin\b{S}$, then $\b{S}$ is not closed under scalar multiplication and hence is not subspace.</p>
 </blockquote>
-<h4 id="definition-span"><a name="user-content-definition-span" href="#definition-span" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Span</h4>
+
+<h4>
+<a id="user-content-definition-span" class="anchor" href="#definition-span" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Span</h4>
+
 <p>Let $\b{B}=$ { $\vsetk$ } be a set of vector space $\bv$. We define the <strong>span</strong> of $\b{B}$ by </p>
-<p>Span $\b{B}$ = { $c_1\v{v_1}+\cdots+c_k\v{v_k}\|c_1,\cdots,c_k\in\b{R}$ }</p>
+
+<p>Span $\b{B}$ = { $c_1\v{v_1}+\cdots+c_k\v{v_k}|c_1,\cdots,c_k\in\b{R}$ }</p>
+
 <p>We say the Span$\b{B}$ is <strong>spanned</strong> by $\b{B}$ and that $\b{B}$ is a <strong>spanning set</strong> for Span$\b{B}$</p>
-<h4 id="theorem-3"><a name="user-content-theorem-3" href="#theorem-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+
+<h4>
+<a id="user-content-theorem-3" class="anchor" href="#theorem-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
 <p>If $\b{B}$ = {$\vsetk$} is a set of vectors in a vector space $\bv$, then Span$\b{B}$ is a subspace of $\bv$.</p>
-<h4 id="theorem-4"><a name="user-content-theorem-4" href="#theorem-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+
+<h4>
+<a id="user-content-theorem-4" class="anchor" href="#theorem-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4</h4>
+
 <p>Let $\bv$ be a vector space and $\vsetk\in\bv$. Then $\v{v_i}\in$ Span{$\v{v_1},\cdots,\v{v_{i-1}},\v{v_{i+1}},\cdots,\v{v_k}$} if and only if</p>
+
 <p>Span{$\vsetk$}=Span{$\v{v_1},\cdots,\v{v_{i-1}},\v{v_{i+1}},\cdots,\v{v_k}$}</p>
-<h4 id="definition-linearly-dependent-linearly-independent"><a name="user-content-definition-linearly-dependent-linearly-independent" href="#definition-linearly-dependent-linearly-independent" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Linearly Dependent &amp; Linearly Independent</h4>
-<p>A set of vectors {$\vsetk$} in a vector space $\bv$ is said to be <strong>linearly dependent</strong> if there exist coefficients $c_1,&hellip;,c_k$ not all zero such that</p>
+
+<h4>
+<a id="user-content-definition-linearly-dependent--linearly-independent" class="anchor" href="#definition-linearly-dependent--linearly-independent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Linearly Dependent &amp; Linearly Independent</h4>
+
+<p>A set of vectors {$\vsetk$} in a vector space $\bv$ is said to be <strong>linearly dependent</strong> if there exist coefficients $c_1,...,c_k$ not all zero such that</p>
+
 <p>$$ \v{0}=c_1\v{v_1}+\cdots+c_k\v{v_k} $$</p>
+
 <p>A set of vectors {$\vsetk$} is said to be <strong>linearly independent</strong> if the only solution to</p>
+
 <p>$$ \v{0}=c_1\v{v_1}+\cdots+c_k\v{v_k} $$</p>
+
 <p>is the trivial solution $c_1=\cdots=c_k=0$</p>
-<h4 id="theorem-5"><a name="user-content-theorem-5" href="#theorem-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 5</h4>
+
+<h4>
+<a id="user-content-theorem-5" class="anchor" href="#theorem-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 5</h4>
+
 <p>A set of vectors {$\vsetk$} in a vector space is linearly dependent if and only if $\v{v_i}\in$ Span{$\v{v_1},\cdots,\v{v_{i-1}},\v{v_{i+1}},\cdots,\v{v_k}$ for some $i$, $1\leq i\leq k$ </p>
-<h4 id="theorem-6"><a name="user-content-theorem-6" href="#theorem-6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 6</h4>
+
+<h4>
+<a id="user-content-theorem-6" class="anchor" href="#theorem-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 6</h4>
+
 <p>Any Set of vectors {$\vsetk$} in a vector space which contains the zero vector is linearly dependent</p>
-<h2 id="42-bases-and-dimension"><a name="user-content-42-bases-and-dimension" href="#42-bases-and-dimension" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Bases and Dimension</h2>
-<h4 id="definition-basis"><a name="user-content-definition-basis" href="#definition-basis" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Basis</h4>
+
+<h2>
+<a id="user-content-42-bases-and-dimension" class="anchor" href="#42-bases-and-dimension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2 Bases and Dimension</h2>
+
+<h4>
+<a id="user-content-definition-basis" class="anchor" href="#definition-basis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Basis</h4>
+
 <p>Let $\bv$ be a vector space. The set B is call a <strong>basis</strong> for $\bv$ if B is linearly independent spanning set for $\bv$.</p>
+
 <p>We define a basis for {$\v{0_\bv}$} to be the empty set.</p>
-<h4 id="algorithm-finding-a-basis"><a name="user-content-algorithm-finding-a-basis" href="#algorithm-finding-a-basis" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Algorithm: Finding a basis</h4>
-<p>Let $\bv$ be a vector space. To find a basis for $\bv$,<br />
-1.  Find the general form of a vector $\v{x}$<br />
-2.  Write the general form of $\v{x}$ as a linear combination of $\vsetk$ in $\bv$<br />
-3.  Check if B={$\vsetk$} is linearly independent. It it is, then stop as B is a basis.<br />
+
+<h4>
+<a id="user-content-algorithm-finding-a-basis" class="anchor" href="#algorithm-finding-a-basis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithm: Finding a basis</h4>
+
+<p>Let $\bv$ be a vector space. To find a basis for $\bv$,
+1.  Find the general form of a vector $\v{x}$
+2.  Write the general form of $\v{x}$ as a linear combination of $\vsetk$ in $\bv$
+3.  Check if B={$\vsetk$} is linearly independent. It it is, then stop as B is a basis.
 4.  If B is linearly dependent, pick some vector that can be written as a linear combination of the other vectors in B and remove it from the set using Theorem 4.1.4. Repeat this until the set is linearly independent.</p>
-<h4 id="theorem-1_1"><a name="user-content-theorem-1_1" href="#theorem-1_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+
+<h4>
+<a id="user-content-theorem-1-1" class="anchor" href="#theorem-1-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
 <p>Let B={$\vsetn$} be a basis for a vector space $\bv$ and let C={$\v{w_1},\cdots,\v{w_k}$} be a set in $vb$. If $k&gt;n$, then C is linearly dependent.</p>
-<h4 id="theorem-2"><a name="user-content-theorem-2" href="#theorem-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
+
+<h4>
+<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
 <p>If B={$\vsetn$} and C={$\v{w_1},\cdots,\v{w_k}$} are bases for a vector space $\bv$, then $k=n$.</p>
-<h4 id="definition-dimension"><a name="user-content-definition-dimension" href="#definition-dimension" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Dimension</h4>
-<p>If B={$\vsetn$} is a basis for a vector space $bv$, then we say the <strong>dimension</strong> of $bv$ is $n$ and write<br />
-$$ dimV=n $$<br />
+
+<h4>
+<a id="user-content-definition-dimension" class="anchor" href="#definition-dimension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Dimension</h4>
+
+<p>If B={$\vsetn$} is a basis for a vector space $bv$, then we say the <strong>dimension</strong> of $bv$ is $n$ and write
+$$ dimV=n $$
 If $\bv$ is the trivial vector space, then dimV=0. If $bv$ does not have a basis with a finite number of vectors in it, then $bv$ is said to be infinite <strong>dimensional</strong>.</p>
-<h4 id="theorem-3_1"><a name="user-content-theorem-3_1" href="#theorem-3_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
-<p>If $bv$ is an n-dimensional vector space with $n&gt;0$, then<br />
-1.  a set of more than n vectors in $bv$ must be linearly dependent<br />
-2.  a set of fewer than n vectors in $bv$ cannot span $\bv$<br />
+
+<h4>
+<a id="user-content-theorem-3-1" class="anchor" href="#theorem-3-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
+<p>If $bv$ is an n-dimensional vector space with $n&gt;0$, then
+1.  a set of more than n vectors in $bv$ must be linearly dependent
+2.  a set of fewer than n vectors in $bv$ cannot span $\bv$
 3.  a Set of n vectors in $\bv$ is linearly independent if and only if it spans $\bv$</p>
-<h4 id="theorem-4_1"><a name="user-content-theorem-4_1" href="#theorem-4_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+
+<h4>
+<a id="user-content-theorem-4-1" class="anchor" href="#theorem-4-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4</h4>
+
 <p>If $\bv$ is an n-dimensional vector space and {$\vsetk$} is a linearly independent set in $bv$ with $k&lt;n$, then there exist vectors $\v{w_{k+1}},\cdots,\v{w_n}$ in $\bv$ such that {$\vsetk, \v{w_{k+1}},\cdots,\v{w_n}$} is a basis for $\bv$</p>
-<h4 id="corollary-5"><a name="user-content-corollary-5" href="#corollary-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 5</h4>
+
+<h4>
+<a id="user-content-corollary-5" class="anchor" href="#corollary-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 5</h4>
+
 <p>If $\b{S}$ is a subspace of a finite dimensional vector space $\bv$, then $dim\b{S}\leq dim\bv$</p>
-<h2 id="43-coordinates"><a name="user-content-43-coordinates" href="#43-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3: Coordinates</h2>
-<h4 id="theorem-1_2"><a name="user-content-theorem-1_2" href="#theorem-1_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+
+<h2>
+<a id="user-content-43-coordinates" class="anchor" href="#43-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3: Coordinates</h2>
+
+<h4>
+<a id="user-content-theorem-1-2" class="anchor" href="#theorem-1-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
 <p>If B={$vsetk$} is a basis for a vector space $\bv$, then every $\v{v}\in\bv$ can be written as a unique linear combination of the vectors in B</p>
-<h4 id="definition-b-coordinates"><a name="user-content-definition-b-coordinates" href="#definition-b-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: B-Coordinates</h4>
+
+<h4>
+<a id="user-content-definition-b-coordinates" class="anchor" href="#definition-b-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: B-Coordinates</h4>
+
 <p>Let B={$\vsetn$} be a basis for a vector space $\bv$. If $\v{v}=b_1\v{v_1}+\cdots+b_n\v{v_n}$, then $b_1,\cdots,b_n$ are called the <strong>B-coordinates</strong> of $\v{v}$, and we define the <strong>B-coordinate vector</strong> by</p>
+
 <p>$$[\v{v}]_B=\begin{bmatrix}b_1 \\ \vdots \\ b_n\end{bmatrix}$$</p>
-<h4 id="theorem-2_1"><a name="user-content-theorem-2_1" href="#theorem-2_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
-<p>If $\bv$ is a vector space with basis B={$\vsetn$}, then for any $\v{v},\v{w}\in\bv$ and $s,t\in\b{R}$ we have<br />
+
+<h4>
+<a id="user-content-theorem-2-1" class="anchor" href="#theorem-2-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
+<p>If $\bv$ is a vector space with basis B={$\vsetn$}, then for any $\v{v},\v{w}\in\bv$ and $s,t\in\b{R}$ we have
 $$[s\v{v}+t\v{w}]_B=s[\v{v}]_B+t[\v{w}]_B$$</p>
-<h4 id="change-of-coordinates"><a name="user-content-change-of-coordinates" href="#change-of-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Change of Coordinates</h4>
+
+<h4>
+<a id="user-content-change-of-coordinates" class="anchor" href="#change-of-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change of Coordinates</h4>
+
 <p>We have seen how to find different bases for a vector space $\bv$ and how to find the coordinates of a vector $\v{v}\in\bv$ with respect to any basis B of $\bv$. In some cases, it is useful to have a quick way of determining the coordinates of $\v{v}$ with respect to some basis C for $\bv$ if we are given the coordinates of $\v{v}$ with respect to the basis B of $\bv$.</p>
-<p>For example, in some applications it is useful to write polynomials in terms of powers of x-c for some real c. That is, given a polynomial $p(x)=a_0+a_1x+&hellip;+a_nx^n$, we want to write it in the form $p(x)=b_0+b_1(x-c)+b_2(x-c)^2+&hellip;+b_n(x-c)^n$. Such a situation may arise if the values of x you are working with are very close to c. If you are working with many polynomials, then it would be very helpful to have a fast way of converting each polynomial. We can rephrase this problem in terms of linear algebra.</p>
-<p>Let S={$1,x,&hellip;,x^n$} be the standard basis for $P_n(\b{R})$. Given $[p(x)]_S=\begin{bmatrix}a_0 \\ \vdots \\ a_n\end{bmatrix}$ we want to determine $[p(x)]_B$ where B is the basis B={$1,x-c,(x-c)^2,&hellip;,(x-c)^n$} for $P_n(\b{R})$</p>
-<p>Since taking coordinates is a linear operation by Theorem 2, we get<br />
-$$\begin{align*}<br />
-[p(x)]_B &amp;= [a_01+a_1x+&hellip;+a_nx^n]_B \\<br />
-&amp;= a_0[1]_B + a_1[x]_B + &hellip; + a_n[x^n]_B \\<br />
-&amp;= \begin{bmatrix} [1]_B &amp; [x]_B &amp; \cdots &amp; [x^n]_B\end{bmatrix}<br />
+
+<p>For example, in some applications it is useful to write polynomials in terms of powers of x-c for some real c. That is, given a polynomial $p(x)=a_0+a_1x+...+a_nx^n$, we want to write it in the form $p(x)=b_0+b_1(x-c)+b_2(x-c)^2+...+b_n(x-c)^n$. Such a situation may arise if the values of x you are working with are very close to c. If you are working with many polynomials, then it would be very helpful to have a fast way of converting each polynomial. We can rephrase this problem in terms of linear algebra.</p>
+
+<p>Let S={$1,x,...,x^n$} be the standard basis for $P_n(\b{R})$. Given $[p(x)]_S=\begin{bmatrix}a_0 \\ \vdots \\ a_n\end{bmatrix}$ we want to determine $[p(x)]_B$ where B is the basis B={$1,x-c,(x-c)^2,...,(x-c)^n$} for $P_n(\b{R})$</p>
+
+<p>Since taking coordinates is a linear operation by Theorem 2, we get
+$$\begin{align*}
+[p(x)]_B &amp;= [a_01+a_1x+...+a_nx^n]_B \\
+&amp;= a_0[1]_B + a_1[x]_B + ... + a_n[x^n]_B \\
+&amp;= \begin{bmatrix} [1]_B &amp; [x]_B &amp; \cdots &amp; [x^n]_B\end{bmatrix}
     \begin{bmatrix} a_0 \\ \vdots \\ a_n \end{bmatrix}\end{align*}$$</p>
+
 <p>So, the multiplication of this matrix and the coordinate vector of p(x) with respect to the standard basis gives us the coordinates of p(x) with respect to the new basis B.</p>
-<h4 id="definition-change-of-coordinates-matrix"><a name="user-content-definition-change-of-coordinates-matrix" href="#definition-change-of-coordinates-matrix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Change of Coordinates Matrix</h4>
-<p>Let B = {$\vsetn$} and C both be bases for a vector space $\bv$. The <strong>change of coordinates matrix</strong> from B-coordinates to C-coordinates is defined by<br />
-$$_CP_B=\begin{bmatrix}[\v{v_1}]_C &amp; \cdots &amp; [\v{v_n}]_C \end{bmatrix}$$<br />
-and for any $\vx\in\bv$ we have<br />
+
+<h4>
+<a id="user-content-definition-change-of-coordinates-matrix" class="anchor" href="#definition-change-of-coordinates-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Change of Coordinates Matrix</h4>
+
+<p>Let B = {$\vsetn$} and C both be bases for a vector space $\bv$. The <strong>change of coordinates matrix</strong> from B-coordinates to C-coordinates is defined by
+$$_CP_B=\begin{bmatrix}[\v{v_1}]_C &amp; \cdots &amp; [\v{v_n}]_C \end{bmatrix}$$
+and for any $\vx\in\bv$ we have
 $$[\vx]_C=_CP_B[\vx]_B$$</p>
-<h4 id="theorem-3_2"><a name="user-content-theorem-3_2" href="#theorem-3_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
-<p>If B and C are bases for an n-dimensional vector space $\bv$, then the change of coordinate matrices $_CP_B$ and $_BP_C$ satisfy $_CP_B$$_BP_C=I=_BP_C$$_CP_B$</p></article></body></html>
+
+<h4>
+<a id="user-content-theorem-3-2" class="anchor" href="#theorem-3-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
+<p>If B and C are bases for an n-dimensional vector space $\bv$, then the change of coordinate matrices $_CP_B$ and $_BP_C$ satisfy $_CP_B$$_BP_C=I=_BP_C$$_CP_B$</p>
+</article></body></html>

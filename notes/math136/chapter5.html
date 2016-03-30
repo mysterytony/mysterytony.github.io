@@ -1,39 +1,41 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
-  width: 45em;
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 16px auto;
-}
-
-body .markdown-body
-{
-  padding: 30px;
-}
-
-@font-face {
-  font-family: fontawesome-mini;
-  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAzUABAAAAAAFNgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABwAAAAcZMzaOEdERUYAAAGIAAAAHQAAACAAOQAET1MvMgAAAagAAAA+AAAAYHqhde9jbWFwAAAB6AAAAFIAAAFa4azkLWN2dCAAAAI8AAAAKAAAACgFgwioZnBnbQAAAmQAAAGxAAACZVO0L6dnYXNwAAAEGAAAAAgAAAAIAAAAEGdseWYAAAQgAAAFDgAACMz7eroHaGVhZAAACTAAAAAwAAAANgWEOEloaGVhAAAJYAAAAB0AAAAkDGEGa2htdHgAAAmAAAAAEwAAADBEgAAQbG9jYQAACZQAAAAaAAAAGgsICJBtYXhwAAAJsAAAACAAAAAgASgBD25hbWUAAAnQAAACZwAABOD4no+3cG9zdAAADDgAAABsAAAAmF+yXM9wcmVwAAAMpAAAAC4AAAAusPIrFAAAAAEAAAAAyYlvMQAAAADLVHQgAAAAAM/u9uZ4nGNgZGBg4ANiCQYQYGJgBEJuIGYB8xgABMMAPgAAAHicY2Bm42OcwMDKwMLSw2LMwMDQBqGZihmiwHycoKCyqJjB4YPDh4NsDP+BfNb3DIuAFCOSEgUGRgAKDgt4AAB4nGNgYGBmgGAZBkYGEAgB8hjBfBYGCyDNxcDBwMTA9MHhQ9SHrA8H//9nYACyQyFs/sP86/kX8HtB9UIBIxsDXICRCUgwMaACRoZhDwA3fxKSAAAAAAHyAHABJQB/AIEAdAFGAOsBIwC/ALgAxACGAGYAugBNACcA/wCIeJxdUbtOW0EQ3Q0PA4HE2CA52hSzmZDGe6EFCcTVjWJkO4XlCGk3cpGLcQEfQIFEDdqvGaChpEibBiEXSHxCPiESM2uIojQ7O7NzzpkzS8qRqnfpa89T5ySQwt0GzTb9Tki1swD3pOvrjYy0gwdabGb0ynX7/gsGm9GUO2oA5T1vKQ8ZTTuBWrSn/tH8Cob7/B/zOxi0NNP01DoJ6SEE5ptxS4PvGc26yw/6gtXhYjAwpJim4i4/plL+tzTnasuwtZHRvIMzEfnJNEBTa20Emv7UIdXzcRRLkMumsTaYmLL+JBPBhcl0VVO1zPjawV2ys+hggyrNgQfYw1Z5DB4ODyYU0rckyiwNEfZiq8QIEZMcCjnl3Mn+pED5SBLGvElKO+OGtQbGkdfAoDZPs/88m01tbx3C+FkcwXe/GUs6+MiG2hgRYjtiKYAJREJGVfmGGs+9LAbkUvvPQJSA5fGPf50ItO7YRDyXtXUOMVYIen7b3PLLirtWuc6LQndvqmqo0inN+17OvscDnh4Lw0FjwZvP+/5Kgfo8LK40aA4EQ3o3ev+iteqIq7wXPrIn07+xWgAAAAABAAH//wAPeJyFlctvG1UUh+/12DPN1B7P3JnYjj2Ox4/MuDHxJH5N3UdaEUQLqBIkfQQioJWQ6AMEQkIqsPGCPwA1otuWSmTBhjtps2ADWbJg3EpIXbGouqSbCraJw7kzNo2dRN1cnXN1ZvT7zuuiMEI7ncizyA0URofRBJpCdbQuIFShYY+GZRrxMDVtih5TwQPHtXDFFSIKoWIbuREBjLH27Ny4MsbVx+uOJThavebgVrNRLAiYx06rXsvhxLgWx9xpfHdrs/ekc2Pl2cpPCVEITQpwbj8VQhfXSq2m+Wxqaq2D73Kne5e3NjHqQNj3CRYlJlgUl/jRNP+2Gs2pNYRQiOnmUaQDqm30KqKiTTWPWjboxnTWpvgxjXo0KrtZXAHt7hwIz0YVcj88JnKlJKi3NPAwLyDwZudSmJSMMJFDYaOkaol6XtESx3Gt1VTytdZJ3DCLeaVhVnCBH1fycHTxFXwPX+l2e3d6H/TufGGmMTLTnbSJUdo00zuBswMO/nl3YLeL/wnu9/limCuD3vC54h5NBVz6Li414AI8Vx3iiosKcQXUbrvhFFiYb++HN4DaF4XzFW0fIN4XDWJ3a3XQoq9V8WiyRmdsatV9xUcHims1JloH0YUa090G3Tro3mC6c01f+YwCPquINr1PTaCP6rVTOOmf0GE2dBc7zWIhji3/5MchSuBHgDbU99RMWt3YUNMZMJmx92YP6NsHx/5/M1yvInpnkIOM3Z8fA3JQ2lW1RFC1KaBPDFXNAHYYvGy73aYZZZ3HifbeuiVZCpwA3oQBs0wGPYJbJfg60xrKEbKiNtTe1adwrpBRwlAuQ3q3VRaX0QmQ9a49BTSCuF1MLfQ6+tinOubRBZuWPNoMevGMT+V41KitO1is3D/tpMcq1JHZqDHGs8DoYGDkxJgKjHROeTCmhZvzPm9pod+ltKm4PN7Dyvvldlpsg8D+4AUJZ3F/JBstZz7cbFRxsaAGV6yX/dkcycWf8eS3QlQea+YLjdm3yrOnrhFpUyKVvFE4lpv4bO3Svx/6F/4xmiDu/RT5iI++lko18mY1oX+5UGKR6kmVjM/Zb76yfHtxy+h/SyQ0lLdpdKy/lWB6szatetQJ8nZ80A2Qt6ift6gJeavU3BO4gtxs/KCtNPVibCtYCWY3SIlSBPKXZALXiIR9oZeJ1AuMyxLpHIy/yO7vSiSE+kZvk0ihJ30HgHfzZtEMmvV58x6dtqns0XTAW7Vdm4HJ04OCp/crOO7rd9SGxQAE/mVA9xRN+kVSMRFF6S9JFGUtthkjBA5tFCWc2l4V43Ex9GmUP3SI37Jjmir9KqlaDJ4S4JB3vuM/jzyH1+8MuoZ+QGzfnvPoJb96cZlWjMcKLfgDwB7E634JTY+asjsPzS5CiVnEWY+KsrsIN5rn3mAPjqmQBxGjcGKB9f9ZxY3mYC2L85CJ2FXIxKKyHk+dg0FHbuEc7D5NzWUX32WxFcWNGRAbvwSx0RmIXVDuYySafluQBmzA/ssqJAMLnli+WIC90Gw4lm85wcp0qjArEDPJJV/sSx4P9ungTpgMw5gVC1XO4uULq0s3v1rqLi0vX/z65vlH50f8T/RHmSPTk5xxWBWOluMT6WiOy+tdvWxlV/XQb3o3c6Ssr+r6I708GsX9/nzp1tKFh0s3v7m4vAy/Hnb/KMOvc1wump6Il48K6mGDy02X9Yd65pa+nQIjk76lWxCkG8NBCP0HQS9IpAAAeJxjYGRgYGBhcCrq214Qz2/zlUGenQEEzr/77oug/zewFbB+AHI5GJhAogBwKQ0qeJxjYGRgYH3/P46BgZ0BBNgKGBgZUAEPAE/7At0AAAB4nGNngAB2IGYjhBsYBAAIYADVAAAAAAAAAAAAAFwAyAEeAaACCgKmAx4DggRmAAAAAQAAAAwAagAEAAAAAAACAAEAAgAWAAABAAChAAAAAHiclZI7bxQxFIWPd/JkUYQChEhIyAVKgdBMskm1QkKrRETpQiLRUczueB/K7HhlOxttg8LvoKPgP9DxFxANDR0tHRWi4NjrPIBEgh1p/dm+vufcawNYFWsQmP6e4jSyQB2fI9cwj++RE9wTjyPP4LYoI89iWbyLPIe6+Bh5Hs9rryMv4GbtW+RF3EhuRa7jbrIbeQkPkjdUETOLnL0Kip4FVvAhco1RXyMnSPEz8gzWxE7kWTwUp5HnsCLeR57HW/El8gJWa58iL+JO7UfkOh4l9yMv4UnyEtvQGGECgwF66MNBooF1bGCL1ELB/TYU+ZBRlvsKQ44Se6jQ4a7hef+fh72Crv25kp+8lNWGmeKoOI5jJLb1aGIGvb6TjfWNLdkqdFvJw4l1amjlXtXRZqRN7lSRylZZyhBqpVFWmTEXgWfUrpi/hZOQXdOd4rKuXOtEWT3k5IArPRzTUU5tHKjecZkTpnVbNOnt6jzN8240GD4xtikvZW56043rPMg/dS+dlOceXoR+WPbJ55Dsekq1lJpnypsMUsYOdCW30o103Ytu/lvh+5RWFLfBjm9/N8hJntPhvx92rnoE/kyHdGasGy754kw36vsVf/lFeBi+0COu+cfgQr42G3CRpeLoZ53gmfe3X6rcKt5oVxnptHR9JS8ehVUd5wvvahN2uqxOOpMXapibI5k7Zwbt4xBSaTfoKBufhAnO/uqNcfK8OTs0OQ6l7JIqFjDhYj5WcjevCnI/1DDiI8j4ndWb/5YzDZWh79yomWXeXj7Nnw70/2TIeFPTrlSh89k1ObOSRVZWZfgF0r/zJQB4nG2JUQuCQBCEd07TTg36fb2IyBaLd3vWaUh/vmSJnvpgmG8YcmS8X3Shf3R7QA4OBUocUKHGER5NNbOOEvwc1txnuWkTRb/aPjimJ5vXabI+3VfOiyS15UWvyezM2xiGOPyuMohOH8O8JiO4Af+FsAGNAEuwCFBYsQEBjlmxRgYrWCGwEFlLsBRSWCGwgFkdsAYrXFhZsBQrAAA=) format('woff');
-}
-
-@font-face {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
   font-family: octicons-anchor;
   src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 .markdown-body {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #333333;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
 }
 
 .markdown-body a {
-  background: transparent;
+  background-color: transparent;
 }
 
 .markdown-body a:active,
@@ -41,30 +43,8 @@ body .markdown-body
   outline: 0;
 }
 
-.markdown-body b,
 .markdown-body strong {
   font-weight: bold;
-}
-
-.markdown-body mark {
-  background: #ff0;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body sub,
-.markdown-body sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-.markdown-body sup {
-  top: -0.5em;
-}
-.markdown-body sub {
-  bottom: -0.25em;
 }
 
 .markdown-body h1 {
@@ -77,7 +57,6 @@ body .markdown-body
 }
 
 .markdown-body hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -88,8 +67,7 @@ body .markdown-body
 
 .markdown-body code,
 .markdown-body kbd,
-.markdown-body pre,
-.markdown-body samp {
+.markdown-body pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
@@ -123,81 +101,16 @@ body .markdown-body
   padding: 0;
 }
 
-.markdown-body .codehilitetable {
-  border: 0;
-  border-spacing: 0;
-}
-
-.markdown-body .codehilitetable tr {
-  border: 0;
-}
-
-.markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite {
-  margin: 0;
-}
-
-.markdown-body .linenos,
-.markdown-body .code,
-.markdown-body .codehilitetable td {
-  border: 0;
-  padding: 0;
-}
-
-.markdown-body td:not(.linenos) .linenodiv {
-  padding: 0 !important;
-}
-
-.markdown-body .code {
-  width: 100%;
-}
-
-.markdown-body .linenos div pre,
-.markdown-body .linenodiv pre,
-.markdown-body .linenodiv {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.markdown-body .code div pre,
-.markdown-body .code div {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.markdown-body * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 .markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.4;
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .markdown-body a {
-  color: #4183c4;
+  color: #4078c0;
   text-decoration: none;
 }
 
 .markdown-body a:hover,
-.markdown-body a:focus,
 .markdown-body a:active {
   text-decoration: underline;
 }
@@ -211,14 +124,15 @@ body .markdown-body
   border-bottom: 1px solid #ddd;
 }
 
-.markdown-body hr:before,
-.markdown-body hr:after {
+.markdown-body hr:before {
   display: table;
-  content: " ";
+  content: "";
 }
 
 .markdown-body hr:after {
+  display: table;
   clear: both;
+  content: "";
 }
 
 .markdown-body h1,
@@ -283,9 +197,7 @@ body .markdown-body
   margin-left: 0;
 }
 
-.markdown-body code,
-.markdown-body pre,
-.markdown-body samp {
+.markdown-body code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
@@ -293,21 +205,39 @@ body .markdown-body
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-.markdown-body kbd {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-  background-image: linear-gradient(#fefefe, #e7e7e7);
-  background-repeat: repeat-x;
-  border-radius: 2px;
-  border: 1px solid #cfcfcf;
-  color: #000;
-  padding: 3px 5px;
-  line-height: 10px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
   display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
 }
 
 .markdown-body>*:first-child {
@@ -318,18 +248,18 @@ body .markdown-body
   margin-bottom: 0 !important;
 }
 
-.markdown-body .headeranchor-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  padding-right: 6px;
-  padding-left: 30px;
-  margin-left: -30px;
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
 }
 
-.markdown-body .headeranchor-link:focus {
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
   outline: none;
 }
 
@@ -339,44 +269,39 @@ body .markdown-body
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  position: relative;
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
 
-.markdown-body h1 .headeranchor,
-.markdown-body h2 .headeranchor,
-.markdown-body h3 .headeranchor,
-.markdown-body h4 .headeranchor,
-.markdown-body h5 .headeranchor,
-.markdown-body h6 .headeranchor {
-  display: none;
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
   color: #000;
   vertical-align: middle;
+  visibility: hidden;
 }
 
-.markdown-body h1:hover .headeranchor-link,
-.markdown-body h2:hover .headeranchor-link,
-.markdown-body h3:hover .headeranchor-link,
-.markdown-body h4:hover .headeranchor-link,
-.markdown-body h5:hover .headeranchor-link,
-.markdown-body h6:hover .headeranchor-link {
-  height: 1em;
-  padding-left: 8px;
-  margin-left: -30px;
-  line-height: 1;
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
   text-decoration: none;
 }
 
-.markdown-body h1:hover .headeranchor-link .headeranchor,
-.markdown-body h2:hover .headeranchor-link .headeranchor,
-.markdown-body h3:hover .headeranchor-link .headeranchor,
-.markdown-body h4:hover .headeranchor-link .headeranchor,
-.markdown-body h5:hover .headeranchor-link .headeranchor,
-.markdown-body h6:hover .headeranchor-link .headeranchor {
-  display: inline-block;
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
 }
 
 .markdown-body h1 {
@@ -386,6 +311,10 @@ body .markdown-body
   border-bottom: 1px solid #eee;
 }
 
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
 .markdown-body h2 {
   padding-bottom: 0.3em;
   font-size: 1.75em;
@@ -393,22 +322,42 @@ body .markdown-body
   border-bottom: 1px solid #eee;
 }
 
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
 .markdown-body h3 {
   font-size: 1.5em;
   line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
 }
 
 .markdown-body h4 {
   font-size: 1.25em;
 }
 
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
 .markdown-body h5 {
   font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
 }
 
 .markdown-body h6 {
   font-size: 1em;
   color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
 }
 
 .markdown-body p,
@@ -417,8 +366,7 @@ body .markdown-body
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
-.markdown-body pre,
-.markdown-body .admonition {
+.markdown-body pre {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -508,12 +456,11 @@ body .markdown-body
 
 .markdown-body img {
   max-width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: content-box;
+  background-color: #fff;
 }
 
-.markdown-body code,
-.markdown-body samp {
+.markdown-body code {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -539,11 +486,11 @@ body .markdown-body
   border: 0;
 }
 
-.markdown-body .codehilite {
+.markdown-body .highlight {
   margin-bottom: 16px;
 }
 
-.markdown-body .codehilite pre,
+.markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -553,7 +500,7 @@ body .markdown-body
   border-radius: 3px;
 }
 
-.markdown-body .codehilite pre {
+.markdown-body .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
@@ -579,325 +526,136 @@ body .markdown-body
   content: normal;
 }
 
-/* Admonition */
-.markdown-body .admonition {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  position: relative;
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
   border-radius: 3px;
-  border: 1px solid #e0e0e0;
-  border-left: 6px solid #333;
-  padding: 10px 10px 10px 30px;
+  box-shadow: inset 0 -1px 0 #bbb;
 }
 
-.markdown-body .admonition table {
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
   color: #333;
 }
 
-.markdown-body .admonition p {
-  padding: 0;
+.markdown-body .pl-ent {
+  color: #63a35c;
 }
 
-.markdown-body .admonition-title {
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
   font-weight: bold;
-  margin: 0;
 }
 
-.markdown-body .admonition>.admonition-title {
-  color: #333;
+.markdown-body .pl-ml {
+  color: #693a17;
 }
 
-.markdown-body .attention>.admonition-title {
-  color: #a6d796;
-}
-
-.markdown-body .caution>.admonition-title {
-  color: #d7a796;
-}
-
-.markdown-body .hint>.admonition-title {
-  color: #96c6d7;
-}
-
-.markdown-body .danger>.admonition-title {
-  color: #c25f77;
-}
-
-.markdown-body .question>.admonition-title {
-  color: #96a6d7;
-}
-
-.markdown-body .note>.admonition-title {
-  color: #d7c896;
-}
-
-.markdown-body .admonition:before,
-.markdown-body .attention:before,
-.markdown-body .caution:before,
-.markdown-body .hint:before,
-.markdown-body .danger:before,
-.markdown-body .question:before,
-.markdown-body .note:before {
-  font: normal normal 16px fontawesome-mini;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  line-height: 1.5;
-  color: #333;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
-.markdown-body .admonition:before {
-  content: "\f056\00a0";
-  color: 333;
-}
-
-.markdown-body .attention:before {
-  content: "\f058\00a0";
-  color: #a6d796;
-}
-
-.markdown-body .caution:before {
-  content: "\f06a\00a0";
-  color: #d7a796;
-}
-
-.markdown-body .hint:before {
-  content: "\f05a\00a0";
-  color: #96c6d7;
-}
-
-.markdown-body .danger:before {
-  content: "\f057\00a0";
-  color: #c25f77;
-}
-
-.markdown-body .question:before {
-  content: "\f059\00a0";
-  color: #96a6d7;
-}
-
-.markdown-body .note:before {
-  content: "\f040\00a0";
-  color: #d7c896;
-}
-
-.markdown-body .admonition::after {
-  content: normal;
-}
-
-.markdown-body .attention {
-  border-left: 6px solid #a6d796;
-}
-
-.markdown-body .caution {
-  border-left: 6px solid #d7a796;
-}
-
-.markdown-body .hint {
-  border-left: 6px solid #96c6d7;
-}
-
-.markdown-body .danger {
-  border-left: 6px solid #c25f77;
-}
-
-.markdown-body .question {
-  border-left: 6px solid #96a6d7;
-}
-
-.markdown-body .note {
-  border-left: 6px solid #d7c896;
-}
-
-.markdown-body .admonition>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body .admonition>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* progress bar*/
-.markdown-body .progress {
-  display: block;
-  width: 300px;
-  margin: 10px 0;
-  height: 24px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #ededed;
-  position: relative;
-  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
-}
-
-.markdown-body .progress-label {
-  position: absolute;
-  text-align: center;
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
   font-weight: bold;
-  width: 100%; margin: 0;
-  line-height: 24px;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
   color: #333;
-  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
-  -webkit-font-smoothing: antialiased !important;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.markdown-body .progress-bar {
-  height: 24px;
-  float: left;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #96c6d7;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
-  background-size: 30px 30px;
-  background-image: -webkit-linear-gradient(
-    135deg, rgba(255, 255, 255, .4) 27%,
-    transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%,
-    transparent 77%, transparent
-  );
-  background-image: -moz-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -ms-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -o-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-}
-
-.markdown-body .progress-100plus .progress-bar {
-  background-color: #a6d796;
-}
-
-.markdown-body .progress-80plus .progress-bar {
-  background-color: #c6d796;
-}
-
-.markdown-body .progress-60plus .progress-bar {
-  background-color: #d7c896;
-}
-
-.markdown-body .progress-40plus .progress-bar {
-  background-color: #d7a796;
-}
-
-.markdown-body .progress-20plus .progress-bar {
-  background-color: #d796a6;
-}
-
-.markdown-body .progress-0plus .progress-bar {
-  background-color: #c25f77;
-}
-
-.markdown-body .candystripe-animate .progress-bar{
-  -webkit-animation: animate-stripes 3s linear infinite;
-  -moz-animation: animate-stripes 3s linear infinite;
-  animation: animate-stripes 3s linear infinite;
-}
-
-@-webkit-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@-moz-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-.markdown-body .gloss .progress-bar {
-  box-shadow:
-    inset 0 4px 12px rgba(255, 255, 255, .7),
-    inset 0 -12px 0 rgba(0, 0, 0, .05);
-}
-
-/* Multimarkdown Critic Blocks */
-.markdown-body .critic_mark {
-  background: #ff0;
-}
-
-.markdown-body .critic_delete {
-  color: #c82829;
-  text-decoration: line-through;
-}
-
-.markdown-body .critic_insert {
-  color: #718c00 ;
-  text-decoration: underline;
-}
-
-.markdown-body .critic_comment {
-  color: #8e908c;
   font-style: italic;
 }
 
-.markdown-body .headeranchor {
-  font: normal normal 16px octicons-anchor;
-  line-height: 1;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
 }
 
-.headeranchor:before {
-  content: '\f05c';
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
 }
 
 .markdown-body .task-list-item {
@@ -909,110 +667,59 @@ body .markdown-body
 }
 
 .markdown-body .task-list-item input {
-  margin: 0 4px 0.25em -20px;
+  margin: 0 0.35em 0.25em -1.6em;
   vertical-align: middle;
 }
 
-/* Media */
-@media only screen and (min-width: 480px) {
-  .markdown-body {
-    font-size:14px;
-  }
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
 }
 
-@media only screen and (min-width: 768px) {
-  .markdown-body {
-    font-size:16px;
-  }
+.markdown-body .plan-choice.open {
+  background-color: #fff;
 }
 
-@media print {
-  .markdown-body * {
-    background: transparent !important;
-    color: black !important;
-    filter:none !important;
-    -ms-filter: none !important;
-  }
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
 
-  .markdown-body {
-    font-size:12pt;
-    max-width:100%;
-    outline:none;
-    border: 0;
-  }
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
 
-  .markdown-body a,
-  .markdown-body a:visited {
-    text-decoration: underline;
-  }
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
 
-  .markdown-body .headeranchor-link {
-    display: none;
-  }
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
 
-  .markdown-body a[href]:after {
-    content: " (" attr(href) ")";
-  }
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
-  .markdown-body abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
 
-  .markdown-body .ir a:after,
-  .markdown-body a[href^="javascript:"]:after,
-  .markdown-body a[href^="#"]:after {
-    content: "";
-  }
-
-  .markdown-body pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  .markdown-body pre,
-  .markdown-body blockquote {
-    border: 1px solid #999;
-    padding-right: 1em;
-    page-break-inside: avoid;
-  }
-
-  .markdown-body .progress,
-  .markdown-body .progress-bar {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-
-  .markdown-body .progress {
-    border: 1px solid #ddd;
-  }
-
-  .markdown-body .progress-bar {
-    height: 22px;
-    border-right: 1px solid #ddd;
-  }
-
-  .markdown-body tr,
-  .markdown-body img {
-    page-break-inside: avoid;
-  }
-
-  .markdown-body img {
-    max-width: 100% !important;
-  }
-
-  .markdown-body p,
-  .markdown-body h2,
-  .markdown-body h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  .markdown-body h2,
-  .markdown-body h3 {
-    page-break-after: avoid;
-  }
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
 }
 </style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
@@ -1041,211 +748,383 @@ MathJax.Hub.Config({
 });
 </script>
 <title>chapter5</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
-<h1 id="chapter-5-inverses-and-determinantsnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbvnewcommandxtimesnewcommandbmbeginbmatrixnewcommandbmendendbmatrixnewcommandvmbeginvmatrixnewcommandvmendendvmatrix"><a name="user-content-chapter-5-inverses-and-determinantsnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbvnewcommandxtimesnewcommandbmbeginbmatrixnewcommandbmendendbmatrixnewcommandvmbeginvmatrixnewcommandvmendendvmatrix" href="#chapter-5-inverses-and-determinantsnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbvnewcommandxtimesnewcommandbmbeginbmatrixnewcommandbmendendbmatrixnewcommandvmbeginvmatrixnewcommandvmendendvmatrix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 5: Inverses and Determinants$\newcommand{\v}{\vec}$$\newcommand{\b}{\mathbb}$$\newcommand{\vsetk}{\v{v_1},\cdots,\v{v_k}}$$\newcommand{\vsetn}{\v{v_1},\cdots,\v{v_n}}$$\newcommand{\vx}{\vec{x}}$$\newcommand{\bv}{\mathbb{V}}\newcommand{\x}{\times}$$\newcommand{\bm}{\begin{bmatrix}}$$\newcommand{\bmend}{\end{bmatrix}}$$\newcommand{\vm}{\begin{vmatrix}}$$\newcommand{\vmend}{\end{vmatrix}}$</h1>
-<h2 id="51-matrix-inverses"><a name="user-content-51-matrix-inverses" href="#51-matrix-inverses" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 Matrix Inverses</h2>
-<h4 id="definition-left-and-right-inverse"><a name="user-content-definition-left-and-right-inverse" href="#definition-left-and-right-inverse" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Left and Right Inverse</h4>
+
+<h1>
+<a id="user-content-chapter-5-inverses-and-determinantsnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbvnewcommandxtimesnewcommandbmbeginbmatrixnewcommandbmendendbmatrixnewcommandvmbeginvmatrixnewcommandvmendendvmatrix" class="anchor" href="#chapter-5-inverses-and-determinantsnewcommandvvecnewcommandbmathbbnewcommandvsetkvv_1cdotsvv_knewcommandvsetnvv_1cdotsvv_nnewcommandvxvecxnewcommandbvmathbbvnewcommandxtimesnewcommandbmbeginbmatrixnewcommandbmendendbmatrixnewcommandvmbeginvmatrixnewcommandvmendendvmatrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 5: Inverses and Determinants$\newcommand{\v}{\vec}$$\newcommand{\b}{\mathbb}$$\newcommand{\vsetk}{\v{v_1},\cdots,\v{v_k}}$$\newcommand{\vsetn}{\v{v_1},\cdots,\v{v_n}}$$\newcommand{\vx}{\vec{x}}$$\newcommand{\bv}{\mathbb{V}}\newcommand{\x}{\times}$$\newcommand{\bm}{\begin{bmatrix}}$$\newcommand{\bmend}{\end{bmatrix}}$$\newcommand{\vm}{\begin{vmatrix}}$$\newcommand{\vmend}{\end{vmatrix}}$</h1>
+
+<h2>
+<a id="user-content-51-matrix-inverses" class="anchor" href="#51-matrix-inverses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.1 Matrix Inverses</h2>
+
+<h4>
+<a id="user-content-definition-left-and-right-inverse" class="anchor" href="#definition-left-and-right-inverse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Left and Right Inverse</h4>
+
 <p>Let $A$ be an $m\x n$ matrix. If $B$ is an $n\x m$ matrix such that $AB=I_m$, then $B$ is called a <strong>right inverse</strong> of $A$. If $C$ is an $n\x n$ matrix such at $CA=I_m$, then $C$ is called a <strong>left inverse</strong> of $A$.</p>
+
 <blockquote>
 <p>How would we try to find a right inverse of an $m\x n$ matrix $A$? We want to find an $n\x m$ matrix $B=\begin{bmatrix}\v{b_1} &amp; \cdots &amp; \v{b_m}\end{bmatrix}$ such that</p>
-<p>$$\begin{align*} <br />
-I_m &amp;= AB \\<br />
-I_m &amp;= A\begin{bmatrix}\v{b_1} &amp; \cdots &amp; \v{b_m}\end{bmatrix} \\<br />
-\begin{bmatrix}\v{e_1} &amp; \cdots &amp; \v{e_m}\end{bmatrix} &amp;= \begin{bmatrix}A\v{b_1} &amp; \cdots &amp; A\v{b_m}\end{bmatrix}<br />
+
+<p>$$\begin{align*} 
+I_m &amp;= AB \\
+I_m &amp;= A\begin{bmatrix}\v{b_1} &amp; \cdots &amp; \v{b_m}\end{bmatrix} \\
+\begin{bmatrix}\v{e_1} &amp; \cdots &amp; \v{e_m}\end{bmatrix} &amp;= \begin{bmatrix}A\v{b_1} &amp; \cdots &amp; A\v{b_m}\end{bmatrix}
 \end{align*}$$</p>
+
 <p>Comparing columns, we see that we need to find $\v{b_i}$ such that $A\v{b_i}=\v{e_i}$ for $1\leq i\leq m$. But, this is just solving m systems of linear equations with the same coefficient matrix. To do this, we row reduce the multiple augmented matrix $\begin{bmatrix}A&amp;|&amp;I_m\end{bmatrix}$ to RREF.</p>
+
 <p>For This to work, we require that all m system are consistent. So by Theorem 2.2.5(3), rank(A) = m. Hence, by Theorem 2.2.4, we must $n\geq m$.</p>
+
 <p>Moreover, if $n&lt;m$, then by Theorem 2.2.5(2) we will have infinitely many solutions and hence infinitely many right inverses.</p>
+
 <p>On the other hand, if $n&lt;m$, then all the systems cannot be consistent and hence $A$ cannot have a right inverse.</p>
 </blockquote>
-<h4 id="theorem-1"><a name="user-content-theorem-1" href="#theorem-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+
+<h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
 <p>If $A$ is an $m\x n$ matrix with $m&gt;n$, then $A$ cannot have a right inverse.</p>
-<h4 id="corollary-2"><a name="user-content-corollary-2" href="#corollary-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 2</h4>
+
+<h4>
+<a id="user-content-corollary-2" class="anchor" href="#corollary-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 2</h4>
+
 <p>If $A$ is an $m\x n$ matrix with $m&lt;n$, then $A$ cannot have a left inverse.</p>
-<h4 id="definition-square-matrix"><a name="user-content-definition-square-matrix" href="#definition-square-matrix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Square Matrix</h4>
+
+<h4>
+<a id="user-content-definition-square-matrix" class="anchor" href="#definition-square-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Square Matrix</h4>
+
 <p>An $n\x n$ matrix is called a <strong>square matrix</strong></p>
-<h4 id="theorem-3"><a name="user-content-theorem-3" href="#theorem-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+
+<h4>
+<a id="user-content-theorem-3" class="anchor" href="#theorem-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
 <p>If $A$, $B$, and $C$ are $n\x n$ matrices such that $AB=I=BA$, then $B=C$.</p>
-<h4 id="definition-matrix-inverse-invertible"><a name="user-content-definition-matrix-inverse-invertible" href="#definition-matrix-inverse-invertible" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Matrix Inverse, Invertible</h4>
+
+<h4>
+<a id="user-content-definition-matrix-inverse-invertible" class="anchor" href="#definition-matrix-inverse-invertible" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Matrix Inverse, Invertible</h4>
+
 <p>Let $A$ be an $n\x n$ matrix. If $B$ is a matrix such that $AB=I=BA$, then $B$ is called the <strong>inverse</strong> of $A$. We write $B=A^{-1}$ and we say the $A$ is <strong>invertible</strong>.</p>
-<h4 id="remarks"><a name="user-content-remarks" href="#remarks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remarks</h4>
+
+<h4>
+<a id="user-content-remarks" class="anchor" href="#remarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remarks</h4>
+
 <ol>
-<li>Observe from the definition that if $B=A^{-1}$, then $B$ is invertible and $A=B^{-1}$.</li>
-<li>In the definition we said that $B$ is &lsquo;the&rsquo; inverse of $A$. The fact that the inverse of a matrix is unique follows immediately from Theorem 3.</li>
+<li> Observe from the definition that if $B=A^{-1}$, then $B$ is invertible and $A=B^{-1}$.</li>
+<li> In the definition we said that $B$ is 'the' inverse of $A$. The fact that the inverse of a matrix is unique follows immediately from Theorem 3.</li>
 </ol>
-<h4 id="theorem-4"><a name="user-content-theorem-4" href="#theorem-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+
+<h4>
+<a id="user-content-theorem-4" class="anchor" href="#theorem-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4</h4>
+
 <p>If $A$ and $B$ are $n\x n$ matrices such that $AB=I$, then $A$ and $B$ are invertible and rank$A$=rank$B=n$.</p>
-<h4 id="theorem-5"><a name="user-content-theorem-5" href="#theorem-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 5</h4>
+
+<h4>
+<a id="user-content-theorem-5" class="anchor" href="#theorem-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 5</h4>
+
 <p>If $A$ and $B$ are invertible matrices and $c\in\b{R}$ with $c\neq0$, then</p>
+
 <ol>
-<li>$(cA)^{-1}=\frac{1}{c}A^{-1}$</li>
-<li>$(A^T)^{-1}=(A^{-1})^T$</li>
-<li>$(AB)^{-1}=B^{-1}A^{-1}$</li>
+<li> $(cA)^{-1}=\frac{1}{c}A^{-1}$</li>
+<li> $(A^T)^{-1}=(A^{-1})^T$</li>
+<li> $(AB)^{-1}=B^{-1}A^{-1}$</li>
 </ol>
-<h4 id="theorem-6"><a name="user-content-theorem-6" href="#theorem-6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 6</h4>
+
+<h4>
+<a id="user-content-theorem-6" class="anchor" href="#theorem-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 6</h4>
+
 <p>If $A$ is an $n\x n$ matrix such that rank$A=n$, then $A$ is invertible.</p>
+
 <blockquote>
-<p>The columns of the inverse are the vectors $\v{b_i}$ such that $A\v{b_i}=\v{e_i}$ for $1\leq i\leq n$. Since each of these systems have the same coefficient matrix $A$, we can solve them by making one multiple augmented matrix and row reducing. In particular, assuming that $A$ is invertible we get<br />
+<p>The columns of the inverse are the vectors $\v{b_i}$ such that $A\v{b_i}=\v{e_i}$ for $1\leq i\leq n$. Since each of these systems have the same coefficient matrix $A$, we can solve them by making one multiple augmented matrix and row reducing. In particular, assuming that $A$ is invertible we get
 $$[A|I]~[I|A^{-1}]$$</p>
 </blockquote>
-<h4 id="theorem-7-invertible-matrix-theorem"><a name="user-content-theorem-7-invertible-matrix-theorem" href="#theorem-7-invertible-matrix-theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 7: Invertible Matrix Theorem</h4>
+
+<h4>
+<a id="user-content-theorem-7-invertible-matrix-theorem" class="anchor" href="#theorem-7-invertible-matrix-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 7: Invertible Matrix Theorem</h4>
+
 <p>For any $n\x n$ matrix $A$, the following are equivalent:</p>
+
 <ol>
-<li>$A$ is invertible</li>
-<li>The RREF of $A$ is $I$</li>
-<li>rank$A=n$</li>
-<li>The system of equations $A\vx=\v{b}$ is consistent with a unique solution for all $\v{b}\in\b{R}^n$</li>
-<li>The nullspace of $A$ is {$\v{0}$}</li>
-<li>The columns of $A$ forms a basis for $\b{R}^n$</li>
-<li>The rows of $A$ forms a basis for $\b{R}^n$</li>
-<li>$A^T$ is invertible</li>
+<li> $A$ is invertible</li>
+<li> The RREF of $A$ is $I$</li>
+<li> rank$A=n$</li>
+<li> The system of equations $A\vx=\v{b}$ is consistent with a unique solution for all $\v{b}\in\b{R}^n$</li>
+<li> The nullspace of $A$ is {$\v{0}$}</li>
+<li> The columns of $A$ forms a basis for $\b{R}^n$</li>
+<li> The rows of $A$ forms a basis for $\b{R}^n$</li>
+<li> $A^T$ is invertible</li>
 </ol>
+
 <blockquote>
 <p>This theorem says that if any one of the eight items are true for an $n\x n$ matrix, then all of the other items are also true.</p>
-<p>Once we have found $A^{-1}$ we can solve any system of linear equation with coefficient matrix $A$ very quickly. Moreover, at first glance, it might seem like we are solving the system of linear equations without row reducing. However, this is an illusion. The row operations are in fact &ldquo;stored&rdquo; inside of the inverse of the matrix (we used row operations to find the inverse).</p>
+
+<p>Once we have found $A^{-1}$ we can solve any system of linear equation with coefficient matrix $A$ very quickly. Moreover, at first glance, it might seem like we are solving the system of linear equations without row reducing. However, this is an illusion. The row operations are in fact "stored" inside of the inverse of the matrix (we used row operations to find the inverse).</p>
 </blockquote>
-<h2 id="52-elementary-matrices"><a name="user-content-52-elementary-matrices" href="#52-elementary-matrices" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.2 Elementary Matrices</h2>
+
+<h2>
+<a id="user-content-52-elementary-matrices" class="anchor" href="#52-elementary-matrices" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.2 Elementary Matrices</h2>
+
 <blockquote>
-<p>Consider the system of linear equation $A\v{x}=\v{b}$ where $A$ is invertible. We compare our two methods of solving this system. First, we can solve this system using the methods of Chapter 2 to row reduce the augmented matrix:<br />
-$$[A|\v{b}]~[I|\vx]$$<br />
-Alternately, we find $A^{-1}$ using the method in the previous section. We row reduce<br />
-$$[A|I]~[I|A^{-1}]$$<br />
+<p>Consider the system of linear equation $A\v{x}=\v{b}$ where $A$ is invertible. We compare our two methods of solving this system. First, we can solve this system using the methods of Chapter 2 to row reduce the augmented matrix:
+$$[A|\v{b}]~[I|\vx]$$
+Alternately, we find $A^{-1}$ using the method in the previous section. We row reduce
+$$[A|I]~[I|A^{-1}]$$
 and then solve the system by computing $\vx=A^{-1}\v{b}$.</p>
-<p>Observe that in both methods we can use exactly the same row operations to row reduce $A$ to $I$. In the first method, we are applying those row operations directly to $\v{b}$ to determine $\vx$. Thus, in the second method the row operations used are being &ldquo;stored&rdquo; inside of $A^{-1}$ and the matrix vector product $A^{-1}\v{b}$ is &ldquo;performing&rdquo; those row operations on $\v{b}$ so that we get the same answer as in the first method.</p>
+
+<p>Observe that in both methods we can use exactly the same row operations to row reduce $A$ to $I$. In the first method, we are applying those row operations directly to $\v{b}$ to determine $\vx$. Thus, in the second method the row operations used are being "stored" inside of $A^{-1}$ and the matrix vector product $A^{-1}\v{b}$ is "performing" those row operations on $\v{b}$ so that we get the same answer as in the first method.</p>
+
 <p>This not only shows us that $A^{-1}$ is made of elementary row operations, but also that there is a close connection between matrix multiplication and performing elementary row operations.</p>
 </blockquote>
-<h4 id="definition-elementary-matrix"><a name="user-content-definition-elementary-matrix" href="#definition-elementary-matrix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Elementary Matrix</h4>
+
+<h4>
+<a id="user-content-definition-elementary-matrix" class="anchor" href="#definition-elementary-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Elementary Matrix</h4>
+
 <p>An $n\x n$ matrix $E$ is call an <strong>elementary matrix</strong> if it can be obtained from the $n\x n$ identity matrix by performing exactly one elementary row operation.</p>
+
 <blockquote>
 <p>It is clear that the RREF of every elementary matrix is $I$; we just need to perform the inverse (opposite) row operation to turn the elementary matrix $E$ back to $I$. Thus, we not only have that every elementary matrix is invertible, but the inverse is the elementary matrix associated with the reverse row operation.</p>
 </blockquote>
-<h4 id="theorem-1_1"><a name="user-content-theorem-1_1" href="#theorem-1_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
+
+<h4>
+<a id="user-content-theorem-1-1" class="anchor" href="#theorem-1-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
 <p>If $E$ is an elementary matrix, then $E$ is invertible and $E^{-1}$ is also an elementary matrix.</p>
-<h4 id="theorem-2"><a name="user-content-theorem-2" href="#theorem-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
+
+<h4>
+<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
 <p>If $A$ is an $m\x n$ matrix and $E$ is the $m\x m$ elementary matrix corresponding to the row operation $R_i+cR_j$, for $i\neq j$, then $EA$ is the matrix obtained from $A$ by performing the row operation $R_i+cR_j$ on $A$.</p>
-<h4 id="theorem-3_1"><a name="user-content-theorem-3_1" href="#theorem-3_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+
+<h4>
+<a id="user-content-theorem-3-1" class="anchor" href="#theorem-3-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
 <p>If $A$ is an $m\x n$ matrix and $E$ is the $m\x m$ elementary matrix corresponding to the row operation $cR_i$, then $EA$ is the matrix obtained from $A$ by performing the row operation $cR_i$ on $A$.</p>
-<h4 id="theorem-4_1"><a name="user-content-theorem-4_1" href="#theorem-4_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+
+<h4>
+<a id="user-content-theorem-4-1" class="anchor" href="#theorem-4-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4</h4>
+
 <p>If $A$ is an $m\x n$ matrix and $E$ is the $m\x m$ elementary matrix corresponding to the row operation $R_i\leftrightarrow R_j$, for $i\neq j$, then $EA$ is the matrix obtained from $A$ by performing the row operation $R_i\leftrightarrow R_j$ on $A$.</p>
-<h4 id="corollary-5"><a name="user-content-corollary-5" href="#corollary-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 5</h4>
-<p>If $A$ is an $m\x n$ matrix and $E$ is an $m\x m$ elementary matrix, then<br />
+
+<h4>
+<a id="user-content-corollary-5" class="anchor" href="#corollary-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 5</h4>
+
+<p>If $A$ is an $m\x n$ matrix and $E$ is an $m\x m$ elementary matrix, then
 $$rank(EA)=rank(A)$$</p>
-<h4 id="theorem-6_1"><a name="user-content-theorem-6_1" href="#theorem-6_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 6</h4>
-<p>If $A$ is an $m\x m$ matrix with reduced row echelon form $R$, then there exist a sequence $E_1,&hellip;,E_k$ of $m\x m$ elementary matrices such that $E_k\cdots E_2E_1A=R$. In particular,<br />
+
+<h4>
+<a id="user-content-theorem-6-1" class="anchor" href="#theorem-6-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 6</h4>
+
+<p>If $A$ is an $m\x m$ matrix with reduced row echelon form $R$, then there exist a sequence $E_1,...,E_k$ of $m\x m$ elementary matrices such that $E_k\cdots E_2E_1A=R$. In particular,
 $$A=E_1^{-1}E_2^{-1}\cdots E_k^{-1}R$$</p>
+
 <blockquote>
-<p>If $A$ is invertible, then we get that the RREF of $A$ is $I$. So, we can write $A$ entirely as a product of elementary matrices. Moreover, by Theorem 6 we have<br />
-$$E_k\cdots E_1A=I$$<br />
-and<br />
-$$A^{-1}=E_k\cdots E_i$$<br />
+<p>If $A$ is invertible, then we get that the RREF of $A$ is $I$. So, we can write $A$ entirely as a product of elementary matrices. Moreover, by Theorem 6 we have
+$$E_k\cdots E_1A=I$$
+and
+$$A^{-1}=E_k\cdots E_i$$
 Consequently, we can also write $A^{-1}$ as s product of elementary matrices. In particular, we have proven the following corollary</p>
 </blockquote>
-<h4 id="corollary-7"><a name="user-content-corollary-7" href="#corollary-7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 7</h4>
+
+<h4>
+<a id="user-content-corollary-7" class="anchor" href="#corollary-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 7</h4>
+
 <p>If $A$ is an $n\x n$ invertible matrix, then $A$ and $A^{-1}$ can be written as a product of elementary matrices.</p>
-<h4 id="theorem-8"><a name="user-content-theorem-8" href="#theorem-8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 8</h4>
+
+<h4>
+<a id="user-content-theorem-8" class="anchor" href="#theorem-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 8</h4>
+
 <p>If $E$ is an $m\x m$ elementary matrix, then $E_T$ is an elementary matrix.</p>
-<h2 id="53-determinants"><a name="user-content-53-determinants" href="#53-determinants" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.3 Determinants</h2>
-<h4 id="definition-2x-2-determinant"><a name="user-content-definition-2x-2-determinant" href="#definition-2x-2-determinant" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: $2\x 2$ Determinant</h4>
-<p>Let $A=\bm a &amp; b \\ b &amp; d \bmend$. The <strong>determinant</strong> of $A$ is<br />
+
+<h2>
+<a id="user-content-53-determinants" class="anchor" href="#53-determinants" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3 Determinants</h2>
+
+<h4>
+<a id="user-content-definition-2x-2-determinant" class="anchor" href="#definition-2x-2-determinant" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: $2\x 2$ Determinant</h4>
+
+<p>Let $A=\bm a &amp; b \\ b &amp; d \bmend$. The <strong>determinant</strong> of $A$ is
 $$detA=ad-bc$$</p>
-<h4 id="remark"><a name="user-content-remark" href="#remark" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
-<p>The determinant is often denoted by vertical straight lines:<br />
+
+<h4>
+<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>The determinant is often denoted by vertical straight lines:
 $$\vm a &amp; b \\ c &amp; d \vmend = det \bm a &amp; b \\ b &amp; d \bmend = ad-bc$$</p>
+
 <blockquote>
-<p>We, of course, want to extend the definition of the determinant to $n\x n$ matrices. So, we next consider the $3\x 3$ case. Let $A = \bm a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \bmend$. It can be show that $A$ is invertible if and only if<br />
-$$a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{13}a_{21}a_{32}+a_{12}a_{23}a_{31}-a_{13}a_{22}a_{31}\neq 0$$<br />
-Thus, we define<br />
+<p>We, of course, want to extend the definition of the determinant to $n\x n$ matrices. So, we next consider the $3\x 3$ case. Let $A = \bm a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \bmend$. It can be show that $A$ is invertible if and only if
+$$a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{13}a_{21}a_{32}+a_{12}a_{23}a_{31}-a_{13}a_{22}a_{31}\neq 0$$
+Thus, we define
 $$detA=a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{13}a_{21}a_{32}+a_{12}a_{23}a_{31}-a_{13}a_{22}a_{31}$$</p>
-<p>However, we would like to write the formula in a nicer form. Moreover, we would like to find some sort of pattern with this and the $2\x 2$ determinant so that we can figure out how to define the determinant for general $n\x n$ matrices. We observe that<br />
-$$a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{13}a_{21}a_{32}+a_{12}a_{23}a_{31}-a_{13}a_{22}a_{31}$$<br />
-$$=a_{11}(a_{22}a_{23}-a{23}a{32})-a_{21}(a_{12}a_{33}-a_{13}a_{32})+a_{31}(a_{12}a_{23}-a_{13}a_{22})$$<br />
-$$=a_{11}\vm a_{22} &amp; a_{23} \\ a_{32} &amp; a_{33}\vmend - a_{21}\vm a_{12} &amp; a_{13} \\ a_{32} &amp; a_{33}\vmend + a_{31}\vm a_{22} &amp; a_{13} \\ a_{22} &amp; a_{23}\vmend$$<br />
+
+<p>However, we would like to write the formula in a nicer form. Moreover, we would like to find some sort of pattern with this and the $2\x 2$ determinant so that we can figure out how to define the determinant for general $n\x n$ matrices. We observe that
+$$a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{13}a_{21}a_{32}+a_{12}a_{23}a_{31}-a_{13}a_{22}a_{31}$$
+$$=a_{11}(a_{22}a_{23}-a{23}a{32})-a_{21}(a_{12}a_{33}-a_{13}a_{32})+a_{31}(a_{12}a_{23}-a_{13}a_{22})$$
+$$=a_{11}\vm a_{22} &amp; a_{23} \\ a_{32} &amp; a_{33}\vmend - a_{21}\vm a_{12} &amp; a_{13} \\ a_{32} &amp; a_{33}\vmend + a_{31}\vm a_{22} &amp; a_{13} \\ a_{22} &amp; a_{23}\vmend$$
 Therefore, the $3\x 3$ determinant can be written as a linear combination of $2\x 2$ determinants of submatrices of $A$ where the coefficients are (plus or minus) the coefficients from the first column of $A$.</p>
+
 <p>To extend all of this to $n\x n$ matrices we will recursively use the same pattern.</p>
 </blockquote>
-<h4 id="definition-cofactor"><a name="user-content-definition-cofactor" href="#definition-cofactor" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Cofactor</h4>
-<p>Let $A$ be an $n\x n$ matrix with $n\geq 2$. Let $A(i,j)$ be the $(n-1)\x (n-1)$ matrix obtained from $A$ by deleting the $i$-th row and the $j$-th column. The <strong>cofactor</strong> of $a_{ij}$ is<br />
+
+<h4>
+<a id="user-content-definition-cofactor" class="anchor" href="#definition-cofactor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Cofactor</h4>
+
+<p>Let $A$ be an $n\x n$ matrix with $n\geq 2$. Let $A(i,j)$ be the $(n-1)\x (n-1)$ matrix obtained from $A$ by deleting the $i$-th row and the $j$-th column. The <strong>cofactor</strong> of $a_{ij}$ is
 $$C_{ij}=(-1)^{i+j}detA(i,j)$$</p>
-<h4 id="definition-nx-n-determinant"><a name="user-content-definition-nx-n-determinant" href="#definition-nx-n-determinant" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: $n\x n$ Determinant</h4>
-<p>Let $A$ be an $n\x n$ matrix with $n\geq 2$. The <strong>determinant</strong> of $A$ is defined to be<br />
-$$detA=\sum_{i=1}^{n}a_{i1}C_{i1}$$<br />
+
+<h4>
+<a id="user-content-definition-nx-n-determinant" class="anchor" href="#definition-nx-n-determinant" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: $n\x n$ Determinant</h4>
+
+<p>Let $A$ be an $n\x n$ matrix with $n\geq 2$. The <strong>determinant</strong> of $A$ is defined to be
+$$detA=\sum_{i=1}^{n}a_{i1}C_{i1}$$
 where the determinant of a $1\x 1$ matrix is defined by $det[c]=c$.</p>
-<h4 id="remarks_1"><a name="user-content-remarks_1" href="#remarks_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remarks</h4>
+
+<h4>
+<a id="user-content-remarks-1" class="anchor" href="#remarks-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remarks</h4>
+
 <ol>
-<li>Notice that the definition of a determinant is recursive. The determinant of an $n\x n$ matrix is defined in terms of cofactors which are determinants of $(n-1)\x (n-1)$ matrices.</li>
-<li>As we did with $2\x 2$ matrices, we often represent the determinant of a matrix with vertical straight likes.</li>
+<li> Notice that the definition of a determinant is recursive. The determinant of an $n\x n$ matrix is defined in terms of cofactors which are determinants of $(n-1)\x (n-1)$ matrices.</li>
+<li> As we did with $2\x 2$ matrices, we often represent the determinant of a matrix with vertical straight likes.</li>
 </ol>
+
 <blockquote>
 <p>We did not have to use the coefficients and cofactors from the first column of the matrix. We can in fact use the coefficients and cofactors from any row or column of the matrix. For $n\x n$ matrices we have the following theorem.</p>
 </blockquote>
-<h4 id="theorem-1_2"><a name="user-content-theorem-1_2" href="#theorem-1_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 1</h4>
-<p>Let $A$ be an $n\x n$ matrix. For any $i$ with $1\leq i\leq n$<br />
-$$detA=\sum_{k=1}^{n}a_{ik}C_{ik}$$<br />
-called <strong>the cofactor expansion across the $i$-th row</strong>, OR for any $j$ with $1\leq j\leq n$<br />
-$$detA=\sum_{k=1}^{n}a_{kj}C{kj}$$<br />
+
+<h4>
+<a id="user-content-theorem-1-2" class="anchor" href="#theorem-1-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
+<p>Let $A$ be an $n\x n$ matrix. For any $i$ with $1\leq i\leq n$
+$$detA=\sum_{k=1}^{n}a_{ik}C_{ik}$$
+called <strong>the cofactor expansion across the $i$-th row</strong>, OR for any $j$ with $1\leq j\leq n$
+$$detA=\sum_{k=1}^{n}a_{kj}C{kj}$$
 call <strong>the cofactor expansion across the $j$-th column</strong>.</p>
-<h4 id="definition-upper-triangular-lower-triangular"><a name="user-content-definition-upper-triangular-lower-triangular" href="#definition-upper-triangular-lower-triangular" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Upper Triangular &amp; Lower Triangular</h4>
+
+<h4>
+<a id="user-content-definition-upper-triangular--lower-triangular" class="anchor" href="#definition-upper-triangular--lower-triangular" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Upper Triangular &amp; Lower Triangular</h4>
+
 <p>An $m\x n$ matrix $U$ is said to be <strong>upper triangular</strong> if $u_{ij}=0$ whenever $i&gt;j$. An $m\x n$ matrix $L$ is said to be <strong>lower triangular</strong> if $l_{ij} = 0$ whenever $i&lt;j$.</p>
-<h4 id="theorem-2_1"><a name="user-content-theorem-2_1" href="#theorem-2_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
-<p>If an $n\x n$ matrix $A$ is upper triangular or lower triangular, then<br />
+
+<h4>
+<a id="user-content-theorem-2-1" class="anchor" href="#theorem-2-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
+<p>If an $n\x n$ matrix $A$ is upper triangular or lower triangular, then
 $$detA=a_{11}a_{22}\cdots a_{nn}$$</p>
-<h4 id="theorem-3_2"><a name="user-content-theorem-3_2" href="#theorem-3_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3</h4>
+
+<h4>
+<a id="user-content-theorem-3-2" class="anchor" href="#theorem-3-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
 <p>If $A$ is an $n\x n$ matrix and $B$ is the matrix obtained from $A$ by multiplying one row of $A$ by $c\in\b{R}$, then $detB=cdetA$.</p>
-<h4 id="theorem-4_2"><a name="user-content-theorem-4_2" href="#theorem-4_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 4</h4>
+
+<h4>
+<a id="user-content-theorem-4-2" class="anchor" href="#theorem-4-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4</h4>
+
 <p>If $A$ is an $n\x n$ matrix and $B$ is the matrix obtained from $A$ by swapping two rows of $A$, then $detB=-detA$.</p>
-<h4 id="corollary-5_1"><a name="user-content-corollary-5_1" href="#corollary-5_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 5</h4>
+
+<h4>
+<a id="user-content-corollary-5-1" class="anchor" href="#corollary-5-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 5</h4>
+
 <p>If an $n\x n$ matrix $A$ has two identical rows, then $detA=0$.</p>
-<h4 id="theorem-6_2"><a name="user-content-theorem-6_2" href="#theorem-6_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 6</h4>
+
+<h4>
+<a id="user-content-theorem-6-2" class="anchor" href="#theorem-6-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 6</h4>
+
 <p>If $A$ is an $n\x n$ matrix and $B$ is the matrix obtained from $A$ by adding a multiple of one row of $A$ to another row, then $detB = detA$.</p>
-<h4 id="corollary-7_1"><a name="user-content-corollary-7_1" href="#corollary-7_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 7</h4>
-<p>If $A$ is an $n\x n$ matrix and $E$ is an $n\x n$ elementary matrix then<br />
+
+<h4>
+<a id="user-content-corollary-7-1" class="anchor" href="#corollary-7-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 7</h4>
+
+<p>If $A$ is an $n\x n$ matrix and $E$ is an $n\x n$ elementary matrix then
 $$detEA = detE detA$$</p>
-<h4 id="theorem-8-addition-to-the-invertible-matrix-theorem"><a name="user-content-theorem-8-addition-to-the-invertible-matrix-theorem" href="#theorem-8-addition-to-the-invertible-matrix-theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 8: Addition to the Invertible Matrix Theorem</h4>
+
+<h4>
+<a id="user-content-theorem-8-addition-to-the-invertible-matrix-theorem" class="anchor" href="#theorem-8-addition-to-the-invertible-matrix-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 8: Addition to the Invertible Matrix Theorem</h4>
+
 <p>An $n\x n$ matrix $A$ is invertible if and only if $detA \neq 0$</p>
-<h4 id="theorem-9"><a name="user-content-theorem-9" href="#theorem-9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 9</h4>
+
+<h4>
+<a id="user-content-theorem-9" class="anchor" href="#theorem-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 9</h4>
+
 <p>If $A$ and $B$ are $n\x n$ matrices, then $det(AB)=detA detB$</p>
-<h4 id="corollary-10"><a name="user-content-corollary-10" href="#corollary-10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Corollary 10</h4>
+
+<h4>
+<a id="user-content-corollary-10" class="anchor" href="#corollary-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Corollary 10</h4>
+
 <p>If $A$ is an invertible matrix, then $detA^{-1}=\frac{1}{detA}$</p>
-<h4 id="theorem-11"><a name="user-content-theorem-11" href="#theorem-11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 11</h4>
+
+<h4>
+<a id="user-content-theorem-11" class="anchor" href="#theorem-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 11</h4>
+
 <p>If $A$ is an $n\x n$ matrix, then $detA = detA^T$</p>
-<h2 id="54-determinants-and-systems-of-equations"><a name="user-content-54-determinants-and-systems-of-equations" href="#54-determinants-and-systems-of-equations" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.4 Determinants and Systems of Equations</h2>
+
+<h2>
+<a id="user-content-54-determinants-and-systems-of-equations" class="anchor" href="#54-determinants-and-systems-of-equations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.4 Determinants and Systems of Equations</h2>
+
 <blockquote>
 <p>The Invertible Matrix Theorem shows us that there is a close connection between whether an $n\x n$ matrix $A$ is invertible, the number of solutions of the system of linear equations $A\vx=\v{b}$, and the determinant of $A$. We now examine this relationship a little further by looking at how to use determinants to find the inverse of a matrix and to solve systems of linear equations.</p>
-<p>Observe that we can write the inverse of a matrix $A=\bm a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \bmend$ in the form<br />
-$$A^{-1}=\frac{1}{detA}\bm a_{22} &amp; -a_{12} \\ -a_{21} &amp; a_{11} \bmend = \frac{1}{detA}\bm C_{11} &amp; C_{32} \\ C_{12} &amp; C_{22} \bmend$$<br />
-That is, the entries of $A^{-1}$ are the cofactors of $A$. In particular,<br />
-$$A_{ij}^{-1}= \frac{1}{detA} C_{ji}$$<br />
+
+<p>Observe that we can write the inverse of a matrix $A=\bm a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \bmend$ in the form
+$$A^{-1}=\frac{1}{detA}\bm a_{22} &amp; -a_{12} \\ -a_{21} &amp; a_{11} \bmend = \frac{1}{detA}\bm C_{11} &amp; C_{32} \\ C_{12} &amp; C_{22} \bmend$$
+That is, the entries of $A^{-1}$ are the cofactors of $A$. In particular,
+$$A_{ij}^{-1}= \frac{1}{detA} C_{ji}$$
 It is important to take careful notice of the change of order in the subscripts in the line above.</p>
 </blockquote>
-<h4 id="lemma-1"><a name="user-content-lemma-1" href="#lemma-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Lemma 1</h4>
-<p>If $A$ is an $n\x n$ matrix with cofactors $C_{ji}$ and $i\neq j$, then<br />
+
+<h4>
+<a id="user-content-lemma-1" class="anchor" href="#lemma-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lemma 1</h4>
+
+<p>If $A$ is an $n\x n$ matrix with cofactors $C_{ji}$ and $i\neq j$, then
 $$\sum_{k=1}^{n} A_{ik} C_{jk}=0$$</p>
-<h4 id="theorem-2_2"><a name="user-content-theorem-2_2" href="#theorem-2_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 2</h4>
+
+<h4>
+<a id="user-content-theorem-2-2" class="anchor" href="#theorem-2-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
 <p>If $A$ is an invertible $n\x n$ matrix, then $A_{ij}^{-1}=\frac{1}{detA} C_{ji}$</p>
-<h4 id="definition-cofactor-matrix"><a name="user-content-definition-cofactor-matrix" href="#definition-cofactor-matrix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Cofactor matrix</h4>
-<p>Let $A$ be an $n\x n$ matrix. The <strong>cofactor matrix</strong>, cof$A$, of $A$ is the matrix whose $ij$-th entry is the $ij$-th cofactor of $A$. That is<br />
+
+<h4>
+<a id="user-content-definition-cofactor-matrix" class="anchor" href="#definition-cofactor-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Cofactor matrix</h4>
+
+<p>Let $A$ be an $n\x n$ matrix. The <strong>cofactor matrix</strong>, cof$A$, of $A$ is the matrix whose $ij$-th entry is the $ij$-th cofactor of $A$. That is
 $$cofA_{ij}=C_{ij}$$</p>
-<h4 id="definition-adjugate"><a name="user-content-definition-adjugate" href="#definition-adjugate" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition: Adjugate</h4>
-<p>Let $A$ be an $n\x n$ matrix. The <strong>adjugate</strong> of $A$ is the matrix defined by<br />
-$$adjA_{ij}=C_{ij}$$<br />
+
+<h4>
+<a id="user-content-definition-adjugate" class="anchor" href="#definition-adjugate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition: Adjugate</h4>
+
+<p>Let $A$ be an $n\x n$ matrix. The <strong>adjugate</strong> of $A$ is the matrix defined by
+$$adjA_{ij}=C_{ij}$$
 In particular, $adjA=(cofA)^T$</p>
-<h4 id="remark_1"><a name="user-content-remark_1" href="#remark_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
 <p>By Theorem 2, we have that $A^{-1}=\frac{1}{detA}adjA$</p>
+
 <blockquote>
-<p>Consider the system of linear equations $A\vx=\v{b}$ where $A$ is an $n\x n$ matrix. If $A$ is invertible, then we know this has unique solution<br />
+<p>Consider the system of linear equations $A\vx=\v{b}$ where $A$ is an $n\x n$ matrix. If $A$ is invertible, then we know this has unique solution
 $$\vx=A^{-1}\v{b}=\frac{1}{detA}(adjA)\v{b}=\frac{1}{detA}\bm C_{11} &amp; \cdots &amp; C_{n1} \\ \vdots &amp; &amp; \vdots \\ C_{1n} &amp; \cdots &amp; C_{nn} \bmend \bm b_1 \\ \vdots \\ b_n \bmend$$</p>
 </blockquote>
-<h4 id="theorem-3-cramers-rule"><a name="user-content-theorem-3-cramers-rule" href="#theorem-3-cramers-rule" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem 3: Cramer&rsquo;s Rule</h4>
-<p>If $A$ is an $n\x n$ invertible matrix, then the solution $\vx$ of $A\vx=\v{b}$ is given by<br />
-$$x_i=\frac{detA_i}{detA},1\leq i\leq n$$<br />
+
+<h4>
+<a id="user-content-theorem-3-cramers-rule" class="anchor" href="#theorem-3-cramers-rule" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3: Cramer's Rule</h4>
+
+<p>If $A$ is an $n\x n$ invertible matrix, then the solution $\vx$ of $A\vx=\v{b}$ is given by
+$$x_i=\frac{detA_i}{detA},1\leq i\leq n$$
 where $A_i$ is the matrix obtained from $A$ by replacing the $i$-th column of $A$ by $\v{b}$</p>
-<h2 id="55-area-and-volume"><a name="user-content-55-area-and-volume" href="#55-area-and-volume" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.5 Area and Volume</h2>
+
+<h2>
+<a id="user-content-55-area-and-volume" class="anchor" href="#55-area-and-volume" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.5 Area and Volume</h2>
+
 <blockquote>
 <p>Let $\v{u}=\bm u_1 \\ u_2 \bmend$ and $\v{v}=\bm v_1 \\ v_2 \bmend$ be two non-zero vectors in $\b{R}^2$. We can from a parallelogram in $\b{R}^2$ with corner points $(0,0),(u_1,u_2),(v_1,v_2),(u_1+v_1,u_2+v_2)$. This is called the <strong>parallelogram induced by $\v{u}$ and $\v{v}$</strong></p>
+
 <p>The area of the parallelogram is given by $Area(\v{u},\v{v})=|det[\v{u} \v{v}]|$.</p>
 </blockquote>
-<h4 id="remark_2"><a name="user-content-remark_2" href="#remark_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark</h4>
+
+<h4>
+<a id="user-content-remark-2" class="anchor" href="#remark-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
 <p>Observe that the determinant can gave a negative answer because the angle $\theta$ from $\v{u}$ to $\v{v}$ was greater than $\pi$ radians. In particular, if we swap $\v{u}$ and $\v{v}$, that is swap the columns of the matrix $[\v{u} \v{v}]$, then we will multiply the determinant by -1. In a similar way, we can use the result above to get geometric confirmation of many of the properties of determinants.</p>
+
 <blockquote>
 <p>We can repeat what we did above to find the volume of a parallelepiped induced by three vectors $\v{u},\v{v},\v{w}$ in $\b{R}^3$</p>
+
 <p>The volume of the parallelepiped is given by $Volume(\v{u},\v{v},\v{w})=\left|det\bm u_1 &amp; v_1 &amp; w_1 \\ u_2 &amp; v_2 &amp; w_2 \\ u_3 &amp; v_3 &amp; w_3 \bmend \right|$</p>
-</blockquote></article></body></html>
+</blockquote>
+</article></body></html>
