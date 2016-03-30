@@ -1,6 +1,6 @@
 [<- Go Back](http://tonyli.tk/)
 
-## Section 11: Linked Data Structures
+# Section 11: Linked Data Structures
 
 #### Linked lists
 

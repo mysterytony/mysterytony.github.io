@@ -5,20 +5,23 @@ The MysteryTony Site
 
 ### Math 136
 **Last Update 2016-03-19**
-[Chapter 4](http://mysterytony.github.io/notes/math136/chapter4.html)
+[Chapter 4: Vector Spaces](http://mysterytony.github.io/notes/math136/chapter4.html)
 
 **Last Update 2016-03-27**
-[Chapter 5](http://mysterytony.github.io/notes/math136/chapter5.html)
+[Chapter 5: Inverses and Determinants](http://mysterytony.github.io/notes/math136/chapter5.html)
 
 ### STAT 230
 
 **Last Update 2016-03-29**
-[Chapter 9](http://mysterytony.github.io/notes/stat230/chapter9.html)
+[Chapter 9: Multivariate Distribution](http://mysterytony.github.io/notes/stat230/chapter9.html)
 
 ### CS 136
 
+**Last Update 2016-03-30**
+[Section 10: Dynamic Memory & ADTs in C](http://mysterytony.github.io/notes/cs136/section10.html)
+
 **Last Update 2016-03-29**
-[Section 11](http://mysterytony.github.io/notes/cs136/section11.html)
+[Section 11: Linked Data](http://mysterytony.github.io/notes/cs136/section11.html)
 
 Found mistakes, typo, error, issue, or else? [Add Issue On Github](https://github.com/mysterytony/mysterytony.github.io/issues)
 
@@ -35,3 +38,5 @@ Found mistakes, typo, error, issue, or else? [Add Issue On Github](https://githu
 [LinkedIn](https://ca.linkedin.com/in/tony-li-281b59b9)
 
 [Resume](https://onedrive.live.com/redir?resid=7C604C88796DF83E!12013&authkey=!AIcvZqNAqZw_42o&ithint=file%2cpdf)
+
+Copyrights (c) Tony Li 2016
