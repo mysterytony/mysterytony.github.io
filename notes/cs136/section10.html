@@ -1054,4 +1054,259 @@ my_array = realloc(my_array, <span class="pl-c1">101</span> * <span class="pl-k"
 
 <h4>
 <a id="user-content-string-io-strings-of-unknown-size" class="anchor" href="#string-io-strings-of-unknown-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String I/O: strings of unknown size</h4>
+
+<p>In section 08 we saw how reading in strings can be susceptible to buffer overruns.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> str[<span class="pl-c1">81</span>];
+<span class="pl-k">int</span> retval = scanf(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-pds">"</span></span>, str);</pre></div>
+
+<p>The target array is often oversized to ensure there is capacity to store the string. Unfortunately, regardless of the length of the array, a buffer overrun may occur.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// readstr() reads in a new string from I/O or return NULL if EOF</span>
+<span class="pl-c">// effects: allocates memory (caller must free)</span>
+
+<span class="pl-k">char</span> *<span class="pl-en">readstr</span>(<span class="pl-k">void</span>) {
+    <span class="pl-k">char</span> c;
+    <span class="pl-k">if</span> (<span class="pl-c1">scanf</span>(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-c1">%s</span><span class="pl-pds">"</span></span>, &amp;c) != <span class="pl-c1">1</span>) <span class="pl-k">return</span> <span class="pl-c1">NULL</span>;
+    <span class="pl-k">char</span> *str = <span class="pl-c1">malloc</span>(<span class="pl-c1">1</span> * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>));
+    <span class="pl-k">int</span> len = <span class="pl-c1">0</span>;
+    <span class="pl-k">do</span> {
+        str[len] = c;
+        ++len;
+        str = <span class="pl-c1">realloc</span>(str, (len + <span class="pl-c1">1</span>) * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>));
+        <span class="pl-k">if</span> (<span class="pl-c1">scanf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-pds">"</span></span>, &amp;c) != <span class="pl-c1">1</span>) <span class="pl-k">break</span>;
+    } <span class="pl-k">while</span> (c != <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> &amp;&amp; c != <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span>);
+    str[len] = <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span>;
+    <span class="pl-k">return</span> str;
+}</pre></div>
+
+<h4>
+<a id="user-content-amortized-analysis" class="anchor" href="#amortized-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Amortized analysis</h4>
+
+<p>Unfortunately, the running time of <code>readstr</code> is $O(n^2)$, where $n$ is the length of the string.</p>
+
+<p>This is because <code>realloc</code> is $O(n)$ and occurs inside of the loop;</p>
+
+<p>A better approach might be to allocate <strong>more memory than necessary</strong> and only call <code>realloc</code> when the array is "full".</p>
+
+<p>A popular strategy is to <strong>double</strong> the size of the array when it is full.</p>
+
+<p>Similar to working with maximum-length arrays, we need to keep track of the actual length in addition to allocated length.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *<span class="pl-en">readstr</span>(<span class="pl-k">void</span>) {
+    <span class="pl-k">char</span> c;
+    <span class="pl-k">if</span> (<span class="pl-c1">scanf</span>(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-c1">%s</span><span class="pl-pds">"</span></span>, &amp;c) != <span class="pl-c1">1</span>) <span class="pl-k">return</span> <span class="pl-c1">NULL</span>;
+    <span class="pl-k">int</span> maxlen = <span class="pl-c1">1</span>;
+    <span class="pl-k">char</span> *str = <span class="pl-c1">malloc</span>(maxlen * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>));
+    <span class="pl-k">int</span> len = <span class="pl-c1">0</span>;
+    <span class="pl-k">do</span> {
+        str[len] = c;
+        ++len;
+        <span class="pl-k">if</span> (len == maxlen) {
+            maxlen *= <span class="pl-c1">2</span>;
+            str = <span class="pl-c1">realloc</span>(str, maxlen * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>));
+        }
+        <span class="pl-k">if</span> (<span class="pl-c1">scanf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%c</span><span class="pl-pds">"</span></span>, &amp;c) != <span class="pl-c1">1</span>) <span class="pl-k">break</span>;
+    } <span class="pl-k">while</span> (c != <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> &amp;&amp; c != <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span>);
+    str[len] = <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\0</span><span class="pl-pds">'</span></span>;
+    str = <span class="pl-c1">realloc</span>(str, (len + <span class="pl-c1">1</span>) * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>));
+    <span class="pl-k">return</span> str;
+}</pre></div>
+
+<p>With our "doubling" strategy, most iterations will be $O(1)$, unless it is necessary to resize (<code>realloc</code>) the array.</p>
+
+<p>the resizing time for the first 32 iterations would be:</p>
+
+<p>2,4,0,8,0,0,0,16,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64</p>
+
+<p>For $n$ iterations, the total resizing time is at most:</p>
+
+<p>$$2n+n+\frac{n}{2}+\frac{n}{4}+\cdots + 2 = 4n-2 = O(n)$$</p>
+
+<p>By using this doubling strategy, the total run time for <code>readstr</code> is now only $O(n)$.</p>
+
+<p>In other words, the <strong>amortized</strong> ("average") time for each iteration is: $O(n)/n = O(1)$.</p>
+
+<h4>
+<a id="user-content-adts-in-c" class="anchor" href="#adts-in-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ADTs in C</h4>
+
+<p>With dynamic memory, we now have the ability to implement an <em>Abstract Data Type (ADT)</em> in C.</p>
+
+<p>In section 02, the first ADT we say was a simple account ADT, which stored a username and a password. It demonstrated <strong>information hiding</strong>, which provides both <em>security</em> and <em>flexibility</em>.</p>
+
+<p>We will also need to use <strong>opaque</strong> structures (incomplete declarations without fields).</p>
+
+<p>In the <strong>interface</strong>, we only provide an <em>incomplete declaration</em>. In addition to the normal operations, we provide functions to <strong>create</strong> and <strong>destroy</strong> instances of the ADT.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// account.h -- a simple account ADT module</span>
+
+<span class="pl-k">struct</span> account; <span class="pl-c">// incomplete</span>
+
+<span class="pl-c">// create_account(username, password) creates an account </span>
+<span class="pl-c">// with the given username and password </span>
+<span class="pl-c">// effects: allocates memory (client must call destroy_account) </span>
+<span class="pl-k">struct</span> account *<span class="pl-en">create_account</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *username, <span class="pl-k">const</span> <span class="pl-k">char</span> *password); 
+
+<span class="pl-c">// destroy_account(acc) removes all memory for acc </span>
+<span class="pl-c">// effects: memory at acc is free'd and invalid</span>
+<span class="pl-k">void</span> <span class="pl-en">destroy_account</span>(<span class="pl-k">struct</span> account *acc);</pre></div>
+
+<p>Because the interface only provides an incomplete declaration, the <strong>client</strong> does not know the fields of the <code>account</code> structure.</p>
+
+<p>The client can only define a pointer to the structure, which is returned by <code>create_account</code>.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// client.c</span>
+
+<span class="pl-k">char</span> username[<span class="pl-c1">9</span>]; <span class="pl-k">char</span> password[<span class="pl-c1">41</span>];
+
+<span class="pl-c">// ...</span>
+
+<span class="pl-k">struct</span> account *my_account = create_account(username, password);
+
+<span class="pl-c">// ...</span>
+
+<span class="pl-en">destroy_account</span>(my_account);</pre></div>
+
+<p>The compete structure declaration only appears in the <strong>implementation</strong>.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// account.c</span>
+<span class="pl-k">struct</span> account {
+    <span class="pl-k">char</span> *uname;
+    <span class="pl-k">char</span> *pword; 
+};</pre></div>
+
+<p><code>create_account</code> returns a pointer to a <strong>new</strong> account.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">struct</span> account *<span class="pl-en">create_account</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *username, <span class="pl-k">const</span> <span class="pl-k">char</span> *password) {
+    <span class="pl-k">struct</span> account *a = <span class="pl-c1">malloc</span>(<span class="pl-k">sizeof</span>(<span class="pl-k">struct</span> account));
+    a-&gt;uname = <span class="pl-c1">malloc</span>((<span class="pl-c1">strlen</span>(username) + <span class="pl-c1">1</span>) * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>)); <span class="pl-c1">strcpy</span>(a-&gt;uname, username);
+    a-&gt;pword = <span class="pl-c1">malloc</span>((<span class="pl-c1">strlen</span>(password) + <span class="pl-c1">1</span>) * <span class="pl-k">sizeof</span>(<span class="pl-k">char</span>)); <span class="pl-c1">strcpy</span>(a-&gt;pword, password);
+    <span class="pl-k">return</span> a;
+}</pre></div>
+
+<p>It makes <strong>duplicates</strong> of the username and password strings provided by the client.</p>
+
+<p>In C, our ADT also requires a <code>destroy_account</code> to <code>free</code> the memory created (both the fields and the structure itself).</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> <span class="pl-en">destroy_account</span>(<span class="pl-k">struct</span> account *a) {
+    <span class="pl-c1">free</span>(a-&gt;username); 
+    <span class="pl-c1">free</span>(a-&gt;password); 
+    <span class="pl-c1">free</span>(a);
+}</pre></div>
+
+<p>The remaining operations are straightforward.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">const</span> <span class="pl-k">char</span> *<span class="pl-en">get_username</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> account *acc) {
+    <span class="pl-k">return</span> acc-&gt;uname;
+}
+
+<span class="pl-k">bool</span> <span class="pl-en">is_correct_password</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> account *acc, <span class="pl-k">const</span> <span class="pl-k">char</span> *word) {
+    <span class="pl-k">return</span> (<span class="pl-c1">strcmp</span>(acc-&gt;pword, word) == <span class="pl-c1">0</span>);
+}</pre></div>
+
+<h4>
+<a id="user-content-implementing-a-stack-adt" class="anchor" href="#implementing-a-stack-adt" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementing a Stack ADT</h4>
+
+<p>The <strong>Stack ADT</strong> (one of the Collection ADTs) is more representative.</p>
+
+<p>The interface is nearly identical to the stack implementation from section 08 that demonstrated maximum-length arrays.</p>
+
+<p>The only differences are: it uses an opaque structure, it provides <code>create</code> and <code>destroy</code> functions, and there is no maximum: it can store any arbitrary number of integers.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// stack.h (INTERFACE)</span>
+
+<span class="pl-k">struct</span> stack;
+
+<span class="pl-k">struct</span> stack *<span class="pl-en">create_stack</span>(<span class="pl-k">void</span>);
+
+<span class="pl-k">bool</span> <span class="pl-en">stack_is_empty</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> stack *s);
+
+<span class="pl-k">int</span> <span class="pl-en">stack_top</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> stack *s);
+
+<span class="pl-k">int</span> <span class="pl-en">stack_pop</span>(<span class="pl-k">struct</span> stack *s);
+
+<span class="pl-k">void</span> <span class="pl-en">stack_push</span>(<span class="pl-k">int</span> item, <span class="pl-k">struct</span> stack *s);
+
+<span class="pl-k">void</span> <span class="pl-en">stack_destroy</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> stack *s);</pre></div>
+
+<p>The Stack ADT uses the "doubling" strategy. It is typical to have an initial size that is not too wasteful, but avoids excessive doubling for small stacks.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// stack.c (IMPLEMENTATION)</span>
+
+<span class="pl-k">struct</span> stack {
+    <span class="pl-k">int</span> len;
+    <span class="pl-k">int</span> maxlen;
+    <span class="pl-k">int</span> *data;
+};
+
+<span class="pl-k">static</span> <span class="pl-k">const</span> <span class="pl-k">int</span> initial_size = <span class="pl-c1">32</span>;
+
+<span class="pl-k">struct</span> stack *<span class="pl-en">create_stack</span>(<span class="pl-k">void</span>) {
+    <span class="pl-k">struct</span> stack *s = <span class="pl-c1">malloc</span>(<span class="pl-k">sizeof</span>(<span class="pl-k">struct</span> stack));
+    s-&gt;len = <span class="pl-c1">0</span>;
+    s-&gt;maxlen = initial_size;
+    s-&gt;data = <span class="pl-c1">malloc</span>(s-&gt;maxlen * <span class="pl-k">sizeof</span>(<span class="pl-k">int</span>));
+    <span class="pl-k">return</span> s;
+}</pre></div>
+
+<p>The doubling is implemented in <code>push</code>.</p>
+
+<p><code>destroy</code> must <code>free</code> the field and the structure itself.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// Time: O(1) [amortized]</span>
+
+<span class="pl-k">void</span> <span class="pl-en">stack_push</span>(<span class="pl-k">int</span> item, <span class="pl-k">struct</span> stack *s) {
+    <span class="pl-c1">assert</span>(s);
+    <span class="pl-k">if</span> (s-&gt;len == s-&gt;maxlen) {
+        s-&gt;maxlen *= <span class="pl-c1">2</span>;
+        s-&gt;data = <span class="pl-c1">realloc</span>(s-&gt;data, s-&gt;maxlen * <span class="pl-k">sizeof</span>(<span class="pl-k">int</span>));
+    }
+    s-&gt;data[s-&gt;len] = item;
+    s-&gt;len += <span class="pl-c1">1</span>;
+}
+
+<span class="pl-k">void</span> <span class="pl-en">stack_destroy</span>(<span class="pl-k">struct</span> stack *s) {
+    <span class="pl-c1">free</span>(s-&gt;data);
+    <span class="pl-c1">free</span>(s);
+}</pre></div>
+
+<p>The remaining operations are identical to the maximum-length implementation.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">bool</span> <span class="pl-en">stack_is_empty</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> stack *s) {
+    <span class="pl-c1">assert</span>(s);
+    <span class="pl-k">return</span> s-&gt;len == <span class="pl-c1">0</span>;
+}
+
+<span class="pl-k">int</span> <span class="pl-en">stack_top</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> stack *s) {
+    <span class="pl-c1">assert</span>(s);
+    <span class="pl-c1">assert</span>(s-&gt;len);
+    <span class="pl-k">return</span> s-&gt;data[s-&gt;len - <span class="pl-c1">1</span>];
+}
+
+<span class="pl-k">int</span> <span class="pl-en">stack_pop</span>(<span class="pl-k">struct</span> stack *s) {
+    <span class="pl-c1">assert</span>(s);
+    <span class="pl-c1">assert</span>(s-&gt;len);
+    s-&gt;len -= <span class="pl-c1">1</span>;
+    <span class="pl-k">return</span> s-&gt;data[s-&gt;len];
+}</pre></div>
+
+<h4>
+<a id="user-content-goals-of-this-section" class="anchor" href="#goals-of-this-section" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals of this section</h4>
+
+<ul>
+<li>  describe the heap</li>
+<li>  use the functions <code>malloc</code>, <code>realloc</code> and <code>free</code> to interact with
+the heap</li>
+<li>  explain that the heap is finite, and demonstrate how to use
+check <code>malloc</code> for success</li>
+<li>  describe memory leaks, how they occur, and how to prevent
+them</li>
+<li>  describe the doubling strategy, and how it can be used to
+manage dynamic arrays to achieve an amortized $O(1)$ run-time
+for additions</li>
+<li>  create dynamic <code>resizable</code> arrays in the heap</li>
+<li>  write functions that create and return a new <code>struct</code>
+</li>
+<li>  document dynamic memory side-effects in contracts</li>
+</ul>
 </article></body></html>

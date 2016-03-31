@@ -297,3 +297,276 @@ If the size is smaller, the extraneous memory is discarded.
 
 #### String I/O: strings of unknown size
 
+In section 08 we saw how reading in strings can be susceptible to buffer overruns.
+
+```C
+char str[81];
+int retval = scanf("%s", str);
+```
+
+The target array is often oversized to ensure there is capacity to store the string. Unfortunately, regardless of the length of the array, a buffer overrun may occur.
+
+```C
+// readstr() reads in a new string from I/O or return NULL if EOF
+// effects: allocates memory (caller must free)
+
+char *readstr(void) {
+	char c;
+	if (scanf(" %s", &c) != 1) return NULL;
+	char *str = malloc(1 * sizeof(char));
+	int len = 0;
+	do {
+		str[len] = c;
+		++len;
+		str = realloc(str, (len + 1) * sizeof(char));
+		if (scanf("%s", &c) != 1) break;
+	} while (c != ' ' && c != '\n');
+	str[len] = '\0';
+	return str;
+}
+```
+
+#### Amortized analysis
+
+Unfortunately, the running time of `readstr` is $O(n^2)$, where $n$ is the length of the string.
+
+This is because `realloc` is $O(n)$ and occurs inside of the loop;
+
+A better approach might be to allocate **more memory than necessary** and only call `realloc` when the array is "full".
+
+A popular strategy is to **double** the size of the array when it is full.
+
+Similar to working with maximum-length arrays, we need to keep track of the actual length in addition to allocated length.
+
+```C
+char *readstr(void) {
+	char c;
+	if (scanf(" %s", &c) != 1) return NULL;
+	int maxlen = 1;
+	char *str = malloc(maxlen * sizeof(char));
+	int len = 0;
+	do {
+		str[len] = c;
+		++len;
+		if (len == maxlen) {
+			maxlen *= 2;
+			str = realloc(str, maxlen * sizeof(char));
+		}
+		if (scanf("%c", &c) != 1) break;
+	} while (c != ' ' && c != '\n');
+	str[len] = '\0';
+	str = realloc(str, (len + 1) * sizeof(char));
+	return str;
+}
+```
+
+With our "doubling" strategy, most iterations will be $O(1)$, unless it is necessary to resize (`realloc`) the array.
+
+the resizing time for the first 32 iterations would be:
+
+2,4,0,8,0,0,0,16,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64
+
+For $n$ iterations, the total resizing time is at most:
+
+$$2n+n+\frac{n}{2}+\frac{n}{4}+\cdots + 2 = 4n-2 = O(n)$$
+
+By using this doubling strategy, the total run time for `readstr` is now only $O(n)$.
+
+In other words, the **amortized** ("average") time for each iteration is: $O(n)/n = O(1)$.
+
+#### ADTs in C
+
+With dynamic memory, we now have the ability to implement an *Abstract Data Type (ADT)* in C.
+
+In section 02, the first ADT we say was a simple account ADT, which stored a username and a password. It demonstrated **information hiding**, which provides both *security* and *flexibility*.
+
+We will also need to use **opaque** structures (incomplete declarations without fields).
+
+In the **interface**, we only provide an *incomplete declaration*. In addition to the normal operations, we provide functions to **create** and **destroy** instances of the ADT.
+
+```C
+// account.h -- a simple account ADT module
+
+struct account; // incomplete
+
+// create_account(username, password) creates an account 
+// with the given username and password 
+// effects: allocates memory (client must call destroy_account) 
+struct account *create_account(const char *username, const char *password); 
+
+// destroy_account(acc) removes all memory for acc 
+// effects: memory at acc is free'd and invalid
+void destroy_account(struct account *acc);
+```
+
+Because the interface only provides an incomplete declaration, the **client** does not know the fields of the `account` structure.
+
+The client can only define a pointer to the structure, which is returned by `create_account`.
+
+```C
+// client.c
+
+char username[9]; char password[41];
+
+// ...
+
+struct account *my_account = create_account(username, password);
+
+// ...
+
+destroy_account(my_account);
+```
+
+The compete structure declaration only appears in the **implementation**.
+
+```C
+// account.c
+struct account {
+	char *uname;
+	char *pword; 
+};
+```
+
+`create_account` returns a pointer to a **new** account.
+
+```C
+struct account *create_account(const char *username, const char *password) {
+	struct account *a = malloc(sizeof(struct account));
+	a->uname = malloc((strlen(username) + 1) * sizeof(char)); strcpy(a->uname, username);
+	a->pword = malloc((strlen(password) + 1) * sizeof(char)); strcpy(a->pword, password);
+	return a;
+}
+```
+
+It makes **duplicates** of the username and password strings provided by the client.
+
+In C, our ADT also requires a `destroy_account` to `free` the memory created (both the fields and the structure itself).
+
+```C
+void destroy_account(struct account *a) {
+	free(a->username); 
+	free(a->password); 
+	free(a);
+}
+```
+
+The remaining operations are straightforward.
+
+```C
+const char *get_username(const struct account *acc) {
+	return acc->uname;
+}
+
+bool is_correct_password(const struct account *acc, const char *word) {
+	return (strcmp(acc->pword, word) == 0);
+}
+```
+
+#### Implementing a Stack ADT
+
+The **Stack ADT** (one of the Collection ADTs) is more representative.
+
+The interface is nearly identical to the stack implementation from section 08 that demonstrated maximum-length arrays.
+
+The only differences are: it uses an opaque structure, it provides `create` and `destroy` functions, and there is no maximum: it can store any arbitrary number of integers.
+
+```C
+// stack.h (INTERFACE)
+
+struct stack;
+
+struct stack *create_stack(void);
+
+bool stack_is_empty(const struct stack *s);
+
+int stack_top(const struct stack *s);
+
+int stack_pop(struct stack *s);
+
+void stack_push(int item, struct stack *s);
+
+void stack_destroy(const struct stack *s);
+```
+
+The Stack ADT uses the "doubling" strategy. It is typical to have an initial size that is not too wasteful, but avoids excessive doubling for small stacks.
+
+```C
+// stack.c (IMPLEMENTATION)
+
+struct stack {
+	int len;
+	int maxlen;
+	int *data;
+};
+
+static const int initial_size = 32;
+
+struct stack *create_stack(void) {
+	struct stack *s = malloc(sizeof(struct stack));
+	s->len = 0;
+	s->maxlen = initial_size;
+	s->data = malloc(s->maxlen * sizeof(int));
+	return s;
+}
+```
+
+The doubling is implemented in `push`.
+
+`destroy` must `free` the field and the structure itself.
+
+```C
+// Time: O(1) [amortized]
+
+void stack_push(int item, struct stack *s) {
+	assert(s);
+	if (s->len == s->maxlen) {
+		s->maxlen *= 2;
+		s->data = realloc(s->data, s->maxlen * sizeof(int));
+	}
+	s->data[s->len] = item;
+	s->len += 1;
+}
+
+void stack_destroy(struct stack *s) {
+	free(s->data);
+	free(s);
+}
+```
+
+The remaining operations are identical to the maximum-length implementation.
+
+```C
+bool stack_is_empty(const struct stack *s) {
+	assert(s);
+	return s->len == 0;
+}
+
+int stack_top(const struct stack *s) {
+	assert(s);
+	assert(s->len);
+	return s->data[s->len - 1];
+}
+
+int stack_pop(struct stack *s) {
+	assert(s);
+	assert(s->len);
+	s->len -= 1;
+	return s->data[s->len];
+}
+```
+
+#### Goals of this section
+
+*	describe the heap
+*	use the functions `malloc`, `realloc` and `free` to interact with
+the heap
+*	explain that the heap is finite, and demonstrate how to use
+check `malloc` for success
+*	describe memory leaks, how they occur, and how to prevent
+them
+*	describe the doubling strategy, and how it can be used to
+manage dynamic arrays to achieve an amortized $O(1)$ run-time
+for additions
+*	create dynamic `resizable` arrays in the heap
+*	write functions that create and return a new `struct`
+*	document dynamic memory side-effects in contracts
