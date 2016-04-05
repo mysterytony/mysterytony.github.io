@@ -1,0 +1,1554 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>section9</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
+
+<h1>
+<a id="user-content-efficiency" class="anchor" href="#efficiency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Efficiency</h1>
+
+<h4>
+<a id="user-content-algorithms" class="anchor" href="#algorithms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithms</h4>
+
+<p>An <strong>algorithm</strong> is step-by-step description of how to solve a problem.</p>
+
+<p>Algorithms are not restricted to computing. For example, every day you might use an algorithm to select which clothes to wear.</p>
+
+<p>For most of this course, the problems are function descriptions (interfaces) and we work with implementations of algorithms that solve those problems.</p>
+
+<p>There are many objective and subjective methods for comparing algorithms:</p>
+
+<ul>
+<li>  How easy is it to understand?</li>
+<li>  How easy is it to implement?</li>
+<li>  How accurate is it?</li>
+<li>  How robust is it? (Can it handle errors as well?)</li>
+<li>  How adaptable is it? (can it be used to solve similar problems?)</li>
+<li>  How fast (<strong>efficient</strong>) is it?</li>
+</ul>
+
+<p>In this course, we use <strong>efficiency</strong> to objectively compare algorithms.</p>
+
+<h4>
+<a id="user-content-efficiency-1" class="anchor" href="#efficiency-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Efficiency</h4>
+
+<p>The most common measure of efficiency is <strong>time efficiency</strong>, or how long it takes an algorithm to solve a problem. Unless we specify otherwise, we always mean <strong>time efficiency</strong>.</p>
+
+<p>Another efficiency measure is <strong>space efficiency</strong>, or how much space (memory) an algorithm requires to solve a problem.</p>
+
+<h4>
+<a id="user-content-running-time" class="anchor" href="#running-time" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running time</h4>
+
+<p>To quantify efficiency, we are interested in measuring the <strong>running time</strong> of an algorithm.</p>
+
+<p>What <strong>unit of measure</strong> should we use? Seconds?</p>
+
+<p>"My algorithm can sort one billion integers in 9.037 seconds."</p>
+
+<ul>
+<li>  What year did you make this statement?</li>
+<li>  What machine &amp; model did you use? (With how much RAM?)</li>
+<li>  What computer language &amp; operating system did you use?</li>
+<li>  Was that the actual CPU time, or the total time elapsed?</li>
+<li>  How accurate is the time measurement? Is the 0.037 relevant?</li>
+</ul>
+
+<p>Measuring running times in seconds can be problematic. What are the alternatives?</p>
+
+<p>Typically, we measure the number of <strong>elementary operations</strong> required to solve the problem.</p>
+
+<ul>
+<li>  In C, we can count the number of operations, or in other words, the number of operators executed.</li>
+<li>  In Racket, we can count the total number of (substitution) steps required, although that can be  deceiving for built-in functions.</li>
+</ul>
+
+<p><strong>You are not expect to count the exact the number of operations. We only count operations in these notes for illustrative purposes. We introduce some simplification shortcuts soon.</strong></p>
+
+<h4>
+<a id="user-content-input-size" class="anchor" href="#input-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input size</h4>
+
+<p>What is the number of operations executed for this implementation?</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">sum_array</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-k">int</span> sum = <span class="pl-c1">0</span>;
+    <span class="pl-k">int</span> i = <span class="pl-c1">0</span>;
+    <span class="pl-k">while</span> (i &lt; len) {
+        sum = sum + a[i];
+        i = i + <span class="pl-c1">1</span>;
+    }
+    <span class="pl-k">return</span> sum;
+}</pre></div>
+
+<p>The running time <strong>depends on the length</strong> of the array.</p>
+
+<p>If there are $n$ items in the array, it requires $7n+3$ operations.</p>
+
+<p><strong>We are always interested in the running time with respect to the size of the input.</strong></p>
+
+<p>Traditionally, the variable $n$ is used to represent the <strong>size</strong> (or <strong>length</strong>) of the input. $m$ and $k$ are also popular when where is more than one input.</p>
+
+<p>Often, $n$ is obvious from the context, but if there is any ambiguity you should clearly state what $n$ represents.</p>
+
+<p>For example, with lists of strings, $n$ may represent the number of strings in the list, or it may represent the length of all the strings in the list.</p>
+
+<p>The running <strong>T</strong>ime of an implementation is a <strong>function</strong> of $n$ and is written as $T(n)$.</p>
+
+<p>There may also be another <strong>attribute</strong> of the input that is also important.</p>
+
+<p>For example, with trees, we use $n$ to represent the number of nodes in the tree and $h$ to represent the height of the tree.</p>
+
+<h4>
+<a id="user-content-algorithm-comparison" class="anchor" href="#algorithm-comparison" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithm Comparison</h4>
+
+<p>Problem: Write a function to determine if an array of positive integers contains at least $e$ even numbers and $o$ odd numbers.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// check_array(a, len, e, o) determines if array a</span>
+<span class="pl-c">//      contains at least e even numbers and</span>
+<span class="pl-c">//      at least o odd numbers</span>
+<span class="pl-c">// requires:    len &gt; 0</span>
+<span class="pl-c">//              elements of a &gt; 0</span>
+<span class="pl-c">//              e, o &gt;= 0</span></pre></div>
+
+<p>Homer, Bart, and Lisa are debating the best algorithm for implementing <code>check_array</code>.</p>
+
+<p>Bart just wants to count the total number of odd numbers in the entire array.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">bool</span> <span class="pl-en">bart</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len, <span class="pl-k">int</span> e, <span class="pl-k">int</span> o) {
+    <span class="pl-k">int</span> odd_count = <span class="pl-c1">0</span>;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i = i + <span class="pl-c1">1</span>) {
+        odd_count = odd_count + (a[i] % <span class="pl-c1">2</span>);
+    }
+    <span class="pl-k">return</span> (odd_count &gt;= o) &amp;&amp; (len - odd_count &gt;= e);
+}</pre></div>
+
+<p>According to Lisa, if there are $n$ elements in the array, $T(n)=8n+7$.</p>
+
+<p>Homer is lazy, and he doesn't want to check all of the elements in the array if he doesn't have too.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">bool</span> <span class="pl-en">homer</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len, <span class="pl-k">int</span> e, <span class="pl-k">int</span> o) {
+    <span class="pl-c">// only loop while it's still possible</span>
+    <span class="pl-k">while</span> (len &gt; <span class="pl-c1">0</span> &amp;&amp; e + o &lt;= len) {
+        <span class="pl-k">if</span> (a[len - <span class="pl-c1">1</span>] % <span class="pl-c1">2</span> == <span class="pl-c1">0</span>) { <span class="pl-c">// even case:</span>
+            <span class="pl-k">if</span> (e &gt; <span class="pl-c1">0</span>) {
+                e = e - <span class="pl-c1">1</span>; <span class="pl-c">// only decrement e if e &gt; 0</span>
+            }
+        } <span class="pl-k">else</span> <span class="pl-k">if</span> (o &gt; <span class="pl-c1">0</span>) {
+            o = o - <span class="pl-c1">1</span>;
+        }
+        <span class="pl-k">if</span> (e == <span class="pl-c1">0</span> &amp;&amp; o == <span class="pl-c1">0</span>) {
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        }
+        len = len - <span class="pl-c1">1</span>;
+    }
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}</pre></div>
+
+<p>The problem with analyzing Homer's code is that it depends not just on the length of the array, but on the content of the array and the parameters $e$ and $o$.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> a[<span class="pl-c1">10</span>] = {<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>, <span class="pl-c1">7</span>, <span class="pl-c1">8</span>, <span class="pl-c1">9</span>, <span class="pl-c1">10</span>};
+
+<span class="pl-c">// these will be fast:</span>
+<span class="pl-k">bool</span> fast1 = homer(a, <span class="pl-c1">10</span>, <span class="pl-c1">0</span>, <span class="pl-c1">11</span>); <span class="pl-c">// false;</span>
+<span class="pl-k">bool</span> fast2 = homer(a, <span class="pl-c1">10</span>, <span class="pl-c1">1</span>, <span class="pl-c1">0</span>); <span class="pl-c">// true;</span>
+
+<span class="pl-c">// these will be slower:</span>
+<span class="pl-k">bool</span> slow1 = homer(a, <span class="pl-c1">10</span>, <span class="pl-c1">5</span>, <span class="pl-c1">5</span>); <span class="pl-c">// true;</span>
+<span class="pl-k">bool</span> slow2 = homer(a, <span class="pl-c1">10</span>, <span class="pl-c1">6</span>, <span class="pl-c1">4</span>); <span class="pl-c">// false;</span></pre></div>
+
+<p>For Homer's code, the <strong>best case</strong> is when it can <code>return</code> immediately, and the <strong>worst case</strong> is when all of the array elements are visited.</p>
+
+<p>For Bart's code, the best case is the same as the words case</p>
+
+<p>Homer:</p>
+
+<p>$T(n) = 4$ (best case)</p>
+
+<p>$T(n)= 17 n + 1$ (worst case)</p>
+
+<p>Bart:</p>
+
+<p>$T(n) = 8 n + 7$ (all cases)</p>
+
+<p>Which implementation is more efficient?
+Is it more "fair" to compare against the best case or the worst case?</p>
+
+<h4>
+<a id="user-content-worst-case-running-time" class="anchor" href="#worst-case-running-time" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Worst case running time</h4>
+
+<p>Typically, we want to be conservative (pessimistic) and use the worst case.</p>
+
+<p><strong>Unless otherwise specified, the running time of an algorithm is the worst case running time.</strong></p>
+
+<p>Comparing the worst case, Bart's implementation $(8n+7)$ is more efficient than Homer's $(17n+1)$.</p>
+
+<h4>
+<a id="user-content-big-o-notation" class="anchor" href="#big-o-notation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Big O notation</h4>
+
+<p>In practice, we are not concerned with the difference between the running time $(8n+7)$ and $(17n+1)$.</p>
+
+<p>We are interested in the <strong>order</strong> of a running time. The order is the <strong>"dominant" term</strong> in the running time <strong>without any constant coefficients</strong>.</p>
+
+<p>The dominant term in both $(8n+7)$ and $(17n+1)$ is $n$, and so they are both "order $n$".</p>
+
+<p>To represent orders, we use <strong>Big O notation</strong>.</p>
+
+<p>Instead of "order $n$" we use $O(n)$.</p>
+
+<p>The "dominant" term is the term that grows the largest when $n$ is very large $(n\rightarrow \infty)$. The order is also known as the "growth rate".</p>
+
+<p>**In this course, we encounter only a few orders (arranged from smallest to largest):
+$O(1),O(\log n),O(n),O(n\log n),O(n^2),O(n^3),O(2^n)$</p>
+
+<p>Examples:</p>
+
+<ul>
+<li>  $2016 = O(1)$</li>
+<li>  $100000 + n = O(n)$</li>
+<li>  $n+n\log n = O(nlog n)$</li>
+<li>  $999n +  0.01n^2 = O(n^2)$</li>
+<li>  $\frac{n(n+1)(2n+1)}{6} = O(n^3)$</li>
+<li>  $n^3+2^n=O(2^n)$</li>
+</ul>
+
+<p>When comparing algorithms, the most efficient algorithm is the one with the lost order.</p>
+
+<p>For example an $O(n\log n)$ algorithms is more efficient than an $O(n^2)$ algorithm.</p>
+
+<p>If two algorithms have the same order, they are considered <strong>equivalent</strong>.</p>
+
+<p>Both Homer's and Bart's implementations are $O(n)$, so they are equivalent.</p>
+
+<h4>
+<a id="user-content-big-o-arithmetic" class="anchor" href="#big-o-arithmetic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Big O arithmetic</h4>
+
+<p>When adding to orders, the result is the largest of the two orders.</p>
+
+<ul>
+<li>  $O(\log n) + O(n) = O(n)$</li>
+<li>  $O(1) + O(1) = O(1)$</li>
+</ul>
+
+<p>When multiplying two orders, the result is the product of the two orders.</p>
+
+<ul>
+<li>  $O(\log n)\times O(n) = O(n\log n)$</li>
+<li>  $O(1) \times O(n) = O(n)$</li>
+</ul>
+
+<h4>
+<a id="user-content-algorithms-analysis" class="anchor" href="#algorithms-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithms analysis</h4>
+
+<p>An important skill in Computer Science is the ability to <strong>analyze</strong> a function and determine the order of the running time.</p>
+
+<p>In this course, our goal is to give you experience and work toward building your intuition:</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">sum_array</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-k">int</span> sum = <span class="pl-c1">0</span>;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; ++i) {
+        sum += a[i];
+    }
+    <span class="pl-k">return</span> sum;
+}</pre></div>
+
+<p>"Clearly, each element is visited once, so the running time is $O(n)$".</p>
+
+<h4>
+<a id="user-content-contract-update" class="anchor" href="#contract-update" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contract update</h4>
+
+<p>You should include the <code>time</code> (efficiency) of each function that is not $O(1)$ and is not obviously $O(1)$.</p>
+
+<p>If there is any ambiguity as how $n$ is measured, it should be specified.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// sum_array(const int a[], int len) sums the elements</span>
+<span class="pl-c">//      of array a</span>
+<span class="pl-c">// time: O(n), n is the len of a</span></pre></div>
+
+<h4>
+<a id="user-content-analyzing-simple-functions" class="anchor" href="#analyzing-simple-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analyzing simple functions</h4>
+
+<p>First consider simple functions</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">max</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b) {
+    <span class="pl-k">if</span> (a &gt; b) <span class="pl-k">return</span> a;
+    <span class="pl-k">return</span> b;
+}</pre></div>
+
+<p>In no other functions are called, there must be a fixed number of operators. Each operators is $O(1)$, so the running time is:
+$$O(1)+O(1)+\cdots+O(1)=O(1)$$</p>
+
+<p>If a simple function calls other functions, its running time will depend on those functions.</p>
+
+<h4>
+<a id="user-content-built-in-functions" class="anchor" href="#built-in-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Built in functions</h4>
+
+<p>Consider the following two implementations.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// is_len_two(s) determines if the length of s is exactly 2</span>
+<span class="pl-k">bool</span> <span class="pl-en">is_len_two_a</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *s) {
+    <span class="pl-k">return</span> <span class="pl-c1">strlen</span>(s) == <span class="pl-c1">2</span>;
+}
+<span class="pl-k">bool</span> <span class="pl-en">is_len_two_b</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *s) {
+    <span class="pl-k">return</span> s[<span class="pl-c1">0</span>] &amp;&amp; s[<span class="pl-c1">1</span>] &amp;&amp; (s[<span class="pl-c1">2</span>] == <span class="pl-c1">0</span>);
+}</pre></div>
+
+<p>The running time of <code>a</code> if $O(n)$, while the running time of <code>b</code> is $O(1)$.</p>
+
+<p><strong>While using a function that is built-in or provided by a module (library) you should always be aware of the running time.</strong></p>
+
+<h4>
+<a id="user-content-c-running-times-strings--io" class="anchor" href="#c-running-times-strings--io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>C running times (strings &amp; I/O)</h4>
+
+<p><code>&lt;string.h&gt;</code> functions (e.g. <code>strlen</code>, <code>strcpy</code>) are $O(n)$, where $n$ is the length of the string. For <code>strcmp</code>, $n$ is the length of the smallest string.</p>
+
+<p><code>&lt;stdio.h&gt;</code> functions <code>printf</code> and <code>scanf</code> are $O(1)$, except when working with strings (<code>"%s"</code>), which are $O(n)$, where $n$ is the length of the string.</p>
+
+<p>Note that the string literal used with <code>printf</code> must always be constant length (i.e., <code>printf("literal")</code>).</p>
+
+<h4>
+<a id="user-content-racket-running-times-lists" class="anchor" href="#racket-running-times-lists" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Racket running times (lists)</h4>
+
+<p>Elementary list functions are $O(1)$:</p>
+
+<p><code>cons</code>, <code>cons?</code>, <code>empty</code>, <code>empty?</code>, <code>rest</code>, <code>first</code>, <code>second</code>, <code>tenth</code></p>
+
+<p>List functions that process the full list are typically $O(n)$:</p>
+
+<p><code>length</code>, <code>last</code>, <code>reverse</code>, <code>append</code></p>
+
+<p>Abstract list functions (e.g., <code>map</code>, <code>filter</code>) depend on the consumed function, but are $O(n)$ for straightforward $O(1)$ functions.</p>
+
+<p>The exception is Racket's <code>sort</code>, which is $O(n\log n)$.</p>
+
+<h4>
+<a id="user-content-racket-running-times-equality" class="anchor" href="#racket-running-times-equality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Racket running times (equality)</h4>
+
+<p>We can assume (numeric equality) is $O(1)$.</p>
+
+<p><code>symbol=?</code> is $O(1)$, but <code>string=?</code> is $O(n)$, where $n$ is the length of the smallest string.</p>
+
+<p>Racket's generic <code>equal?</code> is deceiving: its running time is $O(n)$, where $n$ is the size of the smallest argument.</p>
+
+<p>Because (<code>member</code> <code>e</code> <code>lst</code>) depends on <code>equal?</code>, its running time is $O(nm)$ where $n$ is the length of the <code>lst</code> and $m$ is the size of <code>e</code>.</p>
+
+<h4>
+<a id="user-content-array-efficiency" class="anchor" href="#array-efficiency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array efficiency</h4>
+
+<p>One of the significant differences between arrays and lists is that any element of an array can be accessed in constant time regardless of the index or the length of the array.</p>
+
+<p>To access the $i$-th element in an <strong>array</strong> (e.g., <code>a[i]</code>) is always $O(1)$.</p>
+
+<p>To access the $i$-th element in a <strong>list</strong> (e.g., <code>list-ref</code>) is $O(i)$.</p>
+
+<h4>
+<a id="user-content-iterative-analysis" class="anchor" href="#iterative-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Iterative analysis</h4>
+
+<p><strong>Iterative analysis</strong> uses <strong>summations</strong>.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (i = <span class="pl-c1">1</span>; i &lt;= n; ++i) {
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);
+}</pre></div>
+
+<p>$$T(n)=\sum_{i=1}^{n}O(1)=O(1)+\cdots +O(1)=n\times O(1)=O(n)$$</p>
+
+<p>Because we are primarily interested in orders,</p>
+
+<p>$\sum_{i=0}^{n-1}O(x)$, $\sum_{i=1}^{10n}O(x)$, or $\sum_{i=1}^{n/2}O(x)$ are equivalent$^*$ to $\sum_{i=1}^{n}O(x)$</p>
+
+<p>$^*$ unless $x$ is exponential (e.g., $O(2^i)$).</p>
+
+<h4>
+<a id="user-content-procedure-for-iteration" class="anchor" href="#procedure-for-iteration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Procedure for iteration</h4>
+
+<ol>
+<li> Work from the innermost loop to the outermost</li>
+<li> Determine the number of iterations in the loop (in the worst case) in relation to the size of the input ($n$) or an outer loop counter</li>
+<li> Determine the running time per iteration</li>
+<li> Write the summations and simplify the expression</li>
+</ol>
+
+<div class="highlight highlight-source-c"><pre>sum = <span class="pl-c1">0</span>;
+<span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; n; ++i) {
+    sum += i;
+}</pre></div>
+
+<p>$$\sum_{i=0}^{n}O(1) =O(n)$$</p>
+
+<h4>
+<a id="user-content-common-summations" class="anchor" href="#common-summations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common summations</h4>
+
+<p>$$\sum_{i=1}^{\log n}O(1) = O(\log n)$$
+$$\sum_{i=1}^{n}O(1) = O(n)$$
+$$\sum_{i=1}^{n}O(n) = O(n^2)$$
+$$\sum_{i=1}^{n}O(i) = O(n^2)$$
+$$\sum_{i=1}^{n}O(i^2) = O(n^3)$$</p>
+
+<p>The summation index should reflect the number of iterations in relation to the size of the input and does not necessarily reflect the actual loop counter values.</p>
+
+<div class="highlight highlight-source-c"><pre>k = n; <span class="pl-c">// n is size of the input</span>
+<span class="pl-k">while</span> (k &gt; <span class="pl-c1">0</span>) {
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);
+    k -= <span class="pl-c1">10</span>;
+}</pre></div>
+
+<p>There are $n/10$ iterations. Because we are only interested in the order, $n/10$ and $n$ are equivalent.</p>
+
+<p>$$\sum_{i=1}^{n/10}O(1)=O(n)$$</p>
+
+<p>When the loop counter changes geometrically, the number of iterations is often logarithmic.</p>
+
+<div class="highlight highlight-source-c"><pre>k = n; <span class="pl-c">// n is size of the input</span>
+<span class="pl-k">while</span> (k &gt; <span class="pl-c1">0</span>) {
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);
+    k /= <span class="pl-c1">10</span>;
+}</pre></div>
+
+<p>There are $\log_{10}n$ iterations.</p>
+
+<p>$$\sum_{i=1}^{\log n}O(1)=O(\log n)$$</p>
+
+<p>When working with nested loops, evaluate the innermost loop first.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; n; ++i) {
+    <span class="pl-k">for</span> (j = <span class="pl-c1">0</span>; j &lt; i; ++j) {
+        <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>);
+    }
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+}</pre></div>
+
+<p>Inner loop: $\sum_{j=0}^{i-1}O(1)=O(i)$
+Outer loop: $\sum_{i=0}^{n-1}(O(1)+O(i))=O(n^2)$</p>
+
+<p>Do <strong>NOT</strong> put the <code>strlen</code> function within a loop.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">char_count</span>(<span class="pl-k">char</span> c, <span class="pl-k">char</span> *s) {
+    <span class="pl-k">int</span> count = <span class="pl-c1">0</span>;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i=<span class="pl-c1">0</span>; i &lt; <span class="pl-c1">strlen</span>(s); ++i) { <span class="pl-c">// BAD !!!!</span>
+        <span class="pl-k">if</span> (s[i] == c) ++count;
+    }
+    <span class="pl-k">return</span> count;
+}</pre></div>
+
+<p>By using $O(n)$ function <code>strlen</code> inside of the loop, the function becomes $O(n^2)$ instead of $O(n)$.</p>
+
+<p><strong>Unfortunately, this mistake is common amongst beginners. This will be harshly penalized on assignments &amp; exams.</strong></p>
+
+<h4>
+<a id="user-content-recursive-relations" class="anchor" href="#recursive-relations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recursive relations</h4>
+
+<p>To determine the running time of a recursive function we must determine the <strong>recurrence relation</strong>. For example,</p>
+
+<p>$$T(n)=O(n)+T(n-1)$$</p>
+
+<p>We can then look up the recurrence relation in a table to determine the closed-from (non recursive) running time.</p>
+
+<p>$$T(n)=O(n)+T(n-1)=O(n^2)$$</p>
+
+<p>The recurrence relations we encounter in this course are:
+each element.</p>
+
+<blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$T(n)=O(1)+T(n-k_1)$</td>
+<td>$=O(n)$</td>
+</tr>
+<tr>
+<td>$T(n)=O(n)+T(n-k_1)$</td>
+<td>$=O(n^2)$</td>
+</tr>
+<tr>
+<td>$T(n)=O(n^2)+T(n-k_2)$</td>
+<td>$=O(n^2)$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$T(n)=O(1)+T(\frac{n}{k_2})$</td>
+<td>$=O(\log n)$</td>
+</tr>
+<tr>
+<td>$T(n)=O(1)+k_2T(\frac{n}{k_2})$</td>
+<td>$=O(n)$</td>
+</tr>
+<tr>
+<td>$T(n)=O(n)+k_2T{\frac{n}{k_2}}$</td>
+<td>$=O(n\log n)$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$T(n)=O(1)+T(n-k_1)+T(n-k_1^{'})$</td>
+<td>$=O(2^n)$</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+<p>where $k_1, k_1^{'}\leq 1$ and $k_2&gt;1$</p>
+
+<p><strong>This table will be provided on exams.</strong></p>
+
+<h4>
+<a id="user-content-procedure-for-recursive-functions" class="anchor" href="#procedure-for-recursive-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Procedure for recursive functions</h4>
+
+<ol>
+<li> Identify the order of the function excluding any recursion</li>
+<li> Determine the size of the input for the next recursive calls</li>
+<li> Write the full recurrence relation (combine step 1 &amp; 2)</li>
+<li> Look up the closed-form solution in a table</li>
+</ol>
+
+<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">define</span> (sum lon)
+(cons   [(empty? lon) <span class="pl-c1">0</span>]
+[<span class="pl-en">else</span> (+ (first lon) (sum (rest lon)))]))</pre></div>
+
+<ol>
+<li> non-recursive function is $O(1)$ <code>(empty?, first, rest)</code>
+</li>
+<li> size of the recursion: $n-1$ <code>(rest lon)</code>
+</li>
+<li> $T(n)=O(1)+T(n-1)$ (combine 1 &amp; 2)</li>
+<li> $T(n)=O(n)$ (table lookup)</li>
+</ol>
+
+<h4>
+<a id="user-content-revisiting-sorting-algorithms" class="anchor" href="#revisiting-sorting-algorithms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revisiting sorting algorithms</h4>
+
+<p>No introduction to efficiency is complete without a discussion of <strong>sorting algorithms</strong>.</p>
+
+<p>First we will analyze two recursive sorting algorithms in Racket.</p>
+
+<p>For simplicity, we only consider sorting numbers.</p>
+
+<p>When sorting strings or large data structures, you must also include the time to compare each element.</p>
+
+<blockquote>
+<p>When analyzing sorting algorithms, one measure of running time is the number of comparisons.</p>
+</blockquote>
+
+<h4>
+<a id="user-content-insertion-sort" class="anchor" href="#insertion-sort" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Insertion sort</h4>
+
+<p>Recall <strong>insertion sort</strong>, where we start with an empty (sorted) sequence, and then <strong>insert</strong> each element into the sorted sequence, maintaining the order after each insert.</p>
+
+<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">define</span> (insert n slon)
+    (<span class="pl-en">cond</span>   [(empty? slon) (cons n empty)]
+            [(&lt;= n (first slon)) (cons n slon)]
+            [<span class="pl-en">else</span> (cons (first slon) (insert n (rest slon)))]))</pre></div>
+
+<p>$$T(n)=O(1) + T(n-1) = O(n)$$</p>
+
+<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">define</span> (insertion-sort lon)
+    (<span class="pl-en">cond</span>   [(empty? lon) empty]
+            [<span class="pl-en">else</span> (insert (first lon) (insertion-sort (rest lon)))]))</pre></div>
+
+<p>$$T(n)=O(n)+T(n-1)=O(n^2)$$</p>
+
+<h4>
+<a id="user-content-merge-sort" class="anchor" href="#merge-sort" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Merge sort</h4>
+
+<p>In <strong>merge sort</strong>, the list is split into two separate lists. After the two lists are sorted they are <code>merged</code> together.</p>
+
+<p>This is another example of a divide and conquer algorithm.</p>
+
+<p>The lists are divided into two smaller problems, which are then sorted (conquered). The results are combined to solve the original problem.</p>
+
+<p>For merge sort, we need a function to <code>merge</code> two sorted lists.</p>
+
+<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">define</span> (merge slon1 slon2)
+    (<span class="pl-en">cond</span>   [(empty? slon1) slon2]
+            [(empty? slon2) slon1]
+            [(&lt; (first slon1) (first slon2))
+                (cons (first slon1) (merge (rest slon1) slon2))]
+            [<span class="pl-en">else</span> (cons (first slon2)
+                (merge slon1 (rest slon2)))]))</pre></div>
+
+<p>If the size of the two lists are $m$ and $p$, then the recursive calls are either $[(m-1)]$ and $p]$ or $[m$ and $(p-1)]$.</p>
+
+<p>However, if we define $n=m+p$ (the combined size of both lists), then each recursive call is of size $(n-1)$.</p>
+
+<p>$$T(n) = O(1) + T(n-1) = O(n)$$</p>
+
+<p>Now, we can complete <code>merge-sort</code>.</p>
+
+<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">define</span> (merge-sort lon)
+    (<span class="pl-en">define</span> len (length lon))
+    (<span class="pl-en">define</span> mid (quotient len <span class="pl-c1">2</span>))
+    (<span class="pl-en">define</span> left (drop-right lon mid)) <span class="pl-c">; O(n)</span>
+    (<span class="pl-en">define</span> right (take-right lon mid)) <span class="pl-c">; O(n)</span>
+    (<span class="pl-en">cond</span>   [(&lt;= len <span class="pl-c1">1</span>) lon]
+            [<span class="pl-en">else</span> (merge (merge-sort left)
+                (merge-sort right))]))</pre></div>
+
+<p>$$T(n)= O(n)+2T(n/2)=O(n\log n)$$</p>
+
+<h4>
+<a id="user-content-selection-sort" class="anchor" href="#selection-sort" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Selection sort</h4>
+
+<p>Recall our C implementation of selection sort:</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> <span class="pl-en">selection_sort</span>(<span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i=<span class="pl-c1">0</span>; i &lt; len - <span class="pl-c1">1</span>; ++i) {
+        <span class="pl-k">int</span> pos = i;
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = i + <span class="pl-c1">1</span>; j &lt; len; ++j) {
+            <span class="pl-k">if</span> (a[j] &lt; a[pos]) {
+                pos = j;
+            }
+        }
+        <span class="pl-c1">swap</span>(&amp;a[i], &amp;a[pos]);
+    }
+}</pre></div>
+
+<p>$$T(n)=\sum_{i=1}^{n}\sum_{j=i}^{n}O(1)=O(n^2)$$</p>
+
+<h4>
+<a id="user-content-quick-sort" class="anchor" href="#quick-sort" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick sort</h4>
+
+<p>In our C implementation of quick sort, we:
+1.  select the first element of the array as our "pivot". $O(1)$
+2.  move all elements that are larger than the pivot to the back of the array. $O(n)$.
+3.  move ("swap") the pivot into the correct position. $O(1)$.
+4.  recursively sort the "smaller then" sub-array and the "larger than" sub-array. $T(?)$.</p>
+
+<p>When the pivot is in the middle it splits the sublists equally, so</p>
+
+<p>$$T(n)=O(n)+2T(n/2) =T(n\log n)$$</p>
+
+<p>But that is the best case. In the worst case, the "pivot" is the smallest (or largest element), so one of the sublists is empty and the other is of size $(n-1)$.</p>
+
+<p>$$T(n)=O(n)+T(n-1)=O(n^2)$$</p>
+
+<h4>
+<a id="user-content-sorting-summary" class="anchor" href="#sorting-summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sorting summary</h4>
+
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>best case</th>
+<th>worst case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>insertion sort</td>
+<td>$O(n)$</td>
+<td>$O(n^2)$</td>
+</tr>
+<tr>
+<td>selection sort</td>
+<td>$O(n^2)$</td>
+<td>$O(n^2)$</td>
+</tr>
+<tr>
+<td>merge sort</td>
+<td>$O(n\log n)$</td>
+<td>$O(n\log n)$</td>
+</tr>
+<tr>
+<td>quick sort</td>
+<td>$O(n\log n)$</td>
+<td>$O(n^2)$</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="user-content-binary-search" class="anchor" href="#binary-search" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Binary search</h4>
+
+<p>In section 08, we implemented binary search on a sorted array.</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">find_sorted</span>(<span class="pl-k">int</span> item, <span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-c">// ...</span>
+    <span class="pl-k">while</span> (low &lt;= high) {
+        <span class="pl-k">int</span> mid = low + (high - low) / <span class="pl-c1">2</span>;
+        <span class="pl-c">// ...</span>
+        <span class="pl-k">if</span> (a[mid] &lt; item) {
+            low = mid + <span class="pl-c1">1</span>;
+        } <span class="pl-k">else</span> {
+            high = mid - <span class="pl-c1">1</span>;
+            <span class="pl-c">//...</span></pre></div>
+
+<p>In each iteration, the size of the search range $(n=$ high-low$)$ was halved, so the running time is:
+$$ T(n)=\sum_{i=1}^{\log_{2} n}O(1)=O(\log n)$$</p>
+
+<h4>
+<a id="user-content-algorithm-design" class="anchor" href="#algorithm-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithm Design</h4>
+
+<p>In this introductory course, the algorithms we develop will be mostly straightforward.</p>
+
+<p>To provide some insight into algorithm design, we will introduce a problem that is simple to describe, but hard to solve efficiently.</p>
+
+<p>We will present four different algorithms to solve this problem, each with a different running time.</p>
+
+<h4>
+<a id="user-content-the-maximum-subarray-problem" class="anchor" href="#the-maximum-subarray-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The maximum subarray problem</h4>
+
+<p>Problem: Given an array of integers, find the <strong>maximum sum</strong> of any contiguous sequence (subarray) of elements.</p>
+
+<p>For example, for the following array:</p>
+
+<table>
+<thead>
+<tr>
+<th>31</th>
+<th>-41</th>
+<th>59</th>
+<th>26</th>
+<th>-53</th>
+<th>58</th>
+<th>97</th>
+<th>-93</th>
+<th>-23</th>
+<th>84</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<p>the maximum sum is 187</p>
+
+<table>
+<thead>
+<tr>
+<th>31</th>
+<th>-41</th>
+<th><code>59</code></th>
+<th><code>26</code></th>
+<th><code>-53</code></th>
+<th><code>58</code></th>
+<th><code>97</code></th>
+<th>-93</th>
+<th>-23</th>
+<th>84</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<h5>
+<a id="user-content-solution-a-on3" class="anchor" href="#solution-a-on3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution A: $O(n^3)$</h5>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// for every start position i and ending position j</span>
+<span class="pl-c">// loop between them (k) summing elements</span>
+<span class="pl-k">int</span> <span class="pl-en">max_subarray</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-k">int</span> maxsofar = <span class="pl-c1">0</span>;
+    <span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; len; ++i) {
+        <span class="pl-k">for</span> (j = i; j &lt; len; ++j) {
+            <span class="pl-k">int</span> sum = <span class="pl-c1">0</span>;
+            <span class="pl-k">for</span> (k = i; k &lt;= j; ++k) {
+                sum += a[k];
+            }
+            maxsofar = <span class="pl-c1">max</span>(maxsofar, sum);
+        }
+    }
+    <span class="pl-k">return</span> maxsofar;
+}</pre></div>
+
+<p>$$T(n)=\sum_{i=1}^{n}\sum_{j=i}^{n}\sum_{k=i}^{j}O(1)=O(n^3)$$</p>
+
+<h5>
+<a id="user-content-solution-b-on2" class="anchor" href="#solution-b-on2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution B: $O(n^2)$</h5>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// for every start position i,</span>
+<span class="pl-c">// check if the sum from i...j is the max</span>
+<span class="pl-k">int</span> <span class="pl-en">max_subarray</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-k">int</span> maxsofar = <span class="pl-c1">0</span>;
+    <span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; len; ++i) {
+        <span class="pl-k">int</span> sum = <span class="pl-c1">0</span>;
+        <span class="pl-k">for</span> (j = i; j &lt; len; ++j) {
+            sum += a[j];
+            maxsofar = <span class="pl-c1">max</span>(maxsofar, sum);
+        }
+    }
+    <span class="pl-k">return</span> maxsofar;</pre></div>
+
+<p>$$T(n)=\sum_{i=1}^{n}\sum_{j=i}^{n}O(1)=O(n^3)$$</p>
+
+<h5>
+<a id="user-content-solution-c-onlog-n" class="anchor" href="#solution-c-onlog-n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution C: $O(n\log n)$</h5>
+
+<p>We will only describe this recursive divide and conquer approach.
+1.  Find the midpoint position m. $O(1)$
+2.  Find (a) the maximum subarray from $(0...m-1)$, and $(b)$ the maximum subarray from $(m+1...len-1)$. $2T(n/2)$
+3.  Find (c) the maximum subarray that includes m. $O(n)$
+4.  Find the maximum of (a), (b) and (c). $O(1)$</p>
+
+<p>$$T(n)=O(n)+2T(n/2)=O(n\log n)$$</p>
+
+<h5>
+<a id="user-content-solution-d-on" class="anchor" href="#solution-d-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution D: $O(n)$</h5>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// for each position i, keep track of</span>
+<span class="pl-c">// the maximum subarray ending at i</span>
+<span class="pl-k">int</span> <span class="pl-en">max_subarray</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> a[], <span class="pl-k">int</span> len) {
+    <span class="pl-k">int</span> maxsofar = <span class="pl-c1">0</span>;
+    <span class="pl-k">int</span> maxendhere = <span class="pl-c1">0</span>;
+    <span class="pl-k">for</span> (i = <span class="pl-c1">0</span>; i &lt; len; ++i) {
+        maxendhere = <span class="pl-c1">max</span>(maxendhere + a[i], <span class="pl-c1">0</span>);
+        maxsofar = <span class="pl-c1">max</span>(maxsofar, maxendhere);
+    }
+    <span class="pl-k">return</span> maxsofar;
+}</pre></div>
+
+<h4>
+<a id="user-content-space-complexity" class="anchor" href="#space-complexity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Space complexity</h4>
+</article></body></html>
