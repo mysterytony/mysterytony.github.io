@@ -699,3 +699,104 @@ int max_subarray(const int a[], int len) {
 
 #### Space complexity
 
+The **space complexity** of an algorithm is the amount of **additional memory** that the algorithm requires to solve the problem.
+
+While we are mostly interested in **time complexity**, there are circumstances where space is more important.
+
+If two algorithms have the same time complexity but different space complexity, it is likely that the one with the lower space complexity is faster.
+
+Consider the following two Racket implementations of a function to sum a list of numbers.
+
+```Racket
+(define (sum lst)
+	(cond 	[(empty? lst) 0]
+			[else (+ (first lst) (sum (rest lst)))]))
+
+(define (asum lst)
+	(define (asum/acc lst sofar)
+	(cond 	[(empty? lst) sofar]
+			[else (asum/acc (rest lst)
+			(+ (first lst) sofar))]))
+
+(asum/acc lst 0))
+```
+
+Both functions produce the same result and both functions have a time complexity $T(n)=O(n)$.
+
+The significant difference is that `asum` uses accumulative recursion.
+
+If we examine the substitution steps of `sum` and `asum`, we get some insight into their differences.
+
+```
+(sum '(1 1 1))
+=> (+ 1 (sum '(1 1)))
+=> (+ 1 (+ 1 (sum '(1))))
+=> (+ 1 (+ 1 (+ 1 (sum empty))))
+=> (+ 1 (+ 1 (+ 1 0)))
+=> (+ 1 (+ 1 1))
+=> (+ 1 2)
+=> 3
+
+(asum '(1 1 1))
+=> (asum/acc '(1 1 1) 0)
+=> (asum/acc '(1 1) 1)
+=> (asum/acc '(1) 2)
+=> (asum/acc empty 3)
+=> 3
+```
+
+The `sum` expression "grows" to $O(n)$+'s, but the `asum` expression does not use any additional space.
+
+The measured run-time of `asum` is significantly faster than `sum` (in an experiment with a list of one million 1's, over 40 times faster).
+
+`sum` uses $O(n)$ space, whereas `asum` uses $O(1)$ space.
+
+But **both** functions make the **same** number of recursive calls, how is this explained?
+
+The difference is that `asum` uses **tail recursion**.
+
+A function is **tail recursive** if the recursive all is always the **last expression** to be evaluated (the "tail").
+
+Typically, this is achieved by using accumulative recursion and providing a partial result as one of the parameters.
+
+With tail recursion, the previous stack frame can be **reused** for the next recursion (or the previous frame can be discarded before the new stack frame is created).
+
+Tail recursion is more space efficient and avoids stack overflow.
+
+#### Big O revisited
+
+We now revisit Big O notation and define it more formally.
+
+**$O(g(n))$ is the set of all functions whose "order" is less than or equal to $g(n)$.**
+
+$$n^2\in O(n^{100})$$
+$$n^3\in O(2^n)$$
+
+While you can say that $n^2$ is is the set $O(n^{100})$, it's not very useful information.
+
+**In this course, we always want the most appropriate order, or in other words, the smallest correct order.**
+
+Big O describes the asymptotic behavior of a function.
+
+This is **different** than describing the **worst case** behavior of a algorithm.
+
+Many confuse these two topics but they are completely **separate concepts". You can asymptotically define the best case and the worst case behavior of an algorithm.
+
+For example, the best case insertion sort is $O(n)$, while the worst case is $O(n^2)$.
+
+#### Goals of this section
+
+At the end of this section, you should be able to
+*	use the new terminology introduced (e.g., algorithm, time efficiency, running time, order)
+*	compute the order of an expression
+*	explain and demonstrate the use of Big O notation and how n is used to represent the size of the input
+*	determine the “worst case” running time for a given implementation
+*	deduce the running time for many built-in functions
+*	avoid common design mistakes with expensive operations such as `strlen`
+*	analyze a recursive function, determine its recurrence relation and look up its closed-form running time in a provided lookup table
+*	analyze an iterative function and determine its running time
+*	explain and demonstrate the use of the four sorting algorithms presented
+*	analyze your own code to ensure it achieves a desired running time
+*	describe the formal definition of Big O notation and its asymptotic behavior
+*	explain space complexity, and how it relates to tail recursion
+*	use running times in your contracts

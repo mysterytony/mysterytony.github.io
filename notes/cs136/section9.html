@@ -1551,4 +1551,109 @@ $$ T(n)=\sum_{i=1}^{\log_{2} n}O(1)=O(\log n)$$</p>
 
 <h4>
 <a id="user-content-space-complexity" class="anchor" href="#space-complexity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Space complexity</h4>
+
+<p>The <strong>space complexity</strong> of an algorithm is the amount of <strong>additional memory</strong> that the algorithm requires to solve the problem.</p>
+
+<p>While we are mostly interested in <strong>time complexity</strong>, there are circumstances where space is more important.</p>
+
+<p>If two algorithms have the same time complexity but different space complexity, it is likely that the one with the lower space complexity is faster.</p>
+
+<p>Consider the following two Racket implementations of a function to sum a list of numbers.</p>
+
+<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">define</span> (sum lst)
+    (<span class="pl-en">cond</span>   [(empty? lst) <span class="pl-c1">0</span>]
+            [<span class="pl-en">else</span> (+ (first lst) (sum (rest lst)))]))
+
+(<span class="pl-en">define</span> (asum lst)
+    (<span class="pl-en">define</span> (asum/acc lst sofar)
+    (<span class="pl-en">cond</span>   [(empty? lst) sofar]
+            [<span class="pl-en">else</span> (asum/acc (rest lst)
+            (+ (first lst) sofar))]))
+
+(asum/acc lst <span class="pl-c1">0</span>))</pre></div>
+
+<p>Both functions produce the same result and both functions have a time complexity $T(n)=O(n)$.</p>
+
+<p>The significant difference is that <code>asum</code> uses accumulative recursion.</p>
+
+<p>If we examine the substitution steps of <code>sum</code> and <code>asum</code>, we get some insight into their differences.</p>
+
+<pre><code>(sum '(1 1 1))
+=&gt; (+ 1 (sum '(1 1)))
+=&gt; (+ 1 (+ 1 (sum '(1))))
+=&gt; (+ 1 (+ 1 (+ 1 (sum empty))))
+=&gt; (+ 1 (+ 1 (+ 1 0)))
+=&gt; (+ 1 (+ 1 1))
+=&gt; (+ 1 2)
+=&gt; 3
+
+(asum '(1 1 1))
+=&gt; (asum/acc '(1 1 1) 0)
+=&gt; (asum/acc '(1 1) 1)
+=&gt; (asum/acc '(1) 2)
+=&gt; (asum/acc empty 3)
+=&gt; 3
+</code></pre>
+
+<p>The <code>sum</code> expression "grows" to $O(n)$+'s, but the <code>asum</code> expression does not use any additional space.</p>
+
+<p>The measured run-time of <code>asum</code> is significantly faster than <code>sum</code> (in an experiment with a list of one million 1's, over 40 times faster).</p>
+
+<p><code>sum</code> uses $O(n)$ space, whereas <code>asum</code> uses $O(1)$ space.</p>
+
+<p>But <strong>both</strong> functions make the <strong>same</strong> number of recursive calls, how is this explained?</p>
+
+<p>The difference is that <code>asum</code> uses <strong>tail recursion</strong>.</p>
+
+<p>A function is <strong>tail recursive</strong> if the recursive all is always the <strong>last expression</strong> to be evaluated (the "tail").</p>
+
+<p>Typically, this is achieved by using accumulative recursion and providing a partial result as one of the parameters.</p>
+
+<p>With tail recursion, the previous stack frame can be <strong>reused</strong> for the next recursion (or the previous frame can be discarded before the new stack frame is created).</p>
+
+<p>Tail recursion is more space efficient and avoids stack overflow.</p>
+
+<h4>
+<a id="user-content-big-o-revisited" class="anchor" href="#big-o-revisited" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Big O revisited</h4>
+
+<p>We now revisit Big O notation and define it more formally.</p>
+
+<p><strong>$O(g(n))$ is the set of all functions whose "order" is less than or equal to $g(n)$.</strong></p>
+
+<p>$$n^2\in O(n^{100})$$
+$$n^3\in O(2^n)$$</p>
+
+<p>While you can say that $n^2$ is is the set $O(n^{100})$, it's not very useful information.</p>
+
+<p><strong>In this course, we always want the most appropriate order, or in other words, the smallest correct order.</strong></p>
+
+<p>Big O describes the asymptotic behavior of a function.</p>
+
+<p>This is <strong>different</strong> than describing the <strong>worst case</strong> behavior of a algorithm.</p>
+
+<p>Many confuse these two topics but they are completely **separate concepts". You can asymptotically define the best case and the worst case behavior of an algorithm.</p>
+
+<p>For example, the best case insertion sort is $O(n)$, while the worst case is $O(n^2)$.</p>
+
+<h4>
+<a id="user-content-goals-of-this-section" class="anchor" href="#goals-of-this-section" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals of this section</h4>
+
+<p>At the end of this section, you should be able to</p>
+
+<ul>
+<li>  use the new terminology introduced (e.g., algorithm, time efficiency, running time, order)</li>
+<li>  compute the order of an expression</li>
+<li>  explain and demonstrate the use of Big O notation and how n is used to represent the size of the input</li>
+<li>  determine the “worst case” running time for a given implementation</li>
+<li>  deduce the running time for many built-in functions</li>
+<li>  avoid common design mistakes with expensive operations such as <code>strlen</code>
+</li>
+<li>  analyze a recursive function, determine its recurrence relation and look up its closed-form running time in a provided lookup table</li>
+<li>  analyze an iterative function and determine its running time</li>
+<li>  explain and demonstrate the use of the four sorting algorithms presented</li>
+<li>  analyze your own code to ensure it achieves a desired running time</li>
+<li>  describe the formal definition of Big O notation and its asymptotic behavior</li>
+<li>  explain space complexity, and how it relates to tail recursion</li>
+<li>  use running times in your contracts</li>
+</ul>
 </article></body></html>
