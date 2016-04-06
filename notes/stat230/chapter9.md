@@ -57,11 +57,11 @@ The most general method for finding the probability function for some function o
 
 #### Theorem
 
-If $X~Poi(\mu_1)$ and  $Y~Poi(\mu_2)$ independently then $T=X+Y~Poi(\mu_1+\mu_2)$
+If $X\backsim Poi(\mu_1)$ and  $Y\backsim Poi(\mu_2)$ independently then $T=X+Y\backsim Poi(\mu_1+\mu_2)$
 
 #### Theorem
 
-If $X~Bin(n,p)$ and $Y~Bin(m,p)$ independently then $T=X+Y~Bin(n+m,p)$
+If $X\backsim Bin(n,p)$ and $Y\backsim Bin(m,p)$ independently then $T=X+Y\backsim Bin(n+m,p)$
 
 ## 9.2 Multinomial Distribution
 
@@ -171,9 +171,9 @@ This result is a very important one in probability and statistics. To recap, it 
 
 #### Theorem: Linear Combinations of Independent Normal Random Variables
 
-1.	Let $X~N(\mu,\sigma^2)$ and $Y=aX+b$, where $a$ and $b$ are constant real numbers. Then $Y~N(a\mu+b,a^2\mu^2)$
-2.	Let $X~N(\mu_1,\sigma_1^2)$ and $Y~N(\mu_2,\sigma_2^2)$ independently, and let $a$ and $b$ be constants. Then $aX+bY~N(a\mu_1+b\mu_2,a^2\sigma_1^2+b^2\sigma_2^2)$.
-3.	Let $X_1,...,X_n$ be independent $N(\mu,\sigma^2)$ random variables. Then $\sum_{i=1}^{n}X_i~N(n\mu,n\sigma^2)$ and $\bar{X}~N(\mu,\sigma^2/n)$.
+1.	Let $X\backsim N(\mu,\sigma^2)$ and $Y=aX+b$, where $a$ and $b$ are constant real numbers. Then $Y\backsim N(a\mu+b,a^2\mu^2)$
+2.	Let $X\backsim N(\mu_1,\sigma_1^2)$ and $Y\backsim N(\mu_2,\sigma_2^2)$ independently, and let $a$ and $b$ be constants. Then $aX+bY\backsim N(a\mu_1+b\mu_2,a^2\sigma_1^2+b^2\sigma_2^2)$.
+3.	Let $X_1,...,X_n$ be independent $N(\mu,\sigma^2)$ random variables. Then $\sum_{i=1}^{n}X_i\backsim N(n\mu,n\sigma^2)$ and $\bar{X}\backsim N(\mu,\sigma^2/n)$.
 
 ## 9.7 Indicator Random Variables
 
