@@ -132,3 +132,55 @@ The correlation coefficient measures the strength of the linear relationship bet
 
 1.	Since $\sigma_X$ and $\sigma_Y$, the standard deviations of $X$ and $Y$, are both positive, $\rho$ will have the same sign as $Cov(X,Y)$. Hence the interpretation of the sign of $rho$ is the same as for $Cov(X,Y)$, and $\rho=0$ if $X$ and $Y$ are independent. When $\rho=0$ we way that $X$ and $Y$ are uncorrelated.
 2.	$-1\leq \rho \leq 1$ and as $\rho \rightarrow \pm 1$ the relation between $X$ and $Y$ becomes one to one and linear.
+
+## 9.5 Mean and Variance of a Linear Combination of Random Variables
+
+#### Results for means:
+
+1.	$E(aX+bY)=aE(X)+bE(Y)=a\mu_X+b\mu_Y$, when $a$ and $b$ are constants. (This follows from the definition of expected value.) In particular, $E(X+Y)=\mu_X+\mu_Y$ and $E(X-Y)=\mu_X-\mu_Y$.
+2.	Let $a_i$ be constants (real numbers) and $E(X_i)=\mu_i$, $i=1,2,...,n$. Then $E(\sum_{i=1}^{n}a_iX_i)=\sum_{i=1}^{n}a_i\mu_i$. In particular, $E(\sum_{i=1}^{n}X_i)=\sum_{i=1}^{n}E(X_i)$.
+3.	Let $X_1, X_2,...,X_n$ be random variables which have mean $\mu$. (You can imagine these being some sample results from an experiment such as recording the number of occupants in cars traveling over a toll bridge.) The sample mean is $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$. Then $E(\bar{X})=\mu$.
+
+#### Results for covariances:
+
+1.	$Cov(X,Y)=E[(X-\mu_X)(X-\mu_X)]=E[(X-\mu)^2]=Var(X)$
+2.	$Cov(aX+bY,cU+dV)=acCov(X,U)+adCov(X,V)+bcCov(Y,U)+bdCov(Y,V)$ where $a,b,c,d$ are constants.
+
+#### Results for variance:
+
+1.	Variance of a linear combination
+$$Var(aX+bY)=a^2Var(X)+b^2Var(Y)+2abCov(X,Y)$$
+2.	Variance of a sum of independent random variables: Let $X$ and $Y$ be independent. Since $Cov(X,Y)=0$, result 1. gives
+$$Var(X+Y)=\sigma_X^2+\sigma_Y^2$$
+that is, for independent variables, the variance of a sum is the sum of the variance. Also note
+$$Var(X-Y)=\sigma_X^2+(-1)^2\sigma_Y^2=\sigma_X^2+\sigma_Y^2$$
+3.	Variance of a general linear combination of random variables: Let $a_i$ be constants and $Var(X_i)=\sigma_i^2$. Then
+$$Var(\sum_{i=1}^{n}a_iX_i)=\sum_{i=1}^{n}\sigma_i^2 \sigma_i^2+2\sum_{i=1}^{n}\sum_{j=i+1}^{n}a_i a_j Cov(X_i, X_j)$$
+This is a generalization of result 1, and can be proved using either of the methods used for 1.
+4.	Variance of a linear combination of independent random variables: Special cases of result 3. are:
+	1.	If $X_1,...,X_n$ are independent then $Cov(X_1,X_j)=0$, so that
+		$$Var(\sum_{i=1}^{n}a_iX_i)=\sum_{i=1}^{n}\sigma_i^2\sigma_i^2$$
+	2.	If $X_1,...,X_n$ are independent and all have the same variance $\sigma^2$, then
+		$$Var(\bar{X})=\frac{\sigma^2}{n}$$
+
+#### Remark
+
+This result is a very important one in probability and statistics. To recap, it says that if $X_1,...,X_n$ are independent random variables with the same mean $\mu$ and the same variance $\sigma^2$, then the sample mean $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ has $E(\bar{X})=\mu$ and $Var(\bar{X})=\frac{\sigma^2}{n}$.
+
+## 9.6 Linear Combinations of Independent Normal Random Variables
+
+#### Theorem: Linear Combinations of Independent Normal Random Variables
+
+1.	Let $X~N(\mu,\sigma^2)$ and $Y=aX+b$, where $a$ and $b$ are constant real numbers. Then $Y~N(a\mu+b,a^2\mu^2)$
+2.	Let $X~N(\mu_1,\sigma_1^2)$ and $Y~N(\mu_2,\sigma_2^2)$ independently, and let $a$ and $b$ be constants. Then $aX+bY~N(a\mu_1+b\mu_2,a^2\sigma_1^2+b^2\sigma_2^2)$.
+3.	Let $X_1,...,X_n$ be independent $N(\mu,\sigma^2)$ random variables. Then $\sum_{i=1}^{n}X_i~N(n\mu,n\sigma^2)$ and $\bar{X}~N(\mu,\sigma^2/n)$.
+
+## 9.7 Indicator Random Variables
+
+The results for linear combinations of random variables provide a way of breaking up more complicated problems, involving mean and variance, into simpler pieces using indicator variables; an indicator variable is just a binary variable (0 or 1) that indicates whether or not some event occurs.
+
+#### Remark
+
+If $X_i$ is a binary random variable with $P(X_i=1)=p=1-P(X_i=0)$ then $E(X_i)=p$ and $Var(X_i)=p(1-p)$. In some problems that $X_i$'s are not independent, and then we also need covariances.
+
+**Consult the examples in the text book: page 221 to 225. Examples are not illustrated here as there is no significant amount of notes.**
