@@ -111,7 +111,7 @@ Let $\bv$ be a vector space. To find a basis for $\bv$,
 
 #### Theorem 1
 
-Let B={$\vsetn$} be a basis for a vector space $\bv$ and let C={$\v{w_1},\cdots,\v{w_k}$} be a set in $vb$. If $k>n$, then C is linearly dependent.
+Let B={$\vsetn$} be a basis for a vector space $\bv$ and let C={$\v{w_1},\cdots,\v{w_k}$} be a set in $\bv$. If $k>n$, then C is linearly dependent.
 
 #### Theorem 2
 
@@ -125,9 +125,10 @@ If $\bv$ is the trivial vector space, then dimV=0. If $bv$ does not have a basis
 
 #### Theorem 3
 
-If $bv$ is an n-dimensional vector space with $n>0$, then
-1.	a set of more than n vectors in $bv$ must be linearly dependent
-2.	a set of fewer than n vectors in $bv$ cannot span $\bv$
+If $\bv$ is an n-dimensional vector space with $n>0$, then
+
+1.	a set of more than n vectors in $\bv$ must be linearly dependent
+2.	a set of fewer than n vectors in $\bv$ cannot span $\bv$
 3.	a Set of n vectors in $\bv$ is linearly independent if and only if it spans $\bv$
 
 #### Theorem 4
@@ -142,7 +143,7 @@ If $\b{S}$ is a subspace of a finite dimensional vector space $\bv$, then $dim\b
 
 #### Theorem 1
 
-If B={$vsetk$} is a basis for a vector space $\bv$, then every $\v{v}\in\bv$ can be written as a unique linear combination of the vectors in B
+If B={$\vsetk$} is a basis for a vector space $\bv$, then every $\v{v}\in\bv$ can be written as a unique linear combination of the vectors in B
 
 #### Definition: B-Coordinates
 

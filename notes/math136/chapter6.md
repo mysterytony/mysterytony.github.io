@@ -45,6 +45,7 @@ You can also show that $[L]_B = P^{-1}[L]P$, by showing that $[L]_B[\vx]_B=P{-1}
 #### Theorem 1
 
 If $A$ and $B$ are $n\x n$ matrices such that $P^{-1}AP=B$ for some invertible matrix $P$, then
+
 1.	rankA = rankB
 2.	detA = detB
 3.	trA = trB where tr A is defined by $\sum_{i=1}^{n}a_{ii}$ and is called the trace of a matrix
@@ -128,7 +129,7 @@ If $A$ is an $n\x n$ matrix with eigenpairs $(\lambda_1,\v{v}_1),...,(\lambda_k,
 
 #### Theorem 3
 
-If $A$ is an $n\x n$ matrix with district eigenvalues $\lambda_1,...,\lambda_k$ and $B_i=\\{\v{v_{i,1}},...,\v{v_{i,g_{\lambda_i}}}\\}$ is a basis for the eigenspace of $\lambda_i$ for $1\leq i \leq k$, then $B_1\cup ... \cup B_k$ is a linearly independent set.
+If $A$ is an $n\x n$ matrix with distinct eigenvalues $\lambda_1,...,\lambda_k$ and $B_i=\\{\v{v_{i,1}},...,\v{v_{i,g_{\lambda_i}}}\\}$ is a basis for the eigenspace of $\lambda_i$ for $1\leq i \leq k$, then $B_1\cup ... \cup B_k$ is a linearly independent set.
 
 #### Corollary 4
 
