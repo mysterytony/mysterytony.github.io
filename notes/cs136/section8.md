@@ -253,7 +253,7 @@ Quicksort is an example of a "divide & conquer" algorithm.
 
 First, an element is selected as a "pivot" element.
 
-The list isD THEN **partitioned** (divided) into two sub-groups: elements less than (or equal to) the pivot and those greater then the pivot.
+The list is then **partitioned** (divided) into two sub-groups: elements less than (or equal to) the pivot and those greater then the pivot.
 
 Finally, each sub-group is then sorted (conquered).
 
