@@ -143,7 +143,7 @@ The correlation coefficient measures the strength of the linear relationship bet
 
 #### Results for covariances:
 
-1.	$Cov(X,Y)=E[(X-\mu_X)(X-\mu_X)]=E[(X-\mu)^2]=Var(X)$
+1.	$Cov(X,X)=E[(X-\mu_X)(X-\mu_X)]=E[(X-\mu)^2]=Var(X)$
 2.	$Cov(aX+bY,cU+dV)=acCov(X,U)+adCov(X,V)+bcCov(Y,U)+bdCov(Y,V)$ where $a,b,c,d$ are constants.
 
 #### Results for variance:
@@ -171,7 +171,7 @@ This result is a very important one in probability and statistics. To recap, it 
 
 #### Theorem: Linear Combinations of Independent Normal Random Variables
 
-1.	Let $X\backsim N(\mu,\sigma^2)$ and $Y=aX+b$, where $a$ and $b$ are constant real numbers. Then $Y\backsim N(a\mu+b,a^2\mu^2)$
+1.	Let $X\backsim N(\mu,\sigma^2)$ and $Y=aX+b$, where $a$ and $b$ are constant real numbers. Then $Y\backsim N(a\mu+b,a^2\sigma^2)$
 2.	Let $X\backsim N(\mu_1,\sigma_1^2)$ and $Y\backsim N(\mu_2,\sigma_2^2)$ independently, and let $a$ and $b$ be constants. Then $aX+bY\backsim N(a\mu_1+b\mu_2,a^2\sigma_1^2+b^2\sigma_2^2)$.
 3.	Let $X_1,...,X_n$ be independent $N(\mu,\sigma^2)$ random variables. Then $\sum_{i=1}^{n}X_i\backsim N(n\mu,n\sigma^2)$ and $\bar{X}\backsim N(\mu,\sigma^2/n)$.
 
