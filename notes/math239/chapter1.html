@@ -752,8 +752,64 @@ MathJax.Hub.Config({
 <h1>
 <a id="user-content-chapter-1-combinatorial-analysis" class="anchor" href="#chapter-1-combinatorial-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 1 Combinatorial Analysis</h1>
 
+<h2>
+<a id="user-content-11-introduction" class="anchor" href="#11-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1 Introduction</h2>
+
+<p>A <strong>composition</strong> of a non-negative integer $n$ is a sequence $(m_1,...,m_r)$ of positive integers such that
+$$m_1+...+m_r=n$$</p>
+
+<p>The numbers $m_1,...,m_r$ are the <strong>parts</strong> of the composition.</p>
+
+<p>We define the <strong>weight</strong> of a composition to be the sum of its parts.</p>
+
+<p>A <strong>binary string</strong> of length $n$ is a sequence $a_1...a_n$ where each $a_i$ is 0 or 1. Clearly there are $2^n$ binary strings of length $n$.</p>
+
+<h2>
+<a id="user-content-12-sums-and-products" class="anchor" href="#12-sums-and-products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2 Sums and Products</h2>
+
+<p>We recall if $A$ and $B$ are sets, then the <strong>union</strong> $A\cup B$ is defined by
+$$A\cup B := \{x:x\in A \quad or \quad x\in B\}$$</p>
+
+<p>If $A$ and $B$ are <strong>disjoint</strong>, that is, $A\cap B=\emptyset$ then
+$$|A\cup B|=|A|+|B|$$</p>
+
+<p>Here $|S|$ denotes the number of elements in the set $S$.</p>
+
+<p>The <strong>Cartesian product</strong> $A\times B$ of sets $A$ and $B$ is the set of all ordered pairs whose first element is an element of $A$ and the second element is an element of $B$, that is
+$$A\times B := \{(a,b):a\in A, b\in B\}$$</p>
+
+<p>Then, we can similarly define the <strong>Cartesian power</strong> $A^k$ as ordered $k$-tuples of elements from $A$.
+$$A^k := \{(a_1,a_2,...,a_k):a_1,...,a_k\in A\}$$</p>
+
+<p>When $A$ is finite, $|A^k|=|A|^k$.</p>
+
+<h2>
+<a id="user-content-13-binomial-coefficients" class="anchor" href="#13-binomial-coefficients" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3 Binomial Coefficients</h2>
+
 <h4>
-<a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h4>
+<a id="user-content-131-theorem" class="anchor" href="#131-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3.1 Theorem</h4>
+
+<p>For non-negative integer $n$ and $k$, the number of $k$-element subsets of an $n$-element set is
+$$\frac{n(n-1)\cdots (n-k+1)}{k!}$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $L$ be the set of all ordered lists of $k$ distinct numbers from the set $\{1,...,n\}$. There are $n$ choices for the first number in the list, and then there are $n-1$ remaining choices for the second number. In general, when choosing the $i$-th number in our list, we have already used $i-1$ of the $n$ numbers and, hence, we have $n-i+1$ numbers of choose from. Thus,
+$$|L|=n(n-1)\cdots (n-k+1)$$
+Now consider a different way of generating the element of $L$. We first choose the $k$ elements and then order the elements in all possible ways. Let there be $x$ ways to choose $k$ elements from $\{1,...,n\}$. There are $k!$ ways to order, or permute, each $k$-element set. Thus
+$$|L|=x(k!)$$
+Hence,
+$$x=\frac{n(n-1)\cdots (n-k+1)}{k!}$$</p>
+</blockquote>
+
+<p>We define $n \choose k$, which we read as "$n$ choose $k$", to be the number of $k$-element subsets of $\{1,...,n\}$. So by Theorem 1.3.1,
+$${n \choose k} = \frac{n(n-1)\cdots (n-k+1)}{k!}$$</p>
+
+<p>Note that ${n \choose k} = 0$ whenever $n&lt;k$ as it should be. $0!=1$ and ${n \choose 0}=1$</p>
+
+<p>$${n \choose k}=\frac{n(n-1)\cdots (n-k+1)}{k!}=\frac{n!}{k!(n-k)!}=\frac{n!}{(n-k)!(n-(n-k))!}={n \choose n-k}$$</p>
 </article></body>
 
 <script>
@@ -765,6 +821,4 @@ MathJax.Hub.Config({
   ga('create', 'UA-75666948-1', 'auto');
   ga('send', 'pageview');
 
-</script>
-
-</html>
+</script></html>
