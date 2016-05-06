@@ -1,6 +1,6 @@
 [<- Go Back](http://tonyli.tk/)
 
-# Chapter 1 Combinatorial Analysis
+# Chapter 1 Combinatorial Analysis $\newcommand{\ra}{\rightarrow}$
 
 ## 1.1 Introduction
 
@@ -52,4 +52,55 @@ $${n \choose k} = \frac{n(n-1)\cdots (n-k+1)}{k!}$$
 Note that ${n \choose k} = 0$ whenever $n<k$ as it should be. $0!=1$ and ${n \choose 0}=1$
 
 $${n \choose k}=\frac{n(n-1)\cdots (n-k+1)}{k!}=\frac{n!}{k!(n-k)!}=\frac{n!}{(n-k)!(n-(n-k))!}={n \choose n-k}$$
+
+## 1.4 Bijections (One-to-One Correspondence)
+
+Let $S$ an $T$ be sets. Let $f:S\ra T$ be a function (or mapping). In particular, this means that for any $x\in S,f(x)$ is an element in $T$. Then
+
+*	$f$ is **1-1** or **injective** if for any $x_1,x_2\in S,f(x_1)=f(x_2)$ implies $x_1=x_2$. In other words, every element in $S$ is being mapped to a unique element in $T$.
+*	$f$ is **onto** or **surjective** if for all $y\in T$, there exists $x\in S$ such that $f(x)=y$. In other words, every element in $T$ is being mapped to from some element in $S$.
+*	$f$ is a **1-1 correspondence** or **bijection** if it is both 1-1 and onto.
+
+In combinatorics, we use mappings to compare the cardinalities of finite sets $S$ and $T$. If there exists a mapping $f:S\ra T$ that 1-1, then $|S|\leq |T|$. This is because the $|S|$ elements of $S$ must be mapped to distinct elements in $T$, so there must be at least $|S|$ distinct elements in $T$. 
+
+On the other hand, if there exists a mapping $f:S\ra T$ that is onto, then $|S|\geq |T|$. This is because for the $|T|$ elements in $T$, each must be mapped to be a distinct element in $S$. Therefore, if there exists a bijection $f:S\ra T$, then $|S|=|T|$, as $f$ is both 1-1 and onto
+
+Bijection have the nice property that they "pair up" elements of $S$ with elements of $T$ exactly. This gives a *correspondence* between elements of $S$ and $T$.
+
+For $f:S\ra T$, the **inverse** of $f$ is a function $f^{-1}:T\ra S$ such that for all $x\in S$, $f^{-1}(f(x))=x$, and for all $y\in T, f(f^{-1}(y))=y$.
+
+#### 1.4.1 Theorem
+
+If a function $f:S\ra T$ has an inverse, then $f$ is a bijection.
+
+>#### Proof
+Let $f^{-1}:T\ra S$ be an inverse of $f$. We need to prove that $f$ is 1-1 and onto. Suppose $f(x_1)=f(x_2)$. Then $f^{-1}(f(x_1))=f^{-1}(f(x_2))$. By definition of inverse, $x_1=x_2$, so $f$ is 1-1. Let $y\in T$. Since $f^{-1}$ is a function, $f^{-1}(y)=x$ for some $x\in S$. Then $f(f^{-1}(y))=x$, and by the definition of inverse, $y=f(x)$. Therefore, $x$ is mapped to $y$, and $f$ is onto.
+
+Usually if a bijection is clear, its inverse is also clear. So in most cases, instead of proving that a function is 1-1 and onto, we can simply provide the inverse function.
+
+## 1.5 Combinatorial Proofs
+
+Any proof that involves some kind of counting argument is a *combinatorial proof*.
+
+#### 1.5.1 Theorem
+
+For any non-negative integer $n$,
+$$(1+x)^n=\sum_{k=0}^{n}{n \choose k}x^k$$
+
+This is also known as the **binomial theorem**.
+
+>#### Proof
+We first expand $(1+x)^n$ algebraically:
+$$\begin{align\*} (1+x)^n &= (1+x)(1+x)\cdots (1+x) \\\
+&= \left(\sum_{a_1\in \{1,x\}}a_1\right)\cdots \left(\sum_{a_n\in\{1,x\}}a_n\right) \\\
+&= \sum_{a_1\in \{1,x\}} \cdots \sum_{a_n\in\{1,x\}} a_1\cdots a_n \\\
+&= \sum_{(a_1,...,a_n)\in\{1,x\}^n}  a_1\cdots a_n \end{align\*}$$
+Define $S_k$ to be the set of elements of $\{1,x\}^n$ where exactly $k$ of the $n$ terms are $x$'s. So if $(a_1,...,a^n)\in S_k$, then $a_1\cdots a_n=x^k$. Also,
+$${1,x}^n=S_0\cup\cdots\cup S_n$$
+This is a disjoint union of sets, so we can break up the sum at the end of the equation above to get
+$$\begin{align\*} (1+x)^n &= \sum_{k=0}^{n}\left(\sum_{(a_1,...,a_n)\in S_k} a_1\cdots a_n\right) \\\
+&= \sum_{k=0}^{n}\left(\sum_{(a_1,...,a_n)\in S_k} x^k\right) \\\
+&= \sum_{k=0}^{n} |S_k|x^k \end{align\*}$$
+Let $T_k$ be the set of all subsets of $\{1,...,n\}$ of size $k$. Then there is a bijection between $S_k$ and $T_k$, define $f:S_k\ra T_k$ by $f(a_1,...,a_n)=\{i|a_i=x\}$. This gives us $|S_k|=|T_k|={n \choose k}$. Therefore,
+$$(1+x)^n=\sum_{k=0}^{n} {n \choose k}x^k$$.
 
