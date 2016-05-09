@@ -104,3 +104,32 @@ $$\begin{align\*} (1+x)^n &= \sum_{k=0}^{n}\left(\sum_{(a_1,...,a_n)\in S_k} a_1
 Let $T_k$ be the set of all subsets of $\{1,...,n\}$ of size $k$. Then there is a bijection between $S_k$ and $T_k$, define $f:S_k\ra T_k$ by $f(a_1,...,a_n)=\{i|a_i=x\}$. This gives us $|S_k|=|T_k|={n \choose k}$. Therefore,
 $$(1+x)^n=\sum_{k=0}^{n} {n \choose k}x^k$$.
 
+## 1.6 Generating Series
+
+#### 1.6.2 Definition
+
+Let $S$ be a set of configurations with weight function $w$. The **generating series** for $S$ with respect to $w$ is defined by
+$$\Phi_S(x)=\sum_{\sigma\in S} x^{w(\sigma)}$$
+
+By collecting like-powers of $x$ in $\sigma_S(x)$, we get
+$$\begin{align\*} \Phi_S(x) &= \sum_{\sigma\in S} x^{w(\sigma)} \\\
+&= \sum_{k\geq 0} \left(\sum_{\sigma\in S,w(\sigma)=k} 1\right) x^k \\\
+&= \sum_{k\geq 0} a_k x^k \end{align\*}$$
+where $a_k$ denotes the number of elements in $S$ with weight $k$. That is, the coefficient of $x^k$ in $\Phi_S(x)$ counts the number of elements of weight $k$ in $S$.
+
+#### 1.6.3 Theorem
+
+Let $\Phi_S(x)$ be the generating series for a finite set $S$ with respect to a weight function $w$. Then,
+
+1.	$\Phi_S(1)=|S|$
+2.	the sum of the weights of the elements in $S$ is $\Phi_S'(1)$
+3.	the average weight of an element in $S$ is $\frac{\Phi_S'(1)}{\Phi_S(1)}$
+
+>#### Proof
+Note that
+$$\Phi_S(1) = \sum_{\sigma\in S} 1^{w(\sigma)} = |S|$$
+which proves (1). Similarly,
+$$\Phi_S'(x)=\sum_{\sigma\in S} w(\sigma)x^{w(\sigma)-1}.$$
+Thus,
+$$\Phi_S'(1)=\sum_{\sigma\in S} w(\sigma)$$
+which proves (2). Finally, (3) follows immediately from (1) and (2).
