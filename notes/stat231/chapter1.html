@@ -1,0 +1,947 @@
+<!DOCTYPE html><html><head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75666948-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter1</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
+
+<h1>
+<a id="user-content-chapter-1-introduction-to-statistical-science" class="anchor" href="#chapter-1-introduction-to-statistical-science" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 1: Introduction to Statistical Science</h1>
+
+<h2>
+<a id="user-content-11-statistical-sciences" class="anchor" href="#11-statistical-sciences" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1 Statistical Sciences</h2>
+
+<p>Statistical Science are concerned with all aspects of <strong>empirical studies</strong> including problem formulation, planning of an experiment, data collection, analysis of the data, and the conclusion that can be made. An empirical study is one in which we learn by observation or experiment. A key feature of such studies is that there is usually uncertainty in the conclusions. An important task in empirical studies is to quantify this uncertainty.</p>
+
+<p>Empirical studies deal with <strong>populations</strong> and <strong>processes</strong>; both of which are collections of individual <strong>units</strong>. In order to increase our knowledge about a process, we examine a <strong>sample</strong> of units generated by the process. To study a population of units we examine a sample of units carefully selected from that population. Two challenges arise since we only see a sample from the process or population and not all of the units are the same. Statistical Sciences deal both with the study of variability in processes and populations, and with good (that is, informative, cost-effective) ways to collect and analyze data about such processes.</p>
+
+<h2>
+<a id="user-content-12-collecting-data" class="anchor" href="#12-collecting-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2 Collecting Data</h2>
+
+<p>A <strong>population</strong> is a collection of <strong>units</strong>. A <strong>process</strong> is a system by which units are produced. A key feature of processes is that they usually occur over time whereas populations are often static.</p>
+
+<p>We pose questions about populations (or processes) by defining <strong>variates</strong> for the units which are characteristics of the units. Variates can be different types. Variates such as height and weight of a person, lifetime or an electrical component, and time until recurrence of disease after medical treatment are all examples of <strong>continuous</strong> or <strong>measured</strong> variates. Variates such as the number of defective smart phones sold by a particular company in a week, the number of deaths in a year on a dangerous highway or the number of damaged pixels in a monitor are all examples of <strong>discrete</strong> variates.</p>
+
+<p>Variates such as hair color, university program or martial status are examples of <strong>categorical</strong> variates since these variates do not take on numerical values. Sometimes, to facilitate the analysis of the data, we might redefine the variate of intersect to be 1 if present and 0 if absent. In such a case we would now call the variate a discrete variate. Since the variate only takes on values 0 or 1 such a variate is also often called a <strong>binary</strong> variate.</p>
+
+<p>If a variate classifies a unit by size then this is an example of a categorical variate. However since this categorical variate has a natural ordering, it is also called an <strong>ordinal</strong> variate. </p>
+
+<p>Statistical Sciences stress the importance of obtaining data that will be objective and provide maximal information at a reasonable cost. There are three broad approaches:</p>
+
+<ul>
+<li>  <strong>Sample Surveys</strong>. The object of many studies is to learn about a finite population. In this case information about the population may be obtained by selecting a "representative" sample of units from the population and determining the variate of interest for each unit in the sample. Obtaining such a sample can be challenging and expensive. In a survey sample the variates of interest are most often collected using a questionnaire. Sample survey are widely used in government statistical studies, economics, marketing, public opinion polls, sociology, quality assurance and other areas.</li>
+<li>  <strong>Observational Studies</strong>. An observational study is one in which data are collected about a process or population without any attempt to change the value of one or more variates for the sampled units. A distinction between a sample survey and an observational study is that for observational studies the population of interest is usually infinite or conceptual.</li>
+<li>  <strong>Experiments or Experimental Studies</strong>. An experiment is a study in which the experimenter intervenes and changes or sets the values of one or more variates for the units in the sample.</li>
+</ul>
+
+<h2>
+<a id="user-content-13-data-summaries" class="anchor" href="#13-data-summaries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3 Data Summaries</h2>
+
+<p>There are two classes of summaries: graphical and numerical. Suppose that data on a variate $y$ is collected for $n$ units in a population or process. By convention, we label the units as $1,2,...,n$ and denote their respective $y$-value as $y_1,y_2,...,y_n$. We might also collect data on a second variate $x$ for each unit, and we would denote the values as $x_1,x_2,...,x_n$. We refer to $n$ as the <strong>sample size</strong> and to ${x_1,x_2,...,x_n}$, ${y_1,y_2,...,y_n}$ or ${(x_1,y_1),(x_2,y_2),...,(x_n,y_n)}$ as data sets.</p>
+
+<h4>
+<a id="user-content-numerical-summaries" class="anchor" href="#numerical-summaries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Numerical Summaries</h4>
+
+<p>These summaries fall generally into three categories: measures of location (mean, median, and mode), measure of variability or dispersion (variance, range, and interquartile range), and measures of shape (skewness and kurtosis).</p>
+
+<h4>
+<a id="user-content-1-measure-of-locations" class="anchor" href="#1-measure-of-locations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Measure of locations:</h4>
+
+<ul>
+<li>  The <strong>sample mean</strong> also call the sample average: $\bar{y}=\frac{1}{n}\sum_{i=1}^{n}y_i$.</li>
+<li>  The <strong>sample median</strong> $\hat{m}$ or the middle value when $n$ is odd and the sample is ordered from smallest to largest, and the average of the two middle values when $n$ is even. Since the median is less affected by a few extreme observations it is a more robust measure of location.</li>
+<li>  The <strong>sample mode</strong>, or the value of $y$ which appears in the sample with the highest frequency (not necessarily unique).</li>
+</ul>
+
+<h4>
+<a id="user-content-2-measure-of-dispersion-or-variability" class="anchor" href="#2-measure-of-dispersion-or-variability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Measure of dispersion or variability:</h4>
+
+<ul>
+<li>  The <strong>sample variance</strong>:
+$$s^2=\frac{1}{n-1}\sum_{i=1}^{n}(y_i-\bar{y})^2=\frac{1}{n}\left[\sum_{n=1}^{n}y_i^2-n(\bar{y})^2\right]$$
+and the <strong>sample standard deviation</strong>: $s=\sqrt{s^2}$.</li>
+<li>  The <strong>range</strong> $=y_{(n)}-y_{(1)}$ where $y_{(n)}=max(y_1,y_2,...,y_n)$ and $y_{(1)}=min(y_1,y_2,...,y_n)$.</li>
+<li>  The <strong>interquartile range IQR</strong> which is described below.</li>
+</ul>
+
+<p>The sample variance and the sample standard deviation measure the variability or spread of the variate values in a data set. The units for standard deviation, range and interquartile range are the same as for the original variate.</p>
+
+<h4>
+<a id="user-content-3-measures-of-shape" class="anchor" href="#3-measures-of-shape" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Measures of shape:</h4>
+
+<p>Measures of shape generally indicate how the data, in terms of a relative frequency histogram, differ from the Normal bell-shaped curve, for example whether one tail of the relative frequency histogram is substantially larger than the other so the histogram is asymmetric, or whether both tails of the relative frequency histogram are large so the data are more prone to extreme values than data from a Normal distribution.</p>
+
+<ul>
+<li>
+<p>The <strong>sample skewness</strong>
+$$g_1=\frac{\frac{1}{n}\sum_{i=1}^{n}(y_i-\bar{y})^3}{\left[\frac{1}{n}\sum_{i=1}^{n}(y_i-\bar{y})^2\right]^{3/2}}$$</p>
+
+<p>is a measure of the (lack of) symmetry in the data.</p>
+
+<p>When the relative frequency histogram of the data is approximately symmetric then there is an approximately equal balance between the positive and negative values in the sum $\sum_{i=1}^{n}(y_i-\bar{y})^3$ and this results in a value for the skewness that is approximately zero. </p>
+
+<p>If the relative frequency histogram of the data has a long right tail, then the positive values of $(y_i-\bar{y})^3$ dominate the negative values in the sum and the value of the skewness will be positive. </p>
+
+<p>Similarly if the relative frequency histogram of the data has a long left tail then the value of the skewness will be negative.</p>
+</li>
+<li>
+<p>The <strong>sample kurtosis</strong>
+$$g_2=\frac{\frac{1}{n}\sum_{i=1}^{n}(y_i-\bar{y})^4}{\left[\frac{1}{n}\sum_{i=1}^{n}(y_i-\bar{y})^2\right]^2}$$</p>
+
+<p>measures the heaviness of the tails and the peakedness of the data relative to data that are Normally distributed. For the Normal distribution the kurtosis is equal to 3.</p>
+
+<p>Since the term $(y_i-\bar{y})^4$ is always positive, the kurtosis is always positive and values greater than three indicate heaver tails (and a more peaked center) than data that are Normally distributed.</p>
+</li>
+</ul>
+
+<h4>
+<a id="user-content-sample-quantiles-and-percentiles" class="anchor" href="#sample-quantiles-and-percentiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample Quantiles and Percentiles</h4>
+
+<p>For $0&lt;p&lt;1$, the $p$-th quantile (also called the $100p$-th percentile) is a value such that approximately a fraction $p$ of the $y$ values in the data set are less than $q(p)$ and roughly $1-p$ are greater. Depending on the size of the data set, quantiles are not uniquely defined for all values of $p$. There are different conventions for defining quantiles in these cases. If the sample size is large, the differences in the quantiles based on the various definitions are small.</p>
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 1</h4>
+
+<p>Let ${y_{(1)},...,y_{(n)}}$ where $y_{(1)}\leq\cdots\leq y_{(n)}$ be the order statistic for the data set ${y_1,...,y_n}$. The $p$-th <strong>sample quantile</strong> is a value, call it $q(p)$, determined as follows:</p>
+
+<ul>
+<li>  Let $m=(n+1)p$ where $n$ is the sample size</li>
+<li>  If $m$ is an integer between $1$ and $n$ then $q(p)=y_{(m)}$ which is the $m$-th largest value in the data set.</li>
+<li>  If $m$ is not an integer but $1&lt;m&lt;n$ when determine the closest integer $j$ such that $j&lt;m&lt;j+1$ and take $q(p)=\frac{1}{2}[y_{(j)}+y_{(j+1)}]$.</li>
+</ul>
+
+<p>The quantiles $q(0.25)$, $q(0.5)$, $q(0.75)$ are often used to summarize a data set and are given special names.</p>
+
+<h4>
+<a id="user-content-definition-2" class="anchor" href="#definition-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 2</h4>
+
+<p>The <strong>quantiles</strong> $q(0.25)$, $q(0.5)$, $q(0.75)$ are called the lower or first quartile, the median, and the upper or third quartile respectively.</p>
+
+<h4>
+<a id="user-content-definition-3" class="anchor" href="#definition-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 3</h4>
+
+<p>The <strong>interquartile range is IQR</strong> $=q(0.75)-q(0.25)$.</p>
+
+<p>Since the interquartile range is less affected by a few extreme observations, it is a more robust measure of variability as compared to the sample standard deviation.</p>
+
+<h4>
+<a id="user-content-definition-4" class="anchor" href="#definition-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 4</h4>
+
+<p>The <strong>five number summary</strong> of a data set consists of the smallest observation, the lower quartile, the median, the upper quartile and the largest value, that is, the five values $y_{(1)}, q(0.25), q(0.5), q(0.75), y_{(n)}$.</p>
+
+<p>The five number summary provides a concise numerical summary of a data set which provides information about the location (through the median), the spread (through the lower and upper quartiles) and the range (through the minimum and maximum values).</p>
+
+<h4>
+<a id="user-content-sample-correlation" class="anchor" href="#sample-correlation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample Correlation</h4>
+
+<p>So far we have looked only at graphical summaries of a data set. Often we have bivariate data of the form ${(x_1,y_1),...,(x_n,y_n)}$. A numerical summary of such data is the sample correlation.</p>
+
+<h4>
+<a id="user-content-definition-5" class="anchor" href="#definition-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 5</h4>
+
+<p>The <strong>sample correlation</strong>, denoted by $r$ is
+$$r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}$$
+where
+$$S_{xx}=\sum_{i=1}^{n}(x_i-\bar{x})^2=\sum_{i=1}^{n}x_i^2-n(\bar{x})^2$$
+$$S_{xy}=\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})=\sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}$$
+and
+$$S_{yy}=\sum_{i=1}^{n}(y_i-\bar{y})^2=\sum_{i=1}^{n}y_i^2-n(\bar{y})^2$$</p>
+
+<p>The sample correlation, which takes on values between $-1$ and $1$, is a measure of the linear relationship between the two variate $x$ and $y$. If the value of $r$ is close to 1 then we say that there is a strong positive linear relationship between the two variates while if the value of $r$ is close to $-1$ then we say that there is a strong negative linear relationship between the two variates. If the value of $r$ is close to $0$ then we say that there is no linear relationship between the two variates.</p>
+
+<h4>
+<a id="user-content-relative-risk" class="anchor" href="#relative-risk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Relative Risk</h4>
+
+<p>Recall that categorical variates consist of group of category names that do not necessary have any ordering. If two variates of interest in a study are categorical variates then it does not make sense to use sample correlation as a measure of the relationship between the two variates.</p>
+
+<h4>
+<a id="user-content-definition-6" class="anchor" href="#definition-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 6</h4>
+
+<p>For categorical data, the <strong>relative risk</strong> of event $A$ in group $B$ as compared to group $\bar{B}$ is
+$$relative \quad risk = \frac{y_{11}/(y_{11}+y_{12})}{y_{21}/(y_{21}+y_{22})}$$</p>
+
+<h4>
+<a id="user-content-graphical-summaries" class="anchor" href="#graphical-summaries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Graphical Summaries</h4>
+
+<p>We consider several types of plots for a data set ${y_1,...,y_2}$ and one type of plot for a data set ${(x_1,y_1),(x_2,y_2),...,(x_n,y_n)}$.</p>
+
+<h4>
+<a id="user-content-frequency-histogram" class="anchor" href="#frequency-histogram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Frequency histogram</h4>
+
+<p>Consider measurements ${y_1,...,y_2}$ on a variate $y$. Partition the range of $y$ into $k$ non-overlapping intervals $I_j=[a_{j-1},a_j), j=1,2,...,k$ and then calculate for $j=1,2,...,k$. $f_j=$ number of values from ${y_1,...,y_2}$ that are in $I_j$.</p>
+
+<p>The $f_j$ are called the <strong>observed frequencies</strong> for $I_1,...,I_k$; note that $\sum_{j=1}^{k} k_j=n$. A <strong>histogram</strong> is a graph in which a rectangle is placed above each interval; the height of the rectangle for $I_j$ is chosen so that the area of the rectangle is proportional to $f_j$. Two main types of frequency histogram are:</p>
+
+<ol>
+<li> a "standard" frequency histogram where the intervals $I_j$ are of equal length. The height of the rectangle for $I_j$ is the frequency $f_j$ or <strong>relative frequency</strong> $f_j/n$. This type of histogram is similar to a bar chart.</li>
+<li> a "relative" frequency histogram, where the interval $I_j=[a_{j-1},a_j)$ may or may not be of equal length. The height of the rectangle for $I_j$ is chosen so that its area equals $f_j/n$, that is, the height of the rectangle for $I_j$ is equal to
+$$\frac{f_j/n}{(a_j-a_{j-1})}$$</li>
+</ol>
+
+<p>If intervals of equal length are used then a standard frequency histogram and a relative frequency histogram look identical except for the labeling of the vertical axis. For a relative frequency histogram the sum of the areas of the rectangles is equal to one. If we wish to compare two data sets which have different sample sizes then a relative frequency histogram must be used. If we wish to superimpose a probability density function on a frequency histogram to see how well the data fit the model then a relative frequency histogram must always be used.</p>
+
+<p>To construct a frequency histogram, the number and location of the intervals must be chosen. The intervals are typically selected so that there are ten to fifteen intervals and each interval contains at least one $y$-value from the sample.</p>
+
+<h4>
+<a id="user-content-empirical-cumulative-distribution-functions" class="anchor" href="#empirical-cumulative-distribution-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Empirical Cumulative Distribution Functions</h4>
+
+<p>Another way to portray the values of a variate ${y_1,...,y_2}$ is to determine the proportion of values in the set which are smaller than any given value. This is called the <strong>empirical cumulative distribution function</strong> or e.c.d.f. and is defined by
+$$\hat{F}(y)=\frac{number \quad of \quad values \quad in \quad {y_1,...,y_2} \quad which \quad are \quad \leq y}{n}$$</p>
+
+<p>To construct $\hat{F}(y)$, it is convenient to first order the $y_i$'s to give the ordered values. Then we note that $\hat{F}(y)$ is a step function with a jump at each of the ordered observed values.</p>
+</article></body></html>
