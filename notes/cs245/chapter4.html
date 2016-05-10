@@ -1,5 +1,4 @@
-<!DOCTYPE html><html><head>
-<script>
+<!DOCTYPE html><html><head><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -758,332 +757,70 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter3</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
+<title>chapter4</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
 
 <h1>
-<a id="user-content-semantics-of-propositional-logic" class="anchor" href="#semantics-of-propositional-logic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantics of Propositional Logic</h1>
+<a id="user-content-working-with-formulas" class="anchor" href="#working-with-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Working With Formulas</h1>
 
 <h4>
-<a id="user-content-semantics" class="anchor" href="#semantics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantics</h4>
+<a id="user-content-evaluating-formulas" class="anchor" href="#evaluating-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evaluating Formulas</h4>
 
-<p>The <strong>semantics</strong> of a logic describes how to interpret the well-formed formulas of the logic.</p>
+<p>Recall that propositional logic is <strong>compositional</strong>. The value of two sub-formulas, determines the value of their composition using a propositional connective. Given a valuation $t$:</p>
 
-<p>The semantics of propositional logic is "compositional"; in other words, the meaning of a whole formula derives from the meaning of its parts.</p>
+<ul>
+<li>  $p^t=t(p)$</li>
+<li>  $(\lnot \alpha)^t=$
 
-<p>In propositional logic, we need to give meaning to atoms, connectives, and formulas.</p>
+<ul>
+<li>  $T$ if $\alpha ^t=F$</li>
+<li>  $F$ if $\alpha ^t=T$</li>
+</ul>
+</li>
+<li>  $(\alpha \land \beta)=$
+
+<ul>
+<li>  $T$ if $\alpha^t=\beta^t=T$</li>
+<li>  $F$ otherwise</li>
+</ul>
+</li>
+<li>  $(\alpha \lor \beta)^t =$
+
+<ul>
+<li>  $T$ if $\alpha^t=T$ or $\beta^t=T$</li>
+<li>  $F$ otherwise</li>
+</ul>
+</li>
+<li>  $(\alpha \rightarrow \beta)^t=$
+
+<ul>
+<li>  $T$ if $\alpha^t=F$ or $\beta^t=T$</li>
+<li>  $F$ otherwise</li>
+</ul>
+</li>
+<li>  $(\alpha \leftrightarrow \beta)=$
+
+<ul>
+<li>  $T$ if $\alpha^t=\beta^t$</li>
+<li>  $F$ otherwise</li>
+</ul>
+</li>
+</ul>
+
+<p>Using these rules, we can build a <strong>truth table</strong> considering all combinations.</p>
+
+<p>For a formula with $n$ variables, the full truth table has $2^n$ lines.</p>
 
 <h4>
-<a id="user-content-valuations-the-status-of-atoms" class="anchor" href="#valuations-the-status-of-atoms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Valuations: the status of atoms</h4>
+<a id="user-content-tautology-satisfaction-contradiction" class="anchor" href="#tautology-satisfaction-contradiction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tautology, Satisfaction, Contradiction</h4>
 
 <h4>
 <a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
 
-<p>A <strong>truth valuation</strong> is a function with the set of all proposition symbols as domain and ${F, T}$ as range.</p>
+<p>A formula $\alpha$ is a <strong>tautology</strong> if and only if for every truth valuation $t$, $\alpha^t=T$.</p>
 
-<p>In other words, a truth valuation assigns a value to every propositional variable.</p>
+<p>A formula $\alpha$ is a <strong>contradiction</strong> if and only if for every truth valuation $t$, $\alpha^t=F$.</p>
 
-<ul>
-<li>  If $t(p)=T$, then we say/write, "$t$ makes $p$ true".</li>
-<li>  If $t(p)=F$, then we say/write, "$t$ makes $p$ false".</li>
-</ul>
+<p>A formula $\alpha$ is <strong>satisfiable</strong> if and only if there is some truth valuation $t$ such that $\alpha^t=T$.</p>
 
-<p>A propositional variable has no intrinsic meaning; it gets a meaning only via a valuation.</p>
-
-<h4>
-<a id="user-content-compound-formulas" class="anchor" href="#compound-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compound formulas</h4>
-
-<p>Let $\varphi$ and $\eta$ be two formulas that express propositions $A$ and $B$. Intuitively, we give the following meanings to combinations.</p>
-
-<ul>
-<li>  $\lnot \varphi$ Not $A$</li>
-<li>  $\varphi \land \eta$ $A$ and $B$</li>
-<li>  $\varphi \lor \eta$ $A$ or $B$</li>
-<li>  $\varphi \rightarrow \eta$ If $A$ then $B$</li>
-<li>  $\varphi \leftrightarrow \eta$ $A$ iff $B$</li>
-</ul>
-
-<h4>
-<a id="user-content-semantics-of-connectives" class="anchor" href="#semantics-of-connectives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantics of Connectives</h4>
-
-<p>Formally, a connective represents a function from truth values to truth values.</p>
-
-<p>The connective $\lnot$ is unary; it maps one value to one value. We can show its function in a picture, known as a <strong>truth table</strong>:</p>
-
-<table>
-<thead>
-<tr>
-<th>$\varphi$</th>
-<th>$(\lnot \varphi)$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>T</td>
-<td>F</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-</tr>
-</tbody>
-</table>
-
-<p>The other connectives are binary; they map two values to one value. Thus their truth tables require four lines to cover the possibilities.</p>
-
-<h4>
-<a id="user-content-truth-tables-for-connectives" class="anchor" href="#truth-tables-for-connectives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Truth tables for connectives</h4>
-
-<p>The binary connectives:</p>
-
-<table>
-<thead>
-<tr>
-<th>$\varphi$</th>
-<th>$\eta$</th>
-<th>$(\varphi \land \eta)$</th>
-<th>$(\varphi \lor \eta)$</th>
-<th>$(\varphi \rightarrow \eta)$</th>
-<th>$(\varphi \leftrightarrow \eta)$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-<td>F</td>
-</tr>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-</tr>
-</tbody>
-</table>
-
-<p>$\land$ is as expected: $(\varphi \land \eta)$ is true if and only if both $\varphi$ and $\eta$ are true.</p>
-
-<p>The column for $\lor$ shows that it means "one or the other or both". (This is called "inclusive or").</p>
-
-<h4>
-<a id="user-content-if-then" class="anchor" href="#if-then" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>"If-then"</h4>
-
-<p>Some people find the meaning of $\rightarrow$ rather unintuitive. You may want to think of $\rightarrow$ as meaning <strong>truth is preserved</strong>.</p>
-
-<ul>
-<li>  The meaning of $T\rightarrow T$ is $T$ because truth is preserved.</li>
-<li>  The meaning of $T\rightarrow F$ is $F$ because truth is not preserved.</li>
-<li>  The meaning of $F\rightarrow T$ and $F\rightarrow F$ are both $T$, because there is no truth to preserve.</li>
-</ul>
-
-<h4>
-<a id="user-content-summary-value-of-a-formula" class="anchor" href="#summary-value-of-a-formula" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary: value of a formula</h4>
-
-<p>Fix a truth valuation $t$. Every formula $\varphi$ has a value under $t$, denoted $\varphi^t$, determined as follows</p>
-
-<ol>
-<li> $p^t=t(p)$</li>
-<li> $(\lnot \varphi)^t =$
-
-<ul>
-<li>  $T$ if $\varphi ^t= F$</li>
-<li>  $F$ if $\varphi ^t= T$ </li>
-</ul>
-</li>
-<li> $(\varphi \land \eta)^t =$
-
-<ul>
-<li>  $T$ if $\varphi^t=\eta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li> $(\varphi \lor \eta)^t =$
-
-<ul>
-<li>  $T$ if $\varphi^tT$ or $\eta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li> $(\varphi \rightarrow \eta)=$
-
-<ul>
-<li>  $T$ if $\varphi^t=F$ or $\eta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li> $(\varphi \leftrightarrow \eta)=$
-
-<ul>
-<li>  $T$ if $\varphi^t=\eta^t$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-</ol>
-
-<p>The value of a formula comes from the values of its variables, combined as given by its connectives.</p>
-
-<p>The valuation $t$ is necessary. Without a valuation, a formula has no value.</p>
-
-<h4>
-<a id="user-content-unique-readability-of-formulas" class="anchor" href="#unique-readability-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unique Readability of Formulas</h4>
-
-<h4>
-<a id="user-content-theorem" class="anchor" href="#theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
-
-<p>Every formula has a unique derivation as a well-formed formula. That is, each formula has exactly one of the six forms:</p>
-
-<ul>
-<li>  an atom</li>
-<li>  $(\lnot \varphi)$</li>
-<li>  $(\varphi \land \eta)$</li>
-<li>  $(\varphi \lor \eta)$</li>
-<li>  $(\varphi \rightarrow \eta)$</li>
-<li>  $(\varphi \leftrightarrow \eta)$</li>
-</ul>
-
-<p>In each case, it is of that form in exactly one way.</p>
-
-<p>As an example, consider $((p\land q)\rightarrow r)$. It can be formed from the two formulas $(p\land q)$ and $r$ using the connective $\rightarrow$.</p>
-
-<p>If we tried to form it using $\land$, the two parts would need to be $(p$ and $q)\rightarrow r$, but neither of those is a formula.</p>
-
-<h4>
-<a id="user-content-mathematical-induction" class="anchor" href="#mathematical-induction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mathematical Induction</h4>
-
-<h4>
-<a id="user-content-principle-of-mathematical-induction" class="anchor" href="#principle-of-mathematical-induction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Principle of mathematical induction:</h4>
-
-<p>Suppose we establish two things: that</p>
-
-<ul>
-<li>  0 has property $P$, and that</li>
-<li>  whenever any number has property $P$, then the next number also has property $P$.</li>
-</ul>
-
-<p>Then we may conclude that every natural number has property $P$.</p>
-
-<h4>
-<a id="user-content-observations--techniques" class="anchor" href="#observations--techniques" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Observations / Techniques</h4>
-
-<p><strong>To talk about something, give it a name.</strong> e.g. property $P$, number $k$, etc.</p>
-
-<p><strong>A formula is a textual object.</strong> In this text, we can substitute one symbol or expression for another. For example, we put $"k+1"$ in place of $"k"$.</p>
-
-<p><strong>The induction principle gives a "template" for a proof:</strong></p>
-
-<ul>
-<li>  The proof has two parts: the "basis" and the "inductive step"</li>
-<li>  In the inductive step, hypothesize $P(k)$ and prove $P(k+1)$ from it.</li>
-</ul>
-
-<h4>
-<a id="user-content-simple-induction-vs-strong-induction" class="anchor" href="#simple-induction-vs-strong-induction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple Induction vs. Strong Induction</h4>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Simple Induction</th>
-<th>Strong Induction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Basis</td>
-<td>Show $Q(0)$</td>
-<td>Show $P(0)$</td>
-</tr>
-<tr>
-<td>Ind. Hypothesis</td>
-<td>$Q(k)$ holds</td>
-<td>$P(m)$ holds, for every $m\leq k$</td>
-</tr>
-<tr>
-<td>Ind. Step</td>
-<td>Show $Q(k+1)$ holds</td>
-<td>Show $P(k+1)$ holds</td>
-</tr>
-<tr>
-<td>Conclusion</td>
-<td>$Q(k)$ holds for every $k$</td>
-<td>$P(k)$ holds for every $k$</td>
-</tr>
-</tbody>
-</table>
-
-<p>What is the difference? No difference!</p>
-
-<p>Define $Q(k)$ as a the property "$P(m)$ holds, for every $m\leq k$".</p>
-
-<ul>
-<li>  $Q(0)$ is equivalent to $P(0)$.</li>
-<li>  $Q(k+1)$ is equivalent to "$Q(k)$ and $P(k+1)$". To prove $Q(k+1)$ from $Q(k)$, need only to prove $P(k+1)$.</li>
-<li>  "$Q(k)$ for every $k$" is equivalent to "$P(k) for every $k$".</li>
-</ul>
-
-<h4>
-<a id="user-content-structural-induction" class="anchor" href="#structural-induction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structural Induction</h4>
-
-<p>A formula is not a natural number, but it suffices to prove any one of the following.</p>
-
-<p>For every natural number $n$, every formula with $n$ or fewer symbols has property $P$.</p>
-
-<p>OR</p>
-
-<p>For every natural number $n$, every formula with $n$ or fewer connectives has property $P$.</p>
-
-<p>OR</p>
-
-<p>For every natural number $n$, every formula whose parse tree has height $n$ or less has property $P$.</p>
-
-<p>OR</p>
-
-<p>For every natural number $n$, every formula producible with $n$ or fewer uses of the formation rules has property $p$.</p>
-
-<p>In each of these formulations, the induction step requires showing that if $P(\varphi)$ and $P(\eta)$, then $P((\lnot \varphi))$ and $P((\varphi \star \eta))$. Formula $\varphi$ and $\eta$ have smaller $n$ values than $(\lnot \varphi)$ and $(\varphi \star \eta)$ do.</p>
-
-<h4>
-<a id="user-content-the-principle-of-structural-induction" class="anchor" href="#the-principle-of-structural-induction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Principle of Structural Induction</h4>
-
-<h4>
-<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem.</h4>
-
-<p>Let $R$ be a property. Suppose that</p>
-
-<ol>
-<li> for each atomic formula $p$, we have $R(p)$; and</li>
-<li> for each formula $\varphi$, if $R(\varphi)$ then $R((\lnot \varphi))$; and</li>
-<li> for each pair of formulas $\varphi$ and $\eta$, and each connective $\star$, if $R(\varphi)$ and $R(\eta)$ then $R((\varphi \star \eta))$</li>
-</ol>
-
-<p>Then $R(\varphi)$ for every formula $\varphi$.</p>
-
-<p>Use of this principle is called <strong>structural induction</strong>.</p>
-
-<p>Structural induction is a special case of mathematical induction.</p>
-
-<p>We will define the semantics (meaning) of a formula from its syntax. Thus <strong>unique formation ensures unambiguous formulas</strong>.</p>
-
-<p><strong>Given a formula, determine its sub-formulas by counting parentheses</strong>.</p>
+<p>Note: a formula is satisfiable if and only if it is not a contradiction.</p>
 </article></body></html>
