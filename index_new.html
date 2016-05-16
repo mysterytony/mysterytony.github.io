@@ -35,12 +35,12 @@
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+      <ul class="sidebar-nav" id="navigator_list">
+        <li class="sidebar-brand" >
           <a href="#">The Mysterytony</a>
         </li>
         <li>
-          <a href="#Notes">Notes</a>
+          <a href="javascript:btnNotesClicked()">Notes</a>
         </li>
         <li>
           <a href="#Projects">Projects</a>
@@ -214,7 +214,7 @@
 
             <p><a href="https://ca.linkedin.com/in/tony-li-281b59b9">LinkedIn</a></p>
 
-            <p><a href="http://mysterytony.github.io/resume_2016.pdf">Resume</a></p>
+            <p><a href="https://onedrive.live.com/redir?resid=7C604C88796DF83E!12013&amp;authkey=!AIcvZqNAqZw_42o&amp;ithint=file%2cpdf">Resume</a></p>
 
             <hr>
 
@@ -253,6 +253,51 @@
     ga('create', 'UA-75666948-1', 'auto');
     ga('send', 'pageview');
 
+  </script>
+
+  <script type="text/javascript">
+    function onload()
+    {
+
+    }
+
+    function btnNotesClicked()
+    {
+      document.getElementById("navigator_list").innerHTML=
+      `
+      <li class="sidebar-brand" >
+        <a href="#">The Mysterytony</a>
+      </li>
+      <li>
+        <a href=""><- Back</a>
+      </li>
+      <li>
+        <a href="">Stat 231 <br/> Statistics</a>
+      </li>
+      <li>
+        <a href="">Math 237 <br/> Calculus 3 for Honours Mathematics</a>
+      </li>
+      <li>
+        <a href="">CS 246 <br/> Object-Oriented Software Development</a>
+      </li>
+      <li>
+        <a href="">CS 245 <br/> Logic and Computation</a>
+      </li>
+      <li>
+        <a href="">Math 239 <br/> Introduction to Combinatorics</a>
+      </li>
+      <li>
+        <a href="">Math 136 <br/> Linear Algebra 1 for Honours Mathematics</a>
+      </li>
+      <li>
+        <a href="">STAT 230 <br/> Probability</a>
+      </li>
+      <li>
+        <a href="">CS 136 <br/> Elementary Algorithm Design and Data Abstraction</a>
+      </li>
+
+      `;
+    }
   </script>
 
 </body>

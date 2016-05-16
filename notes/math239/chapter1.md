@@ -133,3 +133,117 @@ $$\Phi_S'(x)=\sum_{\sigma\in S} w(\sigma)x^{w(\sigma)-1}.$$
 Thus,
 $$\Phi_S'(1)=\sum_{\sigma\in S} w(\sigma)$$
 which proves (2). Finally, (3) follows immediately from (1) and (2).
+
+## 1.7 Formal Power Series
+
+Let $(a_0, a_1, a_2,...)$ be a sequence of rational numbers; then $A(x)=a_0+a_1x+a_2x^2+\cdots$ is called a **formal power series**. We say that $a_n$ is the **coefficient** of $x_n$ in $A(x)$ and write $a_n=[x^n]A(x)$. A formal power series should be regarded as a way of encoding a sequence of numbers. Thus two formal power series are equal if and only if they have the same sequence of coefficients.
+
+In many respects, formal power series behave much like polynomials; for example, addition and multiplication are well defined. If $A(x)=a_0+a_1x+a_2x^2+\cdots$ and $B(x)=b_0+b_1x+b_2x^2+\cdots$ are formal power series then we define
+$$A(x)+B(x)=\sum_{n\geq 0}(a_n+b_n)x^n$$
+and
+$$A(x)B(x)=\sum_{n\geq 0}\left(\sum_{k=0}^{n}a_kb_{n-k}\right)x^n$$
+
+We need to be a bit careful when performing infinite sums and products, but here there is no ambiguity, since there are only finitely many terms contributing to any given coefficient. Thus $A(x)+B(x)$ and $A(x)B(x)$ are well defined.
+
+In many of the problems that we will encounter, we will need to solve linear equations; given two formal power series $P(x)$ and $Q(x)$ we will want to find a formal power series $A(x)$ such that $Q(x)A(x)=P(x)$. 
+
+#### 1.7.2 Theorem
+
+Let $A(x)=a_0+a_1x+a_2x^2+\cdots$, $P(x)=p_0+p_1x+p_2x^2+\cdots$, and $Q(x)=1-q_1x-q_2x^2-\cdots$ be formal power series. Then
+$$Q(x)A(x)=P(x)$$
+if and only if for each $n\geq 0$,
+$$a_n=p_n+q_1a_{n-1}+q_2a_{n-2}+\cdots+q_na_o$$
+
+>#### Proof
+By definition, $Q(x)A(x)=P(x)$ if and only if 
+$\[x^n\](Q(x)A(x))=\[x^n\]P(x)$ for all $n\geq 0$. Now $\[x^n\]P(x)=p_n$ and 
+$$\[x^n\](Q(x)A(x))=a_n-q_1a_{n-1}-q_2a_{n-2}-\cdots -q_na_0$$
+Therefore $Q(x)A(x)=P(x)$ if and only if, for each $n\geq 0$,
+$$a_n-(q_1a_{n-1}+q_2a_{n-2}+\cdots q_na_0)=p_n$$
+The result follows by a simple rearrangement of this equation.
+
+#### 1.7.3 Corollary
+
+Let $P(x)$ and $Q(x)$ be formal power series. If the constant term of $Q(x)$ is non-zero, then there is a formal power series $A(x)$ satisfying
+$$Q(x)A(x)=P(x)$$
+Moreover, the solution, $A(x)$, is unique.
+
+>#### Proof
+If $Q(0)\neq 0$, then, by dividing both $P(x)$ and $Q(x)$ by $Q(0)$, we may assume that $Q(0)=1$. Then we can write $Q(x)=1-q_1x-q_2x^2-\cdots$ and $P(x)=p_0+p_1x+p_2x^2+\cdots$. Now by Theorem 1.7.2, $A(x)=a_0+a_1x+\cdots$ satisfies $Q(x)A(x)=P(x)$ if and only if for each $n\geq 0$,
+$$a_n=p_n+q_1a_{n-1}+\cdots q_na_0$$.
+Thus $a_0=p_0$ and, for each $n>0$, we can determine $a_n$ uniquely from $a_0,...,a_{n-1}$. So a solution exists and it is unique.
+
+#### 1.7.4 Definition
+
+We say that $B(x)$ is the **inverse** of $A(x)$ if
+$$A(x)B(x)=1$$
+we denote this by $B(x)=A(x)^{-1}$
+
+The formal power series $1+x+x^2+\cdots$ arises frequently, since it is the generating series for the non-negative integers. We call this a **geometric series**. The powers of geometric series arise often in problems that will face later.
+
+#### 1.7.8 Theorem
+
+A formal power series has an inverse if and only if it has a non-zero constant term. Moreover, if the constant term is non-zero, then the inverse is unique.
+
+>#### Proof
+Let $Q(x)$ be a formal power series. Then a formal power series $A(x)$ is the inverse of $Q(x)$ if and only if it satisfies the linear equation
+$$Q(x)A(x)=1$$
+If $Q(0)\neq 0$, by Corollary 1.7.3, the above equation has a unique solution. Hence $Q(x)$ has an inverse and it is unique. If $Q(0)=0$, then the constant term on the right side of the above equation is $1$, but the constant term on the left is $Q(0)A(0)=0$, so there is no solution and, hence, $Q(x)$ does not have an inverse.
+
+As with polynomials, we can also consider the composition of formal power series.
+
+#### 1.7.9 Definition
+
+The **composition** of formal power series $A(x)=a_0+a_1x+a_2x^2+\cdots$ and $B(x)$ is defined by
+$$A(B(x))=a_0+a_1B(x)+a_2B(x)^2+\cdots$$
+However, unlike for polynomials, this composition operation is not always well defined.
+
+#### 1.7.10 Theorem
+
+If $A(x)$ and $B(x)$ are formal power series with the constant term of $B(x)$ equal to zero, then $A(B(x))$ is a formal power series.
+
+>#### Proof
+We can write $A(x)=a_0+a_1x+\cdots$ and $B(x)=xC(x)$. Then
+$$\begin{align\*} A(B(x)) &= A(xC(x)) \\\
+&= a_0+a_1xC(x)+a_2(xC(x))^2+\cdots \\\
+&= a_0+a_1xC(x)+a_2x^2(C(x))^2 +\cdots \end{align\*}$$
+For each $k\geq 0$, note that $a_kx^k(C(x))^k$ is a formal power series (since it is the product of formal power series). Moreover, for each $n<k$, we have $\[x^n\](a_kx^k(C(x))^k)=0$. Therefore,
+$$\begin{align\*} \[x^n\]A(B(x)) &= \[x^n\](a_0+a_1xC(x)+a_2x^2(C(x))^2+\cdots) \\\
+&= \[x^n\](a_0+a_1xC(x)+a_2x^2(C(x))^2+\cdots+a_nx^n(C(x))^n)\end{align\*}$$
+Now, $a_0+a_1xC(x)+\cdots+a_nx^n(C(x))^n$ is a formal power series (since it is a finite sum of formal power series), so $\[x^n\]A(B(x))$ is well defined.
+
+## 1.8 The Sum and Product Lemmas
+
+#### 1.8.1 Theorem (The Sum Lemma)
+
+Let $(A,B)$ be a partition of $S$. (That is, $A$ and $B$ are disjoint sets whose union is $S$) Then,
+$$\Phi_S(x)=\Phi_A(x)+\Phi_B(x)$$
+
+>#### Proof
+$$\begin{align\*} \Phi_S(x) &= \sum_{\sigma\in S}x^{w(\sigma)} \\\
+&= \sum_{\sigma\in A}x^{w(\sigma)} + \sum_{\sigma\in B}x^{w(\sigma)} \\\
+&= \Phi_A(x) + \Phi_B(x)\end{align\*}$$
+as required.
+
+More generally, if $A$ and $B$ are sets where $A\cap B$ need not be empty, then
+$$\Phi_{A\cup B}(x)=\Phi_A(x)+\Phi_B(x)-\Phi_{A\cap B}(x)$$
+
+#### 1.8.2 Theorem (The Product Lemma)
+
+Let $A$ and $B$ be sets of configurations with weight function $\alpha$ and $\beta$ respectively. If $w(\sigma)=\alpha(a)+\beta(b)$ for each $\sigma=(a,b)\in A\times B$, then
+$$\Phi_{A\times B}(x)=\Phi_A(x)\Phi_B(x)$$
+
+>#### Proof
+$$\begin{align\*} \Phi_{A\times B}(x) &= \sum_{\sigma\in A\times B}x^{w(\sigma)} \\\
+&= \sum_{(a,b)\in A\times B} x^{\alpha(a)+\beta(b)} \\\
+&= \left(\sum_{a\in A}x^{\alpha(a)}\right)\left(\sum_{b\in B}x^{\beta(b)}\right) \\\
+&= \Phi_A(x)\Phi_B(x) \end{align\*}$$
+as required.
+
+More generally, if $A_1,...,A_k$ are sets then $A_1\times\cdots\times A_k$ denotes the set of all $k$-tuples $(a_1,a_2,...,a_k)$ where $a_i\in A$ for all $i$. Now, suppose that $\alpha_i$ is a weight function for $A_i$ and that $w$ is a weight function for $A_1\times\cdots\times A_k$. If $w(\sigma)=\alpha_1(a_1)+\cdots +\alpha_k(a_k)$ for each $k$-tuple $\sigma=(a_1,...,a_k)$, then
+$$\Phi_{A_1\times\cdots\times A_k}(x)=\Phi_A1(x)\cdots \Phi_Ak(x)$$
+
+#### 1.8.5 Theorem
+
+For any positive integer $k$ and non-negative integer $n$,
+
