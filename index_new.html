@@ -238,6 +238,7 @@
     ga('create', 'UA-75666948-1', 'auto');
     ga('send', 'pageview');
     </script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
     function onload() {
 
@@ -281,8 +282,20 @@
     }
 
     function btnCourseClicked(coursename) {
-        $.ajax({ url: 'http://mysterytony.github.io/notes/cs136/section11.html', success: function(data) { alert(data); } });
+        // $.ajax({
+        //     url: 'http://mysterytony.github.io/notes/cs136/section11.html',
+        //     success: function(data) {
+        //         alert(data);
+        //     }
+        // });
     }
+
+    $('#navigator_list').load('stat231.html');
+
+    
+    $(document).ready(function() {
+        
+    });
     </script>
 </body>
 
