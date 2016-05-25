@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Chapter 9: Multivariate Distribution
 
 ## 9.1 Basic Terminology and Techniques

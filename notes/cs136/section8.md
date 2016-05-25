@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Section 8: Arrays & Strings
 
 #### Arrays

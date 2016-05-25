@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Section 12: Abstract Data Types (ADTs) & Design
 
 #### Selecting a data structure

@@ -747,150 +747,303 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter10</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-chapter-10-clt-normal-approximations-and-mgfs" class="anchor" href="#chapter-10-clt-normal-approximations-and-mgfs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 10: C.L.T. Normal Approximations and M.G.F.s</h1>
+<title>chapter2</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-c" class="anchor" href="#c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>C++</h1>
 
 <h2>
-<a id="user-content-101-central-limit-theorem-and-normal-approximations" class="anchor" href="#101-central-limit-theorem-and-normal-approximations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.1 Central Limit Theorem and Normal Approximations</h2>
+<a id="user-content-21-design" class="anchor" href="#21-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1 Design</h2>
 
-<p>The Normal distribution can, under certain conditions, be used to approximate probabilities for linear combinations of variables having a non-Normal distribution. This remarkable property follows from an amazing result called the Central Limit Theorem.</p>
+<ul>
+<li>  <strong>Design</strong> is a plan for solving a problem, but leads to multiple solutions</li>
+<li>  Need the ability to compare designs</li>
+<li>  2 measures: coupling and cohesion</li>
+<li>  <strong>Coupling</strong> is degree of interdependence <strong>among</strong> programming modules</li>
+<li>  Aim is to achieve lowest coupling or highest independence (i.e., each module can stand alone or close to it)</li>
+<li>  Module is read and understood as a unit =&gt; changes do not effect other modules and can be isolated for testing purpose (like stereo components)</li>
+<li>  <strong>Cohesion</strong> is degree of element association <strong>within</strong> a module (focus)</li>
+<li>  Elements can be a statement, group of statements, or calls to other modules</li>
+<li>  Alternate names for cohesion: binding, functionality, modular strength</li>
+<li>  Highly cohesive module has strongly and genuinely related elements</li>
+<li>  <strong>Low cohesion</strong> (module elements NOT related) =&gt; <strong>loose coupling</strong>
+</li>
+<li>  <strong>High cohesion</strong> (module elements related) =&gt; tight coupling</li>
+</ul>
 
-<h4>
-<a id="user-content-theorem-central-limit-theorem" class="anchor" href="#theorem-central-limit-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem Central Limit Theorem</h4>
+<h2>
+<a id="user-content-22-cc-composition" class="anchor" href="#22-cc-composition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2 C/C++ Composition</h2>
 
-<p>If $X_1,...,X_n$ be independent random variables all having the same distribution, with mean $\mu$ and variance $\sigma^2$, then as $n\rightarrow \infty$, the cumulative distribution function of the random variable
-$$\frac{\sum_{i=1}^{n}X_i-n\mu}{\sigma \sqrt{n}}=\frac{S_n-n\mu}{\sigma\sqrt{n}}$$
-approaches the $N(0,1)$ cumulative distribution function. Similarly, the cumulative distribution function of
-$$\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}$$
-approaches the $N(0,1)$ cumulative distribution function.</p>
-
-<p>This is a theorem about limits. We will use it when $n$ is large, but finite, to approximate the distribution of $S_n$ or $\bar{X}$ by a Normal distribution. That is, we will use </p>
-
-<p>$S_n=\sum_{i=1}^{n}X_i$ has approximately a $N(n\mu, n\sigma^2)$ distribution for large $n$</p>
-
-<p>and</p>
-
-<p>$\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$ has approximately a $N(\mu,\frac{\sigma^2}{n})$ distribution for large $n$.</p>
-
-<p>Not that as $n\rightarrow \infty$, both distribution $N(n\mu,n\sigma^2)$ and $N(\mu,\sigma^2/n)$ fail to exist. (The former because both $n\mu$ and $n\sigma^2\rightarrow\infty$, and latter because $\sigma^2/n\rightarrow 0$).</p>
-
-<h4>
-<a id="user-content-note" class="anchor" href="#note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note</h4>
+<ul>
+<li>  C++ is composed of 3 languages:
 
 <ol>
-<li> The Central Limit Theorem does not hold if the common mean $\mu$ and variance $\sigma^2$ do not exist.</li>
-<li> We use the Central Limit Theorem to approximate the distribution of the sum $S_n=\sum_{i=1}^{n}X_i$ or average $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$. The accuracy of the approximation depends on $n$ (bigger is better) and also on the actual distribution of the $X_i$'s. The approximation works better for small $n$ when the shape of the probability function / probability density function of $X_i$ is symmetric (the $U(a,b)$ pdf) or nearly symmetric ($Poi(5)$ pf).</li>
-<li>  If the $X_i$ themselves have a Normal distribution, the $S_n$ and $\bar{X}$ have exactly Normal distributions for all values of $n$.</li>
+<li> <strong>Before</strong> compilation, preprocessor language (cpp) modifies (text-edits) the program</li>
+<li> <strong>During</strong> compilation, template (generic) language adds new types and routines</li>
+<li> <strong>During</strong> compilation,
+
+<ul>
+<li>  C programming language specifying basic declaration and control flow.</li>
+<li>  C++ programming language specifying advanced declarations and control flow</li>
+</ul>
+</li>
 </ol>
-
-<h4>
-<a id="user-content-note-1" class="anchor" href="#note-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note</h4>
-
-<ol>
-<li> A continuity correction should not be applied when approximating a continuous distribution by the Normal distribution. Since the correction involves going halfway to the next possible value, there would be no adjustment to make if the random variable takes on real values.</li>
-<li> Rather than trying to guess or remember when to add 0.5 and when to subtract 0.5, it is often helpful to sketch a histogram and shade the bars you wish to include. It should be obvious which value to use.</li>
-<li> Whenever approximating the probability of a single value for a discrete distribution, such as $P(X=50)$ when $X$ is $Bin(100,0.5)$ you need to use the continuity correction. Otherwise, for approximating the Binomial with large $n$, it is not necessary to use the correction.</li>
-</ol>
-
-<h4>
-<a id="user-content-normal-approximation-to-the-poisson-distribution" class="anchor" href="#normal-approximation-to-the-poisson-distribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Normal Approximation to the Poisson Distribution</h4>
-
-<p>Let $X$ be a random variable with $Poi(\mu)$ distribution and suppose $\mu$ is large. For the moment suppose that $\mu$ is an integer and recall that if we add $\mu$ independent Poisson random variables, each with parameter 1, then the sum has the Poisson distribution with parameter $\mu$. In general a Poisson random variable with large expected value can be written as the sum of a large number of independent random variables, and so the Central Limit Theorem implies that is much be closed to Normally distributed.</p>
-
-<h4>
-<a id="user-content-theorem-normal-approximation-to-poisson" class="anchor" href="#theorem-normal-approximation-to-poisson" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem: Normal Approximation to Poisson</h4>
-
-<p>Suppose $X\backsim Poi(\mu)$. Then the cumulative distribution function of the standardized random variable
-$$Z=\frac{X-\mu}{\sqrt{\mu}}$$
-approaches that of a standard Normal random variable as $\mu\rightarrow\infty$.</p>
-
-<h4>
-<a id="user-content-normal-approximation-to-the-binomial-distribution" class="anchor" href="#normal-approximation-to-the-binomial-distribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Normal Approximation to the Binomial Distribution</h4>
-
-<p>It is well-known that the probability histogram for a Binomial distribution, at least for large values of $n$; resembles a bell-shaped or Normal curve.</p>
-
-<h4>
-<a id="user-content-theorem-normal-approximation-to-binomial" class="anchor" href="#theorem-normal-approximation-to-binomial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem: Normal Approximation to Binomial</h4>
-
-<p>Suppose $X\backsim Bin(n,p)$. Then for $n$ large, the random variable
-$$W=\frac{X-np}{\sqrt{np(1-p)}}$$
-has approximately a $N(0,1)$ distribution.</p>
-
-<h4>
-<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
-
-<p>We can write the Normal approximation either as $\frac{X-np}{\sqrt{np(1-np)}}\backsim N(0,1)$ approximately or as $X\backsim N(np,np(1-p))$ approximately.</p>
-
-<p>The continuity correction method can be used there.</p>
+</li>
+<li>  A programmer uses the three programming languages as follows:
+user edits -&gt; <strong>preprocessor edits</strong> -&gt; <strong>templates expand</strong> -&gt; <strong>compilation</strong> (-&gt; linking/loading -&gt; execution)</li>
+<li>  C is composed of language 1 &amp; 3</li>
+<li>  The compiler interface controls all of these steps
+C/C++ header files &amp; C/C++ source files -&gt; (preprocessor) cpp -&gt; preprocessed source code -&gt; (translator) cc1plus -&gt; assembly code -&gt; (assembler) as -&gt; object code -&gt; other object-code file and libraries id (liner) -&gt; ./a.out &amp; object</li>
+</ul>
 
 <h2>
-<a id="user-content-102-moment-generating-function" class="anchor" href="#102-moment-generating-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.2 Moment Generating Function</h2>
+<a id="user-content-23-first-program" class="anchor" href="#23-first-program" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3 First Program</h2>
 
-<p>There is a third type of function, the moment generating function is closely related to other transforms used in mathematics, the Laplace and Fourier transforms.</p>
+<p>Java:</p>
 
-<h4>
-<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-smi">java.lang.*</span>; <span class="pl-c">// implicit</span>
+<span class="pl-k">class</span> <span class="pl-en">Hello</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span>
+    <span class="pl-k">void</span> <span class="pl-en">main</span>( <span class="pl-k">String</span>[ ] <span class="pl-v">args</span> ) {
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Hello!<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>exit( <span class="pl-c1">0</span> );
+    }
+}</pre></div>
 
-<p>Consider a discrete random variable $X$ with probability fucntion $f(x)$. The moment generating function (mgf) of $X$ is defined as
-$$M(t)=E(e^{tX})=\sum_{all x}e^{tX}f(x)$$
-We will assume that the moment generating functions is defined and finite for values of $t$ in an interval around 0 (that is, for some $a&gt;0,\sum_{x}e^{tX}f(x)&lt;\infty$ for all $t\in[-a,a]$).</p>
+<p>C:</p>
 
-<p>The moment of a random variable $X$  are the expectations of the functions $X^k$ for $k=1,2,...$. The expected value $E(X^k)$ is called the k-th moment of $X$. The mean $\mu=E(X)$ is therefore the first moment. It is often easy to find the moments of a probability distribution mathematically by using the moment generating function.</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">printf</span>( <span class="pl-s"><span class="pl-pds">"</span>Hello!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span> );
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
 
-<h4>
-<a id="user-content-theorem" class="anchor" href="#theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+<p>C++:</p>
 
-<p>Let the random variable $X$ have moment generating function $M(t)$. Then
-$$E(X^k)=M^{(k)}(0)$$ for $k=1,2,...$
-where $M^{(k)}(0)$ stands for $d^kM(t)/dt^k$ evaluated at $t=0$.</p>
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span> <span class="pl-c">// access to output</span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span> <span class="pl-c">// direct naming</span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>() { <span class="pl-c">// program starts here</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Hello!<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>; <span class="pl-c">// return 0 to shell, optional</span>
+}</pre></div>
 
-<h4>
-<a id="user-content-theorem-uniqueness-theorem-for-moment-generating-functions" class="anchor" href="#theorem-uniqueness-theorem-for-moment-generating-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem: Uniqueness Theorem for Moment Generating Functions:</h4>
+<ul>
+<li>  <code>#include &lt;iostream&gt;</code> copies (imports) basic I/O descriptions (no equivalent in Java)</li>
+<li>  <code>using namespace std</code> allows imported I/O names to accessed directly (otherwise qualification is necessary)</li>
+<li>  <code>cout&lt;&lt;"Hello!"&lt;&lt;endl</code> prints "Hello!" to standard output, called <code>cout</code> (<code>System.out</code> in Java, <code>stdout</code> in C)</li>
+<li>  <code>endl</code> starts a newline after "Hello!" (<code>println</code> in Java, <code>\n</code> in C)</li>
+<li>  Routine <code>exit</code> (Java <code>System.exit</code>) terminates a program at any location and returns a code to the shell, e.g., <code>exit(0)</code> (<code>#include&lt;cstdlib&gt;</code>)
 
-<p>Suppose that random variables $X$ and $Y$ have moment generating functions $M_X(t)$ and $M_Y(t)$ respectively. If $M_X(t)=M_Y(t)$ for all $t$ then $X$ and $Y$ have the same distribution.</p>
+<ul>
+<li>  Literals <code>EXIT_SUCCESS</code> and <code>EXIT_FAILURE</code> indicate successful or unsuccessful termination results.</li>
+<li>  e.g., <code>return EXIT_SUCCESS</code> or <code>exit(EXIT_FAILURE)</code>
+</li>
+</ul>
+</li>
+<li>  C program-file use suffix <code>.c</code>; C++ program-file use suffixes <code>.C/.cpp/.cc</code>
+</li>
+<li>  Compile with <code>g++</code> command:</li>
+</ul>
 
-<h4>
-<a id="user-content-moment-generating-function-of-a-continuous-random-variable" class="anchor" href="#moment-generating-function-of-a-continuous-random-variable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Moment Generating Function of a Continuous Random Variable</h4>
+<div class="highlight highlight-source-shell"><pre>$ g++ -Wall -g -std=c++11 -o firstprog firstprog.cc <span class="pl-c"># compile, create "a.out"</span>
+$ ./firstprog</pre></div>
 
-<p>For continuous random variables the moment generating function is defined in a manner analogous to discrete random variables.</p>
+<ul>
+<li>  <code>-W</code>kind generate warning message for this "kind" of situation
 
-<h4>
-<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
-
-<p>Consider a continuous random variable $X$ with probability density function $f(x)$. The moment generating function (mgf) of $X$ is defined as
-$$M(t)=E(e^{tX})=\int_{-\infty}^{\infty}e^{tx}f(x)dx$$
-We will assume that the moment generating function is defined and finite for values of $t$ in an interval around $0$ (that is, for some $a&gt;0,\int_{-\infty}^{\infty}e^{tx}f(x)dx&lt;\infty$ for all $t\in[-a,a]$).</p>
-
-<h4>
-<a id="user-content-note-2" class="anchor" href="#note-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note</h4>
-
-<p>The moment generating function uniquely identifies continuous distributions as well.</p>
+<ul>
+<li>  <code>-Wall</code> print all warning messages</li>
+<li>  <code>-Werror</code> make warnings into errors so program does not compile</li>
+</ul>
+</li>
+<li>  <code>-g</code> add symbol-table information to object file for debugging</li>
+<li>  <code>-std=c++11</code> allow new C++ 11 extensions</li>
+<li>  <code>-o</code> file containing the executable (<code>a.out</code> default)</li>
+<li>  create shell alias for <code>g++</code> use options <code>g++ -Wall -g -std=c++11</code>
+</li>
+</ul>
 
 <h2>
-<a id="user-content-103-multivariate-moment-generating-functions" class="anchor" href="#103-multivariate-moment-generating-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.3 Multivariate Moment Generating Functions</h2>
+<a id="user-content-24-comment" class="anchor" href="#24-comment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4 Comment</h2>
 
-<p>Suppose we have two possibly dependent random variables $(X, Y)$ and we wish to characterize their joint distribution using a moment generating function. Just as the probability function and the cumulative distribution function are, in this case, functions of two arguments, so is the moment generating function.</p>
+<ul>
+<li>  Comment may appear where whitespace (space, table, newline) is allowed</li>
+<li>  <code>/*...*/</code> comment cannot be nested</li>
+<li>  Be extremely careful in using this comment to elide/comment-out code</li>
+</ul>
 
-<h4>
-<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+<h2>
+<a id="user-content-25-declaration" class="anchor" href="#25-declaration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5 Declaration</h2>
 
-<p>The joint moment generating function of $(X,Y)$ is
-$$M(s,t)=E(e^{sX+tY})$$
-Recall that if $X,Y$ are independent random variables and $g_1(X)$ an $g_2(Y)$ are any two functions, then
-$$E[g_1(X)g_2(Y)]=E[g_1(X)]E[g_2(Y)]$$
-and so with $g_1(X)=e^{sX}$ and $g_2(Y)=e^{tY}$ we obtain, for independent random variables $X, Y$
-$$M(s,t)=M_X(s)M_Y(t)$$</p>
+<ul>
+<li>  A declaration introduces names or redeclares names from previous declarations.</li>
+</ul>
 
-<p>Suppose $X,Y$ are independent discrete random variables with moment generating functions $M_X(t)$ and $M_Y(t)$ respectively. Suppose you wish the moment generating function of the sum $Z=X+Y$. 
-$$M_Z(t)=M_X(t)M_Y(t)$$</p>
+<h3>
+<a id="user-content-251-basic-types" class="anchor" href="#251-basic-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5.1 Basic Types</h3>
 
-<h4>
-<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+<table>
+<thead>
+<tr>
+<th>Java</th>
+<th>C/C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boolean</code></td>
+<td><code>bool</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td><code>char / wchar_t</code></td>
+</tr>
+<tr>
+<td><code>byte</code></td>
+<td><code>char / wchar_t</code></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td><code>double</code></td>
+</tr>
+</tbody>
+</table>
 
-<p>The moment generating function of the sum of independent random variables is the product of the individual moment generating functions.</p>
+<ul>
+<li>  C/C++ treat <code>char / wchar_t</code> as character and integral type.</li>
+<li>  Java types <code>short</code> and <code>long</code> are created using type qualifiers.</li>
+</ul>
 
-<h4>
-<a id="user-content-theorem-3" class="anchor" href="#theorem-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+<h3>
+<a id="user-content-252-variable-declaration" class="anchor" href="#252-variable-declaration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5.2 Variable Declaration</h3>
 
-<p>If $X_i\backsim N(\mu_i,\sigma_i^2),i=1,2,...,n$ independently and $a_1,...,a_n$ are constants, then $\sum_{i=1}^{n}a_iX_i\backsim N(\sum_{i=1}^{n}a_i\mu_i,\sum_{i=1}^{n}a_i^2\sigma_i^2)$.</p>
+<ul>
+<li>  C/C++ declaration: type followed by list of identifiers, except label with an implicit type (same in Java)</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Java/C/C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char a, b, c, d;</code></td>
+</tr>
+<tr>
+<td><code>int i, j, k;</code></td>
+</tr>
+<tr>
+<td><code>double x, y, z;</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>  Declarations may have an initializing assignment:</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> i = <span class="pl-c1">3</span>; <span class="pl-k">int</span> i = <span class="pl-c1">3</span>, j = i, k = f( j );
+<span class="pl-k">int</span> j = <span class="pl-c1">4</span> + i;
+<span class="pl-k">int</span> k = f( j );</pre></div>
+
+<ul>
+<li>  C restricts initializer elements to be constant for global declarations.</li>
+</ul>
+
+<h3>
+<a id="user-content-253-type-qualifier" class="anchor" href="#253-type-qualifier" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5.3 Type Qualifier</h3>
+
+<ul>
+<li>  Other integral types are composed with type qualifiers modifying integral types <code>char</code> and <code>int</code>
+</li>
+<li>  C/C++ provide size (<code>short</code>, <code>long</code>) and signed-ness (<code>signed</code> =&gt; positive/negative, <code>unsigned</code> =&gt; positive only) qualifiers</li>
+<li>  <code>int</code> provides <strong>relative</strong> machine-specific types: usually <code>int</code> $\geq$ 4 bytes for 32/64-bit computer, <code>long</code> $\geq$ <code>int</code>, <code>long long</code> $\geq$ <code>long</code>
+</li>
+<li>  <code>#include &lt;climits&gt;</code> specifies names for lower/upper bounds of a type's range of value for a machine</li>
+<li>  C/C++ provide two basic real-floating types <code>float</code> and <code>double</code>, and real-floating type generated with type qualifier.</li>
+<li>  <code>#include &lt;cfloat&gt;</code> specifies names for precision and magnitude of real-floating values.</li>
+</ul>
+
+<h3>
+<a id="user-content-254-literals" class="anchor" href="#254-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5.4 Literals</h3>
+
+<ul>
+<li>  Variables contain values; values have <strong>constant</strong> (C) or <strong>literal</strong> (C++) meaning.</li>
+<li>  C/C++ and Java share almost all the same literals for the basic types.</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Literals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td><code>false, true</code></td>
+</tr>
+<tr>
+<td>character</td>
+<td><code>'a' 'b' 'c'</code></td>
+</tr>
+<tr>
+<td>string</td>
+<td><code>"abc" "a b c"</code></td>
+</tr>
+<tr>
+<td>integral</td>
+<td><code>123 -456 0133 0xfe</code></td>
+</tr>
+<tr>
+<td>real-floating</td>
+<td><code>.1 1. -1. 0.52 -6.6e-2</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>  Use the right literal for a variable's type:</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">bool</span> b = <span class="pl-c1">true</span>; <span class="pl-c">// not 1</span>
+<span class="pl-k">int</span> i = <span class="pl-c1">1</span>; <span class="pl-c">// not 1.0</span>
+<span class="pl-k">double</span> d = <span class="pl-c1">1.0</span> <span class="pl-c">// not 1</span>
+<span class="pl-k">char</span> c = ’a’; <span class="pl-c">// not 97</span>
+<span class="pl-k">const</span> <span class="pl-k">char</span> *cs = <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>; <span class="pl-c">// not ’a’</span></pre></div>
+
+<ul>
+<li>  Literals are <strong>undesignated</strong>, compiler chooses smallest type, or <strong>designated</strong>, programmer chooses type with suffixes: <code>L/l</code> =&gt; <code>long</code>, <code>LL/ll</code> =&gt; <code>long long</code>, <code>U/u</code> =&gt; unsigned, and <code>F/f</code> =&gt; <code>float</code>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>-<span class="pl-c1">3</span> <span class="pl-c">// undesignated, int</span>
+-<span class="pl-c1">3L</span> <span class="pl-c">// designated, long int</span>
+<span class="pl-c1">1000000000000000000</span> <span class="pl-c">// undesignated, long long int (why?)</span>
+<span class="pl-c1">1000000000000000000LL</span> <span class="pl-c">// designated, long long int</span>
+<span class="pl-c1">4U</span> <span class="pl-c">// designated, unsigned int</span>
+<span class="pl-c1">100000000000000000ULL</span> <span class="pl-c">// designated, unsigned long long int</span>
+<span class="pl-c1">3.5E3</span> <span class="pl-c">// undesignated, double</span>
+<span class="pl-c1">3</span>.5E3F <span class="pl-c">// designated, float</span></pre></div>
+
+<ul>
+<li>  Juxtaposed string literals are concatenated</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-s"><span class="pl-pds">"</span>John<span class="pl-pds">"</span></span> <span class="pl-c">// divide literal for readability</span>
+<span class="pl-s"><span class="pl-pds">"</span>Doe<span class="pl-pds">"</span></span>; <span class="pl-c">// even over multiple lines</span>
+<span class="pl-s"><span class="pl-pds">"</span>JohnDoe<span class="pl-pds">"</span></span>;</pre></div>
+
+<ul>
+<li>  Every string literal is implicitly terminated with a character <code>\0</code> (<strong>sentinel</strong>)</li>
+</ul>
 </article></body></html>

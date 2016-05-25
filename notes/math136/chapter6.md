@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 #Chapter 6: Eigenvectors and Diagonalization$\newcommand{\v}{\vec}$$\newcommand{\b}{\mathbb}$$\newcommand{\vsetk}{\v{v_1},\cdots,\v{v_k}}$$\newcommand{\vsetn}{\v{v_1},\cdots,\v{v_n}}$$\newcommand{\vx}{\vec{x}}$$\newcommand{\bv}{\mathbb{V}}\newcommand{\x}{\times}$$\newcommand{\bm}{\begin{bmatrix}}$$\newcommand{\bmend}{\end{bmatrix}}$$\newcommand{\vm}{\begin{vmatrix}}$$\newcommand{\vmend}{\end{vmatrix}}$
 
 ## 6.1 Matrix of a Linear Mapping, Similar Matrices

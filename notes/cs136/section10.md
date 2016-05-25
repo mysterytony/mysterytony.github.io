@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Dynamic Memory & ADTs in C
 
 #### The heap

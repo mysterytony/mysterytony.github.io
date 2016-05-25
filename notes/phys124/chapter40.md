@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Chapter 40: Quantum Mechanics I: Wave Functions
 
 >In Chapter 39 we found that particles can behave like waves. In fact, it turns out that we can use the wave picture to completely describe the behavior of a particle. This approach, called *quantum mechanics*, is the key to understanding the behavior of matter on the molecular, atomic and nuclear scales. In this chapter we'll see how to find the *wave function* of a particle by solving the *Schrodinger equation*, which is as fundamental to quantum mechanics as Newton's laws are to mechanics or as Maxwell's equations are to electromagnetism.

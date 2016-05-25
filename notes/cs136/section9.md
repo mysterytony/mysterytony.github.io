@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Efficiency
 
 #### Algorithms

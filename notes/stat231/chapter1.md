@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Chapter 1: Introduction to Statistical Science
 
 ## 1.1 Statistical Sciences

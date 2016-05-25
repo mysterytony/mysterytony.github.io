@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Chapter 1 Graphs of Scalar Functions
 
 ## 1.1 Scalar Functions

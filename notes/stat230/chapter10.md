@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Chapter 10: C.L.T. Normal Approximations and M.G.F.s
 
 ## 10.1 Central Limit Theorem and Normal Approximations
