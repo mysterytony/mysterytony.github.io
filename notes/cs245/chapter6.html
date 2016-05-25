@@ -747,66 +747,269 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-75666948-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-<title>index</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-the-mysterytony-site" class="anchor" href="#the-mysterytony-site" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The MysteryTony Site</h1>
+<title>chapter6</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-proofs-in-propositional-logic-natural-deduction" class="anchor" href="#proofs-in-propositional-logic-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proofs in Propositional Logic: Natural Deduction</h1>
 
 <h2>
-<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h2>
+<a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
 
-<h3>
-<a id="user-content-math-136" class="anchor" href="#math-136" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Math 136</h3>
+<h4>
+<a id="user-content-why-another-proof-system" class="anchor" href="#why-another-proof-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why Another Proof System?</h4>
 
-<p><strong>Last Update 2016-03-19</strong>
-<a href="http://mysterytony.github.io/notes/math136/chapter4.html">Chapter 4: Vector Spaces</a></p>
+<p>The Resolution system is both sound and complete. Why do we need another proof system?</p>
 
-<p><strong>Last Update 2016-03-27</strong>
-<a href="http://mysterytony.github.io/notes/math136/chapter5.html">Chapter 5: Inverses and Determinants</a></p>
+<ul>
+<li>  Resolution proofs are fine for computers, but people normally reason quite differently. To model what people do, we must take another approach.</li>
+<li>  Resolution is closely tied to propositional logic. Extending it to other forms of logic requires significant additional techniques.</li>
+</ul>
 
-<h3>
-<a id="user-content-stat-230" class="anchor" href="#stat-230" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STAT 230</h3>
+<p>Thus we will consider a system called Natural Deduction.</p>
 
-<p><strong>Last Update 2016-03-29</strong>
-<a href="http://mysterytony.github.io/notes/stat230/chapter9.html">Chapter 9: Multivariate Distribution</a></p>
+<ul>
+<li>  It closely follows how people (mathematicians, at least) normally make formal arguments.</li>
+<li>  It extends easily to more-powerful forms of logic.</li>
+</ul>
 
-<h3>
-<a id="user-content-cs-136" class="anchor" href="#cs-136" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CS 136</h3>
+<h4>
+<a id="user-content-overview-of-natural-deduction" class="anchor" href="#overview-of-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview of Natural Deduction</h4>
 
-<p><strong>Last Update 2016-03-30</strong>
-<a href="http://mysterytony.github.io/notes/cs136/section10.html">Section 10: Dynamic Memory &amp; ADTs in C</a></p>
+<p>As in Resolution, a proof in Natural Deduction consists of a collection of formulas, in some order, each with a justification.</p>
 
-<p><strong>Last Update 2016-03-29</strong>
-<a href="http://mysterytony.github.io/notes/cs136/section11.html">Section 11: Linked Data</a></p>
+<p>It has some contrast, however.</p>
 
-<p>Found mistakes, typo, error, issue, or else? <a href="https://github.com/mysterytony/mysterytony.github.io/issues">Add Issue On Github</a></p>
+<ul>
+<li>  It does a direct proof, rather than a refutation.</li>
+<li>  Assumptions (formulas without a justification) play a crucial role.</li>
+<li>  Using an assumption creates a "sub-proof". Formulas inside a sub-proof may not be used outside of it. An inference rule may refer to a completed sub-proof.</li>
+</ul>
+
+<p>We use the same notation as before for existence of a proof. If there is a proof of a formula $\varphi$ from a set $\Sigma$ of assumptions, we write
+$$\Sigma \vdash_{ND} \varphi$$ or simply $$\Sigma \vdash \varphi$$</p>
 
 <h2>
-<a id="user-content-projects" class="anchor" href="#projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Projects</h2>
+<a id="user-content-basic-rules" class="anchor" href="#basic-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Rules</h2>
 
-<p><a href="http://progressor.azurewebsites.net/">Progressor</a></p>
+<h4>
+<a id="user-content-the-basic-rules-of-natural-deduction" class="anchor" href="#the-basic-rules-of-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Basic Rules of Natural Deduction</h4>
 
-<p><a href="http://wattask.tk/">WatTask</a></p>
+<p>The simplest rule is, if you have a formula in the proof already, you may write it down again. This is called <strong>reflexivity</strong>.</p>
+
+<p>We will write rules like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reflexivity, or Premise</td>
+<td>$\Sigma$, $\varphi \vdash \varphi$</td>
+<td>$\frac{\varphi}{\varphi}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>The notation on the right is as we had before: if we have the formula above the line available, we may write the formula below the line in the proof.</p>
+
+<p>The version in the center reminds us of the role of the assumptions in Natural Deduction. Other rules will make more use of it.</p>
 
 <h2>
-<a id="user-content-about-me" class="anchor" href="#about-me" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About Me</h2>
+<a id="user-content-conjunction-rules" class="anchor" href="#conjunction-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conjunction Rules</h2>
 
-<p><a href="https://github.com/mysterytony">Github</a></p>
+<h4>
+<a id="user-content-rules-for-conjunction-land-i" class="anchor" href="#rules-for-conjunction-land-i" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Conjunction: $\land i$</h4>
 
-<p><a href="https://ca.linkedin.com/in/tony-li-281b59b9">LinkedIn</a></p>
+<p>Each connective symbol has an "introduction role" to conclude formulas that contain it, and an "elimination rule" to conclude a formula that removes it from an earlier formula.</p>
 
-<p><a href="https://onedrive.live.com/redir?resid=7C604C88796DF83E!12013&amp;authkey=!AIcvZqNAqZw_42o&amp;ithint=file%2cpdf">Resume</a></p>
+<p>We start with the introduction rule for $\land$</p>
 
-<p>Copyrights (c) Tony Li 2016</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\land$ introduction $\land i$</td>
+<td>If $\Sigma\vdash\varphi$ and $\Sigma\vdash\alpha$, then $\Sigma\vdash\varphi\land\alpha$</td>
+<td>$\frac{\varphi \quad \alpha}{\varphi\land\alpha}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>Rule $\land i$ means</p>
+
+<p>If each of the formulas $\varphi$ and $\alpha$ already appears in the proof, then we may write the formula $\varphi \land \alpha$ as the next formula of the proof.</p>
+
+<h4>
+<a id="user-content-rules-for-conjunction-land-e" class="anchor" href="#rules-for-conjunction-land-e" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Conjunction: $\land e$</h4>
+
+<p>The elimination rule for $\land$ basically "undoes" the introduction.</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\land$ elimination $(\land e)$</td>
+<td>If $\Sigma \vdash \varphi \land \alpha$, then $\Sigma \vdash \varphi$ and $\Sigma \vdash \alpha$</td>
+<td>$\frac{\varphi \land \alpha}{\varphi} \quad \frac{\varphi \land \alpha}{\alpha}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>Rule $\land e$ means</p>
+
+<p>If the formula $\varphi \land \alpha$ already appears in the proof, then we may write either $\varphi$ or $\alpha$ as the next formula of the proof.</p>
+
+<h2>
+<a id="user-content-implication-rules" class="anchor" href="#implication-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implication Rules</h2>
+
+<h4>
+<a id="user-content-rules-for-implication-rightarrow-e" class="anchor" href="#rules-for-implication-rightarrow-e" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Implication: $\rightarrow e$</h4>
+
+<p>The rule $\rightarrow$ elimination requires two formulas earlier in the proof.</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\rightarrow$ elimination $(\rightarrow e)$</td>
+<td>If $\Sigma\vdash\varphi\rightarrow\alpha$ and $\Sigma\vdash\varphi$, then $\Sigma\vdash\alpha$</td>
+<td>$\frac{\varphi\rightarrow\alpha\quad\varphi}{\alpha}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>In words:</p>
+
+<p>If you have that $\varphi$ implies $\alpha$, and also $\varphi$, than you may conclude $\alpha$.</p>
+
+<p>This rule is sometimes referred to by its Latin name, <em>modus ponens</em>.</p>
+
+<h4>
+<a id="user-content-rules-for-implication-rightarrow-i" class="anchor" href="#rules-for-implication-rightarrow-i" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Implication: $\rightarrow i$</h4>
+
+<p>The $\rightarrow$ introduction rule is our first to employ a sub-proof.</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\rightarrow$ introduction $(\rightarrow i)$</td>
+<td>If $\Sigma,\varphi\vdash\alpha$, then $\Sigma\vdash\varphi\rightarrow\alpha$</td>
+<td>$\frac{\boxed{\begin{matrix}\varphi \\ \vdots \\ \alpha \end{matrix}}}{\varphi\rightarrow\alpha}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>The rule uses the formula $\varphi$ as a <strong>hypothesis</strong>, or <strong>assumption</strong>. The assumption functions as a premise in the sub-proof, but it is not a premise of the main proof.</p>
+
+<p>The "box" around the sub-proof of $\Sigma,\varphi\vdash\alpha$ reminds us that nothing inside the sub-proof may come out. Outside of the sub-proof, we may use only the whole sub-proof, in a rule (like $\rightarrow$ introduction) that specifies a sub-proof.</p>
+
+<h4>
+<a id="user-content-sub-proof-rules" class="anchor" href="#sub-proof-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sub-Proof Rules</h4>
+
+<p>To use rule $\rightarrow i$, we must have a completed sub-proof.</p>
+
+<p>Assumption Rule:</p>
+
+<p>A sub-proof may be opened at any point. Its first line, labeled "assumption", may be any formula.</p>
+
+<p>Sub-proof closure rules:</p>
+
+<p>The most-recently opened sub-proof may be closed at any time. No formula inside a closed sub-proof may be referenced. Only the entire sub-proof may be used, once it is closed.</p>
+
+<p>Finally: every sub-proof must be closed before the last line of the proof.</p>
+
+<h2>
+<a id="user-content-disjunction-rules" class="anchor" href="#disjunction-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disjunction Rules</h2>
+
+<h4>
+<a id="user-content-rules-for-disjunction-lor-i-and-lor-e" class="anchor" href="#rules-for-disjunction-lor-i-and-lor-e" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Disjunction: $\lor i$ and $\lor e$</h4>
+
+<p>Rule $\lor i$ is much like rule $\land i$. Rule $\lor e$, however, is more complicated.</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\lor$ introduction $(\lor i)$</td>
+<td>If $\Sigma\vdash\varphi$, then $\Sigma\vdash\varphi\lor\alpha$ and $\Sigma\vdash\alpha\lor\varphi$</td>
+<td>$\frac{\varphi}{\varphi\lor\alpha}\quad\frac{\varphi}{\alpha\lor\varphi}$</td>
+</tr>
+<tr>
+<td>$\lor$ elimination $(\lor e)$</td>
+<td>If $\Sigma, \varphi_1\vdash\alpha$ and $\Sigma,\varphi_2\vdash\alpha$, then $\Sigma,\varphi_1\lor\varphi_2\vdash \alpha$</td>
+<td>$\frac{\varphi_1\lor\varphi_2 \quad \boxed{\begin{matrix}\varphi_1 \\ \vdots \\ \alpha\end{matrix}} \quad \boxed{\begin{matrix}\varphi_2 \\ \vdots \\ \alpha\end{matrix}}}{\alpha}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>Rule $\lor e$ is also known as "proof by cases".</p>
+
+<h2>
+<a id="user-content-negation" class="anchor" href="#negation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negation</h2>
+
+<h4>
+<a id="user-content-negation-1" class="anchor" href="#negation-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negation</h4>
+
+<p>We shall treat negation by considering contradictions.</p>
+
+<p>We shall use the notation $\bot$ to represent any contradiction. It may appear in proofs as if it were a formula.</p>
+
+<p>The elimination rule for negation:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>$\vdash$ notation</th>
+<th>inference notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\bot$ introduction or $\lnot$ elimination $(\lnot e)$</td>
+<td>$\Sigma,\varphi,\lnot\varphi\vdash\bot$</td>
+<td>$\frac{\varphi\quad\lnot\varphi}{\bot}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>Formulas $\varphi$ and $\lnot\varphi$ cannot both be true--to have both is a contradiction.</p>
+
+<hr>
+
+<p>ends page 109</p>
 </article></body></html>

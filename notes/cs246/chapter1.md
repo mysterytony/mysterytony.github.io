@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Shell
 
 *	Computer interaction requires mechanisms to display information operations.
@@ -232,7 +230,7 @@ To solve these problems, a **source-code management system** (SCMS) us used to p
 *	Perform the following steps to setup your userid in the global repository.
 *	Log in `https://git.uwaterloo.ca/cs246/1161` with your WatIAM userid/password via LDAP login
 
-#### 1.5.2 Local Repository
+### 1.5.2 Local Repository
 
 *	**git** is a distributed source-code management-system using the **copy-modify-merge** model.
 	*	master copy of all **project** files kept in a **global repository**.

@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Semantics of Propositional Logic
 
 #### Semantics
@@ -12,7 +10,7 @@ In propositional logic, we need to give meaning to atoms, connectives, and formu
 
 #### Valuations: the status of atoms
 
-#### Definition
+**Definition**
 
 A **truth valuation** is a function with the set of all proposition symbols as domain and $\{F, T\}$ as range.
 
@@ -32,6 +30,8 @@ Let $\varphi$ and $\eta$ be two formulas that express propositions $A$ and $B$. 
 *	$\varphi \lor \eta$ $A$ or $B$
 *	$\varphi \rightarrow \eta$ If $A$ then $B$
 *	$\varphi \leftrightarrow \eta$ $A$ iff $B$
+
+## Connectives
 
 #### Semantics of Connectives
 
@@ -61,13 +61,15 @@ $\land$ is as expected: $(\varphi \land \eta)$ is true if and only if both $\var
 
 The column for $\lor$ shows that it means "one or the other or both". (This is called "inclusive or").
 
-#### "If-then"
+#### "If-then"?
 
 Some people find the meaning of $\rightarrow$ rather unintuitive. You may want to think of $\rightarrow$ as meaning **truth is preserved**.
 
 *	The meaning of $T\rightarrow T$ is $T$ because truth is preserved.
 *	The meaning of $T\rightarrow F$ is $F$ because truth is not preserved.
 *	The meaning of $F\rightarrow T$ and $F\rightarrow F$ are both $T$, because there is no truth to preserve.
+
+## Formulas
 
 #### Summary: value of a formula
 
@@ -94,9 +96,11 @@ The value of a formula comes from the values of its variables, combined as given
 
 The valuation $t$ is necessary. Without a valuation, a formula has no value.
 
+## Properties of Formulas
+
 #### Unique Readability of Formulas
 
-#### Theorem
+**Theorem**
 
 Every formula has a unique derivation as a well-formed formula. That is, each formula has exactly one of the six forms:
 
@@ -113,9 +117,9 @@ As an example, consider $((p\land q)\rightarrow r)$. It can be formed from the t
 
 If we tried to form it using $\land$, the two parts would need to be $(p$ and $q)\rightarrow r$, but neither of those is a formula.
 
-#### Mathematical Induction
+## Mathematical Induction
 
-#### Principle of mathematical induction:
+**Principle of mathematical induction:**
 
 Suppose we establish two things: that
 
@@ -124,7 +128,7 @@ Suppose we establish two things: that
 
 Then we may conclude that every natural number has property $P$.
 
-#### Observations / Techniques
+**Observations / Techniques**
 
 **To talk about something, give it a name.** e.g. property $P$, number $k$, etc.
 
@@ -174,7 +178,7 @@ In each of these formulations, the induction step requires showing that if $P(\v
 
 #### The Principle of Structural Induction
 
-#### Theorem. 
+**Theorem**
 
 Let $R$ be a property. Suppose that
 
@@ -187,6 +191,8 @@ Then $R(\varphi)$ for every formula $\varphi$.
 Use of this principle is called **structural induction**.
 
 Structural induction is a special case of mathematical induction.
+
+#### Two consequences of unique formation
 
 We will define the semantics (meaning) of a formula from its syntax. Thus **unique formation ensures unambiguous formulas**.
 

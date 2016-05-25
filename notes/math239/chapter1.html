@@ -747,9 +747,7 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter1</title></head><body><article class="markdown-body"><p><a href="http://tonyli.tk/">&lt;- Go Back</a></p>
-
-<h1>
+<title>chapter1</title></head><body><article class="markdown-body"><h1>
 <a id="user-content-chapter-1-combinatorial-analysis-newcommandrarightarrow" class="anchor" href="#chapter-1-combinatorial-analysis-newcommandrarightarrow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 1 Combinatorial Analysis $\newcommand{\ra}{\rightarrow}$</h1>
 
 <h2>
@@ -914,15 +912,170 @@ Thus,
 $$\Phi_S'(1)=\sum_{\sigma\in S} w(\sigma)$$
 which proves (2). Finally, (3) follows immediately from (1) and (2).</p>
 </blockquote>
-</article></body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-75666948-1', 'auto');
-  ga('send', 'pageview');
+<h2>
+<a id="user-content-17-formal-power-series" class="anchor" href="#17-formal-power-series" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7 Formal Power Series</h2>
 
-</script>
-</html>
+<p>Let $(a_0, a_1, a_2,...)$ be a sequence of rational numbers; then $A(x)=a_0+a_1x+a_2x^2+\cdots$ is called a <strong>formal power series</strong>. We say that $a_n$ is the <strong>coefficient</strong> of $x_n$ in $A(x)$ and write $a_n=[x^n]A(x)$. A formal power series should be regarded as a way of encoding a sequence of numbers. Thus two formal power series are equal if and only if they have the same sequence of coefficients.</p>
+
+<p>In many respects, formal power series behave much like polynomials; for example, addition and multiplication are well defined. If $A(x)=a_0+a_1x+a_2x^2+\cdots$ and $B(x)=b_0+b_1x+b_2x^2+\cdots$ are formal power series then we define
+$$A(x)+B(x)=\sum_{n\geq 0}(a_n+b_n)x^n$$
+and
+$$A(x)B(x)=\sum_{n\geq 0}\left(\sum_{k=0}^{n}a_kb_{n-k}\right)x^n$$</p>
+
+<p>We need to be a bit careful when performing infinite sums and products, but here there is no ambiguity, since there are only finitely many terms contributing to any given coefficient. Thus $A(x)+B(x)$ and $A(x)B(x)$ are well defined.</p>
+
+<p>In many of the problems that we will encounter, we will need to solve linear equations; given two formal power series $P(x)$ and $Q(x)$ we will want to find a formal power series $A(x)$ such that $Q(x)A(x)=P(x)$. </p>
+
+<h4>
+<a id="user-content-172-theorem" class="anchor" href="#172-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7.2 Theorem</h4>
+
+<p>Let $A(x)=a_0+a_1x+a_2x^2+\cdots$, $P(x)=p_0+p_1x+p_2x^2+\cdots$, and $Q(x)=1-q_1x-q_2x^2-\cdots$ be formal power series. Then
+$$Q(x)A(x)=P(x)$$
+if and only if for each $n\geq 0$,
+$$a_n=p_n+q_1a_{n-1}+q_2a_{n-2}+\cdots+q_na_o$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-4" class="anchor" href="#proof-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>By definition, $Q(x)A(x)=P(x)$ if and only if 
+$[x^n](Q(x)A(x))=[x^n]P(x)$ for all $n\geq 0$. Now $[x^n]P(x)=p_n$ and 
+$$[x^n](Q(x)A(x))=a_n-q_1a_{n-1}-q_2a_{n-2}-\cdots -q_na_0$$
+Therefore $Q(x)A(x)=P(x)$ if and only if, for each $n\geq 0$,
+$$a_n-(q_1a_{n-1}+q_2a_{n-2}+\cdots q_na_0)=p_n$$
+The result follows by a simple rearrangement of this equation.</p>
+</blockquote>
+
+<h4>
+<a id="user-content-173-corollary" class="anchor" href="#173-corollary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7.3 Corollary</h4>
+
+<p>Let $P(x)$ and $Q(x)$ be formal power series. If the constant term of $Q(x)$ is non-zero, then there is a formal power series $A(x)$ satisfying
+$$Q(x)A(x)=P(x)$$
+Moreover, the solution, $A(x)$, is unique.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-5" class="anchor" href="#proof-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>If $Q(0)\neq 0$, then, by dividing both $P(x)$ and $Q(x)$ by $Q(0)$, we may assume that $Q(0)=1$. Then we can write $Q(x)=1-q_1x-q_2x^2-\cdots$ and $P(x)=p_0+p_1x+p_2x^2+\cdots$. Now by Theorem 1.7.2, $A(x)=a_0+a_1x+\cdots$ satisfies $Q(x)A(x)=P(x)$ if and only if for each $n\geq 0$,
+$$a_n=p_n+q_1a_{n-1}+\cdots q_na_0$$.
+Thus $a_0=p_0$ and, for each $n&gt;0$, we can determine $a_n$ uniquely from $a_0,...,a_{n-1}$. So a solution exists and it is unique.</p>
+</blockquote>
+
+<h4>
+<a id="user-content-174-definition" class="anchor" href="#174-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7.4 Definition</h4>
+
+<p>We say that $B(x)$ is the <strong>inverse</strong> of $A(x)$ if
+$$A(x)B(x)=1$$
+we denote this by $B(x)=A(x)^{-1}$</p>
+
+<p>The formal power series $1+x+x^2+\cdots$ arises frequently, since it is the generating series for the non-negative integers. We call this a <strong>geometric series</strong>. The powers of geometric series arise often in problems that will face later.</p>
+
+<h4>
+<a id="user-content-178-theorem" class="anchor" href="#178-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7.8 Theorem</h4>
+
+<p>A formal power series has an inverse if and only if it has a non-zero constant term. Moreover, if the constant term is non-zero, then the inverse is unique.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-6" class="anchor" href="#proof-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $Q(x)$ be a formal power series. Then a formal power series $A(x)$ is the inverse of $Q(x)$ if and only if it satisfies the linear equation
+$$Q(x)A(x)=1$$
+If $Q(0)\neq 0$, by Corollary 1.7.3, the above equation has a unique solution. Hence $Q(x)$ has an inverse and it is unique. If $Q(0)=0$, then the constant term on the right side of the above equation is $1$, but the constant term on the left is $Q(0)A(0)=0$, so there is no solution and, hence, $Q(x)$ does not have an inverse.</p>
+</blockquote>
+
+<p>As with polynomials, we can also consider the composition of formal power series.</p>
+
+<h4>
+<a id="user-content-179-definition" class="anchor" href="#179-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7.9 Definition</h4>
+
+<p>The <strong>composition</strong> of formal power series $A(x)=a_0+a_1x+a_2x^2+\cdots$ and $B(x)$ is defined by
+$$A(B(x))=a_0+a_1B(x)+a_2B(x)^2+\cdots$$
+However, unlike for polynomials, this composition operation is not always well defined.</p>
+
+<h4>
+<a id="user-content-1710-theorem" class="anchor" href="#1710-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.7.10 Theorem</h4>
+
+<p>If $A(x)$ and $B(x)$ are formal power series with the constant term of $B(x)$ equal to zero, then $A(B(x))$ is a formal power series.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-7" class="anchor" href="#proof-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>We can write $A(x)=a_0+a_1x+\cdots$ and $B(x)=xC(x)$. Then
+$$\begin{align*} A(B(x)) &amp;= A(xC(x)) \\
+&amp;= a_0+a_1xC(x)+a_2(xC(x))^2+\cdots \\
+&amp;= a_0+a_1xC(x)+a_2x^2(C(x))^2 +\cdots \end{align*}$$
+For each $k\geq 0$, note that $a_kx^k(C(x))^k$ is a formal power series (since it is the product of formal power series). Moreover, for each $n&lt;k$, we have $[x^n](a_kx^k(C(x))^k)=0$. Therefore,
+$$\begin{align*} [x^n]A(B(x)) &amp;= [x^n](a_0+a_1xC(x)+a_2x^2(C(x))^2+\cdots) \\
+&amp;= [x^n](a_0+a_1xC(x)+a_2x^2(C(x))^2+\cdots+a_nx^n(C(x))^n)\end{align*}$$
+Now, $a_0+a_1xC(x)+\cdots+a_nx^n(C(x))^n$ is a formal power series (since it is a finite sum of formal power series), so $[x^n]A(B(x))$ is well defined.</p>
+</blockquote>
+
+<h2>
+<a id="user-content-18-the-sum-and-product-lemmas" class="anchor" href="#18-the-sum-and-product-lemmas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.8 The Sum and Product Lemmas</h2>
+
+<h4>
+<a id="user-content-181-theorem-the-sum-lemma" class="anchor" href="#181-theorem-the-sum-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.8.1 Theorem (The Sum Lemma)</h4>
+
+<p>Let $(A,B)$ be a partition of $S$. (That is, $A$ and $B$ are disjoint sets whose union is $S$) Then,
+$$\Phi_S(x)=\Phi_A(x)+\Phi_B(x)$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-8" class="anchor" href="#proof-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>$$\begin{align*} \Phi_S(x) &amp;= \sum_{\sigma\in S}x^{w(\sigma)} \\
+&amp;= \sum_{\sigma\in A}x^{w(\sigma)} + \sum_{\sigma\in B}x^{w(\sigma)} \\
+&amp;= \Phi_A(x) + \Phi_B(x)\end{align*}$$
+as required.</p>
+</blockquote>
+
+<p>More generally, if $A$ and $B$ are sets where $A\cap B$ need not be empty, then
+$$\Phi_{A\cup B}(x)=\Phi_A(x)+\Phi_B(x)-\Phi_{A\cap B}(x)$$</p>
+
+<h4>
+<a id="user-content-182-theorem-the-product-lemma" class="anchor" href="#182-theorem-the-product-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.8.2 Theorem (The Product Lemma)</h4>
+
+<p>Let $A$ and $B$ be sets of configurations with weight function $\alpha$ and $\beta$ respectively. If $w(\sigma)=\alpha(a)+\beta(b)$ for each $\sigma=(a,b)\in A\times B$, then
+$$\Phi_{A\times B}(x)=\Phi_A(x)\Phi_B(x)$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-9" class="anchor" href="#proof-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>$$\begin{align*} \Phi_{A\times B}(x) &amp;= \sum_{\sigma\in A\times B}x^{w(\sigma)} \\
+&amp;= \sum_{(a,b)\in A\times B} x^{\alpha(a)+\beta(b)} \\
+&amp;= \left(\sum_{a\in A}x^{\alpha(a)}\right)\left(\sum_{b\in B}x^{\beta(b)}\right) \\
+&amp;= \Phi_A(x)\Phi_B(x) \end{align*}$$
+as required.</p>
+</blockquote>
+
+<p>More generally, if $A_1,...,A_k$ are sets then $A_1\times\cdots\times A_k$ denotes the set of all $k$-tuples $(a_1,a_2,...,a_k)$ where $a_i\in A$ for all $i$. Now, suppose that $\alpha_i$ is a weight function for $A_i$ and that $w$ is a weight function for $A_1\times\cdots\times A_k$. If $w(\sigma)=\alpha_1(a_1)+\cdots +\alpha_k(a_k)$ for each $k$-tuple $\sigma=(a_1,...,a_k)$, then
+$$\Phi_{A_1\times\cdots\times A_k}(x)=\Phi_A1(x)\cdots \Phi_Ak(x)$$</p>
+
+<h4>
+<a id="user-content-185-theorem" class="anchor" href="#185-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.8.5 Theorem</h4>
+
+<p>For any positive integer $k$ and non-negative integer $n$,
+$$(1-x)^{-k}=\sum_{n\geq 0}{n+k-1 \choose k-1}n^n$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-10" class="anchor" href="#proof-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $S_n$ be the set of all $k$-tuples $(a_1,...,a_k)\in\mathbb{N}_0^k$ with $a_1+...+a_k=n$
+$$|S_n|=[x^n](1-x)^{-k}$$
+Let $T_n$ denote the set of all binary strings of length $n+k-1$ with $k-1$ 1's. Then we know that
+$$|T_n|={n+k-1 \choose k-1}$$
+We will establish a bijection between $S_n$ and $T_n$, and, hence, prove that
+$$[x^n](1-x)^{-k}=|S_n|=|T_n|={n+k-1 \choose k-1}$$
+as required.
+We define $f:S_n\rightarrow T_n$ as follows: For a $k$-tuple $A=(a_1,...,a_k)$ in $S_n$,
+$$f(A)=0^{a_1}10^{a_2}1...10^{a_k}$$
+where $0^{a_i}$ represents $a_i$ 0's in a row. Notice that $f(A)$ is a string with exactly $k-1$ 1's, and the length of the string is $a_1+...+a_k+(k-1)=n+k-1$ (note that $A\in S_n$, hence $a_1+...+a_k=n$). Therefore $f(A)\in T_n$.
+We can easily find the inverse of $f$: any binary string in $T_n$ has the form $0^{a_1}1...10^{a_k}$ where $a_1+...+a_k=n$. So the inverse of $f$ is $f^{-1}:T_n\rightarrow S_n$ where $f^{-1}(0^{a_1}1...10^{a_k})=(a_1,...,a_k)$. This shows that $f$ is a bijection between $S_n$ and $T_n$.</p>
+</blockquote>
+</article></body></html>

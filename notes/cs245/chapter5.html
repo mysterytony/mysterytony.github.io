@@ -747,392 +747,100 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter4</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-working-with-formulas" class="anchor" href="#working-with-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Working With Formulas</h1>
+<title>chapter5</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-proofs-in-propositional-logic-resolution" class="anchor" href="#proofs-in-propositional-logic-resolution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proofs in Propositional Logic: Resolution</h1>
 
 <h2>
-<a id="user-content-evaluation-of-formulas" class="anchor" href="#evaluation-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evaluation of Formulas</h2>
+<a id="user-content-notions-of-proof" class="anchor" href="#notions-of-proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notions of Proof</h2>
 
 <h4>
-<a id="user-content-evaluating-formulas" class="anchor" href="#evaluating-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evaluating Formulas</h4>
+<a id="user-content-what-is-a-proof" class="anchor" href="#what-is-a-proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What Is a Proof?</h4>
 
-<p>Recall that propositional logic is <strong>compositional</strong>. The value of two sub-formulas, determines the value of their composition using a propositional connective. Given a valuation $t$:</p>
-
-<ul>
-<li>  $p^t=t(p)$</li>
-<li>  $(\lnot \alpha)^t=$
+<p>A <strong>proof</strong> is a formal demonstration that a statement is true.</p>
 
 <ul>
-<li>  $T$ if $\alpha ^t=F$</li>
-<li>  $F$ if $\alpha ^t=T$</li>
+<li>  It must be mechanically checkable. A reader need not apply any intuition or insight to verify that it is correct.</li>
+<li>  In fact, a computer could verify its correctness.</li>
 </ul>
+
+<p>A proof is generally syntactic, rather than semantic.</p>
+
+<ul>
+<li>  Syntactic rules permit mechanical checking.</li>
+<li>  The rules are chosen for semantic reasons, but their use remains purely syntactic.</li>
+</ul>
+
+<h4>
+<a id="user-content-what-makes-a-proof" class="anchor" href="#what-makes-a-proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What Makes a Proof?</h4>
+
+<p>Generically, a proof consists of a list of formulas.</p>
+
+<ul>
+<li>  The assumptions, if any, are listed first.</li>
+<li>  Each subsequent formula must be a valid <strong>inference</strong> from preceding formulas.
+That is, there is an <strong>inference rule</strong> (defined by the proof system) that justifies the formula, based on the previous ones.</li>
+<li>  The final formula is the conclusion.</li>
+</ul>
+
+<p>The key here is the set of inference rules. A set of inference rules defines a <strong>proof system</strong>.</p>
+
+<p>We notate "there is a proof with assumption $\Sigma$ and conclusion $\varphi$" by
+$$\Sigma \vdash \varphi$$</p>
+
+<h4>
+<a id="user-content-inference-rules" class="anchor" href="#inference-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inference Rules</h4>
+
+<p>In general, an inference rule is written as
+$$\frac{\alpha_1 \quad \alpha_2 \cdots \alpha_i}{\beta}$$</p>
+
+<p>This means suppose that each of the formulas $\alpha_1, \alpha_2,...,\alpha_i$ already appears in the proof (either assumed or previously inferred). Then one may infer the formula $\beta$.</p>
+
+<h4>
+<a id="user-content-conjunctive-normal-form" class="anchor" href="#conjunctive-normal-form" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conjunctive Normal Form</h4>
+
+<p>The Resolution rule can only be used successfully on formulas of a restricted form.</p>
+
+<p><strong>Conjunctive normal form (CNF)</strong>:</p>
+
+<ul>
+<li>  A <strong>literal</strong> is a (propositional variable or the negation of a variable.)</li>
+<li>  A <strong>clause</strong> is a disjunction of literals.</li>
+<li>  A formula is in <strong>conjunctive normal form</strong> if it is a conjunction of clauses.</li>
+</ul>
+
+<p>In other words, a formula is in CNF if and only if</p>
+
+<ul>
+<li>  its only connectives are $\lnot$, $\lor$, $land$.</li>
+<li>  $\lnot$ applies only to variables.</li>
+<li>  $\lor$ applies only to sub-formulas with no occurrence of $\land$.</li>
+</ul>
+
+<h4>
+<a id="user-content-converting-to-cnf" class="anchor" href="#converting-to-cnf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Converting to CNF</h4>
+
+<ol>
+<li>
+<p>Eliminate implication and equivalence.</p>
+
+<p>Replace $(\alpha \rightarrow \beta)$ by $(\lnot \alpha \lor \beta)$</p>
+
+<p>Replace $(\alpha \leftrightarrow \beta)$ by $(\lnot \alpha \lor) \land (\alpha \lor \lnot \beta)$.</p>
 </li>
-<li>  $(\alpha \land \beta)=$
+<li>
+<p>Apply De Morgan's and double-negation laws as often as possible.</p>
 
-<ul>
-<li>  $T$ if $\alpha^t=\beta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
+<p>Replace $\lnot (\alpha \lor \beta)$ by $\lnot \alpha \land \lnot \beta$.</p>
+
+<p>Replace $\lnot (\alpha \land \beta)$ by $\lnot \alpha \lor \lnot \beta$.</p>
+
+<p>Replace $\lnot \lnot \alpha$ by $\alpha$.</p>
 </li>
-<li>  $(\alpha \lor \beta)^t =$
+<li>
+<p>Transform into a conjunction of clauses using distributivity.</p>
 
-<ul>
-<li>  $T$ if $\alpha^t=T$ or $\beta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
+<p>Replace $(\alpha \lor (\beta \land \gamma))$ by $((\alpha \lor \beta) \land (\alpha \lor \gamma))$.</p>
 </li>
-<li>  $(\alpha \rightarrow \beta)^t=$
-
-<ul>
-<li>  $T$ if $\alpha^t=F$ or $\beta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li>  $(\alpha \leftrightarrow \beta)=$
-
-<ul>
-<li>  $T$ if $\alpha^t=\beta^t$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-</ul>
-
-<p>Using these rules, we can build a <strong>truth table</strong> considering all combinations.</p>
-
-<p>For a formula with $n$ variables, the full truth table has $2^n$ lines.</p>
-
-<h2>
-<a id="user-content-semantic-properties-of-formulas" class="anchor" href="#semantic-properties-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantic Properties of Formulas</h2>
-
-<h4>
-<a id="user-content-tautology-satisfaction-contradiction" class="anchor" href="#tautology-satisfaction-contradiction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tautology, Satisfaction, Contradiction</h4>
-
-<p><strong>Definition</strong></p>
-
-<p>A formula $\alpha$ is a <strong>tautology</strong> if and only if for every truth valuation $t$, $\alpha^t=T$.</p>
-
-<p>A formula $\alpha$ is a <strong>contradiction</strong> if and only if for every truth valuation $t$, $\alpha^t=F$.</p>
-
-<p>A formula $\alpha$ is <strong>satisfiable</strong> if and only if there is some truth valuation $t$ such that $\alpha^t=T$.</p>
-
-<p>Note: a formula is satisfiable if and only if it is not a contradiction.</p>
-
-<h4>
-<a id="user-content-short-cutting-a-truth-table" class="anchor" href="#short-cutting-a-truth-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>"Short-Cutting" a Truth Table</h4>
-
-<p>Let $A$ be a truth value; that is $A\in{T,F}$, we can combine it with other truth values as follows</p>
-
-<table>
-<thead>
-<tr>
-<th>Formula</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\lnot T$</td>
-<td>$F$</td>
-</tr>
-<tr>
-<td>$\lnot F$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\land T$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$A\land F$</td>
-<td>$F$</td>
-</tr>
-<tr>
-<td>$T\land A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$F\land A$</td>
-<td>$F$</td>
-</tr>
-<tr>
-<td>$A\land A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\lor T$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$A\lor F$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$T\lor A$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$F\lor A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$A\lor A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\rightarrow T$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$A\rightarrow F$</td>
-<td>$\lnot A$</td>
-</tr>
-<tr>
-<td>$T\rightarrow A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$F\rightarrow A$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$A\rightarrow A$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\leftrightarrow T$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$A\leftrightarrow F$</td>
-<td>$\lnot A$</td>
-</tr>
-<tr>
-<td>$T\leftrightarrow A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$F\leftrightarrow A$</td>
-<td>$\lnot A$</td>
-</tr>
-<tr>
-<td>$A\leftrightarrow A$</td>
-<td>$T$</td>
-</tr>
-</tbody>
-</table>
-
-<p>We can use these rules to evaluate a formula, by using a <strong>valuation tree</strong>.</p>
-
-<h2>
-<a id="user-content-equivalence" class="anchor" href="#equivalence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalence</h2>
-
-<h4>
-<a id="user-content-equivalence-of-formulas" class="anchor" href="#equivalence-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalence of Formulas</h4>
-
-<p>Suppose that a formula $\alpha \leftrightarrow \beta$ is a tautology.</p>
-
-<p>Then $\alpha$ and $\beta$ must have the same final column in their truth tables--they have the same value under any valuation.</p>
-
-<p>If symbols: $\alpha^t=\beta^t$, for every valuation $t$.</p>
-
-<p>Such formulas are called <strong>equivalent</strong> formulas. We use the notation
-$$\alpha \equiv \beta$$
-to mean that $\alpha$ and $\beta$ are equivalent.</p>
-
-<h4>
-<a id="user-content-substitution" class="anchor" href="#substitution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution</h4>
-
-<p><strong>Substitution</strong> is needed to carefully prove the equivalence of formulae. A more robust definition of substitution will be needed later, for predicate logic.</p>
-
-<p><strong>Definition</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi$, $\psi$ be any formulae. Then $\varphi[\psi/p]$ denotes the formula obtained by replacing all copies of $p$ in $\phi$ with $\psi$.</p>
-
-<h4>
-<a id="user-content-substitution-lemma" class="anchor" href="#substitution-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution Lemma</h4>
-
-<p><strong>Lemma</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi$ be a tautology. Let $\psi$ be any formula. Then $\varphi[\psi/p]$ is a tautology.</p>
-
-<h4>
-<a id="user-content-substitution-lemma-variation" class="anchor" href="#substitution-lemma-variation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution Lemma (Variation)</h4>
-
-<p><strong>Lemma</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi$ be an unsatisfiable formula. Let $\psi$ be any formula. Then $\varphi[\psi/p]$ is an unsatisfiable formula.</p>
-
-<h4>
-<a id="user-content-equivalent-is-equivalent" class="anchor" href="#equivalent-is-equivalent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalent is Equivalent</h4>
-
-<p>**Equivalent formulas are equivalent in any context.</p>
-
-<p><strong>Theorem</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi, \alpha, \beta$ be any formulae. If $\alpha \leftrightarrow \beta$ is a tautology, then $\varphi[\alpha/p]\leftrightarrow\varphi[\beta/p]$ is a tautology.</p>
-
-<h4>
-<a id="user-content-algebra-of-formulas" class="anchor" href="#algebra-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algebra of Formulas</h4>
-
-<p>Many equivalences of formulas look much like rules of ordinary arithmetic and algebra. (We will show how to prove these equivalence later, using the notion of <strong>entailment</strong>)</p>
-
-<p>Commutativity</p>
-
-<p>$$\alpha \land \beta \equiv \beta \land \alpha$$
-$$\alpha \lor \beta \equiv \beta \lor \alpha$$
-$$\alpha \leftrightarrow \beta \equiv \beta \leftrightarrow \alpha$$</p>
-
-<p>Associativity</p>
-
-<p>$$\alpha \land (\beta \land \gamma) \equiv (\alpha \land \beta) \land \gamma$$
-$$\alpha \lor (\beta \lor \gamma) \equiv (\alpha \lor \beta) \lor \gamma$$</p>
-
-<p>Distributivity</p>
-
-<p>$$\alpha \lor (\beta \land \gamma) \equiv (\alpha \lor \beta) \land (\alpha \lor \gamma)$$
-$$\alpha \land (\beta \lor \gamma) \equiv (\alpha \land \beta) \lor (\alpha \land \gamma)$$</p>
-
-<p>Idempotence</p>
-
-<p>$$\alpha \lor \alpha \equiv \alpha$$
-$$\alpha \land \alpha \equiv \alpha$$</p>
-
-<p>Double Negation</p>
-
-<p>$$\lnot (\lnot \alpha) \equiv \alpha$$</p>
-
-<p>De Morgan's Law</p>
-
-<p>$$\lnot (\alpha \land \beta) = \lnot \alpha \lor \lnot \beta$$
-$$\lnot (\alpha \lor \beta)  = \lnot \alpha \land \lnot \beta$$</p>
-
-<p>Simplification I (Absorption)</p>
-
-<p>$$\alpha \land T \equiv \alpha$$
-$$\alpha \lor T \equiv T$$
-$$\alpha \land F \equiv F$$
-$$\alpha \lor F \equiv \alpha$$</p>
-
-<p>Simplification II</p>
-
-<p>$$\alpha \lor (\alpha \land \beta) \equiv \alpha$$
-$$\alpha \land (\alpha \lor \beta) \equiv \alpha$$</p>
-
-<p>Implication</p>
-
-<p>$$\alpha \rightarrow \beta \equiv \lnot \alpha \lor \beta$$</p>
-
-<p>Contrapositive</p>
-
-<p>$$\alpha \rightarrow \beta \equiv \lnot \beta \rightarrow \lnot \alpha$$</p>
-
-<p>Equivalence</p>
-
-<p>$$\alpha \leftrightarrow \beta \equiv (\alpha \rightarrow \beta) \land (\beta \rightarrow \alpha)$$</p>
-
-<p>Excluded Middle</p>
-
-<p>$$\alpha \lor \lnot \alpha \equiv T$$</p>
-
-<p>Contradiction</p>
-
-<p>$$\alpha \land \lnot \alpha \equiv F$$</p>
-
-<h2>
-<a id="user-content-entailment" class="anchor" href="#entailment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Entailment</h2>
-
-<h4>
-<a id="user-content-satisfiability-of-sets-of-formulas" class="anchor" href="#satisfiability-of-sets-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Satisfiability of Sets of Formulas</h4>
-
-<p>The notion of satisfiability extends to sets of formulas.</p>
-
-<p>Let $\Sigma$ denote a set of formulas and $t$ a valuation. Define</p>
-
-<p>$\Sigma^t$
-    *   $T$ if for each $\beta\in\Sigma, \beta^t=T$
-    *   $F$ otherwise</p>
-
-<p>When $\Sigma^t=T$, we say that $t$ <strong>satisfies</strong> $\Sigma$.</p>
-
-<p>A set $\Sigma$ is <strong>satisfiable</strong> iff there is some valuation $t$ such that $\Sigma^t=T$.</p>
-
-<h4>
-<a id="user-content-logical-consequence-aka-entailment" class="anchor" href="#logical-consequence-aka-entailment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logical Consequence, a.k.a. Entailment</h4>
-
-<p>Let $\Sigma$ be a set of formulas, and let $\alpha$ be a formula. We say that</p>
-
-<ul>
-<li>  $\alpha$ is a <strong>logical consequence</strong> of $\Sigma$, or</li>
-<li>  $\Sigma$ <strong>(semantically) entails</strong> $\alpha$, or</li>
-<li>  in symbols, $\Sigma \models \alpha$,</li>
-</ul>
-
-<p>if and only if for any truth valuation $t$, if $\Sigma^t=T$ then also $\alpha^t=T$.</p>
-
-<p>We write $\Sigma \not\models \alpha$ for "not $\Sigma \models \alpha$". That is, there exists a truth valuation $t$ such that $\Sigma^t=T$ and $\alpha^t=F$.</p>
-
-<h4>
-<a id="user-content-equivalence-and-entailment" class="anchor" href="#equivalence-and-entailment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalence and Entailment</h4>
-
-<p>Equivalence can be expressed using the notion of entailment.</p>
-
-<p><strong>Lemma</strong></p>
-
-<p>$\alpha \equiv \beta$ if and only if both ${\alpha}\models\beta$ and ${\beta}\models\alpha$.</p>
-
-<h2>
-<a id="user-content-algebra-of-formulas-1" class="anchor" href="#algebra-of-formulas-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algebra of Formulas</h2>
-
-<p><strong>Theorem</strong></p>
-
-<p>$\Sigma \models (\varphi \rightarrow \psi)$ if and only if $\Sigma\cup {\varphi} \models \psi$.</p>
-
-<h2>
-<a id="user-content-alternative-sets-of-connectives" class="anchor" href="#alternative-sets-of-connectives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Alternative Sets of Connectives</h2>
-
-<h4>
-<a id="user-content-definability-of-connectives" class="anchor" href="#definability-of-connectives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definability of Connectives</h4>
-
-<p>Formulas $\alpha \rightarrow \beta$ and $\lnot \alpha \lor \beta$ are equivalent.</p>
-
-<p>Thus $\rightarrow$ is said to be <strong>definable</strong> in terms of $\lnot$ and $\lor$.</p>
-
-<p>There are actually sixteen possible binary connectives.</p>
-
-<p>Of those, two are essentially nullary (they ignore the values they connect).</p>
-
-<p>For others are essentially unary (they ignore one value but not the other).</p>
-
-<h4>
-<a id="user-content-adequate-sets" class="anchor" href="#adequate-sets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adequate Sets</h4>
-
-<p>A set of connectives is said to be <strong>adequate</strong> iff any $n$-ary ($n\geq 1$) connective can be defined in terms of the ones in the set.</p>
-
-<p><strong>Lemma</strong></p>
-
-<p>${\land, \lor, \lnot}$ is an adequate set of connectives.</p>
-
-<p><strong>Lemma</strong></p>
-
-<p>Each of the sets ${\land, \lnot}$, ${\lor, \lnot}$, and ${\rightarrow, \lnot}$ is adequate.</p>
-
-<p><strong>Theorem</strong></p>
-
-<p>The set ${\land, \lor}$ is not an adequate set of connectives.</p>
+<li><p>Simplify using idempotence, contradiction, excluded middle and Simplification I &amp; II</p></li>
+</ol>
 </article></body></html>

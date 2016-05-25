@@ -1,5 +1,3 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Chapter 1 Combinatorial Analysis $\newcommand{\ra}{\rightarrow}$
 
 ## 1.1 Introduction
@@ -246,4 +244,17 @@ $$\Phi_{A_1\times\cdots\times A_k}(x)=\Phi_A1(x)\cdots \Phi_Ak(x)$$
 #### 1.8.5 Theorem
 
 For any positive integer $k$ and non-negative integer $n$,
+$$(1-x)^{-k}=\sum_{n\geq 0}{n+k-1 \choose k-1}n^n$$
 
+>#### Proof
+Let $S_n$ be the set of all $k$-tuples $(a_1,...,a_k)\in\mathbb{N}_0^k$ with $a_1+...+a_k=n$
+$$|S_n|=\[x^n\](1-x)^{-k}$$
+Let $T_n$ denote the set of all binary strings of length $n+k-1$ with $k-1$ 1's. Then we know that
+$$|T_n|={n+k-1 \choose k-1}$$
+We will establish a bijection between $S_n$ and $T_n$, and, hence, prove that
+$$\[x^n\](1-x)^{-k}=|S_n|=|T_n|={n+k-1 \choose k-1}$$
+as required.
+We define $f:S_n\rightarrow T_n$ as follows: For a $k$-tuple $A=(a_1,...,a_k)$ in $S_n$,
+$$f(A)=0^{a_1}10^{a_2}1...10^{a_k}$$
+where $0^{a_i}$ represents $a_i$ 0's in a row. Notice that $f(A)$ is a string with exactly $k-1$ 1's, and the length of the string is $a_1+...+a_k+(k-1)=n+k-1$ (note that $A\in S_n$, hence $a_1+...+a_k=n$). Therefore $f(A)\in T_n$.
+We can easily find the inverse of $f$: any binary string in $T_n$ has the form $0^{a_1}1...10^{a_k}$ where $a_1+...+a_k=n$. So the inverse of $f$ is $f^{-1}:T_n\rightarrow S_n$ where $f^{-1}(0^{a_1}1...10^{a_k})=(a_1,...,a_k)$. This shows that $f$ is a bijection between $S_n$ and $T_n$.

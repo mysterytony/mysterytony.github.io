@@ -1,10 +1,14 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Syntax of Propositional Logic
+
+#### Atomic and compound propositions
 
 In propositional logic, simple **atomic** propositions are the basic building blocks.
 
 We connect atomic propositions into **compound** propositions, and then analyze sets of interrelated propositions.
+
+## Symbols, expressions and formulas
+
+#### Symbols and expression
 
 Propositions are represented by **formulas**.
 
@@ -19,11 +23,17 @@ There are three kinds:
 
 We call an arbitrary finite sequence of symbols an **expression** (or string).
 
+#### Example: expression
+
 An **expression** is finite sequence (or "string") of symbols.
 
 The **length** of an expression is its number of symbols.
 
 We often use a letter that is not formally a symbol in order to name an expression. For example, we might denote the expression above by $\alpha$. This is an example of a "meta-symbol". It is NOT a symbol!
+
+#### Talking about expressions
+
+Some terminology for expressions.
 
 *	Two expression $\alpha$ and $\beta$ are **equal**, written as $\alpha = \beta$, iff they are the same length, say $n$, and if $n>0$ then for all $i\in[1..n]$ the $i$-th symbol of $\alpha$ is the same as the $i$-th symbol of $\beta$.
 *	We write $\alpha \beta$ to mean the **concatenation** of two expression $\alpha$ and $\beta$. For example, if
@@ -33,7 +43,10 @@ $$\beta =\lor pq \rightarrow$$
 then
 $$\alpha \beta = (\neg)()\lor pq\rightarrow$$
 
+#### Concatenation, formally
+
 **Definition**
+
 If $\alpha$ is an expression of length $i$ and $\beta$ is an expression of length $j$, the $\alpha \beta$ is an expression of length $i+j$. We have the $k$-th symbol of $\alpha \beta$ is
 
 *	the $k$-th symbol of $\alpha$ if $k\leq i$
@@ -47,6 +60,8 @@ Let $P$ be a set of propositional variables. We define the set of **formulas ove
 2.	If $\varphi$ is a formula, then $(\neg\varphi)$ is a formula.
 3.	If $\varphi$ is a formula and $\eta$ is a formula, then each of $(\varphi \land \eta)$, $(\varphi \lor \eta)$, $(\varphi \rightarrow \eta)$, $(\varphi \leftrightarrow \eta)$ is a formula.
 4.	Nothing else is a formula
+
+#### The six kinds of formulas
 
 From the definition, we see there are six kinds of formulas.
 

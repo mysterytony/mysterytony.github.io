@@ -747,392 +747,50 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter4</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-working-with-formulas" class="anchor" href="#working-with-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Working With Formulas</h1>
+<title>chapter2</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-2-compositions-and-strings" class="anchor" href="#chapter-2-compositions-and-strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 2 Compositions and Strings</h1>
 
 <h2>
-<a id="user-content-evaluation-of-formulas" class="anchor" href="#evaluation-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evaluation of Formulas</h2>
+<a id="user-content-21-compositions-of-an-integer" class="anchor" href="#21-compositions-of-an-integer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1 Compositions of an Integer</h2>
 
 <h4>
-<a id="user-content-evaluating-formulas" class="anchor" href="#evaluating-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evaluating Formulas</h4>
+<a id="user-content-211-definition" class="anchor" href="#211-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.1 Definition</h4>
 
-<p>Recall that propositional logic is <strong>compositional</strong>. The value of two sub-formulas, determines the value of their composition using a propositional connective. Given a valuation $t$:</p>
+<p>For nonnegative integer $n$ and $k$, a <strong>composition</strong> of $n$ with $k$ parts is an ordered list $(c_1,...,c_k)$ of positive integers $c_1,...,c_k$, such that $c_1+...+c_k=n$. The positive integer $c_1,...,c_k$ are called the <strong>parts</strong> of the composition. There is one composition of $0$, the <strong>empty</strong> composition, which is a composition with $0$ parts.</p>
 
-<ul>
-<li>  $p^t=t(p)$</li>
-<li>  $(\lnot \alpha)^t=$
+<p>The compositions of $4$ are $(4)$, with 1 part; $(3,1),(2,2),(1,3)$, with $2$ parts; $(2,1,1),(1,2,1),(1,1,2)$, with $3$ parts; and $(1,1,1,1)$, with $4$ parts. Thus these are eight compositions of $4$, one with $1$ part, three with $2$ parts, three with $3$ parts, and one with $4$ parts.</p>
 
-<ul>
-<li>  $T$ if $\alpha ^t=F$</li>
-<li>  $F$ if $\alpha ^t=T$</li>
-</ul>
-</li>
-<li>  $(\alpha \land \beta)=$
-
-<ul>
-<li>  $T$ if $\alpha^t=\beta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li>  $(\alpha \lor \beta)^t =$
-
-<ul>
-<li>  $T$ if $\alpha^t=T$ or $\beta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li>  $(\alpha \rightarrow \beta)^t=$
-
-<ul>
-<li>  $T$ if $\alpha^t=F$ or $\beta^t=T$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-<li>  $(\alpha \leftrightarrow \beta)=$
-
-<ul>
-<li>  $T$ if $\alpha^t=\beta^t$</li>
-<li>  $F$ otherwise</li>
-</ul>
-</li>
-</ul>
-
-<p>Using these rules, we can build a <strong>truth table</strong> considering all combinations.</p>
-
-<p>For a formula with $n$ variables, the full truth table has $2^n$ lines.</p>
-
-<h2>
-<a id="user-content-semantic-properties-of-formulas" class="anchor" href="#semantic-properties-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantic Properties of Formulas</h2>
+<p>Let $\mathbb{N}={1,2,3,4,...}$ be the set of all positive integers. Then each part of a composition is in $\mathbb{N}$.</p>
 
 <h4>
-<a id="user-content-tautology-satisfaction-contradiction" class="anchor" href="#tautology-satisfaction-contradiction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tautology, Satisfaction, Contradiction</h4>
+<a id="user-content-212-problem" class="anchor" href="#212-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.2 Problem</h4>
 
-<p><strong>Definition</strong></p>
+<p>How many compositions of $n$ are there with $k$ parts, for $n\geq k \geq 1$?</p>
 
-<p>A formula $\alpha$ is a <strong>tautology</strong> if and only if for every truth valuation $t$, $\alpha^t=T$.</p>
+<p>We let $S=\mathbb{N}^k$. Then a composition $(c_1,...,c_k)$ of $n$ with $k$ parts is an element of $S$ with the restriction that $c_1+...c_k=n$ Now let $w(c_1,...,c_k)=c_1+...c_k$, and $w(c_i)=c_i$ for $c_i\in\mathbb{N}$, $i=1,...,k$. Then the compositions of $n$ with $k$ parts are the elements of $S$ of weight $n$, and we have $w(c_1,...,c_k)=w(c_1)+...+w(c_k)$. Thus the generating series for the number of compositions of $n$ with $k$ parts is:</p>
 
-<p>A formula $\alpha$ is a <strong>contradiction</strong> if and only if for every truth valuation $t$, $\alpha^t=F$.</p>
+<p>$$\begin{align*} \Phi_S(x) &amp;= \Phi_{\mathbb{N}^k}(x) \\
+&amp;= (\Phi_{\mathbb{N}}(x))^k \\
+&amp;= \left(\sum_{i\geq 1}x^i\right)^k \\
+&amp;= (x(1-x)^{-1})^k \end{align*}$$</p>
 
-<p>A formula $\alpha$ is <strong>satisfiable</strong> if and only if there is some truth valuation $t$ such that $\alpha^t=T$.</p>
+<p>Therefore, the number of compositions of $n$ with $k$ parts is</p>
 
-<p>Note: a formula is satisfiable if and only if it is not a contradiction.</p>
+<p>$$\begin{align*} [x^n]x^k(1-x)^{-k} &amp;= [x^{n-k}](1-x)^{-k} \\
+&amp;= {n-k+k-1 \choose k-1} \\
+&amp;= {n-1 \choose k-1} \end{align*}$$</p>
 
-<h4>
-<a id="user-content-short-cutting-a-truth-table" class="anchor" href="#short-cutting-a-truth-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>"Short-Cutting" a Truth Table</h4>
+<p>Thus there are ${n-1 \choose  k-1}$ compositions of $n$ with $k$ parts, for $n\geq k\geq 1$.</p>
 
-<p>Let $A$ be a truth value; that is $A\in{T,F}$, we can combine it with other truth values as follows</p>
+<p>The solution method adapts easily to many problems involving compositions. In general, we will be asking questions in the form of "how many compositions of $n$ has such and such properties?" And the way we are going to answer them is to follow these steps:</p>
 
-<table>
-<thead>
-<tr>
-<th>Formula</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\lnot T$</td>
-<td>$F$</td>
-</tr>
-<tr>
-<td>$\lnot F$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\land T$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$A\land F$</td>
-<td>$F$</td>
-</tr>
-<tr>
-<td>$T\land A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$F\land A$</td>
-<td>$F$</td>
-</tr>
-<tr>
-<td>$A\land A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\lor T$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$A\lor F$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$T\lor A$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$F\lor A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$A\lor A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\rightarrow T$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$A\rightarrow F$</td>
-<td>$\lnot A$</td>
-</tr>
-<tr>
-<td>$T\rightarrow A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$F\rightarrow A$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td>$A\rightarrow A$</td>
-<td>$T$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$A\leftrightarrow T$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$A\leftrightarrow F$</td>
-<td>$\lnot A$</td>
-</tr>
-<tr>
-<td>$T\leftrightarrow A$</td>
-<td>$A$</td>
-</tr>
-<tr>
-<td>$F\leftrightarrow A$</td>
-<td>$\lnot A$</td>
-</tr>
-<tr>
-<td>$A\leftrightarrow A$</td>
-<td>$T$</td>
-</tr>
-</tbody>
-</table>
+<ol>
+<li> Find the set $S$ of all compositions that satisfy these properties (without regard for what $n$ is);</li>
+<li> Find the generating series for $S$ (the weight of a composition is the sum of its parts, so we can apply the Sum and Product Lemmas);</li>
+<li> The answer to our question is the coefficient of $x^n$ in $\Phi_S(x)$. Find an explicit formula for this coefficient if possible.</li>
+</ol>
 
-<p>We can use these rules to evaluate a formula, by using a <strong>valuation tree</strong>.</p>
+<hr>
 
-<h2>
-<a id="user-content-equivalence" class="anchor" href="#equivalence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalence</h2>
-
-<h4>
-<a id="user-content-equivalence-of-formulas" class="anchor" href="#equivalence-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalence of Formulas</h4>
-
-<p>Suppose that a formula $\alpha \leftrightarrow \beta$ is a tautology.</p>
-
-<p>Then $\alpha$ and $\beta$ must have the same final column in their truth tables--they have the same value under any valuation.</p>
-
-<p>If symbols: $\alpha^t=\beta^t$, for every valuation $t$.</p>
-
-<p>Such formulas are called <strong>equivalent</strong> formulas. We use the notation
-$$\alpha \equiv \beta$$
-to mean that $\alpha$ and $\beta$ are equivalent.</p>
-
-<h4>
-<a id="user-content-substitution" class="anchor" href="#substitution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution</h4>
-
-<p><strong>Substitution</strong> is needed to carefully prove the equivalence of formulae. A more robust definition of substitution will be needed later, for predicate logic.</p>
-
-<p><strong>Definition</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi$, $\psi$ be any formulae. Then $\varphi[\psi/p]$ denotes the formula obtained by replacing all copies of $p$ in $\phi$ with $\psi$.</p>
-
-<h4>
-<a id="user-content-substitution-lemma" class="anchor" href="#substitution-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution Lemma</h4>
-
-<p><strong>Lemma</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi$ be a tautology. Let $\psi$ be any formula. Then $\varphi[\psi/p]$ is a tautology.</p>
-
-<h4>
-<a id="user-content-substitution-lemma-variation" class="anchor" href="#substitution-lemma-variation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution Lemma (Variation)</h4>
-
-<p><strong>Lemma</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi$ be an unsatisfiable formula. Let $\psi$ be any formula. Then $\varphi[\psi/p]$ is an unsatisfiable formula.</p>
-
-<h4>
-<a id="user-content-equivalent-is-equivalent" class="anchor" href="#equivalent-is-equivalent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalent is Equivalent</h4>
-
-<p>**Equivalent formulas are equivalent in any context.</p>
-
-<p><strong>Theorem</strong></p>
-
-<p>Let $p$ be a propositional variable. Let $\varphi, \alpha, \beta$ be any formulae. If $\alpha \leftrightarrow \beta$ is a tautology, then $\varphi[\alpha/p]\leftrightarrow\varphi[\beta/p]$ is a tautology.</p>
-
-<h4>
-<a id="user-content-algebra-of-formulas" class="anchor" href="#algebra-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algebra of Formulas</h4>
-
-<p>Many equivalences of formulas look much like rules of ordinary arithmetic and algebra. (We will show how to prove these equivalence later, using the notion of <strong>entailment</strong>)</p>
-
-<p>Commutativity</p>
-
-<p>$$\alpha \land \beta \equiv \beta \land \alpha$$
-$$\alpha \lor \beta \equiv \beta \lor \alpha$$
-$$\alpha \leftrightarrow \beta \equiv \beta \leftrightarrow \alpha$$</p>
-
-<p>Associativity</p>
-
-<p>$$\alpha \land (\beta \land \gamma) \equiv (\alpha \land \beta) \land \gamma$$
-$$\alpha \lor (\beta \lor \gamma) \equiv (\alpha \lor \beta) \lor \gamma$$</p>
-
-<p>Distributivity</p>
-
-<p>$$\alpha \lor (\beta \land \gamma) \equiv (\alpha \lor \beta) \land (\alpha \lor \gamma)$$
-$$\alpha \land (\beta \lor \gamma) \equiv (\alpha \land \beta) \lor (\alpha \land \gamma)$$</p>
-
-<p>Idempotence</p>
-
-<p>$$\alpha \lor \alpha \equiv \alpha$$
-$$\alpha \land \alpha \equiv \alpha$$</p>
-
-<p>Double Negation</p>
-
-<p>$$\lnot (\lnot \alpha) \equiv \alpha$$</p>
-
-<p>De Morgan's Law</p>
-
-<p>$$\lnot (\alpha \land \beta) = \lnot \alpha \lor \lnot \beta$$
-$$\lnot (\alpha \lor \beta)  = \lnot \alpha \land \lnot \beta$$</p>
-
-<p>Simplification I (Absorption)</p>
-
-<p>$$\alpha \land T \equiv \alpha$$
-$$\alpha \lor T \equiv T$$
-$$\alpha \land F \equiv F$$
-$$\alpha \lor F \equiv \alpha$$</p>
-
-<p>Simplification II</p>
-
-<p>$$\alpha \lor (\alpha \land \beta) \equiv \alpha$$
-$$\alpha \land (\alpha \lor \beta) \equiv \alpha$$</p>
-
-<p>Implication</p>
-
-<p>$$\alpha \rightarrow \beta \equiv \lnot \alpha \lor \beta$$</p>
-
-<p>Contrapositive</p>
-
-<p>$$\alpha \rightarrow \beta \equiv \lnot \beta \rightarrow \lnot \alpha$$</p>
-
-<p>Equivalence</p>
-
-<p>$$\alpha \leftrightarrow \beta \equiv (\alpha \rightarrow \beta) \land (\beta \rightarrow \alpha)$$</p>
-
-<p>Excluded Middle</p>
-
-<p>$$\alpha \lor \lnot \alpha \equiv T$$</p>
-
-<p>Contradiction</p>
-
-<p>$$\alpha \land \lnot \alpha \equiv F$$</p>
-
-<h2>
-<a id="user-content-entailment" class="anchor" href="#entailment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Entailment</h2>
-
-<h4>
-<a id="user-content-satisfiability-of-sets-of-formulas" class="anchor" href="#satisfiability-of-sets-of-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Satisfiability of Sets of Formulas</h4>
-
-<p>The notion of satisfiability extends to sets of formulas.</p>
-
-<p>Let $\Sigma$ denote a set of formulas and $t$ a valuation. Define</p>
-
-<p>$\Sigma^t$
-    *   $T$ if for each $\beta\in\Sigma, \beta^t=T$
-    *   $F$ otherwise</p>
-
-<p>When $\Sigma^t=T$, we say that $t$ <strong>satisfies</strong> $\Sigma$.</p>
-
-<p>A set $\Sigma$ is <strong>satisfiable</strong> iff there is some valuation $t$ such that $\Sigma^t=T$.</p>
-
-<h4>
-<a id="user-content-logical-consequence-aka-entailment" class="anchor" href="#logical-consequence-aka-entailment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logical Consequence, a.k.a. Entailment</h4>
-
-<p>Let $\Sigma$ be a set of formulas, and let $\alpha$ be a formula. We say that</p>
-
-<ul>
-<li>  $\alpha$ is a <strong>logical consequence</strong> of $\Sigma$, or</li>
-<li>  $\Sigma$ <strong>(semantically) entails</strong> $\alpha$, or</li>
-<li>  in symbols, $\Sigma \models \alpha$,</li>
-</ul>
-
-<p>if and only if for any truth valuation $t$, if $\Sigma^t=T$ then also $\alpha^t=T$.</p>
-
-<p>We write $\Sigma \not\models \alpha$ for "not $\Sigma \models \alpha$". That is, there exists a truth valuation $t$ such that $\Sigma^t=T$ and $\alpha^t=F$.</p>
-
-<h4>
-<a id="user-content-equivalence-and-entailment" class="anchor" href="#equivalence-and-entailment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Equivalence and Entailment</h4>
-
-<p>Equivalence can be expressed using the notion of entailment.</p>
-
-<p><strong>Lemma</strong></p>
-
-<p>$\alpha \equiv \beta$ if and only if both ${\alpha}\models\beta$ and ${\beta}\models\alpha$.</p>
-
-<h2>
-<a id="user-content-algebra-of-formulas-1" class="anchor" href="#algebra-of-formulas-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algebra of Formulas</h2>
-
-<p><strong>Theorem</strong></p>
-
-<p>$\Sigma \models (\varphi \rightarrow \psi)$ if and only if $\Sigma\cup {\varphi} \models \psi$.</p>
-
-<h2>
-<a id="user-content-alternative-sets-of-connectives" class="anchor" href="#alternative-sets-of-connectives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Alternative Sets of Connectives</h2>
-
-<h4>
-<a id="user-content-definability-of-connectives" class="anchor" href="#definability-of-connectives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definability of Connectives</h4>
-
-<p>Formulas $\alpha \rightarrow \beta$ and $\lnot \alpha \lor \beta$ are equivalent.</p>
-
-<p>Thus $\rightarrow$ is said to be <strong>definable</strong> in terms of $\lnot$ and $\lor$.</p>
-
-<p>There are actually sixteen possible binary connectives.</p>
-
-<p>Of those, two are essentially nullary (they ignore the values they connect).</p>
-
-<p>For others are essentially unary (they ignore one value but not the other).</p>
-
-<h4>
-<a id="user-content-adequate-sets" class="anchor" href="#adequate-sets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adequate Sets</h4>
-
-<p>A set of connectives is said to be <strong>adequate</strong> iff any $n$-ary ($n\geq 1$) connective can be defined in terms of the ones in the set.</p>
-
-<p><strong>Lemma</strong></p>
-
-<p>${\land, \lor, \lnot}$ is an adequate set of connectives.</p>
-
-<p><strong>Lemma</strong></p>
-
-<p>Each of the sets ${\land, \lnot}$, ${\lor, \lnot}$, and ${\rightarrow, \lnot}$ is adequate.</p>
-
-<p><strong>Theorem</strong></p>
-
-<p>The set ${\land, \lor}$ is not an adequate set of connectives.</p>
+<p>ends page 30</p>
 </article></body></html>

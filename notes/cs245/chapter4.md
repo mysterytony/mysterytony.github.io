@@ -1,6 +1,6 @@
-[<- Go Back](http://tonyli.tk/)
-
 # Working With Formulas
+
+## Evaluation of Formulas
 
 #### Evaluating Formulas
 
@@ -27,9 +27,11 @@ Using these rules, we can build a **truth table** considering all combinations.
 
 For a formula with $n$ variables, the full truth table has $2^n$ lines.
 
+## Semantic Properties of Formulas
+
 #### Tautology, Satisfaction, Contradiction
 
-#### Definition
+**Definition**
 
 A formula $\alpha$ is a **tautology** if and only if for every truth valuation $t$, $\alpha^t=T$.
 
@@ -74,6 +76,8 @@ Let $A$ be a truth value; that is $A\in\{T,F\}$, we can combine it with other tr
 
 We can use these rules to evaluate a formula, by using a **valuation tree**.
 
+## Equivalence
+
 #### Equivalence of Formulas
 
 Suppose that a formula $\alpha \leftrightarrow \beta$ is a tautology.
@@ -90,28 +94,33 @@ to mean that $\alpha$ and $\beta$ are equivalent.
 
 **Substitution** is needed to carefully prove the equivalence of formulae. A more robust definition of substitution will be needed later, for predicate logic.
 
-#### Definition
+**Definition**
 
 Let $p$ be a propositional variable. Let $\varphi$, $\psi$ be any formulae. Then $\varphi[\psi/p]$ denotes the formula obtained by replacing all copies of $p$ in $\phi$ with $\psi$.
 
-#### Lemma
+#### Substitution Lemma
+
+**Lemma**
 
 Let $p$ be a propositional variable. Let $\varphi$ be a tautology. Let $\psi$ be any formula. Then $\varphi[\psi/p]$ is a tautology.
 
-#### Theorem
+#### Substitution Lemma (Variation)
 
-Let $p$ be a propositional variable. Let $\varphi, \alpha, \beta$ by any formulae. If
-$$\emptyset \models \alpha \leftrightarrow \beta$$
-then
-$$\emptyset \models \varphi[\alpha/p] \leftrightarrow \varphi[\beta/p]$$
+**Lemma**
 
-#### Theorem
+Let $p$ be a propositional variable. Let $\varphi$ be an unsatisfiable formula. Let $\psi$ be any formula. Then $\varphi[\psi/p]$ is an unsatisfiable formula.
 
-$\Sigma \models (\varphi \rightarrow \psi)$ if and only if $\Sigma\cup \{\varphi\} \models \psi$.
+#### Equivalent is Equivalent
+
+**Equivalent formulas are equivalent in any context.
+
+**Theorem**
+
+Let $p$ be a propositional variable. Let $\varphi, \alpha, \beta$ be any formulae. If $\alpha \leftrightarrow \beta$ is a tautology, then $\varphi[\alpha/p]\leftrightarrow\varphi[\beta/p]$ is a tautology.
 
 #### Algebra of Formulas
 
-Many equivalences of formulas look much like rules of ordinary arithmetic and algebra.
+Many equivalences of formulas look much like rules of ordinary arithmetic and algebra. (We will show how to prove these equivalence later, using the notion of **entailment**)
 
 Commutativity
 
@@ -175,6 +184,22 @@ Contradiction
 
 $$\alpha \land \lnot \alpha \equiv F$$
 
+## Entailment
+
+#### Satisfiability of Sets of Formulas
+
+The notion of satisfiability extends to sets of formulas.
+
+Let $\Sigma$ denote a set of formulas and $t$ a valuation. Define
+
+$\Sigma^t$
+	*	$T$ if for each $\beta\in\Sigma, \beta^t=T$
+	*	$F$ otherwise
+
+When $\Sigma^t=T$, we say that $t$ **satisfies** $\Sigma$.
+
+A set $\Sigma$ is **satisfiable** iff there is some valuation $t$ such that $\Sigma^t=T$.
+
 #### Logical Consequence, a.k.a. Entailment
 
 Let $\Sigma$ be a set of formulas, and let $\alpha$ be a formula. We say that
@@ -191,9 +216,17 @@ We write $\Sigma \not\models \alpha$ for "not $\Sigma \models \alpha$". That is,
 
 Equivalence can be expressed using the notion of entailment.
 
-#### Lemma
+**Lemma**
 
 $\alpha \equiv \beta$ if and only if both $\{\alpha\}\models\beta$ and $\{\beta\}\models\alpha$.
+
+## Algebra of Formulas
+
+**Theorem**
+
+$\Sigma \models (\varphi \rightarrow \psi)$ if and only if $\Sigma\cup \{\varphi\} \models \psi$.
+
+## Alternative Sets of Connectives
 
 #### Definability of Connectives
 
@@ -211,15 +244,14 @@ For others are essentially unary (they ignore one value but not the other).
 
 A set of connectives is said to be **adequate** iff any $n$-ary ($n\geq 1$) connective can be defined in terms of the ones in the set.
 
-#### Lemma
+**Lemma**
 
 $\{\land, \lor, \lnot\}$ is an adequate set of connectives.
 
-#### Lemma
+**Lemma**
 
 Each of the sets $\{\land, \lnot\}$, $\{\lor, \lnot\}$, and $\{\rightarrow, \lnot\}$ is adequate.
 
-#### Theorem
+**Theorem**
 
 The set $\{\land, \lor\}$ is not an adequate set of connectives.
-
