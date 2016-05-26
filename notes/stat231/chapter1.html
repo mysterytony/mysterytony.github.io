@@ -931,4 +931,90 @@ $$\frac{f_j/n}{(a_j-a_{j-1})}$$</li>
 $$\hat{F}(y)=\frac{number \quad of \quad values \quad in \quad {y_1,...,y_2} \quad which \quad are \quad \leq y}{n}$$</p>
 
 <p>To construct $\hat{F}(y)$, it is convenient to first order the $y_i$'s to give the ordered values. Then we note that $\hat{F}(y)$ is a step function with a jump at each of the ordered observed values.</p>
+
+<h4>
+<a id="user-content-boxplots" class="anchor" href="#boxplots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Boxplots</h4>
+
+<p>In many situations, we want to compare the values of a variate for two or more groups. Especially when the number of groups is large (or the sample sizes within groups are small), side-by-side boxplot are a convenient way to display the data. Boxplots are also called box and whisker plots.</p>
+
+<p>The boxplot is usually displayed vertically. The line inside the box corresponds to the median and the bottom and top sides of the box correspond to the lower quartile $q(0.25)$ and the upper quartile $q(0.75)$ respectively. The so-called whiskers extend down and up from the box to a horizontal line. The lower line is placed at the smallest data value that is larger than the value $q(0.25)-1.5\times IQR$ where $IQR=q(0.75)-q(0.25)$ is the interquartile range. Similarly the upper line is placed at the largest observed data value that is smaller than the value $q(0.75)+1.5IQR$. Any values beyond the whiskers (often called outliers) are plotted with special symbols.</p>
+
+<p>Boxplots are particularly used for comparing several groups. The graphical summaries we have just discussed are most useful for summarizing variates which are either continuous or discrete with many possible values. For a categorical variates the data can be best summarized using bar graphs and pie charts. Such graphs can be used incorrectly.</p>
+
+<p>The graphical summaries discussed to this point deal with a single variate. If we have data on two variate $x$ and $y$ for each unit in the sample then data set is represented as ${(x_i, y_j), i=1,2,...,n}$. We often interested in examining the relationships between the two variates.</p>
+
+<h4>
+<a id="user-content-scatterplots" class="anchor" href="#scatterplots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatterplots</h4>
+
+<p>A scaterplot, which is a plot of the points $(x_i, y_j), i=1,2,...,n$, can be used to see whether the two variates are related in some way.</p>
+
+<h2>
+<a id="user-content-14-probability-distributions-and-statistical-models" class="anchor" href="#14-probability-distributions-and-statistical-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4 Probability Distributions and Statistical Models</h2>
+
+<p>Statistical models are used to describe processes such as the daily closing value of a stock or the occurrence and size of claims over time in a portfolio of insurance policies. With populations, we use a statistical model to describe the selection of the units and the measurement of the variates. The model depends on the distribution of variate values in the population (that is, the population histogram) and the selection procedure. We exploit this connection when we want to estimate attributes of the population and quantify the uncertainty in our conclusions. We use the models in several ways:</p>
+
+<ul>
+<li>  questions are often formulated in terms of parameters of the model</li>
+<li>  the variate values vary so random variables can describe the variation</li>
+<li>  empirical studies usually lead to inferences that involve some degree of uncertainty, and probability is used to quantify this uncertainty</li>
+<li>  procedures for making decisions are often formulated in terms of models</li>
+<li>  models allow us to characterize processes and to simulate them via computer experiments</li>
+</ul>
+
+<h4>
+<a id="user-content-example-141-a-binomial-distribution-example" class="anchor" href="#example-141-a-binomial-distribution-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1.4.1 A Binomial Distribution Example</h4>
+
+<p>Consider again the survey of smoking habits of teenagers described in Example 1.2.1. To select a sample of 500 units (teenagers living in Ontario), suppose we had a list of most of the units in the population. Getting such a list would be expensive and time consuming so the actual selection procedure is likely to be very different. We select a sample of 500 units from the list at random and count the number of smokers in the sample. We model this selection process using a Binomial random variable $Y$ with probability function (p.f.)</p>
+
+<p>$$P(Y=y;\theta)={500 \choose y}\theta^y (1-\theta)^{500-y}$$ for $y=0,1,...,500$</p>
+
+<p>Here the parameter $\theta$ represents the unknown proportion of smokers in the population, one attribute of interest in the study.</p>
+
+<h4>
+<a id="user-content-example-142-an-exponential-distribution-example" class="anchor" href="#example-142-an-exponential-distribution-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1.4.2 An Exponential Distribution Example</h4>
+
+<p>In Example 1.3.4, we examined the lifetime (in 1000 km) of a sample of 200 front brake pads taken from the population of all cars of a particular model produced in a given time period. We can model the lifetime of a single brake pad by a continuous random variable $Y$ with Exponential probability density function (p.d.f.)</p>
+
+<p>$$f(y;\theta)=\frac{1}{\theta} e^{-y/\theta}$$ for $y&gt;0$</p>
+
+<p>There the parameter $\theta &gt; 0$ represents the mean lifetime of the brake pads in the population since, in the model, the expected value of $Y$ is $E(Y)=\theta$.</p>
+
+<p>To model the sampling procedure, we assume that he date ${y_1,y_2,...,y_200}$ represent 200 independent realizations of the random variable $Y$. That is, we let $Y_i=$ the lifetime for the $i$th brake pad int eh sample, $i=1,2,...,200$ and we assume that $Y_1,...,Y_{200}$ are independent Exponential random variables each having the same mean $\theta$.</p>
+
+<p>We can use the model and the data to estimate $\theta$ and other attributes of interest such as the proportion of brake pads that fail in the first 100,000 km of use. In terms of the model, we can represent this proportion by</p>
+
+<p>$$P(Y\leq 100; \theta)=\int_0^{100}f(y;\theta)dy=1-e^{-100/\theta}$$</p>
+
+<p>If we model the selection of a data set ${y_1,...,y_n}$ as $n$ independent realizations of a random variable $Y$ as in the above brake pad example, we can draw strong parallels between summaries of the data set described in Section 1.3 and properties of the corresponding probability model $Y$. For example,</p>
+
+<ul>
+<li>  The sample mean $\bar{y}$ corresponds to the population mean $E(Y)=\mu$</li>
+<li>  The sample median $\hat{m}$ corresponds to the population median $m$. For continuous distributions the population median is the solution $m$ of the equation $F(m)=0.5$ where $F(y)=P(Y\leq y)$ is the cumulative distribution function of $Y$. For discrete distributions, it is a point $m$ chosen such that $P(Y\leq m) \geq 0.5$ and $P(Y\geq m)\geq 0.5$.</li>
+<li>  The sample standard deviation $s$ corresponds to $\sigma$, the population standard deviation of $Y$, where $\sigma^2=E[(Y-\mu)^2]$.</li>
+<li>  The relative frequency histogram corresponds to the probability histogram of $Y$ for discrete distributions and the probability density function of $Y$ for continuous distributions.</li>
+</ul>
+
+<h4>
+<a id="user-content-example-143-a-gaussian-distribution-example" class="anchor" href="#example-143-a-gaussian-distribution-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1.4.3 A Gaussian Distribution Example</h4>
+
+<p>Earlier, we described an experiment where the goal was to see if there is a relationship operating performance $y$ of a computer chip and ambient temperature $x$. In the experiment, there were four groups of 10 chips and each group operated at a different temperature $x=10,20,30,40$. The data are ${(x_1,y_1),...,(x_{40},y_{40})}$. A model for $Y_1,...,Y_{40}$ should depend on the temperature $x_i$ and one possibility is to assume $Y_i\sim G(\beta_0+\beta_1x_i,\sigma), i=1,2,...,40$ independently. In this model, the mean of $Y$ is a linear function of the temperature $x_i$. The parameter $\sigma$ allows for variability in performance among chip operating at the same temperature. We will consider such models in detail in Chapter 6.</p>
+
+<h4>
+<a id="user-content-response-versus-explanatory-variates" class="anchor" href="#response-versus-explanatory-variates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response versus Explanatory Variates</h4>
+
+<p>Suppose we wanted to study the relationship between second hand smoke and asthma among children aged 10 and under. The two variates of interest could be defined as:</p>
+
+<p>$x=$ whether the child lives in a household where adults smoke,</p>
+
+<p>$y=$ whether the child suffers from asthma.</p>
+
+<p>In this study there is a natural division of the variates into two types: response variate and explanatory variate. In this example, $Y$, the asthma status, is the response variate (often coded as $Y=1$ if child suffers from asthma, $Y=0$ otherwise) and $x$, whether the child lives in a household where adults smoke, is explanatory variate (also often coded as $x=1$ if child lives in a household where adults smoke and $x=0$ otherwise). The explanatory variate $x$ is in the study of partially explain or determine the distribution of the response variate.</p>
+
+<p>Similarly in an observational study of 1718 men aged 40-45, the men were classified according to whether they were heavy coffee drinkers (more than 100 cups/month) or not (less than 100 cups/month) and whether they suffer from CHD (coronary heart disease) or not. The question of interest is whether there is a relationship between coffee consumption and CHD. Unlike Example 1.4.3, neither variate is under the control of the researchers. We might be interested in whether coffee consumption can be used to "explain" CHD. In this case we would call coffee consumption as explanatory variate while CHD would the response variate. However if we were interested in whether CHD can be used to explain coffee consumption then CHD would be the explanatory variate and coffee habits would be the response variate.</p>
+
+<p>In some cases it is not clear which is the explanatory variate and which is the response variate. For example, the response variate $Y$ might be the weight of a randomly selected female in the age range 16-25, in some population. A person's weight is related to their height. We might want to study this relationship by considering females with a given height $x$ and proposing that distribution of $Y$, given $x$ is Gaussian, $G(\alpha + \beta x, \sigma)$. That is, we propose that the average weight of a female depends linearly on her height $x$ and write this as</p>
+
+<p>$$E(Y|x)=\alpha +\beta x$$</p>
+
+<p>However it would be possible to reverse the roles of the two variates here and consider the weight to be an explanatory variate and height the response variate, if for example we wished to predict height using data on individuals' weights.</p>
 </article></body></html>
