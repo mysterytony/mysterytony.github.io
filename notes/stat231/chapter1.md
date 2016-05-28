@@ -222,3 +222,30 @@ In some cases it is not clear which is the explanatory variate and which is the 
 $$E(Y|x)=\alpha +\beta x$$
 
 However it would be possible to reverse the roles of the two variates here and consider the weight to be an explanatory variate and height the response variate, if for example we wished to predict height using data on individuals' weights.
+
+## 1.5 Data Analysis and Statistical Inference
+
+Whether we are collecting data to increase our knowledge or to serve as a basis for making decisions, proper analysis of the data is crucial. We distinguish between two broad aspects of the analysis and interpretation of data. The first is what we refer to as **descriptive statistics**. This is the portrayal of the data, or parts of it, in numerical and graphical ways so as to show feature of interest.  We have considered a few methods of descriptive statistics in Section 1.3. The terms data mining and knowledge discovery in data bases (KDD) refer to exploratory data analysis where the emphasis is on descriptive statistics. This is often carried out on very large data bases. The goal, often vaguely specified, is to find interesting patterns and relationships.
+
+A second aspect of a statistical analysis of data is what we refer to as **statistical inference**. That is, we use the data obtained in the study of a process or population to draw general conclusions about the process or population itself. That is a form of inductive inference, in when we reason from the specific (the observed data on a sample of units) to the general (the target population or process). This may be contrasted with deductive inference (as in  logic and mathematics) in which we use general results to prove specific things.
+
+This course introduces some basic methods of statistical inference. Three main types of program will be discussed, loosely referred to as **estimation problem**, **hypothesis testing problems** and **prediction problems***. In the first type, the problem is to estimate one or more attributes of a process or population. For example, we may wish to estimate the proportion of Ontario residents aged 14 - 20 who smoke, or to estimate the distribution of survival times for certain types of AIDS patients. Another type of estimation problem is that of "fitting" or selecting a probability model for a process.
+
+Hypothesis testing problems involve using the data to assess the truth of some question of hypothesis. For example, we may hypothesis that in the 14-20 age group a higher proportion of females than males smoke, or that the use of a new treatment will increase the average survival time of AIDS patients by at least 50 percent.
+
+In prediction problems, we use the data to predict a future value for a process variate or a unit to be selected from the population. For example, based on the results of a clinical trial such as Example 1.2.3, we may wish to predict how much an individual's blood pressure would drop for a given dosage of a new drug. Or, given the past performance of a stock and other data, to predict the value of the stock at some point in the future.
+
+Statistical analysis involves the use of both descriptive statistics and formal methods of estimation, prediction and hypothesis testing.
+
+#### Example 1.5.1 A Smoking behavior survey
+
+Suppose in Example 1.2.1, we sampled 250 males and 250 females aged 14-20 as described in Example 1.4.1. Here we focus only on the sex of each person in the sample, and whether or not they smoked. The data are summarized in the following two-way table:
+
+| | Smoker | Non-smoker | Total |
+|---|---|---|---|
+| Female | 82 | 168 | 250 |
+| Male | 71 | 179 | 250 |
+| Total | 153 | 347 | 500 |
+
+Suppose we are interested in the question "Is the smoking rate among teenager girls higher than the rate among teenager boys?" From the data, we see that the sample proportion of girls who smoke is $82/250=0.328$ and the sample proportion of males who smoke is $71/250=0.284$. In the sample, the smoking rate for females is higher. But what can we say about the who population? To proceed, we formulate the hypothesis that there is no difference in the population rates. then assuming the hypothesis is true, we construct two Binomial models as in Example 1.4.1 each with a common parameter $\theta$. We can estimate $\theta$ using the combined data so that $\hat{\theta}=153/500=0.306$. Then using the model and the estimate, we can calculate the probability of such a large difference in the observed rates. Such a large difference occurs about $20\%$ of the time so such a large difference is observed rates happens fairly often and therefore, based on the observed data, there is no evidence of a difference in the population smoking rates.
+
