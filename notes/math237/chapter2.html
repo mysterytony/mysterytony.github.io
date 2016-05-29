@@ -747,5 +747,214 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter2</title></head><body><article class="markdown-body"><p>implies</p>
+<title>chapter2</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-2-limits" class="anchor" href="#chapter-2-limits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 2: Limits</h1>
+
+<h2>
+<a id="user-content-21-definition-of-a-limit" class="anchor" href="#21-definition-of-a-limit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1 Definition of a Limit</h2>
+
+<p>Recall for a function $f(x)$ we define $\lim_{x\rightarrow a}f(x)=L$ to mean that the values of $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently close to $a$. More precisely, for every $\epsilon&gt;0$ there exists a $\delta&gt;0$ such that</p>
+
+<p>$$|f(x)-L|&lt;\epsilon$$</p>
+
+<p>whenever</p>
+
+<p>$$0&lt;|x-a|&lt;\delta$$</p>
+
+<p>Moreover, we showed that $\lim_{x\rightarrow a}f(x)=L$ if and only if $\lim_{x\rightarrow a^-}f(x)=L=\lim_{x\rightarrow a^+}f(x)$.</p>
+
+<p>Similarly, for scalar functions $f(x,y)$, we want $\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L$ to mean the values of $f(x,y)$ can be made arbitrarily close to $L$ by taking $(x,y)$ sufficiently close to $(a,b)$. For the one variable case we could only approach the limit from two directions, left and right. For multivariable scalar function our domain is now multidimensional, so we can approach the limits from infinitely many directions. Moreover, we are not restricted to straight lines either; we can approach $(a,b)$ along any smooth curve as well! Hence, to generalize the precise definition of a limit we need to generalize the concept of an interval.</p>
+
+<h4>
+<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>An r-<strong>neighborhood</strong> of a point $(a,b)\in\mathbb{R}^2$ is a set</p>
+
+<p>$$N_r(a,b)={(x,y)\in\mathbb{R}^2:||(x,y)-(a,b)||&lt;r}$$</p>
+
+<h4>
+<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Recall that $||(x,y)-(a,b)||$ is the Euclidean distance in $\mathbb{R}^2$ That is,</p>
+
+<p>$$||(x,y)-(a,b)||=\sqrt{(x-a)^2+(y-b)^2}$$</p>
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>Assume $f(x,y)$ is defined in a neighborhood of $(a,b)$, except possible at $(a,b)$. If for every $\epsilon&gt;0$ there exists a $\delta&gt;0$ such that</p>
+
+<p>$$0&lt;||(x,y)-(a,b)||&lt;\delta$$</p>
+
+<p>implies</p>
+
+<p>$$|f(x,y)-L|&lt;\epsilon$$</p>
+
+<p>then </p>
+
+<p>$$\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L$$</p>
+
+<h2>
+<a id="user-content-22-limit-theorems" class="anchor" href="#22-limit-theorems" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2 Limit Theorems</h2>
+
+<p>In extending our definition of a limit to functions $f(x,y)$ we would hope that we have preserved all of our properties of limits we had for single variable functions.</p>
+
+<h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
+<p>If $\lim_{(x,y)\rightarrow (a,b)}f(x,y)$ and $\lim_{(x,y)\rightarrow (a,b)}g(x,y)$ both exist, then</p>
+
+<ol>
+<li> $lim_{(x,y)\rightarrow (a,b)}[f(x,y)+g(x,y)] = \lim_{(x,y)\rightarrow (a,b)}f(x,y) +\lim_{(x,y)\rightarrow (a,b)}g(x,y)$</li>
+<li> $lim_{(x,y)\rightarrow (a,b)}[f(x,y)g(x,y)] = \left[\lim_{(x,y)\rightarrow (a,b)}f(x,y)\right]\left[\lim_{(x,y)\rightarrow (a,b)}g(x,y)\right]$</li>
+<li> $lim_{(x,y)\rightarrow (a,b)}\frac{f(x,y)}{g(x,y)} = \frac{\lim_{(x,y)\rightarrow (a,b)}f(x,y)}{\lim_{(x,y)\rightarrow (a,b)}g(x,y)}$</li>
+</ol>
+
+<blockquote>
+<h4>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>We will prove (1). Let $\epsilon&gt;0$. Since $\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L_1$ and $\lim_{(x,y)\rightarrow (a,b)}g(x,y)=L_2$ both exist, by definition of a limit, there exists a $\delta&gt;0$ such that
+$$0&lt;||(x,y)-(a,b)||&lt;\delta$$
+implies $|f(x,y)-L_1|&lt;\frac{1}{2}\epsilon$ and $|g(x,y)-L_2|&lt;\frac{1}{2}\epsilon$
+Thus, if $0&lt;||(x,y)-(a,b)||&lt;\delta$, then
+$$\begin{align*} |f(x,y)+g(x,y)-(L_1+L_2)| &amp;= |[f(x,y)-L-1]+[g(x,y)-L_2]| \\
+&amp;\leq |f(x,y)-L_1| + |g(x,y)-L_2| \quad \text{by the Triangle Inequality} \\
+&amp;&lt; \frac{\epsilon}{2} +\frac{\epsilon}{2} =\epsilon \end{align*}$$
+as required.</p>
+</blockquote>
+
+<h4>
+<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
+<p>If $\lim_{(x,y)\rightarrow (a,b)}f(x,y)$ exists, then the limit is unique.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-1" class="anchor" href="#proof-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Assume that $\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L_1$ and $\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L_2$. Then we have
+$$|L_1-L_2|=\left|\lim_{(x,y)\rightarrow (a,b)}f(x,y)- \lim_{(x,y)\rightarrow (a,b)}f(x,y)\right|=\left|\lim_{(x,y)\rightarrow (a,b)}[f(x,y)-f(x,y)]\right|=0$$
+Hence, $L_1=L_2$ and so the limit is unique.</p>
+</blockquote>
+
+<h2>
+<a id="user-content-23-proving-a-limit-does-not-exist" class="anchor" href="#23-proving-a-limit-does-not-exist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3 Proving a Limit Does Not Exist</h2>
+
+<p>Recall for a function of one variable, we often showed a limit did not exist by showing the left-hand limit did not equal to the right-hand limit and using the fact that 
+Recall for a function of one variable, we often showed a limit did not exist by showing the left-hand limit did not equal to the right-hand limit and using the fact that the limit is unique. For multivariable functions, we will essentially do the same thing, only now we have to remember that we are able to approach $(a,b)$ along any smooth curve.</p>
+
+<h2>
+<a id="user-content-24-proving-a-limit-exists" class="anchor" href="#24-proving-a-limit-exists" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4 Proving a Limit Exists</h2>
+
+<p>Since we cannot use the previous methods to prove a limit exists, we prove another theorem to help us.</p>
+
+<h4>
+<a id="user-content-theorem-1-squeeze-theorem" class="anchor" href="#theorem-1-squeeze-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1 (Squeeze Theorem)</h4>
+
+<p>If there exists a function $B(x,y)$ such that</p>
+
+<p>$$|f(x,y)-L|\leq B(x,y), \text{for all} (x,y)\neq(a,b)$$</p>
+
+<p>in some neighborhood of $(a,b)$ and $\lim_{(x,y)\rightarrow (a,b)}B(x,y)=0$, then</p>
+
+<p>$$\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-2" class="anchor" href="#proof-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $\epsilon&gt;0$. Since $\lim_{(x,y)\rightarrow (a,b)}B(x,y)=0$ we have that there exists a $\delta&gt;0$ such that
+$$0&lt;||(x,y)-(a,b)||&lt;\delta \text{ implies } |B(x,y)-0|&lt;\epsilon$$
+Hence, if $0&lt;||(x,y)-(a,b)||&lt;\epsilon$, then we have
+$$|f(x,y)-L|\leq B(x,y)=|B(x,y)|&lt;\epsilon$$
+as our hypothesis requires that $B(x,y)\geq 0$ for all $(x,y)\neq (a,b)$ in the neighborhood of $(a,b)$. Therefore, by definition of a limit, we have
+$$\lim_{(x,y)\rightarrow (a,b)}f(x,y)=L$$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Be careful when working with inequalities! For example, the statement</p>
+
+<p>$$x&lt;x^2$$</p>
+
+<p>is false! if $|x|&lt;1$.</p>
+
+<p>Before one can apply the Squeeze Theorem, one must have a possible limiting value $L$ in mind. Of course if you are asked to</p>
+
+<p>$$\text{Prove that } \lim_{(x,y)\rightarrow (a,b)}f(x,y)=L$$</p>
+
+<p>you are given the limiting value $L$, and can apply the Squeeze Theorem directly. On the other hand, if you are asked to</p>
+
+<p>$$\text{Determine whether } \lim_{(x,y)\rightarrow (a,b)}f(x,y) \text{exists, and if so find its value}$$</p>
+
+<p>you should begin by letting $(x,y)$ approach $(a,b)$ along straight lines of different slope.</p>
+
+<p>If the limiting value of $f(x,y)$ depends on the slope, then $\lim f(x,y)$ does not exist.</p>
+
+<p>If the limiting value of $f(x,y)$ does not depend on the slope and equals $L$, say, then $\lim f(x,y)$ may exist and if it does exist, it equals $L$.</p>
+
+<p>You should then try to apply the Squeeze Theorem to prove that the limit does exist and equals to $L$.</p>
+
+<p>If you fail to derive a suitable inequality, you cannot draw a conclusion, and you are faced with a dilemma...</p>
+
+<p>perhaps a suitable inequality does exist, but you were not skillful enough to drive it, or</p>
+
+<p>perhaps if you let $(x,y)$ approach $(a,b)$ along curves, then you may get a limiting value other than $L$ along one of those curves, in which case $\lim f(x,y)$ does not exist.</p>
+
+<h4>
+<a id="user-content-remark-2" class="anchor" href="#remark-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>The concept of a neighborhood, the definition of a limit, the Squeeze Theorem and the limit theorems are all valid for scalar functions $f(x),x\in\mathbb{R}^n$. In fact, to generalize these concepts, one only needs to recall that if $\mathbf{x}=(x_1,...,x_n)$ and $\mathbf{a}=(a_1,...,a_n)$ are in $\mathbb{R}^n$, the Euclidean distance from $x$ to $a$ is</p>
+
+<p>$$||\mathbf{x}-\mathbf{a}||=\sqrt{(x_1-a_1)^2+\cdots+(x_n-a_n)^2}$$</p>
+
+<h2>
+<a id="user-content-25-appendix" class="anchor" href="#25-appendix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5 Appendix</h2>
+
+<p>The following statements can be taken as axioms which define the notion of "less than" for real numbers.</p>
+
+<p><strong>Trichotomy Property</strong>: for any real numbers $a$ and $b$, one an only one of the following holds:</p>
+
+<p>$$a=b \quad a&lt;b \quad b&lt;a$$</p>
+
+<p><strong>Transitivity Property</strong>: If $a&lt;b$ and $b&lt;c$, then $a&lt;c$.</p>
+
+<p><strong>Addiction Property</strong>: If $a&lt;b$, then for all $c$, $a+c&lt;b+c$.</p>
+
+<p><strong>Multiplication Property</strong>: If $a&lt;b$ and $c&lt;0$, then $bc&lt;ac$.</p>
+
+<p>Using these properties one can deduce other results.</p>
+
+<p>The <strong>absolute value</strong> of a real number $a$ is defined by</p>
+
+<p>$$|a|= \begin{matrix} a \text{ if } a \geq 0 \\ -a \text{ if } a &lt; 0 \end{matrix}$$</p>
+
+<p>Three frequently used results, which follows from the axioms, are listed below.</p>
+
+<ol>
+<li> $|a|=\sqrt{a^2}$</li>
+<li> $|a|&lt;b$ if and only if $-b&lt;a&lt;b$.</li>
+<li> The Triangle Inequality: $|a+b|\leq |a|+|b|$ for all $a,b\in\mathbb{R}$.</li>
+</ol>
+
+<h4>
+<a id="user-content-remark-3" class="anchor" href="#remark-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>When using the Squeeze Theorem, the most commonly used inequalities are:</p>
+
+<ol>
+<li> The Triangle Inequality</li>
+<li> If $c&gt;0$ then $a&lt;a+c$</li>
+<li> The cosine inequality $2|x||y|\leq x^2+y^2$</li>
+</ol>
+
+<p>One particularly common use of (2) is for things like</p>
+
+<p>$$|x|=\sqrt{x^2}\leq\sqrt{x^2+y^2}$$</p>
+
+<p>We again stress that it is very important that one be careful when working with inequalities. Another common mistake is</p>
+
+<p>$$\text{if } c&gt;0, \text{ then } |a+c|\leq|a+c$$</p>
 </article></body></html>
