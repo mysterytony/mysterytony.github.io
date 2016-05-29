@@ -1,4 +1,4 @@
-# Chapter 1 Graphs of Scalar Functions
+# Chapter 1: Graphs of Scalar Functions
 
 ## 1.1 Scalar Functions
 
@@ -36,3 +36,4 @@ the **level surfaces** of $f$.
 For a scalar function $f(x), \quad x\in \mathbb{R}^n$ we call the equations
 $$f(x)=k, \quad k\in R(f)$$
 the **level sets** of $f$.
+

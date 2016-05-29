@@ -747,58 +747,131 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter1</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-chapter-1-graphs-of-scalar-functions" class="anchor" href="#chapter-1-graphs-of-scalar-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 1: Graphs of Scalar Functions</h1>
+<title>chapter3</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-3-continuous-functions" class="anchor" href="#chapter-3-continuous-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 3: Continuous Functions</h1>
 
 <h2>
-<a id="user-content-11-scalar-functions" class="anchor" href="#11-scalar-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1 Scalar Functions</h2>
+<a id="user-content-31-definition-of-continuous-function" class="anchor" href="#31-definition-of-continuous-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1 Definition of Continuous Function</h2>
 
-<p>Recall that a function
-$$f:A\rightarrow B$$
-associates with each element $a\in A$ a unique element $f(a)\in B$ called the <strong>image</strong> of $a$ under $f$. The set $A$ is called the <strong>domain</strong> of $f$ and is denoted $D(f)$. The set $B$ is called the <strong>codomain</strong> of $f$. The subset of $B$ consisting of all $f(a)$ is called the <strong>range</strong> of $f$ and is denoted $R(f)$.</p>
+<p>In many situations, we shall require that a function $f(x,y)$ is <strong>continuous</strong>. Intuitively, this means that the graph of $f$ (the surface $z=f(x,y)$) has no "breaks" or "holes" in it. As with functions of one variable, continuity is defined by using limits.</p>
 
 <h4>
 <a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
 
-<p>A <strong>scalar function</strong> $f(x_1,...,x_n)$ of $n$-variables is a function whose domain is a subset of $\mathbb{R}^n$ and whose range is a subset of $\mathbb{R}$.</p>
+<p>A function $f(x,y)$ is <strong>continuous</strong> at $(a,b)$ if and only if</p>
 
-<h2>
-<a id="user-content-12-geometric-interpretation-of-zfxy" class="anchor" href="#12-geometric-interpretation-of-zfxy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2 Geometric Interpretation of $z=f(x,y)$</h2>
+<p>$$\lim_{(x,y)\rightarrow (a,b)}f(x,y)=f(a,b)$$</p>
 
-<p>We define the <strong>graph</strong> of a function $f(x,y)$ as the set of all points $(a,b,f(a,b))$ in $\mathbb{R}^3$ such that $(a,b)\in D(f)$. Notice that we can now think of $f(a,b)$ as representing the height of the surface $z=f(x,y)$ above $(x,y)=(a,b)$.</p>
-
-<h4>
-<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
-
-<p>The <strong>level curves</strong> of a function $f$ are the curves
-$$f(x,y)=k$$
-where $k$ is a constant in the range of $f$.</p>
+<p>Additionally, if $f$ is continuous at every point in a set $D\subset \mathbb{R}^2$, then we say that $f$ is continuous on $D$.</p>
 
 <h4>
 <a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
 
-<p>Observe that the level curve $f(x,y)=k$ is the intersection of $z=f(x,y)$ and the horizontal plane $z=k$. Thus, in our family of level curves, each value of $k$ represents the height of that level curve above the $xy$-plane.</p>
+<p>There are really three requirements in this definition:</p>
+
+<ol>
+<li> $\lim_{(x,y)\rightarrow (a,b)}f(x,y)$ exists</li>
+<li> $f$ is defined at $(a,b)$</li>
+<li> the the stated equality</li>
+</ol>
+
+<h2>
+<a id="user-content-32-the-continuity-theorems" class="anchor" href="#32-the-continuity-theorems" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 The Continuity Theorems</h2>
+
+<p>One can often quickly prove that a function is continuous by applying certain theorem. The idea is to view a given function as being formed form simple functions by certain basic operations, which we now define.</p>
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>If $f(x,y)$ and $g(x,y)$ are scalar functions and $(x,y)\in D(f)\cap D(g)$, then:</p>
+
+<ol>
+<li> the <strong>sum</strong> $f+g$ is defined by
+$$(f+g)(x,y)=f(x,y)+g(x,y)$$</li>
+<li> the <strong>product</strong> $fg$ is defined by
+$$(fg)(x,y)=f(x,y)g(x,y)$$</li>
+<li> the <strong>quotient</strong> $\frac{f}{g}$ is defined by
+$\left(\frac{f}{g}\right)(x,y)=\frac{f(x,y)}{g(x,y)}$ if $g(x,y)\neq 0$</li>
+</ol>
 
 <h4>
 <a id="user-content-definition-2" class="anchor" href="#definition-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
 
-<p>The <strong>cross sections</strong> of a surface $z=f(x,y)$ are the family of curves given by
-$$z=f(c,y)$$ or $$z=f(x,d)$$</p>
+<p>For scalar functions $g(t)$ and $f(x,y)$ the <strong>composite function</strong> $f\circ g$ is defined by</p>
+
+<p>$$(g\circ f)(x,y)=g(f(x,y))$$</p>
+
+<p>for all $(x,y)\in D(f)$ for which $f(x,y)\in D(g)$.</p>
+
+<p>When composing multivariable functions, it is very important to make sure the range of the inner function is a subset of the domain of the outer function.</p>
+
+<p>We shall refer to the following theorems collectively as the <strong>Continuity Theorems</strong></p>
 
 <h4>
-<a id="user-content-generalization" class="anchor" href="#generalization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generalization</h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
+<p>If $f$ and $g$ are both continuous at $(a,b)$, then $f+g$ and $fg$ are continuous at $(a,b)$.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>We prove the result for $f+g$. By the hypothesis and the continuous function we have that
+$$\lim_{(x,y)\rightarrow (a,b)}f(x,y)=f(a,b), \quad \lim_{(x,y)\rightarrow (a,b)}g(x,y)=g(a,b)$$
+Hence, by definition of the sum and limit properties, we get
+$$\lim_{(x,y)\rightarrow (a,b)}(f+g)(x,y)=\lim_{(x,y)\rightarrow (a,b)}f(x,y)+\lim_{(x,y)\rightarrow (a,b)}g(x,y)=f(a,b)+g(a,b)=(f+g)(a,b)$$</p>
+</blockquote>
 
 <h4>
-<a id="user-content-definition-3" class="anchor" href="#definition-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
 
-<p>For a scalar function $f(x,y,z)$, we call the family of surfaces in $\mathbb{R}^3$
-$$f(x,y,z)=k, \quad k\in R(f)$$
-the <strong>level surfaces</strong> of $f$.</p>
+<p>If $f$ and $g$ are both continuous at $(a,b)$ and $g(a,b)\neq 0$, the the quotient $\frac{f}{g}$ is continuous at $(a,b)$.</p>
 
 <h4>
-<a id="user-content-definition-4" class="anchor" href="#definition-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+<a id="user-content-theorem-3" class="anchor" href="#theorem-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
 
-<p>For a scalar function $f(x), \quad x\in \mathbb{R}^n$ we call the equations
-$$f(x)=k, \quad k\in R(f)$$
-the <strong>level sets</strong> of $f$.</p>
+<p>If $f(x,y)$ is continuous at $(a,b)$ and $g(t)$ is continuous at $f(a,b)$, then the composition $g\circ f$ is continuous at $(a,b)$.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-1" class="anchor" href="#proof-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $\epsilon &gt;0$. By definition of continuity we have that
+$$\lim_{t\rightarrow f(a,b)}g(t)=g(f(a,b))$$
+So, by definition of a limit there exists a $\delta_1&gt;0$ such that
+$$|t-f(a,b)|&lt;\delta_1 \text{ implies } |g(t)-g(f(a,b))|&lt;\epsilon$$
+Similarly, we have that
+$$\lim_{(x,y)\rightarrow (a,b)}f(x,y)=f(a,b)$$
+Hence, given the above $\delta_1$, there exist a $\delta&gt;0$ such that
+$$||(x,y)-(a,b)||&lt;\delta \text{ implies } |f(x,y)-f(a,b)|&lt;\delta_1$$
+Combining we get
+$$||(x,y)-(a,b)||&lt;\delta \text{ implies } |f(x,y)-f(a,b)|&lt;\delta_1 \text{ implies } |g(f(x,y))-g(f(a,b))|&lt;\epsilon$$
+or equivalently,
+$$||(x,y)-(a,b)||&lt;\delta \text{ implies } |(g\circ f)(x,y)-(g\circ f)(a,b)|&lt;\epsilon$$
+Consequently, by definition of a limit,
+$$\lim_{(x,y)\rightarrow (a,b)}(g\circ f)(x,y) =(g\circ f)(a,b)$$
+which proves that $g\circ f$ is continuous at $(a, b)$</p>
+</blockquote>
+
+<p>Before we can apply these theorems, we need a list of basic functions which are known to be continuous on their domains:</p>
+
+<ul>
+<li>  the constant function $f(x,y)=k$</li>
+<li>  the power functions $f(x,y)=x^n$, $f(x,y)=y^n$</li>
+<li>  the logarithm function $\ln(\cdot)$</li>
+<li>  the exponential function $e^(\cdot)$</li>
+<li>  the trigonometric functions, $\sin(\cdot), \cos(\cdot)$, etc.</li>
+<li>  the inverse trigonometric functions, $\arcsin(\cdot)$, etc.</li>
+<li>  the absolute value function $|\cdot|$</li>
+</ul>
+
+<h2>
+<a id="user-content-33-limits-revised" class="anchor" href="#33-limits-revised" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3 Limits Revised</h2>
+
+<p>So far in this chapter, we have shown how to prove that a function is continuous at a point essentially "by inspection", using the Continuity Theorems. This makes it easy to evaluate $\lim_{(x,y)\rightarrow (a,b)}f(x,y)$ if $f$ is continuous at $(a,b)$. In particular, if $f$ is continuous at $(a,b)$, then $\lim_{(x,y)\rightarrow (a,b)}f(x,y)$ can be evaluated simply evaluating $f(a,b)$.</p>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>In applying the Squeeze Theorem one has to prove that $\lim_{(x,y)\rightarrow (a,b)}B(x,y)=0$. One hopes to be able to evaluate this limit by inspection, and so one tries to set up the inequality in Squeeze Theorem so that $B(x,y)$ is continuous at $(a,b)$.</p>
 </article></body></html>
