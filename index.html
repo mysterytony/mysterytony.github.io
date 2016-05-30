@@ -155,18 +155,18 @@ function btnDocumentViewerClicked(documentname) {
         window.open(documentname);
         return;
     }
-    $('#document_viewer').load(documentname);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    // var request = makeHttpObject();
-    // request.open("GET", documentname, true);
-    // request.send(null);
-    // request.onreadystatechange = function() {
-    //     if (request.readyState == 4) {
-    //         document.getElementById('document_viewer').innerHTML = request.responseText;
-    //         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    //     }
+    // $('#document_viewer').load(documentname);
+    // MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    var request = makeHttpObject();
+    request.open("GET", documentname, true);
+    request.send(null);
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            document.getElementById('document_viewer').innerHTML = request.responseText;
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
 
-    // };
+    };
 }
 
 function makeHttpObject() {

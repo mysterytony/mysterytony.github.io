@@ -41,15 +41,15 @@ The first step in describing the problem is to define the units and the target p
 
 #### Definition 14
 
-The target population or process is the collection of units to which the experimenters conducting the empirical study wish the conclusions to apply.
+The **target population** or process is the collection of units to which the experimenters conducting the empirical study wish the conclusions to apply.
 
 #### Definition 15
 
-A variate is a characteristic associated with each unit.
+A **variate** is a characteristic associated with each unit.
 
 #### Definition 16
 
-An attribute is a function of the variate over a population.
+An **attribute** is a function of the variate over a population.
 
 ### 2 Plan
 
@@ -57,23 +57,23 @@ In most cases, we cannot calculate the attributes of interest for the target pop
 
 #### Definition 17
 
-The study population or study process is the collection of units available to be included in the study.
+The **study population** or **study process** is the collection of units available to be included in the study.
 
 #### Definition 18
 
-If the attributes in the study population differ from the attributes in the target population then the difference is called study error.
+If the attributes in the study population differ from the attributes in the target population then the difference is called **study error**.
 
 #### Definition 19
 
-The sampling protocol is the procedure used to select a sample of units from the study population. The number of units sampled is called the sample size.
+The sampling protocol is the procedure used to select a sample of units from the study population. The number of units sampled is called the **sample size**.
 
 #### Definition 20
 
-If the attributes in the sample differ from the attributes in the study population the difference is called sample error
+If the attributes in the sample differ from the attributes in the study population the difference is called **sample error**.
 
 #### Definition 21
 
-If the measured value and the true value of a variate are not identical the difference is called measurement error.
+If the measured value and the true value of a variate are not identical the difference is called **measurement error**.
 
 ### 3 Data
 
