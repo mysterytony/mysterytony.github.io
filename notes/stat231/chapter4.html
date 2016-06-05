@@ -1,0 +1,957 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter4</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-4-estimation" class="anchor" href="#chapter-4-estimation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 4: Estimation</h1>
+
+<h2>
+<a id="user-content-41-statistical-models-and-estimation" class="anchor" href="#41-statistical-models-and-estimation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1 Statistical Models and Estimation</h2>
+
+<p>In statistical estimation we use two models:</p>
+
+<ol>
+<li> A model for variation in the population or process being studied which includes the attributes which are to be estimated</li>
+<li> A model which takes in to account how the data were collected and which is constructed in conjunction which the model in (1)</li>
+</ol>
+
+<p>We use these two models for estimating the unknown attributes based on the observed data and determining the uncertainty in the estimates. The unknown attributes are usually represented by unknown parameters $\theta$ in the models or by functions of the unknown parameters. We have already seen in Chapter 2, that these unknown parameters can be estimated using the method of maximum likelihood and invariance property of maximum likelihood estimates.</p>
+
+<p>Several issues arise:</p>
+
+<ol>
+<li> Where do we get our probability model? What if it is not a good description of the population or process?</li>
+<li> The estimation of parameters or population attributes depends on data collected from the population or process, and the likelihood function is based on the probability of the observed data. This implies that factors associated with the selection of sample units or the measurement of variates (e.g. measurement error) must be included in the model.</li>
+<li> Suppose in the model chosen the population mean is represented by the parameter $\theta$. The sample mean $\bar{y}$ is an estimate of $\theta$, but not usually equal to it. How far away from $\theta$ is $\bar{y}$ likely to be?</li>
+</ol>
+
+<h2>
+<a id="user-content-42-estimators-and-sampling-distributions" class="anchor" href="#42-estimators-and-sampling-distributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2 Estimators and Sampling Distributions</h2>
+
+<p>Suppose that some attribute of interest for a population or process can be represented by a parameter $\theta$ in a statistical model. We assume that $\theta$ can be estimated using a random sample drawn from the population or process in question. Recall in Chapter 2, that a point estimate of $\theta$, denoted $\hat{\theta}$, was defined as a function of the observed sample $y_1,...,y_n$,</p>
+
+<p>$$\hat{\theta}=g(y_1,...,y_n)$$</p>
+
+<p>For example,</p>
+
+<p>$$\hat{\theta}=\bar{y}=\frac{1}{n}\sum_{i=1}^{n}y_i$$</p>
+
+<p>is a point estimate of $\theta$ if $y_1,...,y_n$ is an observed random sample from a Poisson distribution with mean $\theta$.</p>
+
+<p>For method of maximum likelihood provides a general method for obtaining estimates, but other method exist. For example, if $\theta=E(Y)=\mu$ is the average value of $y$ in the population, then the sample mean $\bar{\theta}=\hat{y}$ is an intuitively sensible estimate; it is the maximum likelihood estimate of $\theta$ if $Y$ has a $G(\theta, \sigma)$ distribution but because of Central Limit Theorem it is a good estimate of $\theta$ more generally.</p>
+
+<p>The problem facing us in this chapter is how to determine or quantify the uncertainty in an estimate. We do this using <strong>sampling distribution</strong>, which are based on the following idea. If we select random samples on repeated occasions, then the estimates $\hat{\theta}$ obtained from the different samples may vary.</p>
+
+<p>More precisely, we define the idea as follows. Let the random variables $Y_1,...Y_n$ represent the observations in a random sample, and associate with the estimate $\hat{\theta}$ given by a random variable</p>
+
+<p>$$\tilde{\theta} = \bar{Y} = \frac{1}{n}\sum_{i=1}^{n}Y_i$$</p>
+
+<p>is a random variable and $\hat{\theta} = \bar{y}$ is a numerical value. We call $\tilde{\theta}$ the <strong>estimator</strong> of $\theta$ corresponding to $\hat{\theta}$ (We will always use $\hat{\theta}$ to denote an estimate, that is, a numerical value, and $\tilde{\theta}$ to denote the corresponding estimator, the random variable).</p>
+
+<h4>
+<a id="user-content-definition-22" class="anchor" href="#definition-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 22</h4>
+
+<p>A (point) <strong>estimator</strong> $\tilde{\theta}$ is a random variable which is a function $\tilde{\theta}(Y_1,...,Y_n)$ of the random variables $Y_1,...,Y_n$. The distribution of $\tilde{\theta}$ is called the <strong>sampling distribution of the estimator</strong>.</p>
+
+<p>Since $\tilde{\theta}$ is a function of the random variables $Y_1,...,Y_n$ we can find its distribution, at least in principle. Two ways to do this are (i) using mathematics and (ii) by computer simulation. Once we know the sampling distribution of an estimator $\tilde{\theta}$ when we are in a position to express the uncertainly in an estimate.</p>
+
+<h4>
+<a id="user-content-example-421" class="anchor" href="#example-421" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4.2.1</h4>
+
+<p>Suppose we have a variate of interest (for example, the height in meters of a male in the population) whose distribution it is reasonable to model as a $G(\mu, \sigma)$ random variable. Suppose also that we plan to take a random sample $Y_1,...Y_n$ to estimate the unknown mean $\mu$ where $Y_i\sim G(\mu, \sigma)$, $i=1,2,...$. The maximum likelihood estimator of $\mu$ is</p>
+
+<p>$$\tilde{\mu}=\bar{Y}=\frac{1}{n}\sum_{i=1}^{n}Y_i$$</p>
+
+<p>where $\bar{Y}\sim G(\mu, \sigma/\sqrt{n})$. If we knew $\sigma$ we could determine how often the estimator $\tilde{\mu}=\bar{Y}$ is within s specified amount of the mean.</p>
+
+<p>For example, if the variate is height and heights are measured in meters than we could determine how often the estimator $\tilde{\mu}=\bar{Y}$ is with in 0.01 meters of the true mean $\mu$ as follows:</p>
+
+<p>$$P(|\tilde{\mu}-\mu|\leq 0.01)=P(\mu-0.01\leq\bar{Y}\leq\mu +0.01)=P(-0.01\sqrt{n}/\sigma \leq Z \leq 0.01\sqrt{n}/\sigma)$$</p>
+
+<p>where $Z=(\bar{Y}-\mu)/(\sigma/\sqrt{n})\sim G(0,1)$</p>
+
+<p>Suppose $\sigma = 0.07$ meters. If $n=50$ then</p>
+
+<p>$$P(\tilde{\mu}-\mu|\leq 0.01)=P(-1.01\leq Z\leq 1.01)=0.688$$</p>
+
+<p>and if $n=100$</p>
+
+<p>$$P(|\tilde{\mu}-\mu|\leq 0.01)=P(-1.43\leq Z\leq 1.43) = 0.847$$</p>
+
+<p>This illustrates the rather the intuitive fact that, the larger the sample size, the higher the probability the sample mean is within 0.01 meters of the true but unknown mean height $\mu$ in the population. It also allows us to express the uncertainty in an estimate $\hat{\mu}=\bar{y}$ from an observed sample $y_1,...,y_n$ by indicating the probability that any single random sample will given estimate within a certain distance of $\mu$.</p>
+
+<h4>
+<a id="user-content-example-422" class="anchor" href="#example-422" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4.2.2</h4>
+
+<p>In the Example 4.2.1 we were able to determine the distribution of the estimator exactly, using properties of Gaussian random variables. We will also see that sometimes the approximate distribution of the estimator can be determined using the Central Limit Theorem. In some cases we need to use simulation to study the distribution. For example, suppose we have a random sample $y_1,...y_n$ which we have assumed comes from an Exponential$(\theta)$ distribution. The maximum likelihood estimate of $\theta$ is $\hat{\theta}=\bar{y}$. What is the sampling distribution of the estimator $\tilde{\theta}=\bar{Y}$? If $n=15$ we cannot use the Central Limit Theorem. Instead we examine the sampling distribution using simulation. This involves taking repeated samples $y_1,...,y_n$ given (possibly different) values of $bar{y}$ for each samples as follows:</p>
+
+<ol>
+<li> Generate a sample of size $n$. In $R$ this is done using the statement <code>y&lt;-rexp(n,1/$\theta$)</code>.</li>
+<li> Compute $\hat{\mu}=\bar{y}$ from the sample. In $R$ this is done using the statement <code>ybar&lt;-mean(y)</code>.</li>
+</ol>
+
+<p>Repeat these two steps $k$ times. The $k$ values $\bar{y}_1,....,\bar{y}_k$ can then be considered as a sample from the distribution of $\tilde{\theta}$, and we can study the distribution by plotting a histogram of the values.</p>
+
+<p>The approach illustrated in the preceding example can be used more generally. The main idea is that, for a given estimator $\tilde{\theta}$, we need to determine its sampling distribution in order to be able to compute probabilities of the from $P(|\tilde{\theta}-\theta|\leq \Delta)$ so that we can quantify the uncertainty of the estimate.</p>
+
+<p>The estimates and estimators we have discussed so far are often referred to as <strong>point estimates</strong> and <strong>point estimators</strong>. This is because they consist of a single value or point. The discussion of sampling distributions shows how to address the uncertainty in an estimate. We also usually prefer to indicate explicitly the uncertainty in the estimate. This leads to the concept of an <strong>interval estimate</strong>, which takes the form</p>
+
+<p>$$[L(\mathbf{y}),U(\mathbf{y})]$$</p>
+
+<p>where $L(\mathbf{y})$ and $U(\mathbf{y})$ are functions of the observed data $\mathbf{y}$. Notice that this provides an interval with endpoints $L$ and $U$ both of which depends on the data. In we let $L(\mathbf{Y})$ and $U(\mathbf{Y})$ represent the associated random variables then $[L(\mathbf{y}),U(\mathbf{y})]$ is a random interval. The probability that the parameter falls in this random interval is $P[L(\mathbf{Y}) \leq \theta \leq U(\mathbf{Y})]$ and hopefully this probability is large. This probability gives an indication how good the rule is by which the interval estimate was obtained. For example if $P[L(\mathbf{Y}) \leq \theta \leq U(\mathbf{Y})] = 0.95$ then this means that $95\%$ of the time, the true value of the parameter falls in the interval $[L(\mathbf{y}),U(\mathbf{y})]$ constructed from the data set $\mathbf{y}$. This means we can be reasonably safe in assuming, on this occasion, and for this data set, it does so. In general, uncertainty in an estimate is explicitly sated by giving the interval estimate along with the probability $P(\theta\in[L(\mathbf{Y}),U(\mathbf{Y})])$.</p>
+
+<h2>
+<a id="user-content-43-interval-estimation-using-the-likelihood-function" class="anchor" href="#43-interval-estimation-using-the-likelihood-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3 Interval Estimation Using the Likelihood Function</h2>
+
+<p>The likelihood function can be used to obtain interval estimates for parameters in a very straightforward way. We do this here for the case in which the probability model involves only a single scalar parameter $\theta$. Individual models often have constraints on the parameters. For example in the Gaussian distribution, the mean can be any real number $\mu\in\mathbb{R}$ but the standard deviation must be positive, that is, $\sigma&gt;0$. Similarly for the Binomial model the probability of success must lie in the interval $[0,1]$. These constraints are usually identified by requiring that the parameter falls in some set $\Omega$, called the <strong>parameter space</strong>.</p>
+
+<h4>
+<a id="user-content-definition-23" class="anchor" href="#definition-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 23</h4>
+
+<p>Suppose $\theta$ is scalar and that some observed data (say a random sample $y_1,...,y_n$) have given a likelihood function $L(\theta)$. The <strong>relative likelihood function</strong> $R(\theta)$ is defined as</p>
+
+<p>$$R(\theta)=\frac{L(\theta)}{L(\hat{\theta})} \quad \text{for } \theta\in\Omega$$</p>
+
+<p>where $\hat{\theta}$ is the maximum likelihood estimate and $\Omega$ is the parameter space. Note that</p>
+
+<p>$$0\leq R(\theta) \leq 1 \quad \text{for all } \theta\in\Omega$$</p>
+
+<h4>
+<a id="user-content-definition-24" class="anchor" href="#definition-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 24</h4>
+
+<p>A $100\%$ likelihood interval for $\theta$ is the set ${\theta : R(\theta)\geq p}$.</p>
+
+<p>Actually, ${\theta : R(\theta)\geq p}$ is not necessarily an interval unless $R(\theta)$ is unimodal, but this is the case for all models that we consider here. The motivation for this approach is that the values of $\theta$ that give large values of $L(\theta)$ and hence $R(\theta)$, are the most plausible in light of the data. The main challenge is to decide what $p$ to choose; we show later that choosing $p\in[0.10,0.15]$ is often useful. </p>
+
+<h4>
+<a id="user-content-example-431-polls" class="anchor" href="#example-431-polls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4.3.1 Polls</h4>
+
+<p>Let $\theta$ be the proportion of people in a large population who have a specific characteristic. Suppose $n$ persons are randomly selected for a poll and $y$ people are observed to have the characteristic of interest. If we let $Y$ be the number who have the characteristic, then $Y\sim\text{Binomial}(n,\theta)$ is a reasonable model. As we have seen previously the likelihood function is</p>
+
+<p>$$L(\theta)={n \choose y}\theta^y(1-\theta)^{n-y} \quad \text{for } 0&lt;\theta &lt;1$$</p>
+
+<p>and the maximum likelihood estimate of $\theta$ is the sample proportion $\hat{\theta}=y/n$. The relative likelihood function is</p>
+
+<p>$$R(\theta)=\frac{\theta^y(1-\theta)^{n-y}}{\hat{\theta}^y(1-\hat{\theta})^{n-y}} \quad \text{for } 0&lt;\theta&lt;1$$</p>
+
+<h4>
+<a id="user-content-definition-15" class="anchor" href="#definition-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 15</h4>
+
+<p>The <strong>log relative likelihood function</strong> is</p>
+
+<p>$$r(\theta)=\log R(\theta)=\log \left[\frac{L(\theta)}{L(\hat{\theta})}\right] = l(\theta)-l(\bar{\theta}) \quad \text{for }\theta\in\Omega$$</p>
+
+<p>where $l(\theta)=\log L(\theta)$ is the log likelihood function.</p>
+
+<p>It is often more convenient to compute $r(\theta)$ instead of $R(\theta)$ and to compute a $100p\%$ likelihood interval using the fact that $R(\theta)\geq p$ if and only if $r(\theta)\geq \log p$. While both plots are unimodal and have identical locations of the maximum, they differ in terms of the shape. The plot of the relative likelihood function resembles a Normal probability density function in shape while that of the log relative likelihood resembles a quadratic function of $\theta$. Likelihood intervals become narrower as the sample size increase, which reflects the fact that larger samples contain more information about $\theta$. Likelihood intervals cannot usually be found explicitly. </p>
+
+<ul>
+<li>  Values of $\theta$ inside a $50\%$ likelihood interval are very plausible in light of the observed data.</li>
+<li>  Values of $\theta$ inside a $10\%$ likelihood interval are plausible in light of the observed data.</li>
+<li>  Values of $\theta$ outside a $10\%$ likelihood interval are implausible in light of the observed data.</li>
+<li>  Values of $\theta$ outside a $1\%$ likelihood interval are very implausible in light of the observed data.</li>
+</ul>
+
+<p>The one apparent shortcoming of likelihood intervals so far is that we do not know how probable it is that a given interval will contain the true parameter value. As a result we also do have have a basis for the choice of $p$.</p>
+
+<h2>
+<a id="user-content-44-confidence-intervals-and-pivotal-quantities" class="anchor" href="#44-confidence-intervals-and-pivotal-quantities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 Confidence Intervals and Pivotal Quantities</h2>
+
+<p>Suppose we assume that the model chosen for the data $\mathbf{y}$ is correct and that the interval estimate for the parameter $\theta$ is given by $[L(y),U(y)]$. To quantify the uncertainty in the interval estimate we look at an important property of the corresponding interval estimator $[L(Y),U(Y)]$ called the <strong>coverage probability</strong> which is defined as follows.</p>
+
+<h4>
+<a id="user-content-definition-26" class="anchor" href="#definition-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 26</h4>
+
+<p>The value</p>
+
+<p>$$C(\theta)=P[L(Y)\leq \theta \leq U(Y)]$$</p>
+
+<p>is called the <strong>coverage probability</strong> for the interval estimator $[L(Y),U(Y)]$.</p>
+
+<p>The parameter $\theta$ is an unknown fixed constant associated with the population. It is not random variable and therefore does not have a distribution. Suppose we were about to draw a random sample of the same size from the same population and the true value of the parameter was $\theta$. Suppose also that we knew that we would construct an interval of the form $[L(y),U(y)]$ once we had collected the data. Then the probability that $\theta$ will be contained in this new interval is $C(\theta)$.</p>
+
+<h4>
+<a id="user-content-definition-27" class="anchor" href="#definition-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 27</h4>
+
+<p>A $100p\%$ confidence interval for a parameter is an interval estimate $[L(y),U(y)]$ for which</p>
+
+<p>$$P[L(Y)\leq \theta \leq U(Y)]=p$$</p>
+
+<p>where $p$ is called the confidence coefficient.</p>
+
+<p>If $p=0.95$ indicates that $95\%$ of the samples that we would draw from this model result in an interval which includes the true value of the parameter. This gives us some confidence that for a particular sample, such as the one at ahnd, and true value of the parameter is contained in the interval.</p>
+
+<h4>
+<a id="user-content-example-441-gaussian-distribution-with-known-standard-deviation" class="anchor" href="#example-441-gaussian-distribution-with-known-standard-deviation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4.4.1 Gaussian distribution with known standard deviation</h4>
+
+<p>Suppose $Y_1,...,Y_n$ is a random sample from a $G(\mu,1)$ distribution, that is, $\mu=E(Y_i)$ is unknown but $sd(Y_i)=1$ is known. Consider the interval</p>
+
+<p>$$[\bar{Y}-1.96n^{-1/2},\bar{Y}+1.96n^{-1/2}]$$</p>
+
+<p>where $\bar{Y}=\frac{1}{n}\sum_{i=1}^{n}Y_i$ is the sample mean. Since $\bar{Y}\sim G(\mu, 1/\sqrt{n})$, then $P=0.95$.</p>
+
+<p>Thus, the interval is a 95% confidence interval for the unknown mean $\mu$. This is an example in which the confidence coefficient does not depend on the unknown parameter, an extremely desirable feature of an interval estimator.</p>
+
+<h3>
+<a id="user-content-pivotal-quantities" class="anchor" href="#pivotal-quantities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pivotal Quantities</h3>
+
+<h4>
+<a id="user-content-definition-28" class="anchor" href="#definition-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition 28</h4>
+
+<p>A pivotal quantity $Q=Q(Y;\theta)$ is a function of the data $Y$ and the unknown parameter $\theta$ such that the distribution of the random variable $Q$ is fully known. That is, probability statements such as $P(Q\geq a)$ and $P(Q\leq b)$ depends on $a$ and $b$ but not on $\theta$ or any other unknown information.</p>
+
+<p>We now describe how a pivotal quantity can be used to construct a confidence interval. We begin with the statement $P[a\leq Q(Y;\theta) \leq b]=p$ where $Q(Y;\theta)$ is a pivotal quantity whose distribution is completely known. Suppose that we can re-express the inequality $a\leq Q(Y;\theta) \leq b$ in the form $L(Y)\leq \theta \leq U(Y)$ for some functions $L$ and $U$. Then since</p>
+
+<p>$$\begin{align*} p &amp;= P[a\leq Q(Y;\theta) \leq b] \\
+&amp;= P[L(Y)\leq \theta \leq U(Y)] \\
+&amp;= P(\theta\in [L(Y), U(Y)])\end{align*}$$</p>
+
+<hr>
+
+<p>end page 121</p>
+</article></body></html>

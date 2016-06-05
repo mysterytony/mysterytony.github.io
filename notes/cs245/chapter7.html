@@ -747,365 +747,159 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter6</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-proofs-in-propositional-logic-natural-deduction" class="anchor" href="#proofs-in-propositional-logic-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proofs in Propositional Logic: Natural Deduction</h1>
-
-<h2>
-<a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<title>chapter7</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-soundness-and-completeness-of-natural-deduction" class="anchor" href="#soundness-and-completeness-of-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Soundness and Completeness of Natural Deduction</h1>
 
 <h4>
-<a id="user-content-why-another-proof-system" class="anchor" href="#why-another-proof-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why Another Proof System?</h4>
+<a id="user-content-soundness-and-completeness" class="anchor" href="#soundness-and-completeness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Soundness and Completeness</h4>
 
-<p>The Resolution system is both sound and complete. Why do we need another proof system?</p>
+<p>As with Resolution, we want Natural Deduction to be both sound and complete.</p>
 
-<ul>
-<li>  Resolution proofs are fine for computers, but people normally reason quite differently. To model what people do, we must take another approach.</li>
-<li>  Resolution is closely tied to propositional logic. Extending it to other forms of logic requires significant additional techniques.</li>
-</ul>
+<p><strong>Soundness</strong> of Natural Deduction means that the conclusion of a proof is always a logical consequence of the premises. That is,</p>
 
-<p>Thus we will consider a system called Natural Deduction.</p>
+<p>$$\text{If }\Sigma\vdash_{ND}\varphi, \text{ then }\Sigma\models\varphi$$</p>
 
-<ul>
-<li>  It closely follows how people (mathematicians, at least) normally make formal arguments.</li>
-<li>  It extends easily to more-powerful forms of logic.</li>
-</ul>
+<p><strong>Completeness</strong> of Natural Deduction means that all logical consequences in propositional logic are provable in Natural Deduction. That is</p>
 
-<h4>
-<a id="user-content-overview-of-natural-deduction" class="anchor" href="#overview-of-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview of Natural Deduction</h4>
+<p>$$\text{If }\Sigma\models\varphi, \text{ then } \Sigma\vdash_{ND}\varphi$$</p>
 
-<p>As in Resolution, a proof in Natural Deduction consists of a collection of formulas, in some order, each with a justification.</p>
-
-<p>It has some contrast, however.</p>
-
-<ul>
-<li>  It does a direct proof, rather than a refutation.</li>
-<li>  Assumptions (formulas without a justification) play a crucial role.</li>
-<li>  Using an assumption creates a "sub-proof". Formulas inside a sub-proof may not be used outside of it. An inference rule may refer to a completed sub-proof.</li>
-</ul>
-
-<p>We use the same notation as before for existence of a proof. If there is a proof of a formula $\varphi$ from a set $\Sigma$ of assumptions, we write
-$$\Sigma \vdash_{ND} \varphi$$ or simply $$\Sigma \vdash \varphi$$</p>
-
-<h2>
-<a id="user-content-basic-rules" class="anchor" href="#basic-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Rules</h2>
-
-<h4>
-<a id="user-content-the-basic-rules-of-natural-deduction" class="anchor" href="#the-basic-rules-of-natural-deduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Basic Rules of Natural Deduction</h4>
-
-<p>The simplest rule is, if you have a formula in the proof already, you may write it down again. This is called <strong>reflexivity</strong>.</p>
-
-<p>We will write rules like this:</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Reflexivity, or Premise</td>
-<td>$\Sigma$, $\varphi \vdash \varphi$</td>
-<td>$\frac{\varphi}{\varphi}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>The notation on the right is as we had before: if we have the formula above the line available, we may write the formula below the line in the proof.</p>
-
-<p>The version in the center reminds us of the role of the assumptions in Natural Deduction. Other rules will make more use of it.</p>
-
-<h2>
-<a id="user-content-conjunction-rules" class="anchor" href="#conjunction-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conjunction Rules</h2>
-
-<h4>
-<a id="user-content-rules-for-conjunction-land-i" class="anchor" href="#rules-for-conjunction-land-i" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Conjunction: $\land i$</h4>
-
-<p>Each connective symbol has an "introduction role" to conclude formulas that contain it, and an "elimination rule" to conclude a formula that removes it from an earlier formula.</p>
-
-<p>We start with the introduction rule for $\land$</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\land$ introduction $\land i$</td>
-<td>If $\Sigma\vdash\varphi$ and $\Sigma\vdash\alpha$, then $\Sigma\vdash\varphi\land\alpha$</td>
-<td>$\frac{\varphi \quad \alpha}{\varphi\land\alpha}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>Rule $\land i$ means</p>
-
-<p>If each of the formulas $\varphi$ and $\alpha$ already appears in the proof, then we may write the formula $\varphi \land \alpha$ as the next formula of the proof.</p>
-
-<h4>
-<a id="user-content-rules-for-conjunction-land-e" class="anchor" href="#rules-for-conjunction-land-e" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Conjunction: $\land e$</h4>
-
-<p>The elimination rule for $\land$ basically "undoes" the introduction.</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\land$ elimination $(\land e)$</td>
-<td>If $\Sigma \vdash \varphi \land \alpha$, then $\Sigma \vdash \varphi$ and $\Sigma \vdash \alpha$</td>
-<td>$\frac{\varphi \land \alpha}{\varphi} \quad \frac{\varphi \land \alpha}{\alpha}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>Rule $\land e$ means</p>
-
-<p>If the formula $\varphi \land \alpha$ already appears in the proof, then we may write either $\varphi$ or $\alpha$ as the next formula of the proof.</p>
-
-<h2>
-<a id="user-content-implication-rules" class="anchor" href="#implication-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implication Rules</h2>
-
-<h4>
-<a id="user-content-rules-for-implication-rightarrow-e" class="anchor" href="#rules-for-implication-rightarrow-e" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Implication: $\rightarrow e$</h4>
-
-<p>The rule $\rightarrow$ elimination requires two formulas earlier in the proof.</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\rightarrow$ elimination $(\rightarrow e)$</td>
-<td>If $\Sigma\vdash\varphi\rightarrow\alpha$ and $\Sigma\vdash\varphi$, then $\Sigma\vdash\alpha$</td>
-<td>$\frac{\varphi\rightarrow\alpha\quad\varphi}{\alpha}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>In words:</p>
-
-<p>If you have that $\varphi$ implies $\alpha$, and also $\varphi$, than you may conclude $\alpha$.</p>
-
-<p>This rule is sometimes referred to by its Latin name, <em>modus ponens</em>.</p>
-
-<h4>
-<a id="user-content-rules-for-implication-rightarrow-i" class="anchor" href="#rules-for-implication-rightarrow-i" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Implication: $\rightarrow i$</h4>
-
-<p>The $\rightarrow$ introduction rule is our first to employ a sub-proof.</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\rightarrow$ introduction $(\rightarrow i)$</td>
-<td>If $\Sigma,\varphi\vdash\alpha$, then $\Sigma\vdash\varphi\rightarrow\alpha$</td>
-<td>$\frac{\boxed{\begin{matrix}\varphi \\ \vdots \\ \alpha \end{matrix}}}{\varphi\rightarrow\alpha}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>The rule uses the formula $\varphi$ as a <strong>hypothesis</strong>, or <strong>assumption</strong>. The assumption functions as a premise in the sub-proof, but it is not a premise of the main proof.</p>
-
-<p>The "box" around the sub-proof of $\Sigma,\varphi\vdash\alpha$ reminds us that nothing inside the sub-proof may come out. Outside of the sub-proof, we may use only the whole sub-proof, in a rule (like $\rightarrow$ introduction) that specifies a sub-proof.</p>
-
-<h4>
-<a id="user-content-sub-proof-rules" class="anchor" href="#sub-proof-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sub-Proof Rules</h4>
-
-<p>To use rule $\rightarrow i$, we must have a completed sub-proof.</p>
-
-<p>Assumption Rule:</p>
-
-<p>A sub-proof may be opened at any point. Its first line, labeled "assumption", may be any formula.</p>
-
-<p>Sub-proof closure rules:</p>
-
-<p>The most-recently opened sub-proof may be closed at any time. No formula inside a closed sub-proof may be referenced. Only the entire sub-proof may be used, once it is closed.</p>
-
-<p>Finally: every sub-proof must be closed before the last line of the proof.</p>
-
-<h2>
-<a id="user-content-disjunction-rules" class="anchor" href="#disjunction-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disjunction Rules</h2>
-
-<h4>
-<a id="user-content-rules-for-disjunction-lor-i-and-lor-e" class="anchor" href="#rules-for-disjunction-lor-i-and-lor-e" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rules for Disjunction: $\lor i$ and $\lor e$</h4>
-
-<p>Rule $\lor i$ is much like rule $\land i$. Rule $\lor e$, however, is more complicated.</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\lor$ introduction $(\lor i)$</td>
-<td>If $\Sigma\vdash\varphi$, then $\Sigma\vdash\varphi\lor\alpha$ and $\Sigma\vdash\alpha\lor\varphi$</td>
-<td>$\frac{\varphi}{\varphi\lor\alpha}\quad\frac{\varphi}{\alpha\lor\varphi}$</td>
-</tr>
-<tr>
-<td>$\lor$ elimination $(\lor e)$</td>
-<td>If $\Sigma, \varphi_1\vdash\alpha$ and $\Sigma,\varphi_2\vdash\alpha$, then $\Sigma,\varphi_1\lor\varphi_2\vdash \alpha$</td>
-<td>$\frac{\varphi_1\lor\varphi_2 \quad \boxed{\begin{matrix}\varphi_1 \\ \vdots \\ \alpha\end{matrix}} \quad \boxed{\begin{matrix}\varphi_2 \\ \vdots \\ \alpha\end{matrix}}}{\alpha}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>Rule $\lor e$ is also known as "proof by cases".</p>
-
-<h2>
-<a id="user-content-negation" class="anchor" href="#negation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negation</h2>
-
-<h4>
-<a id="user-content-negation-1" class="anchor" href="#negation-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Negation</h4>
-
-<p>We shall treat negation by considering contradictions.</p>
-
-<p>We shall use the notation $\bot$ to represent any contradiction. It may appear in proofs as if it were a formula.</p>
-
-<p>The elimination rule for negation:</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\bot$ introduction or $\lnot$ elimination $(\lnot e)$</td>
-<td>$\Sigma,\varphi,\lnot\varphi\vdash\bot$</td>
-<td>$\frac{\varphi\quad\lnot\varphi}{\bot}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>Formulas $\varphi$ and $\lnot\varphi$ cannot both be true--to have both is a contradiction.</p>
-
-<p>If an assumption $\varphi$ leads to a contradiction, then drive $\lnot \varphi$.</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\lnot$ introduction $(\lnot i)$</td>
-<td>$\Sigma,\varphi\vdash\bot$,then$\Sigma\vdash\lnot\varphi$</td>
-<td>$\frac{\boxed{\begin{matrix}\varphi \\ \vdots \\ \bot\end{matrix}}}{\lnot \varphi}$</td>
-</tr>
-</tbody>
-</table>
-
-<h4>
-<a id="user-content-the-last-two-basic-rules" class="anchor" href="#the-last-two-basic-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Last Two Basic Rules</h4>
-
-<p>Double-Negation Elimination:</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\lnot\lnot$ elimination $(\lnot\lnot e)$</td>
-<td>If $\Sigma\vdash\lnot\lnot\varphi$, then $\Sigma\vdash\varphi$</td>
-<td>$\frac{\lnot\lnot\varphi}{\varphi}$</td>
-</tr>
-</tbody>
-</table>
-
-<p>Contradiction Elimination:</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>$\vdash$ notation</th>
-<th>inference notation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\bot$ elimination $(\bot e)$</td>
-<td>If $\Sigma\vdash\bot$, then $\Sigma\vdash\varphi$</td>
-<td>$\frac{\bot}{\varphi}$</td>
-</tr>
-</tbody>
-</table>
-
-<h4>
-<a id="user-content-derived-rules" class="anchor" href="#derived-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Derived Rules</h4>
-
-<p>Whenever we have a proof of the form $\Gamma\vdash\varphi$, we can consider it as a derived rule:</p>
-
-<p>$$\frac{\Gamma}{\varphi}$$</p>
-
-<p>If we use this in a proof, it can be replaced by the original proof of $\Gamma\vdash\varphi$. The result is a proof using only the basic rules.</p>
-
-<p>Using derived rules does not expand the things that can be proved. But they can make it easier to find a proof.</p>
-
-<h2>
-<a id="user-content-additional-examples-and-techniques" class="anchor" href="#additional-examples-and-techniques" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional Examples and Techniques</h2>
-
-<h4>
-<a id="user-content-some-useful-heuristics" class="anchor" href="#some-useful-heuristics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Useful Heuristics</h4>
-
-<p>Ideas to construct a proof:</p>
+<p>As on the slide, our next major goal is to prove the <strong>soundness</strong> and <strong>completeness</strong> of Natural Deduction. These two results connect provability (syntactic) with entailment (semantic), in both directions.</p>
 
 <ol>
-<li> Start with the premises at the top and conclusion at the bottom.</li>
-<li> If you can apply an elimination rule to premises, do so. (In the case of $\lor$ elimination, open two sub-proofs).</li>
-<li> Next, work backwards from the end. If your target formula has a connective, try its introduction rule.
-This will yield a new target. Repeat step 2 and 3 with the new target, until you reach premises and/or available assumptions.</li>
-<li> Treat a subproof as if it were a full proof (with a new premise).</li>
+<li> <strong>Soundness</strong>: If $\Sigma\vdash\varphi$, then $\Sigma\models\varphi$.</li>
+<li> <strong>Completeness</strong>: If $\Sigma\models\varphi$, then $\Sigma\vdash\varphi$.</li>
 </ol>
 
-<p>Sometimes these ideas will lead you to a proof; sometimes they will not. If not, try something else instead of an introduction rule.</p>
+<p>These proofs will both be simplest, if we can work with the <strong>smallest</strong> possible set of Natural Deduction rules. We need to make certain that all Natural Deduction rules can be derived from our minimal set.</p>
 
 <h4>
-<a id="user-content-some-common-derived-rules" class="anchor" href="#some-common-derived-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Common Derived Rules</h4>
+<a id="user-content-minimal-inference-rules" class="anchor" href="#minimal-inference-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Minimal Inference Rules</h4>
 
-<p>Proof by contradiction (reductio ad absurdum)</p>
+<p>From now on, write $\bot$ for "falsity"</p>
 
-<p>$$\text{if } \Sigma,\lnot\varphi\vdash\bot \text{, then } \Sigma\vdash\varphi$$</p>
+<p>Base:</p>
 
-<p>The "Law of Excluded Middle": $\vdash\varphi\lor\lnot\varphi$.</p>
+<p>$$\frac{}{\Sigma\vdash\varphi}\text{ Axiom if }\varphi\in\Sigma$$</p>
 
-<p>Double-Negation Introduction: $\text{if } \Sigma\vdash\varphi \text{ then } \Sigma\vdash\lnot\lnot\varphi$.</p>
+<p>Induction:</p>
+
+<p>$$\frac{\Sigma\vdash\varphi\quad\Sigma\vdash(\varphi\rightarrow\psi)}{\Sigma\vdash\psi},\rightarrow e$$</p>
+
+<p>$$\frac{\Sigma\cup{\varphi}\vdash\psi}{\Sigma\vdash(\varphi\rightarrow\psi)}, \rightarrow i$$</p>
+
+<p>$$\frac{\Sigma\cup{(\varphi\rightarrow\bot)}\vdash\bot}{\Sigma\vdash\varphi}, \text{Reductio ad absurdum (RAA)}$$</p>
+
+<h4>
+<a id="user-content-deriving-all-natural-deduction-rules" class="anchor" href="#deriving-all-natural-deduction-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deriving All Natural Deduction Rules</h4>
+
+<p>$\land i$</p>
+
+<p>$$\frac{\varphi\quad\psi}{((\varphi\rightarrow(\psi\rightarrow\bot))\bot)}$$</p>
+
+<p>$\land e(left)$</p>
+
+<p>$$\frac{((\varphi\rightarrow(\psi\rightarrow\bot))\bot)}{\varphi}$$</p>
+
+<p>$\land e(right)$</p>
+
+<p>$$\frac{((\varphi\rightarrow(\psi\rightarrow\bot))\bot)}{\psi}$$</p>
+
+<ul>
+<li>  Recall that proof rules in any proof system, including Natural Deduction, are <strong>purely syntactic</strong>.</li>
+<li>  However, we want to make our syntactic rules agree with our <strong>semantic intuition</strong> as much as possible.</li>
+</ul>
+
+<p>$\lor i(left)$</p>
+
+<p>$$\frac{\varphi}{((\varphi\rightarrow\bot)\rightarrow\bot)}$$</p>
+
+<p>$\lor i(right)$</p>
+
+<p>$$\frac{\psi}{((\varphi\rightarrow\bot)\rightarrow\bot)}$$</p>
+
+<p>$\lor e$</p>
+
+<p>$$\frac{((\varphi\rightarrow\bot)\rightarrow\bot)\quad(\varphi\rightarrow\alpha)\quad(\psi\rightarrow\alpha)}{\alpha}$$</p>
+
+<ul>
+<li>  To introduce $(\lnot \varphi)$, we introduce $(\varphi\rightarrow\bot)$ using the $\rightarrow i$ rule.</li>
+<li>  To eliminate $(\lnot \varphi)$, we eliminate $(\varphi\rightarrow\bot)$ using the $\rightarrow e$ rule.</li>
+</ul>
+
+<p>By now, we are convinced that all propositional formulae can be written using only ${\rightarrow, \bot}$.</p>
+
+<p>This fact is analogous to the fact that ${\rightarrow,\lnot}$ is an adequate set of connectives for propositional logic.</p>
+
+<h4>
+<a id="user-content-substitution-theorem" class="anchor" href="#substitution-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Substitution Theorem</h4>
+
+<p>If $\Sigma\vdash\varphi$, then $(\Sigma\vdash\varphi)[\psi/p]$, for any propositional variable $p$ and any formula $\psi$.</p>
+
+<h4>
+<a id="user-content-weakening-theorem" class="anchor" href="#weakening-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Weakening Theorem</h4>
+
+<p>If $\Sigma\vdash\varphi$, then $\Sigma\cup\Sigma'\vdash\varphi$, for any $\Sigma'$.</p>
+
+<h4>
+<a id="user-content-inconsistentconsistent" class="anchor" href="#inconsistentconsistent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inconsistent/Consistent</h4>
+
+<p>We call $\Sigma$ <strong>inconsistent$</strong> if $\Sigma\vdash\bot$.</p>
+
+<p>We call $\Sigma$ <strong>consistent</strong> if it is not inconsistent.</p>
+
+<p><strong>Entailment and Provability</strong></p>
+
+<p>We call $\Sigma$ <strong>unsatisfiable</strong> if no valuation $t$ makes $\Sigma^t=T$.</p>
+
+<p>Recall, if $\Sigma$ is unsatisfiable then $\Sigma\models\varphi$ for any $\varphi$.</p>
+
+<p>Similarly, if $\Sigma$ is inconsistent then $\Sigma\vdash\varphi$, for any $\varphi$.</p>
+
+<h4>
+<a id="user-content-lemma" class="anchor" href="#lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lemma</h4>
+
+<p>$\Sigma\vdash\varphi$ if and only if $\Sigma\cup(\varphi\rightarrow\bot)$ is inconsistent.</p>
+
+<h4>
+<a id="user-content-compactness" class="anchor" href="#compactness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compactness</h4>
+
+<p>We already showed that if $\Sigma\vdash\varphi$, then there is a finite subset $\Sigma_0\subset\Sigma$ such that $\Sigma_0\vdash\varphi$.</p>
+
+<p>Applying soundness, we have that if $\Sigma\models\varphi$, then there is a finite subset $\Sigma_0\subset\Sigma$ such that $\Sigma_0\models\varphi$.</p>
+
+<p>There is corresponding result about finiteness in the other direction, called <strong>Compactness</strong>.</p>
+
+<h4>
+<a id="user-content-compactness-theorem" class="anchor" href="#compactness-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compactness Theorem</h4>
+
+<p>If every finite subset $\Sigma_0\subset\Sigma$ is satisfiable, then $\Sigma$ is satisfiable.</p>
+
+<h4>
+<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>We use the notation</p>
+
+<p>$$\mod(\Sigma)={t|\Sigma^t=T}$$</p>
+
+<p>i.e., $\mod{\Sigma}$ denotes the set of valuations which satisfy $\Sigma$.</p>
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>A set $S$ of valuations is called <strong>definable</strong> if</p>
+
+<p>$$S=\mod(\Sigma), \text{ for some set } \Sigma \text{ of formulae}$$</p>
+
+<h4>
+<a id="user-content-motivation" class="anchor" href="#motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation</h4>
+
+<ul>
+<li>  A strength of Natural Deduction is that it gives well with our intuition in searching for and writing proofs.</li>
+<li>  A weakness of Natural Deduction is that there is no algorithm for searching for proofs.</li>
+<li>  Introducing sequent calculus provides a proof system in which there is an algorithm for finding a proof, if one exists.</li>
+</ul>
+
+<hr>
+
+<p>ends page  115</p>
 </article></body></html>

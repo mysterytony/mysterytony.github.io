@@ -142,5 +142,56 @@ The elimination rule for negation:
 
 Formulas $\varphi$ and $\lnot\varphi$ cannot both be true--to have both is a contradiction.
 
----
-ends page 109
+If an assumption $\varphi$ leads to a contradiction, then drive $\lnot \varphi$.
+
+| Name | $\vdash$ notation | inference notation |
+|---|---|---|
+| $\lnot$ introduction $(\lnot i)$ | $\Sigma,\varphi\vdash\bot$,then$\Sigma\vdash\lnot\varphi$ | $\frac{\boxed{\begin{matrix}\varphi \\\ \vdots \\\ \bot\end{matrix}}}{\lnot \varphi}$ |
+
+#### The Last Two Basic Rules
+
+Double-Negation Elimination:
+
+| Name | $\vdash$ notation | inference notation |
+|---|---|---|
+| $\lnot\lnot$ elimination $(\lnot\lnot e)$ | If $\Sigma\vdash\lnot\lnot\varphi$, then $\Sigma\vdash\varphi$ | $\frac{\lnot\lnot\varphi}{\varphi}$ |
+
+Contradiction Elimination:
+
+| Name | $\vdash$ notation | inference notation |
+|---|---|---|
+| $\bot$ elimination $(\bot e)$ | If $\Sigma\vdash\bot$, then $\Sigma\vdash\varphi$ | $\frac{\bot}{\varphi}$ |
+
+#### Derived Rules
+
+Whenever we have a proof of the form $\Gamma\vdash\varphi$, we can consider it as a derived rule:
+
+$$\frac{\Gamma}{\varphi}$$
+
+If we use this in a proof, it can be replaced by the original proof of $\Gamma\vdash\varphi$. The result is a proof using only the basic rules.
+
+Using derived rules does not expand the things that can be proved. But they can make it easier to find a proof.
+
+## Additional Examples and Techniques
+
+#### Some Useful Heuristics
+
+Ideas to construct a proof:
+
+1.	Start with the premises at the top and conclusion at the bottom.
+2.	If you can apply an elimination rule to premises, do so. (In the case of $\lor$ elimination, open two sub-proofs).
+3.	Next, work backwards from the end. If your target formula has a connective, try its introduction rule.
+	This will yield a new target. Repeat step 2 and 3 with the new target, until you reach premises and/or available assumptions.
+4.	Treat a subproof as if it were a full proof (with a new premise).
+
+Sometimes these ideas will lead you to a proof; sometimes they will not. If not, try something else instead of an introduction rule.
+
+#### Some Common Derived Rules
+
+Proof by contradiction (reductio ad absurdum)
+
+$$\text{if } \Sigma,\lnot\varphi\vdash\bot \text{, then } \Sigma\vdash\varphi$$
+
+The "Law of Excluded Middle": $\vdash\varphi\lor\lnot\varphi$.
+
+Double-Negation Introduction: $\text{if } \Sigma\vdash\varphi \text{ then } \Sigma\vdash\lnot\lnot\varphi$.

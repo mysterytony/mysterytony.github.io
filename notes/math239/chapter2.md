@@ -35,5 +35,20 @@ The solution method adapts easily to many problems involving compositions. In ge
 2.	Find the generating series for $S$ (the weight of a composition is the sum of its parts, so we can apply the Sum and Product Lemmas);
 3.	The answer to our question is the coefficient of $x^n$ in $\Phi_S(x)$. Find an explicit formula for this coefficient if possible.
 
----
-ends page 30
+#### 2.1.3 Problem
+
+How many $k$-part compositions of $n$ are there in which each part is an odd number?
+
+In this case let $S=\mathbb{N}^k_{odd}$, where $\mathbb{N}_{odd}=\{1,3,5,7,...\}$. Then the required compositions are the elements of $S$ of weight $n$, so the required generating series is
+
+$$\begin{align\*} \Phi_S(x) &= \Phi_{\mathbb{N}^k_{odd}}(x) \\\
+&= \left(\Phi_{\mathbb{N}\_{odd}}(x) \right)^k,\quad \text{by Product Lemma} \\\
+&= \left(\sum_{i\geq 0}x^{2i+1}\right)^k \\\
+&= (x(1-x^2)^{-1})^k, \quad \text{by Geometric Series} \end{align\*}$$
+
+It follows that the number of compositions of the required form is
+
+$$\begin{align\*} 
+\[x^n\] (x(1-x^2)^{-1})^k &= \[x^n\] x^k (1-x^2)^{-k} \\\
+&= \[x^{n-k}\](1-x^2)^{-k} \\\
+&= \[x^{n-k}\]\sum_{i\geq 0}{i+k-1 \choose k-1}x^{2i} \end{align\*}$$
