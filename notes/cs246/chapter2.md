@@ -186,3 +186,263 @@ const char *cs = "a"; // not ’a’
 ```
 
 *	Every string literal is implicitly terminated with a character `\0` (**sentinel**)
+	*	`"abc"` is 4 characters: `'a' 'b' 'c' '\0'` which occupies 4 bytes.
+	*	String cannot contain a character with the value `'\0'`
+	*	Computing string length requires `O(N)` search for `'\0'`
+*	Escape sequence provides quoting of special characters in a character/string literal using a backslash `\`
+
+| escape | meaning |
+|---|---|
+| `'\\'` | backslash |
+| `'\''` | single quote |
+| `'\"'` | double quote |
+| `'\t' '\n'` | tab, new line |
+| `'\0'` | string termination character |
+
+*	C/C++ provides user literals (write-once/read-only) with type qualifier `const`
+
+```CPP
+const char Initial = 'D';
+const short int Size = 3, SupSize = Size + 7;
+const double PI = 3.14159;
+```
+
+*	C/C++ `const` variable **must** be assigned a value at declaration, the value can be the result of a expression.
+*	A `const` variable can (only) appear in context where a literal can appear.
+
+```CPP
+Size = 7; //disallowed
+```
+
+*	**Good practice is to name literals so all usages can be changed via its initialization value.**
+
+### 2.5.5 C++ String
+
+*	`string (#include <string>)` is a sequence of characters with powerful operations performing actions on groups of characters.
+*	C provided strings by an array of `char`, string literals, and library facilities.
+
+```C
+char s[10]; // string of at most 10 characters
+```
+
+*	Because C-string variable is fixed-sized array:
+	*	management of variable-sized strings is the programmer's responsibility
+	*	requiring complex storage management
+*	C++ solves these problems by providing a "string" type:
+	*	maintaining string length versus sentinel character `'\0'`
+	*	managing storage for variable-size string
+
+| C `char []` | C++ string |
+|---|---|
+| `strcpy` `strncpy` | `=` |
+| `strcat` `strncat` | `+` |
+| `strcmp` `strncmp` | `== != < <= > >=` |
+| `strlen`           | `length` |
+| `[]`               | `[]` |
+|                    | `substr` |
+|                    | `replace` |
+| `strstr`           | `find` `rfind` |
+| `strcspn`          | `find_first_of` `find_last_of` |
+| `strspn`           | `find_first_not_of` `find_last_not_of` |
+|                    | `c_str` |
+
+*	`find` routines return value `string::npos` of type `string::size_type` if unsuccessful search
+*	`c_str` converts a string to a `char *` pointer (`'\0'` terminated)
+*	**Note different call syntax `c.substr(2,3)` versus `substr(c,2,3)`**
+*	contrast C and C++ style strings (note the management of string storage)
+
+```CPP
+#include <string.h> // C string routines
+#include <string> // C++ string routines
+using namespace std;
+int main () {
+	// C++ string
+	const string X = "abc", Y = "def", Z = "ghi";
+	string S = X + Y + Z;
+	// C string
+	const char *x = "abc", *y = "def", *z = "ghi";
+	char s[strlen(x)+strlen(y)+strlen(z)+1];
+	strcpy(s, ""); // init to null string
+	strcat(strcat(strcat(s,x),y),z);
+}
+```
+
+*	**Good practice is NOT to iterate through the characters of a string variable!**
+
+## 2.6 Input/Output
+
+*	Input/Output (I/O) is divided into two kinds:
+	*	**Formatted I/O** transfers data with implicit conversion of internal values to/from human-readable form
+	*	**Unformatted I/O** transfers data without conversion, e.g., internal integer and real floating values
+
+### 2.6.1 Formatted I/O
+
+| C | C++ |
+|---|-----|
+| `#inlcude <stdio.h>` | `#include <iostream>` |
+||
+| `FILE` | `ifstream` `ofstream` |
+||
+| `in = fopen("f", "r")` | `ifstream in("f")` |
+| `out = fopen("f", "w")` | `ofstream out("f")` |
+| `close(in)` | scope ends, `in.close()` |
+| `close(out)` | scope ends, `out.close()` |
+||
+| `fscanf(in, "%d", &i)` | `in>>T` |
+| `fscanf(in, "%f", &f)` | |
+| `fscanf(in, "%c", &c)` | |
+| `fscanf(in, "%s", &s)` | |
+| `feof(in)` | `in.fail()` |
+| `fscanf` return value | `in.fail()` |
+| | `in.clear()` |
+| `fscanf(in, "%*[regexp]")` | `in.ignore(n,c)` |
+||
+| `fprintf(out),"%d",i)` | `out<<T` |
+| `fprintf(out),"%f",f)` | |
+| `fprintf(out),"%c",c)` | |
+| `fprintf(out),"%s",s)` | |
+
+*	Formatted I/O occurs to/from a **stream file**, and values are conversed based on the type of variables and format codes
+*	C++ has three implicit stream files: `cin` `cout` and `cerr`, which are implicitly declared and opened
+*	C has `stdin`, `stdout` and `stderr`, which are implicitly declared and opened
+*	`#inlcude <iostream>` imports all necessary declarations to access `cin` `cout` and `cerr`
+*	`cin` reads input from the keyboard
+*	`cout/cerr` write to the terminal screen
+*	**Error and debugging messages should always be written to `cerr`**
+	*	normally not redirected by the shell
+	*	unbuffered so output appears immediately
+*	stream files other than 3 implicit ones require declaring each file object
+
+```CPP
+#include <fstream> // required for stream-file declarations
+ifstream infile ("myinfile"); // input file
+ofstream outfile ("myoutfile") // output file
+```
+
+*	file `types` `ifstream` `ofstream` indicate whether the file can be read or written
+*	file name type `"myinfile" "myoutfile"` is `char *`
+*	declaration opens an operating-system file making it accessible through the variable name:
+	*	`infile` reads from file `myinfile`
+	*	`outfile` writes to file `myoutfile`
+	where both files are located in the directory where the program is run
+*	check for successful opening of a file using the stream member `fail` e.g. `infile.fail()`, which returns `true` if the open failed and `false` otherwise
+
+```CPP
+if (infile.fail()) // open failed, print message and exit
+if (outfile.fail()) // open failed, print message and exit
+```
+
+*	C++ I/O library overloads the bit-shift operators `<<` and `>>` to perform I/O
+*	C I/O library uses `fscanf(outfile,...)` and `fprintf(infile,...)`, which have short forms `scanf(...)` and `printf(...)` for `stdin` and `stdout`
+*	Both I/O libraries can cascade multiple I/O operations, i.e., input or output multiple values in a single expression.
+
+#### 2.6.1.1 Formats
+
+*	Format of input/output values is controlled via **manipulators** defined in `#include <iomanip>`
+
+| manipulator | meaning |
+|---|---|
+| `oct (%o)` | integral values in octal |
+| `dec (%d)` | integral values in decimal |
+| `hex (%x)` | integral values in hexadecimal |
+| `left` `right` | values with padding after / before values |
+| `boolalpha` `noboolalpha` | bool values as false/true instead of 0/1 |
+| `showbase` `noshowbase` | values with / without prefix 0 for octal & 0x for hex |
+| `showpoint` `noshowpoint` | print decimal point if no fraction |
+| `fixed` `scientific` | float-point values without / with exponent |
+| `setfill('ch')` | padding character before/after value (default blank) |
+| `setw(W) (%Wd)` | NEXT VALUE ONLY in minimum of W columns |
+| `setprecision(P) %(Pf)` | faction of float-point values in maximum of P columns |
+| `endl (\n)` | flush output buffer and start new line |
+| `skipws / noskipws` | skip whitespace characters |
+
+*	**Manipulators are not variables for input/output**, but control I/O formatting for all literals/variables after it, continuing to the next I/O expression for a specific stream file.
+*	**Except manipulator `setw` which only applies to the next value in the I/O expression**
+*	`endl` is not the same as `'\n'`, as `'\n'` does not flush buffered data
+*	for input, `skipws/noskipws` toggle between ignoring whitespace between input tokens and reading whitespace
+
+#### 2.6.1.2 Output
+
+*	Java output style converts values to string, concatenates strings, and prints final long string:
+
+```JAVA
+System.out.println(i + " " + j); // build a string and print it
+```
+
+*	C/C++ output style has a list of formats and values, and output operation generate strings:
+
+```CPP
+cout << i << " " << j << endl; // print each string as formed
+```
+
+*	No implicit conversion from the basic types to string in C++
+*	**While it is possible to use the Java string-concatenation style in C++, it is incorrect style**
+
+#### 2.6.1.3 Input
+
+*	C++ formatted input has implicit character conversion for all basic types and is extensible to user-defined types
+*	Numeric input values are C/C++ undesignated literals: `3, 3.5e-1` separated by whitespace
+*	Character/string input values are characters separated by whitespace
+*	Type of operand indicates the kind of value expected in the stream
+*	Input starts reading where the last input left off, and scans lines to obtain necessary number of values
+*	C/C++ must attempt and read before end-of-file is set and can be tested
+*	End of file is the detection the physical end of a file; there is no end-of-file character
+*	In shell typing `ctrl-d` causes shell to close current input file marking its physical end
+*	In C++, eof can be explicitly detected in two ways:
+	*	stream member `eof` return true if the eof is reached and false otherwise
+	*	stream member `fail` returns true for invalid or no value if eof is reached and false otherwise
+*	Safer to check `fail` and then check `eof`
+*	If `"abc"` is entered (invalid integer value), `fail` becomes true but `eof` is false
+*	Generates infinite loop as invalid data is not skipped for subsequent reads
+*	Stream is implicitly converted to bool in an integer `if !fail()` true, otherwise false
+*	After unsuccessful read call `clear()`  to reset `fail()` before next read
+*	`ignore` skips $n$ characters
+*	`getline(stream, string, char)` reads strings with white spaces allowing different delimiting characters (no buffer overflow)
+
+```CPP
+getline(cin,c,' '); // read characters until ' ' => cin >> c
+getline(cin,c,'@'); // read characters until '@'
+getline(cin,c,'\n'); // read character until newline (default)
+```
+
+*	Read in file-names, which may contain spaces, and process each file:
+
+```CPP
+#include <fstream>
+using namespace std;
+int main() {
+	ifstream fileName("filenames");
+	string fileName;
+	for ( ;; ) {
+		getline(fileNames, fileName);
+		if (fileNames.fail()) break;
+		ifstream file(fileName);
+		// read and process file
+	}
+}
+```
+
+*	In C, routine `feof` returns true when eof is reached `fscanf` returns EOF
+*	Parameters in C are always passed by value, so arguments to `fscanf` must be preceded with & (except arrays) so they can be changed
+*	`stringstream` allows I/O from a string
+*	Tokenized whitespace separated word
+
+```CPP
+#include <sstream>
+string tok, line = "  the \"quick\" brown\n";
+stringstream ss;
+ss.str(line);
+while (ss >> tok) {
+	cout << tok << endl;
+}
+ss.clear();
+ss.str("17");
+int i;
+ss >> i;
+cout << i << endl;
+```
+
+## 2.7 Expression
+
+---
+ends page 54
