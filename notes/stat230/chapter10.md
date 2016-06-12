@@ -64,7 +64,7 @@ There is a third type of function, the moment generating function is closely rel
 
 #### Definition
 
-Consider a discrete random variable $X$ with probability fucntion $f(x)$. The moment generating function (mgf) of $X$ is defined as
+Consider a discrete random variable $X$ with probability function $f(x)$. The moment generating function (mgf) of $X$ is defined as
 $$M(t)=E(e^{tX})=\sum_{all x}e^{tX}f(x)$$
 We will assume that the moment generating functions is defined and finite for values of $t$ in an interval around 0 (that is, for some $a>0,\sum_{x}e^{tX}f(x)<\infty$ for all $t\in[-a,a]$).
 
