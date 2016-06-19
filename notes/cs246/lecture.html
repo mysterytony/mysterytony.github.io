@@ -1,0 +1,3792 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>* {
+    /*box-sizing: border-box;*/
+}
+
+body {
+    /*width: 980px;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    /*font: "Segoe UI";*/
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+    background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+    outline: 0;
+}
+
+.markdown-body strong {
+    font-weight: bold;
+    color: #BC0000;
+}
+
+.markdown-body h1 {
+    margin: 0.67em 0;
+}
+
+.markdown-body img {
+    border: 0;
+}
+
+.markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+.markdown-body pre {
+    overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+.markdown-body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.markdown-body html input[disabled] {
+    cursor: default;
+}
+
+.markdown-body input {
+    line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+    padding: 0;
+}
+
+.markdown-body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+    text-decoration: underline;
+}
+
+.markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.markdown-body h1 {
+    font-size: 30px;
+}
+
+.markdown-body h2 {
+    font-size: 21px;
+}
+
+.markdown-body h3 {
+    font-size: 16px;
+}
+
+.markdown-body h4 {
+    font-size: 14px;
+}
+
+.markdown-body h5 {
+    font-size: 12px;
+}
+
+.markdown-body h6 {
+    font-size: 11px;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+    margin-left: 0;
+}
+
+.markdown-body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+    opacity: 0;
+}
+
+.markdown-body .octicon {
+    font: normal normal normal 16px/1 octicons-anchor;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+    content: '\f05c';
+}
+
+.markdown-body:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.markdown-body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+    outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+.markdown-body h1 {
+
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h2 {
+
+  border-top: 4px solid #4B0000;
+  background-color: #BFADAD;
+    padding: 5px;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+
+.markdown-body h2 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+.markdown-body h6 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body dl {
+    padding: 0;
+}
+
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #012A58;
+    border-left: 4px solid #68AFFF;
+    background-color: #BAD9FB
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+}
+
+.markdown-body table th {
+    font-weight: bold;
+    color: #012C45;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #4283A9;
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #D1EEFF;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #DBDBDB;
+    /*border-radius: 3px;*/
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #FDFFCB;
+    border-left: 4px solid #8E9402;
+    /*border-radius: 3px;*/
+}
+
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.markdown-body pre {
+    word-wrap: normal;
+}
+
+.markdown-body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+    content: normal;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+    color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+    color: #767676;
+    font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: normal;
+    background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+    background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+    display: block;
+}
+
+.markdown-body .plan-choice-free {
+    border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+    border-radius: 0 0 3px 3px;
+    border-top: 0;
+    margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+    margin-top: 10px;
+    display: none;
+}
+
+.markdown-body:checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+}
+
+.MathJax_Display {
+    color: #4B0158;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #210027;
+    background-color: #FDF3FF
+}</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>lecture</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-cs-246-brad-lushman-lecture-notes" class="anchor" href="#cs-246-brad-lushman-lecture-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CS 246 Brad Lushman Lecture Notes</h1>
+
+<h2>
+<a id="user-content-lecture-1" class="anchor" href="#lecture-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 1</h2>
+
+<p>Brad Lushman, DC 3110, <a href="mailto:bmlushma@uwaterloo.ca">bmlushma@uwaterloo.ca</a></p>
+
+<p>Software:</p>
+
+<ul>
+<li>  putty.exe</li>
+<li>  winscp</li>
+<li>  xming for xwindows</li>
+<li>  cygwin: Linux-like environment for Windows</li>
+</ul>
+
+<p>Modules:</p>
+
+<ul>
+<li>  Linux shell</li>
+<li>  C++</li>
+<li>  Tools</li>
+<li>  Software Engineering</li>
+</ul>
+
+<h3>
+<a id="user-content-module-1---linux-shell" class="anchor" href="#module-1---linux-shell" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module 1 - Linux Shell</h3>
+
+<h3>
+<a id="user-content-shell---interface-to-os---get-the-os-to-do-things-eg-run-programs-manage-files" class="anchor" href="#shell---interface-to-os---get-the-os-to-do-things-eg-run-programs-manage-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shell - interface to OS - get the OS to do things, e.g. run programs, manage files</h3>
+
+<ul>
+<li>  graphical (click with mouse/touch interface)</li>
+<li>  command-line (type commands at a prompt, more versatile)</li>
+</ul>
+
+<p>This course - bash (command line)</p>
+
+<p>type <code>echo $0</code> should output <code>-bash</code></p>
+
+<p>Linux File System</p>
+
+<ul>
+<li>  command <code>cat</code>: displays the contents of a file
+
+<ul>
+<li>  e.g.: `cat /usr/share/dict/words</li>
+</ul>
+</li>
+<li>  <code>^c</code> to stop (ctrl-c)</li>
+<li>  <code>ls</code> list files in current dir (non-hidden files)</li>
+<li>  <code>ls -a</code> all files including hidden</li>
+<li>  hidden files start with <code>.</code>
+</li>
+<li>  <code>pwd</code> prints the current directory</li>
+</ul>
+
+<p>what if you just type <code>cat</code>? nothing happens, <code>cat</code> is waiting for input</p>
+
+<div class="highlight highlight-source-shell"><pre>cat
+some words
+some words</pre></div>
+
+<p>it prints everything you have typed</p>
+
+<p>maybe useful if we can capture the output files</p>
+
+<p><code>cat &gt; output.txt</code></p>
+
+<p><code>^D</code> to stop: ^D at the beginning of a line, it sends end-of-file (EOF) signal to cat</p>
+
+<p>In general: <code>command args &gt;</code> executes command args &amp; captures the output in file instead of sending to screen, it is called output redirection</p>
+
+<p>can also redirect input: <code>cat &lt; inputfile.txt</code></p>
+
+<ul>
+<li>  takes input from inputfile.txt instead of the keyboard</li>
+<li>  displays contents of inputfile.txt</li>
+<li>  seems equivalent to <code>cat inputfile.txt</code>
+</li>
+</ul>
+
+<p>what's the difference? <strong>(important)</strong>
+<code>cat inputfile.txt</code></p>
+
+<ul>
+<li>  passes the name <code>inputfile.txt</code> as an argument to cat. cat opens the file</li>
+<li>  opens the file inputfile.txt and displays its contents
+<code>cat &lt; inputfile.txt</code>
+</li>
+<li>  the shell opens the file and passes its contents to cat in place of the keyboard</li>
+</ul>
+
+<p><code>wc output.txt</code> word count</p>
+
+<ul>
+<li>  note the difference between <code>wc output.txt</code> and <code>wc &lt; output.txt</code>
+</li>
+</ul>
+
+<p>also: <code>cat *.txt</code> globbing pattern</p>
+
+<ul>
+<li>  <code>*</code> = match any sequence of chars</li>
+<li>  shell finds all files in the current directory that match the pattern &amp; and substitutes on the command line</li>
+<li>  it will be transformed into -&gt; <code>cat a.txt b.txt c.txt …</code>
+</li>
+<li>  <code>cat *</code> prints everything except the hidden files</li>
+<li>  <code>cat &lt; *.txt</code> error, shell will only attack one file to the input stream</li>
+<li>  more globbing pattern -Linux sheet</li>
+</ul>
+
+<p>Many (but not all) programs accept both kinds of input</p>
+
+<p>can do both input and output redirection</p>
+
+<p><code>cat &lt; input.txt &gt; output.txt</code> takes chars from input.txt and sends to output.txt, copies the file</p>
+
+<p>by default, stdin == keyboard, stdout/stderr == screen</p>
+
+<ul>
+<li>  <code>&lt;</code> connects stdin to a file</li>
+<li>  <code>&gt;</code> connects stdout to a file</li>
+<li>  <code>2&gt;</code> connects stderr to a file
+
+<ul>
+<li>  stderr is a separate output stream for error messages</li>
+<li>  so output &amp; errors messages can go to separate places</li>
+<li>  so error messages don't clutter output files and corrupt formatting</li>
+<li>  also: stdout may be buffered -system may wait to accumulate output before actually displaying (flushing) it</li>
+<li>  stderr is never buffered -get error messages immediately</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="user-content-pipes" class="anchor" href="#pipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pipes</h3>
+
+<ul>
+<li>  uses output of one program as input of another</li>
+<li>  set 2nd program's stdin to 1st program's stdout</li>
+</ul>
+
+<p>example: how many words occur in the first 20 lines of sample.txt?</p>
+
+<p>tools:</p>
+
+<ul>
+<li>  <code>head -n file</code> first n lines</li>
+<li>  <code>wc -w</code> just the words</li>
+</ul>
+
+<p>solution:</p>
+
+<div class="highlight highlight-source-shell"><pre>head -20 smaple.txt <span class="pl-k">|</span> wc</pre></div>
+
+<h2>
+<a id="user-content-lecture-2" class="anchor" href="#lecture-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 2</h2>
+
+<p>Pipe: connect standard out (stdout) from one program to the standard in (stdin) of another program</p>
+
+<p>Suppose we had N files, words1.txt, words2.txt ... each has 1 word/line</p>
+
+<p>Want: a duplicate free list of all words in these files</p>
+
+<p><code>uniq</code> remove consecutive duplicate lines in input</p>
+
+<p><code>sort</code> sort lines of input</p>
+
+<p>solution:</p>
+
+<div class="highlight highlight-source-shell"><pre>cat words<span class="pl-k">*</span>.txt <span class="pl-k">|</span> sort <span class="pl-k">|</span> uniq
+sort words<span class="pl-k">*</span>.txt <span class="pl-k">|</span> uniq</pre></div>
+
+<p>(<code>sort</code> may be more efficient than we use <code>cat</code> to open every file and ship information around)</p>
+
+<p>Question: Can we use the output of one program as parameters to another?</p>
+
+<p><code>echo "Today is $(date) and I am $(whoami)"</code></p>
+
+<p>shell executes <code>date</code> &amp; <code>whoami</code> and substitutes them with their output</p>
+
+<p>warning: use of single quote</p>
+
+<p><code>echo 'Today is $(date) and I am $(whoami)'</code> will literally print</p>
+
+<p><code>Today is $(date) and I am $(whoami)</code></p>
+
+<p>single quote: substitution</p>
+
+<p>single &amp; double quotes prevent globing pattern expansion (suppresses glob substitution)</p>
+
+<h3>
+<a id="user-content-pattern-matching-in-text-files" class="anchor" href="#pattern-matching-in-text-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pattern matching in text files</h3>
+
+<p><code>egrep</code> ("extended global regular expression print") or <code>grep -E</code> does the same job</p>
+
+<p>template: <code>egrep pattern files</code> print every line that contains the pattern in the file</p>
+
+<p>Example: print every line in index.html that contains "cs246"</p>
+
+<p><code>egrep cs246 index.html</code></p>
+
+<p>Example: how many lines contain "cs246" or "CS246"</p>
+
+<p><code>egrep "cs246|CS246" index.html | wc -l</code></p>
+
+<p><code>egrep "(cs|CS)246" index.html |wc -l</code> bracket sub-pattern</p>
+
+<p>egrep patterns are called regular expressions</p>
+
+<p>these are NOT globing pattern</p>
+
+<p>Examples:
+<code>(c|C)(s|S)246</code> matches "cs246" "CS246" "cS246" and "Cs246"</p>
+
+<p><code>[cC][sS]246</code> is equivalent to the above</p>
+
+<p>syntax <code>[...]</code> matches any 1 character in ... <code>"[a1z2]"</code> == <code>"(a|1|z|2)"</code></p>
+
+<p><code>[^...]</code> match any 1 character not in the square brackets</p>
+
+<p><code>[^cC]</code> match anything not a "c" or "C"</p>
+
+<p><code>"[cC][sS] ?246"</code> allows for an optional space between "cs" and "246"</p>
+
+<p><code>?</code> says to match 0 or 1 occurrences of the preceding expression</p>
+
+<p><code>*</code> syntax match 0 or many occurrences of the preceding pattern</p>
+
+<p><code>'(cs)*246</code> matches "246" "cs246" "cscs246" "cscscs246" ...</p>
+
+<p>at least 1 occurrence: <code>cs(cs)*246</code></p>
+
+<p><code>(cs)+246</code> syntax <code>+</code> says to match 1 or more occurrences of the preceding expression</p>
+
+<p><code>.</code> matches any single character</p>
+
+<p><code>.*</code> matches any string at all (also the empty string) </p>
+
+<p><code>.+</code> matches all nonempty string</p>
+
+<p><code>egrep "(cs).*(246)" index.html</code> fetch any lines that contain "cs" followed by any sequence of characters, followed by "246"</p>
+
+<p><code>^</code> matches beginning of line </p>
+
+<p><code>$</code> matches the end of line</p>
+
+<p><code>^cs246</code>  matches lines that start with "cs246" </p>
+
+<p><code>cs246$</code> matches lines that end with "cs246"</p>
+
+<p>Example: Lines of even length? </p>
+
+<p><code>^(..)*$</code></p>
+
+<p>Example: List files whose name contain exactly one "a" </p>
+
+<p><code>ls | egrep "^[^a]*(a)[^a]*$"</code></p>
+
+<h2>
+<a id="user-content-lecture-3" class="anchor" href="#lecture-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 3</h2>
+
+<p>All words in the global dictionary that start with <code>e</code> and have 5 chars. </p>
+
+<p><code>egrep '^e....$' /usr/share/dict/words</code></p>
+
+<h3>
+<a id="user-content-permissions" class="anchor" href="#permissions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Permissions</h3>
+
+<p><code>ls -l</code> "long form" listing</p>
+
+<p>Format</p>
+
+<p><code>-rw-r----- 1 j2smith j2smith 25 Sep 9 15:27 abc.txt</code> </p>
+
+<p>groups: </p>
+
+<ul>
+<li>  a user can belong to one or more groups </li>
+<li>  a file can be associated with one group</li>
+</ul>
+
+<p>type:</p>
+
+<ul>
+<li>  <code>-</code> ordinary file</li>
+<li>  <code>d</code> directory</li>
+</ul>
+
+<p>permissions</p>
+
+<ul>
+<li>  3 groups of 3 bits, user group &amp; other </li>
+<li>  user bits apply to the file's owner </li>
+<li>  group bits apply to the members of the file group (other than the owner) </li>
+<li>  other bits apply to everyone else</li>
+</ul>
+
+<p><code>r</code> read bit, <code>w</code> write bit, <code>x</code> execute bit</p>
+
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Meaning for ordinary files</th>
+<th>Meaning for directory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>file's contents can be read</td>
+<td>directory's contents can be read (e.g. <code>ls</code> works, globing works)</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>file's contents can be modified</td>
+<td>directory's content can be modified (can add/remove files)</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>file can be executed as a program</td>
+<td>directory can be navigated (can <code>cd</code> into the directory)</td>
+</tr>
+</tbody>
+</table>
+
+<p>directory <code>x</code> bit is not set = no access at all to the directory, nor to any files within it, nor to any subdirectory.</p>
+
+<p>changing permissions: <code>chmod mode file</code> </p>
+
+<p>mode: user types, operator, permissions</p>
+
+<p>user types:</p>
+
+<ul>
+<li>  <code>u</code> for user (owner)</li>
+<li>  <code>g</code> for group</li>
+<li>  <code>o</code> for other</li>
+<li>  <code>a</code> for all</li>
+</ul>
+
+<p>operator:</p>
+
+<ul>
+<li>  <code>+</code> add perm</li>
+<li>  <code>-</code> subtract perm</li>
+<li>  <code>=</code> set perm exactly</li>
+</ul>
+
+<p>perm:</p>
+
+<ul>
+<li>  <code>r</code> read</li>
+<li>  <code>w</code> write</li>
+<li>  <code>x</code> execute</li>
+</ul>
+
+<p>given other read permission: <code>chmod o+r file</code> </p>
+
+<p>make everyone permission <code>rx</code> <code>chmod a=rx file</code> </p>
+
+<p>give the owner full control <code>chmod u=rwx file</code></p>
+
+<h3>
+<a id="user-content-shell-script" class="anchor" href="#shell-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shell Script</h3>
+
+<p>files containing sequences of shell commands executed as programs.</p>
+
+<p>e.g. print date, current dir, current dir</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash # "shebang" line execute this file a bash script</span>
+date
+whoami
+<span class="pl-c1">pwd</span></pre></div>
+
+<p>give the file execute permission: <code>chmod u+x myscript</code> </p>
+
+<p>run the file `./myscript</p>
+
+<p>Variables </p>
+
+<p><code>x=1</code> (NO spaces)</p>
+
+<p><code>echo $x</code></p>
+
+<p>Use <code>$</code> when fetching the value of a variable. </p>
+
+<p>No <code>$</code> when setting a variable  (<code>$</code> = fetching the value of)</p>
+
+<p>good practice: ${x} brace brackets</p>
+
+<p>all variables contain strings (x above is the string "1")</p>
+
+<p>e.g.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">&gt;</span>dir=<span class="pl-k">~</span>/cs246 
+<span class="pl-k">&gt;</span><span class="pl-c1">echo</span> <span class="pl-smi">${dir}</span> 
+/u/bmlushma/cs246 
+<span class="pl-k">&gt;</span>ls <span class="pl-smi">${dir}</span> 
+contents of the directory</pre></div>
+
+<p>Some global variable</p>
+
+<p><code>PATH</code></p>
+
+<ul>
+<li>  list of directory</li>
+<li>  when you type a command, shell searches these directories in order for a program with that name</li>
+</ul>
+
+<p><code>echo *</code> prints every file in the dir</p>
+
+<p><code>echo "*"</code> <code>echo '*'</code> print * , suppress globbing</p>
+
+<p><code>echo "$PATH"</code> prints the path</p>
+
+<p><code>echo '$PATH'</code> prints $PATH</p>
+
+<p><code>$</code> expression happens in double quotes, but not single quotes</p>
+
+<p>Special variable for script</p>
+
+<p>$1, $2, … command line args</p>
+
+<p>e.g.
+check whether a word is in the dictionary
+./isItAWord hello</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</span>$<span class="pl-pds">"</span></span> /usr/share/dict/words</pre></div>
+
+<ul>
+<li>  prints nothing if not found</li>
+<li>  prints the word if found</li>
+</ul>
+
+<p>e.g. a good password should not be in the dictionary</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</span>$<span class="pl-pds">"</span></span> /usr/share/dict/words <span class="pl-k">&gt;</span> /dev/null <span class="pl-c">#suppress output</span></pre></div>
+
+<p>every program returns a status code when it's finished.</p>
+
+<p><code>egrep</code> returns 0 if found, 1 if not found</p>
+
+<p>(usually 0 = success, non-zero = failure)</p>
+
+<p><code>$?</code> = status code of most recently executed command</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">if</span> [ <span class="pl-smi">$?</span> <span class="pl-k">-eq</span> 0 ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+    <span class="pl-c1">echo</span> Bad password
+<span class="pl-k">else</span>
+    <span class="pl-c1">echo</span> May be a good password
+<span class="pl-k">fi</span></pre></div>
+
+<p>verify # of arguments, print error msg if wrong</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-en">usage</span> () {
+    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>usage: <span class="pl-smi">$0</span> password<span class="pl-pds">"</span></span> <span class="pl-c"># $0 is the name of the program/script</span>
+}
+
+<span class="pl-k">if</span> [ <span class="pl-smi">$#</span> <span class="pl-k">-ne</span>q 1 ]<span class="pl-k">;</span> <span class="pl-k">then</span> <span class="pl-c"># $# is the number of arguments</span>
+    usage
+    <span class="pl-c1">exit</span> 1
+<span class="pl-k">fi</span></pre></div>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">if</span> [ cond ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+…
+<span class="pl-k">elif</span> [ cond ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+…
+<span class="pl-k">else</span>
+…
+<span class="pl-k">fi</span></pre></div>
+
+<p>loops: print #s from 1 to $1</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+x=1
+<span class="pl-k">while</span> [ <span class="pl-smi">$x</span> <span class="pl-k">-le</span> <span class="pl-smi">$1</span> ]<span class="pl-k">;</span> <span class="pl-k">do</span>
+    <span class="pl-c1">echo</span> <span class="pl-smi">$x</span>
+    x=<span class="pl-s"><span class="pl-pds">$((</span>x<span class="pl-k">+</span><span class="pl-c1">1</span><span class="pl-pds">))</span></span> <span class="pl-c"># $((...)) for arithmetic</span>
+<span class="pl-k">done</span></pre></div>
+
+<p>e.g. rename all .cpp files to .cc</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<span class="pl-k">for</span> <span class="pl-smi">name in *.cpp ; do # sets the var to each word</span> <span class="pl-k">in</span> the given list
+    mv <span class="pl-smi">${name}</span> <span class="pl-smi">${name<span class="pl-k">%</span>cpp}</span>cc
+<span class="pl-k">done</span></pre></div>
+
+<p>How many times does word $1 occur in file $2?</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+x=0
+<span class="pl-k">for</span> <span class="pl-smi">word</span> <span class="pl-k">in</span> <span class="pl-s"><span class="pl-pds">$(</span>cat <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$2</span><span class="pl-pds">"</span></span><span class="pl-pds">)</span></span><span class="pl-k">;</span> <span class="pl-k">do</span> <span class="pl-c"># surround vars with double quotes</span>
+    <span class="pl-k">if</span> [ word <span class="pl-k">==</span> <span class="pl-smi">$1</span> ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+        x = <span class="pl-s"><span class="pl-pds">$((</span>x<span class="pl-k">+</span><span class="pl-c1">1</span><span class="pl-pds">))</span></span>
+    <span class="pl-k">fi</span>
+<span class="pl-k">done</span></pre></div>
+
+<h2>
+<a id="user-content-lecture-4" class="anchor" href="#lecture-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 4</h2>
+
+<p>Example: payday is the last Friday of the month, when is this month's payday? 2 tasks: compute date &amp; format answer</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<span class="pl-en">answer</span>() {
+    <span class="pl-k">if</span> [ <span class="pl-smi">$1</span> <span class="pl-k">-eq</span> 31 ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>This month: the 31st<span class="pl-pds">"</span></span>
+    <span class="pl-k">else</span>
+        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>This month: the <span class="pl-smi">${1}</span>th<span class="pl-pds">"</span></span>
+    <span class="pl-k">fi</span>
+}
+answer <span class="pl-s"><span class="pl-pds">$(</span>cal <span class="pl-k">|</span> awk <span class="pl-s"><span class="pl-pds">'</span>{print $6}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> egrep <span class="pl-s"><span class="pl-pds">"</span>[0-9]<span class="pl-pds">"</span></span> <span class="pl-k">|</span> tail -1<span class="pl-pds">)</span></span></pre></div>
+
+<p>inside the function <code>$1 $2</code> are the parameters of the function</p>
+
+<p>generalize to any month</p>
+
+<p><code>cal June 2016</code> gives June 2016 calendar, so let <code>payday June 2016</code> gives June's payday</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<span class="pl-en">answer</span>() {
+    <span class="pl-k">if</span> [ <span class="pl-smi">$2</span> ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+        preamble=<span class="pl-smi">$2</span>
+    <span class="pl-k">else</span>
+        preamble=<span class="pl-s"><span class="pl-pds">"</span>This month<span class="pl-pds">"</span></span>
+    <span class="pl-k">fi</span>
+
+    <span class="pl-k">if</span> [ <span class="pl-smi">$1</span> <span class="pl-k">-eq</span> 31 ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">${preamble}</span>: the 31st<span class="pl-pds">"</span></span>
+    <span class="pl-k">else</span>
+        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">${preamble}</span>: the <span class="pl-smi">${1}</span>st<span class="pl-pds">"</span></span>
+    <span class="pl-k">fi</span>
+}
+
+answer <span class="pl-s"><span class="pl-pds">$(</span>cal <span class="pl-smi">$1</span> <span class="pl-smi">$2</span> <span class="pl-k">|</span> awk <span class="pl-s"><span class="pl-pds">'</span>{print $6}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> egrep <span class="pl-s"><span class="pl-pds">"</span>[0-9]<span class="pl-pds">"</span></span> <span class="pl-k">|</span> tail -1<span class="pl-pds">)</span></span> <span class="pl-smi">$1</span>
+<span class="pl-c"># empty string if not supplied</span></pre></div>
+
+<h3>
+<a id="user-content-se-topic-testing" class="anchor" href="#se-topic-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SE topic: testing</h3>
+
+<ul>
+<li>  Essential part of program development
+
+<ul>
+<li>  ongoing, not just at the end</li>
+<li>  begin before you start coding</li>
+<li>  test suites - expected behavior</li>
+</ul>
+</li>
+<li>  is not debugging, cannot debug without testing</li>
+<li>  cannot guarantee correctness - can only prove wrongness</li>
+<li><p>ideally, developer &amp; tester are different people</p></li>
+<li><p>Human testing: humans look over code, fine flaws, code inspection, walk through</p></li>
+<li><p>Machine testing: run program on selected input, check against spec. cannot check everything, choose test cases carefully</p></li>
+<li><p>Black/White/Grey-box testing: no/full/some knowledge of program implementation</p></li>
+</ul>
+
+<p>start with black-box, supplement with white box</p>
+
+<ul>
+<li>  various classes of input, e.g. numeric ranges, positive vs negative</li>
+<li>  boundaries of valid data ranges (edge cases)</li>
+<li>  multiple simultaneous boundaries (corner cases)</li>
+<li>  intuition/experience, guess at likely errors</li>
+<li>  extreme cases</li>
+</ul>
+
+<p>White box</p>
+
+<ul>
+<li>  execute all logical path of the program</li>
+<li>  make sure every function runs</li>
+</ul>
+
+<p>performance testing</p>
+
+<ul>
+<li>  is the program fast enough?</li>
+</ul>
+
+<p>progression testing</p>
+
+<ul>
+<li>  make sure new changes to the program don't break all test cases</li>
+<li>  test suites, testing scripts</li>
+</ul>
+
+<h3>
+<a id="user-content-module-2-c" class="anchor" href="#module-2-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module 2: C++</h3>
+
+<p>Hello world in C:</p>
+
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>Hello world in C++</p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<ul>
+<li>  <code>main</code> must return int in C++</li>
+<li>  <code>stdio.h</code> <code>printf</code> still available in C++</li>
+<li>  preferred C++ I/O: header <code>&lt;iostream&gt;</code>
+</li>
+<li>  output: <code>std::cout&lt;&lt;...&lt;&lt;...&lt;&lt;...</code>
+</li>
+<li>  <code>std::endl</code> = end of line</li>
+<li>  <code>using namespace std</code>, let you say <code>cout/endl</code> instead of <code>std::cout//std::endl</code>
+</li>
+<li>  return statement, returns status code to shell ($?)
+if left out, main returns 0</li>
+<li>  compiling C++ programs:
+<code>g++-5 -std=c++14 program.cc -o program</code> &lt;- the name of the executable binary (if not specified: a.out)
+or if you modified .profile
+<code>g++14 program.cc -o program</code>
+</li>
+<li>  to run: <code>./program</code>
+</li>
+</ul>
+
+<h3>
+<a id="user-content-io" class="anchor" href="#io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O</h3>
+
+<ul>
+<li>  <code>cout</code>: for printing to stdout</li>
+<li>  <code>cin</code>: for reading from stdin</li>
+<li>  <code>cerr</code>: for printing to stderr</li>
+</ul>
+
+<p>I/O operator:</p>
+
+<ul>
+<li>  <code>&lt;&lt;</code>: "put to" (output)</li>
+<li>  <code>&gt;&gt;</code>: "get from" (input)</li>
+</ul>
+
+<p><code>cerr&lt;&lt;x</code> <code>cin&gt;&gt;x</code></p>
+
+<p>operator "points" in the direction information flow</p>
+
+<p>add two numbers:</p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">int</span> x,y;
+    cin &gt;&gt; x &gt;&gt; y;
+    cout &lt;&lt; x+y &lt;&lt; endl;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p><code>cin</code> ignores white spaces</p>
+
+<p><code>cin&gt;&gt;x&gt;&gt;y</code> gets two ints from stdin skipping whiltespace (space tab newline)</p>
+
+<p>what if the input doesn't contain an integer next?</p>
+
+<ul>
+<li>  statement fails, value of var is undefined
+what if the input is exhausted? (EOF) before you get two ints? - same</li>
+</ul>
+
+<p>if the read fails, <code>cin.fail()</code> fill be true</p>
+
+<p>if EOF, <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
+
+<p>but not until the attempted read fails</p>
+
+<p>example: read all ints from stdin, echo them one per line stop at bad input or EOF</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">int</span> i;
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+        cin &gt;&gt; i;
+        <span class="pl-k">if</span> (cin.<span class="pl-c1">fail</span>()) <span class="pl-k">break</span>;
+        cout &lt;&lt; i &lt;&lt; endl;
+    }
+}</pre></div>
+
+<h2>
+<a id="user-content-lecture-5" class="anchor" href="#lecture-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 5</h2>
+
+<p>Example 1.0</p>
+
+<p>Read all ints from stdin + echo, one per line, to stdout. Stop on bad input or EOF</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> i;
+<span class="pl-c1">3</span>     <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+<span class="pl-c1">4</span>         cin &gt;&gt; i;
+<span class="pl-c1">5</span>         <span class="pl-k">if</span> (cin.<span class="pl-c1">fail</span>()) <span class="pl-k">break</span>;
+<span class="pl-c1">6</span>         cout &lt;&lt; i &lt;&lt; endl;
+<span class="pl-c1">7</span>     }
+<span class="pl-c1">8</span> }</pre></div>
+
+<p>Note</p>
+
+<p>There is an implicit conversion from cin to bool </p>
+
+<ul>
+<li>  lets cin be used as a condition.</li>
+<li>  true if eof/fail/bad bits are clear</li>
+<li>  false if any of eof/fail/bad is set</li>
+</ul>
+
+<p>Example 2.0</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> i;
+<span class="pl-c1">3</span>     <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+<span class="pl-c1">4</span>         cin &gt;&gt; i;
+<span class="pl-c1">5</span>         <span class="pl-k">if</span> (!cin) <span class="pl-k">break</span>;
+<span class="pl-c1">6</span>         cout &lt;&lt; i &lt;&lt; endl;
+<span class="pl-c1">7</span>     }
+<span class="pl-c1">8</span> }</pre></div>
+
+<p>Note &gt;&gt; is C's right bitshift operator</p>
+
+<p>a&gt;&gt;b shifts a's bits b positional to the right</p>
+
+<p>21 &gt;&gt; 3 = 2</p>
+
+<p>But when LHS is cin, &gt;&gt; is the "get from" operator.</p>
+
+<p>operator &gt;&gt; input: LHS cin  (istream)</p>
+
+<p>RHS data (several possible types)</p>
+
+<p>output: return cin back (istream)</p>
+
+<p>This is why we can write cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;</p>
+
+<p>Example 3.0</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span> () {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> i;
+<span class="pl-c1">3</span>     <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+<span class="pl-c1">4</span>         <span class="pl-k">if</span> (!(cin&gt;&gt;i)) <span class="pl-k">break</span>;
+<span class="pl-c1">5</span>         cout&lt;&lt;i&lt;&lt;endl;
+<span class="pl-c1">6</span>     }
+<span class="pl-c1">7</span> }</pre></div>
+
+<p>Example 4.0</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span> () {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> i;
+<span class="pl-c1">3</span>     <span class="pl-k">while</span> (cin&gt;&gt;i) {
+<span class="pl-c1">4</span>         cout&lt;&lt;i&lt;&lt;endl;
+<span class="pl-c1">5</span>     }
+<span class="pl-c1">6</span> }</pre></div>
+
+<p>Example</p>
+
+<p>Read all ints and echo to stdout until EOF. Skip non-integer input.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> i;
+<span class="pl-c1">3</span>     <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+<span class="pl-c1">4</span>         <span class="pl-k">if</span> (!(cin&gt;&gt;i)) {
+<span class="pl-c1">5</span>             <span class="pl-k">if</span> (cin.<span class="pl-c1">eof</span>()) <span class="pl-k">break</span>;
+<span class="pl-c1">6</span>             cin.<span class="pl-c1">clear</span>(); <span class="pl-c">// clear the fail bit</span>
+<span class="pl-c1">7</span>             <span class="pl-c">// the bad character is still at input</span>
+<span class="pl-c1">8</span>             cin.<span class="pl-c1">ignore</span>(); <span class="pl-c">// ignore the current input char</span>
+<span class="pl-c1">9</span>         } <span class="pl-k">else</span> {
+<span class="pl-c1">10</span>             cout &lt;&lt; i &lt;&lt; endl;
+<span class="pl-c1">11</span>         }
+<span class="pl-c1">12</span>     }
+<span class="pl-c1">13</span> }</pre></div>
+
+<h3>
+<a id="user-content-reading-strings" class="anchor" href="#reading-strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading Strings</h3>
+
+<p>type std::string (#include )</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     string s;
+<span class="pl-c1">3</span>     cin &gt;&gt; s; <span class="pl-c">// read a string</span>
+<span class="pl-c1">4</span>     cout &lt;&lt; s &lt;&lt; endl;
+<span class="pl-c1">5</span> }</pre></div>
+
+<ul>
+<li>  skips leading white space</li>
+<li>  stops at whitespace</li>
+</ul>
+
+<p>what if we want the whitespace? getline(cin, s)</p>
+
+<ul>
+<li>  reads from current position to the next new line into s</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿cout &lt;&lt; <span class="pl-c1">95</span> &lt;&lt; endl; <span class="pl-c">// prints 95</span></pre></div>
+
+<p>what if we want to print a number in hexadecimal?</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿cout &lt;&lt; hex &lt;&lt; <span class="pl-c1">95</span> &lt;&lt; endl; <span class="pl-c">// prints 5f</span></pre></div>
+
+<p>I/O manipulator, all subsequent ints printed in hex</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿cout &lt;&lt; dec;<span class="pl-c">// go back to decimal</span></pre></div>
+
+<p>Other manipulators: see notes <code>#include &lt;iomanip&gt;</code></p>
+
+<p>Stream abstraction applies to other sources of data</p>
+
+<p>Files: Read from a file instead of stdin</p>
+
+<p><code>std::ifstream</code> read from a file
+<code>std::ofstream</code> write to a file</p>
+
+<h3>
+<a id="user-content-file-access-in-c" class="anchor" href="#file-access-in-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File access in C</h3>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">1</span> ﻿#include &lt;stdio.h&gt;
+<span class="pl-c1">2</span> <span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">3</span>     <span class="pl-k">char</span> s[<span class="pl-c1">256</span>];
+<span class="pl-c1">4</span>     <span class="pl-c1">FILE</span> *file = <span class="pl-c1">fopen</span>(<span class="pl-s"><span class="pl-pds">"</span>suite.txt<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>);
+<span class="pl-c1">5</span>     <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+<span class="pl-c1">6</span>         <span class="pl-c1">fscanf</span>(file, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%255s</span><span class="pl-pds">"</span></span>, s);
+<span class="pl-c1">7</span>         <span class="pl-k">if</span> (<span class="pl-c1">feof</span>(file)) <span class="pl-k">break</span>;
+<span class="pl-c1">8</span>         <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, s);
+<span class="pl-c1">9</span>     }
+<span class="pl-c1">10</span>     <span class="pl-c1">fclose</span>(file);
+<span class="pl-c1">11</span> }</pre></div>
+
+<p>C++:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#include &lt;iostream&gt;
+<span class="pl-c1">2</span> #include &lt;fstream&gt;
+<span class="pl-c1">3</span> <span class="pl-k">using</span> namespcae std;
+<span class="pl-c1">4</span> <span class="pl-k">int</span> <span class="pl-en">main</span> () {
+<span class="pl-c1">5</span>     ifstream file{<span class="pl-s"><span class="pl-pds">"</span>suite.txt<span class="pl-pds">"</span></span>}; <span class="pl-c">//declaring an ifstream opens the file</span>
+<span class="pl-c1">6</span>     string s;
+<span class="pl-c1">7</span>     <span class="pl-k">while</span> (file &gt;&gt; s) {
+<span class="pl-c1">8</span>         cout &lt;&lt; s &lt;&lt; endl;
+<span class="pl-c1">9</span>     } <span class="pl-c">// file is closed when the ifstream (file) goes out of scope</span>
+<span class="pl-c1">10</span> }</pre></div>
+
+<p>Anything you can do with cin/cout, you can also to with an ifstream/ofstream</p>
+
+<p>Example: Strings - attach a stream to a string variable and read from/write to the string</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#include &lt;sstream&gt;
+<span class="pl-c1">2</span> std::istringstream; <span class="pl-c">//read from a string</span>
+<span class="pl-c1">3</span> std::ostringstream; <span class="pl-c">//write to a string</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> hi = <span class="pl-c1">100</span>;
+<span class="pl-c1">2</span> <span class="pl-k">int</span> lo = <span class="pl-c1">1</span>;
+<span class="pl-c1">3</span> ostringstream ss;
+<span class="pl-c1">4</span> ss &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Enter a # between <span class="pl-pds">"</span></span> &lt;&lt; lo &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> and <span class="pl-pds">"</span></span> &lt;&lt; hi;
+<span class="pl-c1">5</span> string s = ss.str();
+<span class="pl-c1">6</span> cout &lt;&lt; s &lt;&lt; endl;</pre></div>
+
+<p>Example
+convert string to #</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> n;
+<span class="pl-c1">2</span> <span class="pl-k">while</span> (<span class="pl-c1">true</span>) {
+<span class="pl-c1">3</span>     cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Enter a number <span class="pl-pds">"</span></span> &lt;&lt; endl;
+<span class="pl-c1">4</span>     string s;
+<span class="pl-c1">5</span>     cin &gt;&gt; s;
+<span class="pl-c1">6</span>     istringstream ss {s};
+<span class="pl-c1">7</span>     <span class="pl-k">if</span> (ss &gt; n); <span class="pl-k">break</span>; <span class="pl-c">// stop if the string contains a #</span>
+<span class="pl-c1">8</span>     cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>I said, <span class="pl-pds">"</span></span>;
+<span class="pl-c1">9</span> }
+<span class="pl-c1">10</span> cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>You entered <span class="pl-pds">"</span></span> &lt;&lt; n &lt;&lt; endl;</pre></div>
+
+<p>Example: echo #, skip non-#</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     string s;
+<span class="pl-c1">3</span>     <span class="pl-k">while</span> (cin &gt;&gt; s) {
+<span class="pl-c1">4</span>         istringstream ss{s};
+<span class="pl-c1">5</span>         <span class="pl-k">int</span> n;
+<span class="pl-c1">6</span>         <span class="pl-k">if</span> (ss &gt;&gt; n) cout &lt;&lt; n &lt;&lt; endl;
+<span class="pl-c1">7</span>     }
+<span class="pl-c1">8</span> }</pre></div>
+
+<h3>
+<a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h3>
+
+<p>In C: array of char (char * or char[]) terminated by \0</p>
+
+<ul>
+<li>  must explicitly manage memory - allocate more memory as strings get larger</li>
+<li>  easy to overwrite \0 and corrupt the string
+C++: grow as needed (no need to manage memory)</li>
+<li>  safer to manipulate</li>
+</ul>
+
+<p>Example</p>
+
+<p>string s = "hello" -&gt; c-style string (charr array)  // string s{"Hello"};</p>
+
+<p>'h' 'e' 'l' 'l' 'o' '\0'</p>
+
+<p>C++ string created from C string on initialization</p>
+
+<p>String operation:</p>
+
+<p>equality/inequality: <code>s1==s2, s1!=s2</code></p>
+
+<p>comparison: <code>s1&lt;=s2</code> (lexicographic)</p>
+
+<p>length: <code>s.length();</code></p>
+
+<p>get individual chars <code>s[0] s[1]</code></p>
+
+<p>concat:  <code>s3 = s1+s2; s3+=s4;</code></p>
+
+<h3>
+<a id="user-content-default-function-parameters" class="anchor" href="#default-function-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Default function parameters</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">void</span> <span class="pl-en">printSuiteFile</span>(string name = <span class="pl-s"><span class="pl-pds">"</span>suite.txt<span class="pl-pds">"</span></span>) { <span class="pl-c">// default value</span>
+<span class="pl-c1">2</span>     ifstream file {name};
+<span class="pl-c1">3</span>     string s;
+<span class="pl-c1">4</span>     <span class="pl-k">while</span> (file&gt;&gt;s) cout &lt;&lt; s &lt;&lt; endl;
+<span class="pl-c1">5</span> }
+<span class="pl-c1">6</span> <span class="pl-en">printSuiteFile</span>(<span class="pl-s"><span class="pl-pds">"</span>suite2.txt<span class="pl-pds">"</span></span>);
+<span class="pl-c1">7</span> <span class="pl-en">printSuiteFile</span>(); <span class="pl-c">// prints from suite.txt</span></pre></div>
+
+<p>Note: optional parameters must be last</p>
+
+<p>C:</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">negInt</span>(<span class="pl-k">int</span> n) {<span class="pl-k">return</span> -n;}
+<span class="pl-c1">2</span> <span class="pl-k">bool</span> <span class="pl-en">negBool</span>(<span class="pl-k">bool</span> b) {<span class="pl-k">return</span> !b;}</pre></div>
+
+<p>C++: functions with different parameter lists can share the same name (overload)</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">neg</span>(<span class="pl-k">int</span> n){<span class="pl-k">return</span> -n;}
+<span class="pl-c1">2</span> <span class="pl-k">bool</span> <span class="pl-en">neg</span>(<span class="pl-k">bool</span> b){<span class="pl-k">return</span> !b;}</pre></div>
+
+<p>compiler will use # and types of args to decide which neg is being called</p>
+
+<h2>
+<a id="user-content-lecture-6" class="anchor" href="#lecture-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 6</h2>
+
+<h3>
+<a id="user-content-overloading" class="anchor" href="#overloading" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overloading</h3>
+
+<p>C:</p>
+
+<div class="highlight highlight-source-c"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">negInt</span>(<span class="pl-k">int</span> n) {<span class="pl-k">return</span> -n;}
+<span class="pl-c1">2</span> <span class="pl-k">bool</span> <span class="pl-en">negBool</span>(<span class="pl-k">bool</span> b) {<span class="pl-k">return</span> !b;}</pre></div>
+
+<p>C++:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">neg</span>(<span class="pl-k">int</span> n) {<span class="pl-k">return</span> -n;}
+<span class="pl-c1">2</span> <span class="pl-k">bool</span> <span class="pl-en">neg</span>(<span class="pl-k">bool</span> b) {<span class="pl-k">return</span> !b;}</pre></div>
+
+<p>compiler uses # &amp; type of arguments to decide which neg is being called.</p>
+
+<p>overloads must differ in # or type of argument, may not differ in just return type;</p>
+
+<p>we have seen this already: &gt;&gt;, &lt;&lt; are overloaded - behavior depends on types of args.</p>
+
+<h3>
+<a id="user-content-struct" class="anchor" href="#struct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>struct:</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span>{
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">3</span>     Node *next;
+<span class="pl-c1">4</span> };</pre></div>
+
+<p>wrong:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">3</span>     Node next;
+<span class="pl-c1">4</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node n1 {<span class="pl-c1">5</span>, <span class="pl-v">nullptr</span>};</pre></div>
+
+<p>syntax for null pointers in C++, do not use NULL or 0 in this class.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">const</span> Node n2=n1;</pre></div>
+
+<p>immutable copy of n1</p>
+
+<p>recall:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">void</span> <span class="pl-en">inc</span> (<span class="pl-k">int</span> n) {n=n+<span class="pl-c1">1</span>;}
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">int</span> x=<span class="pl-c1">5</span>;
+<span class="pl-c1">4</span> <span class="pl-en">inc</span>(x);
+<span class="pl-c1">5</span> cout&lt;&lt;x&lt;&lt;endl;</pre></div>
+
+<p>prints 5, inc gets a copy of x, increments the copy, original unchanged.</p>
+
+<p>if a function needs to modify an argument pass a ptr:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">void</span> <span class="pl-en">inc</span> (<span class="pl-k">int</span> *n) {*n=*n+<span class="pl-c1">1</span>;}
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">int</span> x;
+<span class="pl-c1">4</span> <span class="pl-en">inc</span>(&amp;x);
+<span class="pl-c1">5</span> count&lt;&lt;x&lt;&lt;endl;</pre></div>
+
+<p>x's address passed by value (copied), inc changed the data at that address, visible to the caller</p>
+
+<p>Q: why cin&gt;&gt;x and not cin&gt;&gt;&amp;x</p>
+
+<p>A: C++ has another ptr-like type: references</p>
+
+<h3>
+<a id="user-content-references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> y=<span class="pl-c1">10</span>;
+<span class="pl-c1">2</span> <span class="pl-k">int</span> &amp;z=y; <span class="pl-c">// z is an lvaule reference to int (y)</span>
+<span class="pl-c1">3</span> <span class="pl-c">// like a const ptr</span>
+<span class="pl-c1">4</span> <span class="pl-c">// similar to int * const z = &amp;y; &lt;- the pointer is const</span></pre></div>
+
+<p>in all cases, z be behaviors exactly like y. z is an alias ("another name") for y</p>
+
+<p>things you can't do with lvalue references</p>
+
+<ul>
+<li>  leave them uninitialized, e.g. int &amp;x;  Wrong</li>
+<li>  must be initialized with something that has an address (an lvalue), since refs are ptrs, e.g. int &amp;x =3;  Wrong</li>
+<li>  int &amp;x = y + z;  Wrong</li>
+<li>  create a ptr to a reference int &amp;*x;  Wrong</li>
+<li>  reference to ptr is ok: int *&amp;x;   OK</li>
+<li>  create a reference to a reference: int &amp;&amp;r;  Wrong, this means something different</li>
+<li>  create an array of references int &amp;r[3]={n,n,n};  Wrong</li>
+</ul>
+
+<p>what can youd o?</p>
+
+<ul>
+<li>  pass as function parameters</li>
+<li>  1 ﻿void inc (int &amp;n) {n=n+1;}</li>
+<li>  no ptr deref, const, ptr to the arg (x) changes to n affect x</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> x = <span class="pl-c1">5</span>;
+<span class="pl-c1">2</span> <span class="pl-en">inc</span> (x);
+<span class="pl-c1">3</span> cout &lt;&lt; x &lt;&lt; endl; <span class="pl-c">// prints 6</span></pre></div>
+
+<p>cin takes x as a reference.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿istream &amp;<span class="pl-k">operator</span> &gt;&gt;(istream &amp;in, <span class="pl-k">int</span> &amp;n);</pre></div>
+
+<p>pass by value e.g. int f (int n) {…} copies the argument</p>
+
+<p>if the argument is big, the copy is expensive.</p>
+
+<p>slow:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">ReallyBig</span> {...};
+<span class="pl-c1">2</span> <span class="pl-k">int</span> <span class="pl-en">f</span> (ReallyBig rb) {...};</pre></div>
+
+<p>avoid copy, alias, fast</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">g</span> (ReallyBig &amp;rb) {...}</pre></div>
+
+<p>but could change rb in the caller</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">h</span> (<span class="pl-k">const</span> ReallyBig &amp;rb) {...}</pre></div>
+
+<p>fast, no copy, the parameter cannot be changed</p>
+
+<p>advice: perfer pass by const ref over pass by value for anything larger than an int, unless the function needs to make a copy anyway, then maybe use pass by value</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">f</span> (<span class="pl-k">int</span> &amp;n) {...}
+<span class="pl-c1">2</span> <span class="pl-k">int</span> <span class="pl-en">g</span> (<span class="pl-k">const</span> <span class="pl-k">int</span> &amp;n) {...}
+<span class="pl-c1">3</span> 
+<span class="pl-c1">4</span> <span class="pl-en">f</span>(<span class="pl-c1">5</span>);<span class="pl-c">// not allowd, can't initialize an lvalue reference to a literal value</span>
+<span class="pl-c1">5</span> <span class="pl-c">// if n changes, can't change the literal 5</span>
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-en">g</span>(<span class="pl-c1">5</span>); <span class="pl-c">// it is allowed</span>
+<span class="pl-c1">8</span> <span class="pl-c">// since n will not be changed, compiler allows this.</span></pre></div>
+
+<p>compiler creates a temporary location in memory to hold the 5, so the ref n has something to point at.</p>
+
+<h3>
+<a id="user-content-dynamic-memory-allocation" class="anchor" href="#dynamic-memory-allocation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dynamic Memory Allocation</h3>
+
+<p>C:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> *p = malloc(... *<span class="pl-k">sizeof</span>(<span class="pl-k">int</span>));
+<span class="pl-c1">2</span> ...
+<span class="pl-c1">3</span> <span class="pl-en">free</span>(p);</pre></div>
+
+<p>DON’T USE THESE IN C++</p>
+
+<p>C++:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// new &amp; delete type-aware, less error-prone</span>
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">4</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">5</span>     Node *next;
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> Node *np = <span class="pl-k">new</span> Node;
+<span class="pl-c1">9</span> 
+<span class="pl-c1">10</span> <span class="pl-k">delete</span> np;</pre></div>
+
+<p>all local vars reside on the stack</p>
+
+<p>variables are deallocated when their scope ends (stack is popped)</p>
+
+<p>allocated memory resides on the heap</p>
+
+<p>remains allocated until delete is called</p>
+
+<p>if you don't delete all allocated memory: memory leak - program will eventually fail</p>
+
+<p>we regard as incorrect</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node <span class="pl-en">getMeANode</span>() {
+<span class="pl-c1">2</span>     Node n;
+<span class="pl-c1">3</span>     <span class="pl-k">return</span> n;
+<span class="pl-c1">4</span> }
+<span class="pl-c1">5</span> <span class="pl-c">// may be expensive</span>
+<span class="pl-c1">6</span> <span class="pl-c">// n copied into caller's frame</span>
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-c">// return n ptr (ref) instead?</span>
+<span class="pl-c1">9</span> 
+<span class="pl-c1">10</span> Node &amp;<span class="pl-en">getMeANode</span>() {
+<span class="pl-c1">11</span>     Node n;
+<span class="pl-c1">12</span>     <span class="pl-k">return</span> n;
+<span class="pl-c1">13</span> }
+<span class="pl-c1">14</span> <span class="pl-c">// BAD: returns ref to stack allocated data which is dead on return</span>
+<span class="pl-c1">15</span> 
+<span class="pl-c1">16</span> Node *<span class="pl-en">getMeANode</span>() {
+<span class="pl-c1">17</span>     Node *p = <span class="pl-k">new</span> Node;
+<span class="pl-c1">18</span>     <span class="pl-k">return</span> p;
+<span class="pl-c1">19</span> }
+<span class="pl-c1">20</span> <span class="pl-c">// OK and fast and safe,</span>
+<span class="pl-c1">21</span> <span class="pl-c">// but the caller has to remember to delete it</span></pre></div>
+
+<h3>
+<a id="user-content-operator-overloading" class="anchor" href="#operator-overloading" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operator Overloading</h3>
+
+<p>Give our own meanings to C++ operators</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span> }<span class="pl-ii"></span>
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> vec <span class="pl-k">operator</span>+ (<span class="pl-k">const</span> vec &amp;<span class="pl-c1">1</span>, <span class="pl-k">const</span> vec &amp;<span class="pl-c1">2</span>) {
+<span class="pl-c1">6</span>     vec v {v1.<span class="pl-smi">x</span> + v2.<span class="pl-smi">x</span>, v1.<span class="pl-smi">y</span> + v2.<span class="pl-smi">y</span>};
+<span class="pl-c1">7</span>     <span class="pl-k">return</span> v;
+<span class="pl-c1">8</span> }</pre></div>
+
+<h2>
+<a id="user-content-lecture-7" class="anchor" href="#lecture-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 7</h2>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">3</span>     Node *next;
+<span class="pl-c1">4</span> };
+<span class="pl-c1">5</span> 
+<span class="pl-c1">6</span> Node *np = <span class="pl-k">new</span> Node;
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-k">delete</span> np;</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node *myArray = <span class="pl-k">new</span> Node[<span class="pl-c1">10</span>];
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">delete []</span> myArray;</pre></div>
+
+<p>use delete with ordinary new</p>
+
+<p>use delete [] with array new, don’t mix them</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span> };
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> Vec <span class="pl-k">operator</span>+ (<span class="pl-k">const</span> Vec &amp;v1, <span class="pl-k">const</span> Vec &amp;v2) {
+<span class="pl-c1">6</span>     Vec v {v1.<span class="pl-smi">x</span> + v2.<span class="pl-smi">x</span>, v1.<span class="pl-smi">y</span> + v2.<span class="pl-smi">y</span>};
+<span class="pl-c1">7</span>     <span class="pl-k">return</span> v;
+<span class="pl-c1">8</span> }
+<span class="pl-c1">9</span> 
+<span class="pl-c1">10</span> Vec <span class="pl-k">operator</span>* (<span class="pl-k">const</span> <span class="pl-k">int</span> k, <span class="pl-k">const</span> Vec &amp;v) {
+<span class="pl-c1">11</span>     <span class="pl-k">return</span> {k * v.<span class="pl-smi">x</span>, k * v.<span class="pl-smi">y</span>};
+<span class="pl-c1">12</span> }
+<span class="pl-c1">13</span> 
+<span class="pl-c1">14</span> Vec <span class="pl-k">operator</span>* (<span class="pl-k">const</span> Vec &amp;v, <span class="pl-k">const</span> <span class="pl-k">int</span> k) {
+<span class="pl-c1">15</span>     <span class="pl-k">return</span> k * v;
+<span class="pl-c1">16</span> }</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Grade</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> theGrade;
+<span class="pl-c1">3</span> };
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> ostream &amp; <span class="pl-k">operator</span> &lt;&lt; (ostream &amp;out, <span class="pl-k">const</span> Grade &amp;g) {
+<span class="pl-c1">6</span>     out &lt;&lt; g.<span class="pl-smi">theGrade</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">'</span>%<span class="pl-pds">'</span></span>;
+<span class="pl-c1">7</span>     <span class="pl-k">return</span> out;
+<span class="pl-c1">8</span> }
+<span class="pl-c1">9</span> 
+<span class="pl-c1">10</span> istream &amp; <span class="pl-k">operator</span> &gt;&gt; (istream &amp;in, Grade &amp;g) {
+<span class="pl-c1">11</span>     in &gt;&gt; g.<span class="pl-smi">theGrade</span>;
+<span class="pl-c1">12</span>     <span class="pl-k">if</span> (g.<span class="pl-smi">theGrade</span> &lt; <span class="pl-c1">0</span>) g.<span class="pl-smi">theGrade</span> = <span class="pl-c1">0</span>;
+<span class="pl-c1">13</span>     <span class="pl-k">if</span> (g.<span class="pl-smi">theGrade</span> &gt; <span class="pl-c1">100</span>) g.<span class="pl-smi">theGrade</span> = <span class="pl-c1">100</span>;
+<span class="pl-c1">14</span>     <span class="pl-k">return</span> in;
+<span class="pl-c1">15</span> }</pre></div>
+
+<h3>
+<a id="user-content-the-preprocessor" class="anchor" href="#the-preprocessor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Preprocessor</h3>
+
+<p>Transforms the program before the compiler sees it.</p>
+
+<p><code>#...</code> -&gt; preprocessor directive, e.g., <code>#include</code></p>
+
+<p>including old C headers - new naming convention </p>
+
+<p>e.g., instead of <code>#include &lt;stdio.h&gt;</code> use <code>#include &lt;cstdio&gt;</code></p>
+
+<p><code>#define</code> VAR VALUE -&gt; sets a preprocessor value, then all occurrences of VAR in the source file are replaced with VALUE</p>
+
+<p>e.g.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#define MAX <span class="pl-c1">10</span>
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">int</span> x[MAX];
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> <span class="pl-c">// transformed to</span>
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-k">int</span> x[<span class="pl-c1">10</span>];</pre></div>
+
+<p>use <code>const</code> definition instead</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#define FLAG <span class="pl-c">// sets var FLAG, value is the empty string.</span></pre></div>
+
+<p>Defined constants useful for conditional compilation.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#define IOS <span class="pl-c1">1</span>
+<span class="pl-c1">2</span> #define BBOS <span class="pl-c1">2</span>
+<span class="pl-c1">3</span> #define OS BBOS
+<span class="pl-c1">4</span> #<span class="pl-k">if</span> OS == IOS
+<span class="pl-c1">5</span>     <span class="pl-k">short</span> <span class="pl-k">int</span> publicLKey; <span class="pl-c">// removed if OS != IOS</span>
+<span class="pl-c1">6</span> #elif OS == BBOS
+<span class="pl-c1">7</span>     <span class="pl-k">long</span> <span class="pl-k">long</span> <span class="pl-k">int</span> publicKey; <span class="pl-c">// removed if OS != BBOS</span>
+<span class="pl-c1">8</span> #endif</pre></div>
+
+<p>special case:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#<span class="pl-k">if</span> <span class="pl-c1">0</span>
+<span class="pl-c1">2</span> ...
+<span class="pl-c1">3</span> #endif
+<span class="pl-c1">4</span> <span class="pl-c">// never true, all inner text is removed before it gets to the compiler</span>
+<span class="pl-c1">5</span> <span class="pl-c">// heavy duty comment out</span>
+<span class="pl-c1">6</span> <span class="pl-c">// does nest</span></pre></div>
+
+<p>can also define symbols via compiler arguments</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     cout &lt;&lt; X &lt;&lt; endl;
+<span class="pl-c1">3</span> }
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> <span class="pl-c">// command line:</span>
+<span class="pl-c1">6</span> g++<span class="pl-c1">14</span> -DX=<span class="pl-c1">15</span> define.cc -o define
+<span class="pl-c1">7</span> ./define
+<span class="pl-c1">8</span> <span class="pl-c1">15</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#indef NAME
+<span class="pl-c1">2</span> #ifndef NAME <span class="pl-c">// true if name has/has not been defined</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+<span class="pl-c1">2</span>     #ifdef DEBUG
+<span class="pl-c1">3</span>         cerr &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>setting x=1<span class="pl-pds">"</span></span> &lt;&lt; endl;
+<span class="pl-c1">4</span>     #endif
+<span class="pl-c1">5</span>     
+<span class="pl-c1">6</span>     <span class="pl-k">int</span> x= <span class="pl-c1">1</span>;
+<span class="pl-c1">7</span>     <span class="pl-k">while</span> (x &lt; <span class="pl-c1">10</span>) {
+<span class="pl-c1">8</span>         ++x;
+<span class="pl-c1">9</span>         #ifdef DEBUG
+<span class="pl-c1">10</span>             cerr &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>x= <span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; endl;
+<span class="pl-c1">11</span>         #endif
+<span class="pl-c1">12</span>     }
+<span class="pl-c1">13</span>     cout &lt;&lt; x &lt;&lt; endl;
+<span class="pl-c1">14</span> }</pre></div>
+
+<div class="highlight highlight-source-shell"><pre>g++14 -DDEBUG debug.cc -o debug</pre></div>
+
+<h3>
+<a id="user-content-separate-compilation" class="anchor" href="#separate-compilation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separate Compilation</h3>
+
+<p>split programs into composable modules, which provide interface &amp; implementation</p>
+
+<p>interface: type definition, function header .h file</p>
+
+<p>implementation: full definition for every provided functions .cc file</p>
+
+<p>Recall</p>
+
+<ul>
+<li>  declaration - assert existence</li>
+<li>  definition - full detail, allocate space (vars/functions)</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// interface vec.h</span>
+<span class="pl-c1">2</span> <span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">4</span> };
+<span class="pl-c1">5</span> 
+<span class="pl-c1">6</span> Vec <span class="pl-k">operator</span> + (<span class="pl-k">const</span> Vec &amp;v1, <span class="pl-k">const</span> Vec &amp;v2);
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-c">// main.cc</span>
+<span class="pl-c1">9</span> #include <span class="pl-s"><span class="pl-pds">"</span>vec.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">10</span> <span class="pl-k">int</span> <span class="pl-en">main</span> () {
+<span class="pl-c1">11</span>     Vec v {<span class="pl-c1">1</span>,<span class="pl-c1">2</span>};
+<span class="pl-c1">12</span>     v = v + v;
+<span class="pl-c1">13</span> }
+<span class="pl-c1">14</span> 
+<span class="pl-c1">15</span> <span class="pl-c">// impementation vec.cc</span>
+<span class="pl-c1">16</span> #include <span class="pl-s"><span class="pl-pds">"</span>vec.h<span class="pl-pds">"</span></span> <span class="pl-c">// so we get struct definition</span>
+<span class="pl-c1">17</span> Vec <span class="pl-k">operator</span> + (<span class="pl-k">const</span> Vec &amp;v1, <span class="pl-k">const</span> Vec &amp;v2) {
+<span class="pl-c1">18</span>     <span class="pl-k">return</span> {v1.<span class="pl-smi">x</span> + v2.<span class="pl-smi">x</span>, v1.<span class="pl-smi">y</span> + v2.<span class="pl-smi">y</span>};
+<span class="pl-c1">19</span> }</pre></div>
+
+<p>compiling separately</p>
+
+<div class="highlight highlight-source-shell"><pre>g++14 -c vec.cc
+g++14 -c main.c  <span class="pl-c"># -&gt; compile only, don’t link</span>
+<span class="pl-c">#-c produces an object file (.o)</span>
+g++14 vec.o main.o -o main <span class="pl-c"># -&gt; invokes the linker</span></pre></div>
+
+<p>suppose we write a linear algebra module</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">//linalg.h</span>
+<span class="pl-c1">2</span> #include <span class="pl-s"><span class="pl-pds">"</span>vec.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">3</span> 
+<span class="pl-c1">4</span> <span class="pl-c">//linalg.cc</span>
+<span class="pl-c1">5</span> #include <span class="pl-s"><span class="pl-pds">"</span>linalg.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">6</span> #include <span class="pl-s"><span class="pl-pds">"</span>vec.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-c">//main.cc</span>
+<span class="pl-c1">9</span> #include <span class="pl-s"><span class="pl-pds">"</span>linalg.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">10</span> #include <span class="pl-s"><span class="pl-pds">"</span>vec.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">11</span> 
+<span class="pl-c1">12</span> <span class="pl-c">//main.cc, linalg.cc include both linalg.h, vec.h</span></pre></div>
+
+<p>need to prevent files from being included more than once.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">//vec.h use #include guard</span>
+<span class="pl-c1">2</span> #ifndef _VEC_H_
+<span class="pl-c1">3</span> #define _VEC_H_
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> #endif</pre></div>
+
+<p>first time which is included symbol <code>_VEC_H_</code>, so file is included subsequently,<code>_VEC_H_</code> is defined so contents are suppressed.</p>
+
+<p>Always put <code>#include</code> guards in .h files</p>
+
+<p>Never put using namespace std in header files</p>
+
+<p>the using directive will forced on any client who includes the file</p>
+
+<p>so use the prefix <code>std::</code> in headers</p>
+
+<p>Never include .cc files</p>
+
+<p>Never compile .h files</p>
+
+<h2>
+<a id="user-content-lecture-8" class="anchor" href="#lecture-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 8</h2>
+
+<h3>
+<a id="user-content-classes" class="anchor" href="#classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classes</h3>
+
+<p>can put functions inside structs.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> assigns, mt, final;
+<span class="pl-c1">3</span>     <span class="pl-k">float</span> <span class="pl-en">grade</span>() {
+<span class="pl-c1">4</span>         <span class="pl-k">return</span> assigns * <span class="pl-c1">0.4</span> + mt * <span class="pl-c1">0.2</span> + final *<span class="pl-c1">0.4</span>;
+<span class="pl-c1">5</span>     }
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> student s{<span class="pl-c1">60</span>,<span class="pl-c1">70</span>,<span class="pl-c1">80</span>};
+<span class="pl-c1">9</span> cout&lt;&lt;s.grade()&lt;&lt;endl;</pre></div>
+
+<p>class - essentially a struct type that can contain functions</p>
+
+<p>C++ has a class keyword</p>
+
+<p>object - an instance of a class</p>
+
+<p>function <code>grade()</code> called a member function (or method)</p>
+
+<p>what do assngs, mt, final mean inside of <code>grade(){…}</code>?</p>
+
+<p>they are fields of the current object, upon which grade was invoked.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿student billy{...};
+<span class="pl-c1">2</span> billy.grade(); <span class="pl-c">// uses billy's assng, mt, final</span></pre></div>
+
+<p>formally, methods take a hidden extra parameter called <code>this</code> pointer to the object on which the method was invoked</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿billy.grade(); <span class="pl-c">// this == &amp;billy</span></pre></div>
+
+<p>can write:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">student</span> P
+<span class="pl-c1">2</span>     <span class="pl-k">float</span> <span class="pl-en">grade</span>() {
+<span class="pl-c1">3</span>         <span class="pl-k">return</span> <span class="pl-v">this</span>-&gt;assign * <span class="pl-c1">0.4</span> + <span class="pl-v">this</span>-&gt;mt * <span class="pl-c1">0.2</span> + <span class="pl-v">this</span>-&gt;final * <span class="pl-c1">0.4</span>;
+<span class="pl-c1">4</span>     }
+<span class="pl-c1">5</span> }</pre></div>
+
+<h3>
+<a id="user-content-initializing-objects" class="anchor" href="#initializing-objects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initializing Objects</h3>
+
+<p>Student <code>billy {60,70,80};</code> Ok but limited</p>
+
+<p>Better - include a method that does initialization - a constructor (ctor)</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> assns, mt, final;
+<span class="pl-c1">3</span>     <span class="pl-k">float</span> <span class="pl-en">grade</span>() {...};
+<span class="pl-c1">4</span>     student(<span class="pl-k">int</span> assigns, <span class="pl-k">int</span> mt, <span class="pl-k">int</span> final) {
+<span class="pl-c1">5</span>         <span class="pl-v">this</span>-&gt;assns = assns;
+<span class="pl-c1">6</span>         <span class="pl-v">this</span>-&gt;mt = mt;
+<span class="pl-c1">7</span>         <span class="pl-v">this</span>-&gt;final = final;
+<span class="pl-c1">8</span>     }
+<span class="pl-c1">9</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿student billy {<span class="pl-c1">60</span>, <span class="pl-c1">70</span>, <span class="pl-c1">80</span>};</pre></div>
+
+<p>if a ctor has been defined, thse are passed as args to the constructor.</p>
+
+<p>if no constructor has been defined, then these initialize the individual fields of student</p>
+
+<p>or</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿student billy = student{<span class="pl-c1">60</span>,<span class="pl-c1">70</span>,<span class="pl-c1">80</span>};</pre></div>
+
+<p>or</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿student <span class="pl-en">billy</span> (<span class="pl-c1">60</span>, <span class="pl-c1">70</span>, <span class="pl-c1">80</span>);
+<span class="pl-c1">2</span> student billy = student(<span class="pl-c1">60</span>, <span class="pl-c1">70</span>, <span class="pl-c1">80</span>);</pre></div>
+
+<p>uniform initialization</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿string s = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;
+<span class="pl-c1">2</span> string <span class="pl-en">s</span>(<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>);
+<span class="pl-c1">3</span> string s{<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>};
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> <span class="pl-k">int</span> x = <span class="pl-c1">5</span>;
+<span class="pl-c1">6</span> <span class="pl-k">int</span> <span class="pl-en">x</span>(<span class="pl-c1">5</span>);
+<span class="pl-c1">7</span> <span class="pl-k">int</span> x{<span class="pl-c1">5</span>};</pre></div>
+
+<p>heap allocation: <code>student *pBilly = new student{60, 70, 80};</code></p>
+
+<p>advantages of ctors: default params, overloading, sanity check</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">student</span> {
+<span class="pl-c1">2</span>     student (<span class="pl-k">int</span> assns = <span class="pl-c1">0</span>, <span class="pl-k">int</span> mt = <span class="pl-c1">0</span>, <span class="pl-k">int</span> final = <span class="pl-c1">0</span>) {
+<span class="pl-c1">3</span>         ...
+<span class="pl-c1">4</span>     }
+<span class="pl-c1">5</span> };
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> student jone {<span class="pl-c1">70</span>, <span class="pl-c1">80</span>}; <span class="pl-c">// 70 80 0</span>
+<span class="pl-c1">8</span> student newkid; <span class="pl-c">// 0 0 0</span></pre></div>
+
+<p>note:</p>
+
+<p>every class comes with a default (i.e. zero argument) ctor (which just default constructs any fields that are objects)</p>
+
+<p>e.g. <code>Vec v; // default ctor (does nothing in this case)</code></p>
+
+<p>but, the built in default ctor goes away if you prove any ctor</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span>     Vec {<span class="pl-k">int</span> x, <span class="pl-k">int</span> y) {
+<span class="pl-c1">4</span>         <span class="pl-v">this</span>-&gt;x = x;
+<span class="pl-c1">5</span>         <span class="pl-v">this</span>-&gt;y = y;
+<span class="pl-c1">6</span>     }
+<span class="pl-c1">7</span> };
+<span class="pl-c1">8</span> 
+<span class="pl-c1">9</span> Vec v; <span class="pl-c">// error!</span>
+<span class="pl-c1">10</span> Vec v {<span class="pl-c1">1</span>,<span class="pl-c1">2</span>}; <span class="pl-c">// ok</span></pre></div>
+
+<p>what if a struct contain constants or ref</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">myStruct</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">const</span> <span class="pl-k">int</span> myConst; <span class="pl-c">// must be initialized</span>
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> &amp;myRef; <span class="pl-c">// must be initialized</span>
+<span class="pl-c1">4</span> };</pre></div>
+
+<p>initialize:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> z;
+<span class="pl-c1">2</span> <span class="pl-k">struct</span> <span class="pl-en">myStruct</span> {
+<span class="pl-c1">3</span>     <span class="pl-k">const</span> <span class="pl-k">int</span> myConst = <span class="pl-c1">5</span>;
+<span class="pl-c1">4</span>     <span class="pl-k">int</span> &amp;myRef = z;
+<span class="pl-c1">5</span> };
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-c">// But does every instance of myStruct need to have the same value of myConst, myRef?</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">const</span> <span class="pl-k">int</span> id;
+<span class="pl-c1">3</span>     <span class="pl-c">// constant doesn't change but not the same for all studnet</span>
+<span class="pl-c1">4</span>     ...
+<span class="pl-c1">5</span> };</pre></div>
+
+<p>fields must be fully constructed by then</p>
+
+<p>what happens when an object is created</p>
+
+<ul>
+<li>  space is allocated</li>
+<li>  fields are constructed &lt;- need to put our initializations here</li>
+<li>  constructor body runs </li>
+</ul>
+
+<h3>
+<a id="user-content-member-initialization-list-mil" class="anchor" href="#member-initialization-list-mil" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>member initialization list (MIL)</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">const</span> <span class="pl-k">int</span> id;
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> assns, mt, final;
+<span class="pl-c1">4</span>     Student(<span class="pl-k">int</span> id, <span class="pl-k">int</span> assns, <span class="pl-k">int</span> mt, <span class="pl-k">int</span> final):
+<span class="pl-c1">5</span>         id{id}, assn{assn}, mt{mt}, final{final} {}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>Note</p>
+
+<p>can initialize any field this way, not just consts and refs</p>
+
+<p>sometimes more efficient than setting fields in ctor body</p>
+
+<p>(without run default ctor in stor in step 2 then reassign in 3</p>
+
+<p>fields are initialized in the order in which they are declared in the struct, even if the MIL orders them differently</p>
+
+<p>what if a field is initialized in line and in the MIL?</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span>{
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x=<span class="pl-c1">0</span>, y=<span class="pl-c1">0</span>;
+<span class="pl-c1">3</span>     Vec (<span class="pl-k">int</span> x): x{x} {}
+<span class="pl-c1">4</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿student billy {<span class="pl-c1">60</span>, <span class="pl-c1">70</span>, <span class="pl-c1">80</span>};
+<span class="pl-c1">2</span> student bobby {billy};</pre></div>
+
+<h3>
+<a id="user-content-the-copy-constructor" class="anchor" href="#the-copy-constructor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>the copy constructor</h3>
+
+<p>invoked when constructing on object as a copy of another</p>
+
+<p>Note</p>
+
+<p>every class comes with</p>
+
+<ul>
+<li>  a default ctor (default - constructs all fields that are objects, lost if you define any ctor)</li>
+<li>  a copy constructor (just copies all fields)</li>
+<li>  a copy assignment operator</li>
+<li>  a destructor</li>
+<li>  a move ctor</li>
+<li>  a move assignment operator</li>
+</ul>
+
+<p>building your own copy ctor</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     Student() {...}
+<span class="pl-c1">4</span>     Student(<span class="pl-k">const</span> Student &amp;other):
+<span class="pl-c1">5</span>         assgn{other.<span class="pl-smi">assgn</span>}, mt{other.<span class="pl-smi">mt</span>}, final{other.<span class="pl-smi">final</span>} {}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>when is the built in copy ctor not correct</p>
+
+<h2>
+<a id="user-content-lecture-9" class="anchor" href="#lecture-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 9</h2>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> assns, mt, final;
+<span class="pl-c1">3</span>     ...
+<span class="pl-c1">4</span>     Student (<span class="pl-k">const</span> Student &amp;other):
+<span class="pl-c1">5</span>         assns{other.<span class="pl-smi">assns</span>}, mt{other.<span class="pl-smi">mt</span>}, final{other.<span class="pl-smi">final</span>} {}
+<span class="pl-c1">6</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node *n = <span class="pl-k">new</span> Node{<span class="pl-c1">1</span>, <span class="pl-k">new</span> Node{<span class="pl-c1">2</span>, <span class="pl-k">new</span> Node{<span class="pl-c1">3</span>, <span class="pl-v">nullptr</span>}}};
+<span class="pl-c1">2</span> Node m = *n;
+<span class="pl-c1">3</span> Node *p = <span class="pl-k">new</span> Node {*n};</pre></div>
+
+<p>n   -&gt;  1   2   3
+m   1       /|\ 
+p   -&gt;  1   /|\ </p>
+
+<p>simple copy fields =&gt; only first node is actually copied (shallow copy)</p>
+
+<p>if you want a deep copy (copy the whole list), write your own copy ctor</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     Node (<span class="pl-k">const</span> Node &amp;other):
+<span class="pl-c1">4</span>         data{other.<span class="pl-smi">data</span>}, next{other.<span class="pl-smi">next</span>? <span class="pl-k">new</span> Node {*other.<span class="pl-smi">next</span>}: <span class="pl-v">nullptr</span>} {}
+<span class="pl-c1">5</span> };</pre></div>
+
+<p>recursive copies the rest of the list</p>
+
+<p>the copy ctor is called:
+1.  when an object is initialized with another object (same class)
+2.  when an object is passed by value
+3.  when an object is returned from a function</p>
+
+<p>(exception to all 3, later)</p>
+
+<p>Careful with ctors that can take on parameter</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     Node (<span class="pl-k">int</span> data): data{data}, next{<span class="pl-v">nullptr</span>}{}
+<span class="pl-c1">4</span> };</pre></div>
+
+<p>single-arg ctors create implicit conversions</p>
+
+<p>e.g.</p>
+
+<div class="highlight highlight-source-c++"><pre>Node n{<span class="pl-c1">4</span>};
+Node n{<span class="pl-c1">5</span>};
+but also Node n = <span class="pl-c1">4</span>; - implicit conversion from <span class="pl-k">int</span> to Node</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> <span class="pl-en">f</span>(Node n){…}
+<span class="pl-en">f</span>(<span class="pl-c1">4</span>); <span class="pl-c">//works, 4 implicitly converted to Node</span></pre></div>
+
+<p>Danger </p>
+
+<ul>
+<li>  accidentally pass an int to a function taking a Node</li>
+<li>  silent conversion, compiler does not signal an error</li>
+<li>  potential errors not caught</li>
+</ul>
+
+<p>Good idea: disable the implicit conversion, make the ctor explicit</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     <span class="pl-k">explicit</span> <span class="pl-en">Node</span>(<span class="pl-k">int</span> d): data{d}, next{<span class="pl-v">nullptr</span>}{}
+<span class="pl-c1">4</span> };
+Node n{<span class="pl-c1">4</span>}; <span class="pl-c">// still okay</span>
+Node n = <span class="pl-c1">4</span>; <span class="pl-c">// not legal now</span>
+<span class="pl-en">f</span>(<span class="pl-c1">4</span>); <span class="pl-c">// not legal now</span></pre></div>
+
+<h3>
+<a id="user-content-destructors" class="anchor" href="#destructors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Destructors</h3>
+
+<p>When an object is destroyed (stack allocated: goes out of scope, heap allocated: it is deleted)</p>
+
+<p>a method called the destructor (dtor) runs</p>
+
+<p>Specifically:
+1.  dtor body runs
+2.  field's dtors are invoked in reverse declaration order
+3.  space is deallocated</p>
+
+<p>classes come with a dtor (runs dtor for all fields, that are objects)</p>
+
+<p>when do we need to write one?</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node *np = <span class="pl-k">new</span> Node {<span class="pl-c1">1</span>, <span class="pl-k">new</span> Node {<span class="pl-c1">2</span>, <span class="pl-k">new</span> Node {<span class="pl-c1">3</span>, <span class="pl-v">nullptr</span>}}};
+<span class="pl-c1">2</span> <span class="pl-c">// if np goes out of scope, the pointer is reclaimed (stack allocated) and list is leaked</span>
+<span class="pl-c1">3</span> 
+<span class="pl-c1">4</span> <span class="pl-k">delete</span> np; <span class="pl-c">// calls *np's dtor, which doesn't do anything</span>
+<span class="pl-c1">5</span> <span class="pl-c">// 1 will be free, 2 &amp; 3 leaked</span>
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-c">// write a dtor to ensure the whoe list is freed</span>
+<span class="pl-c1">8</span> <span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">9</span>     ...
+<span class="pl-c1">10</span>     <span class="pl-en">~Node</span>() {
+<span class="pl-c1">11</span>         <span class="pl-k">delete</span> next;
+<span class="pl-c1">12</span>     }
+<span class="pl-c1">13</span> };</pre></div>
+
+<p>recursively calls <code>*next</code>'s dtor, so the whole list is deallocated</p>
+
+<h3>
+<a id="user-content-copy-assignment-operator" class="anchor" href="#copy-assignment-operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copy Assignment Operator</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Student billy {<span class="pl-c1">60</span>, <span class="pl-c1">70</span>, <span class="pl-c1">80</span>};
+<span class="pl-c1">2</span> Student jane {billy}; <span class="pl-c">// copy ctor</span>
+<span class="pl-c1">3</span> Student joey; <span class="pl-c">// default ctor</span>
+<span class="pl-c1">4</span> joey = billy; <span class="pl-c">// copy, but not construction</span>
+<span class="pl-c1">5</span> <span class="pl-c">// copy assignment operator, uses compiler'supplied default</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     Node &amp;<span class="pl-k">operator</span>= (<span class="pl-k">const</span> Node &amp;other) {
+<span class="pl-c1">4</span>         <span class="pl-c">// return the value assigned</span>
+<span class="pl-c1">5</span>         <span class="pl-c">// cascading works</span>
+<span class="pl-c1">6</span>         data = other.<span class="pl-smi">data</span>;
+<span class="pl-c1">7</span>         <span class="pl-k">delete</span> next;
+<span class="pl-c1">8</span>         next = other.<span class="pl-smi">next</span> ? <span class="pl-k">new</span> Node{*other.<span class="pl-smi">next</span>}: <span class="pl-v">nullptr</span>;
+<span class="pl-c1">9</span>         <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">10</span>    }
+<span class="pl-c1">11</span> }; <span class="pl-c">// DANGEROUS</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre>Node n{<span class="pl-c1">1</span>,<span class="pl-k">new</span> Node{<span class="pl-c1">2</span>, <span class="pl-k">new</span> Node{<span class="pl-c1">3</span>, <span class="pl-v">nullptr</span>}}};
+n=n;</pre></div>
+
+<p>deletes n &amp; then tries to copy n to n</p>
+
+<p>undefined behavior</p>
+
+<p>when writing <code>operator=</code> always watch out self assignment</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     Node &amp;opeartor= (<span class="pl-k">const</span> Node &amp;other) {
+<span class="pl-c1">4</span>         <span class="pl-k">if</span> (<span class="pl-v">this</span> == &amp;other) <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">5</span>         data = other.<span class="pl-smi">data</span>;
+<span class="pl-c1">6</span>         <span class="pl-k">delete</span> next;
+<span class="pl-c1">7</span>         next = other.<span class="pl-smi">next</span>? <span class="pl-k">new</span> Node{*other.<span class="pl-smi">next</span>}: <span class="pl-v">nullptr</span>;
+<span class="pl-c1">8</span>         <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">9</span>     }
+<span class="pl-c1">10</span> };</pre></div>
+
+<p>Better:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node &amp;<span class="pl-k">operator</span>= (<span class="pl-k">const</span> Node &amp;other) {
+<span class="pl-c1">2</span>     <span class="pl-k">if</span> (<span class="pl-v">this</span>==&amp;other) <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">3</span>     Node *temp = next;
+<span class="pl-c1">4</span>     next = other.<span class="pl-smi">next</span>?<span class="pl-k">new</span> Node{*other.<span class="pl-smi">next</span>}:<span class="pl-v">nullptr</span>;
+<span class="pl-c1">5</span>     data = other.<span class="pl-smi">data</span>;
+<span class="pl-c1">6</span>     <span class="pl-k">delete</span> temp;
+<span class="pl-c1">7</span>     <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">8</span> }</pre></div>
+
+<p>alternative: copy and swap idiom</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#include &lt;utility&gt;
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">4</span>     ...
+<span class="pl-c1">5</span>     <span class="pl-k">void</span> <span class="pl-en">swap</span> (Node &amp; other) {
+<span class="pl-c1">6</span>         <span class="pl-k">using</span> std::swap;
+<span class="pl-c1">7</span>         <span class="pl-c1">swap</span> (data, other.<span class="pl-smi">data</span>);
+<span class="pl-c1">8</span>         <span class="pl-c1">swap</span> (next, other.<span class="pl-smi">next</span>);
+<span class="pl-c1">9</span>     }
+<span class="pl-c1">10</span>     
+<span class="pl-c1">11</span>     Node &amp;<span class="pl-k">operator</span>= (<span class="pl-k">const</span> Node &amp;other) {
+<span class="pl-c1">12</span>         Node temp = other;
+<span class="pl-c1">13</span>         <span class="pl-c1">swap</span> (temp);
+<span class="pl-c1">14</span>         <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">15</span>     }
+<span class="pl-c1">16</span> };</pre></div>
+
+<h3>
+<a id="user-content-rvalues-and-rvalues-refernces" class="anchor" href="#rvalues-and-rvalues-refernces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rvalues and Rvalues refernces</h3>
+
+<p>an lvalue is anything with an address</p>
+
+<p>an lvalue reference (&amp;) is like a const. ptr with auto-deref, always initialized to an lvalue</p>
+
+<p>Now, consider</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node n{<span class="pl-c1">1</span>, <span class="pl-k">new</span> Node{<span class="pl-c1">2</span>, <span class="pl-v">nullptr</span>}};
+<span class="pl-c1">2</span> Node m=n; <span class="pl-c">// copy ctor</span>
+<span class="pl-c1">3</span> Node m2;
+<span class="pl-c1">4</span> m2 = n; <span class="pl-c">// copy assignment operator</span>
+<span class="pl-c1">5</span> 
+<span class="pl-c1">6</span> Node <span class="pl-en">plusOne</span>(Node n) {
+<span class="pl-c1">7</span>     <span class="pl-k">for</span> (Node *p = &amp;n; p; p=p-&gt;next) {
+<span class="pl-c1">8</span>         ++p-&gt;data;
+<span class="pl-c1">9</span>     }
+<span class="pl-c1">10</span>     <span class="pl-k">return</span> n;
+<span class="pl-c1">11</span> }
+<span class="pl-c1">12</span> 
+<span class="pl-c1">13</span> Node m3 = plusOne(n); <span class="pl-c">// copy constructor</span></pre></div>
+
+<p>but what is "other" here? </p>
+
+<p>complier creates a temporary object to hold the result of <code>plusOne</code></p>
+
+<p>other is a reference to this temporary object</p>
+
+<p>copy ctor deep copies from the temp object</p>
+
+<p>the temp is just going to be discarded anyway as soon as the statement 
+ends.</p>
+
+<p>wasteful to do a full copy</p>
+
+<h2>
+<a id="user-content-lecture-10" class="anchor" href="#lecture-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 10</h2>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node n {<span class="pl-c1">1</span>, <span class="pl-k">new</span> Node {<span class="pl-c1">2</span>, <span class="pl-v">nullptr</span>}};
+<span class="pl-c1">2</span> Node n2 = n; <span class="pl-c">// copy ctor</span>
+<span class="pl-c1">3</span> Node n3 = plusOne(n); <span class="pl-c">// copy ctor</span>
+<span class="pl-c1">4</span> <span class="pl-c">// other reference to temporary object</span>
+<span class="pl-c1">5</span> <span class="pl-c">// deep copy from temp object, why not just steal the data?</span></pre></div>
+
+<p>Need to be able to tell whether other is a reference to a temporary object or a standalone object</p>
+
+<p>C++ rvalue reference <code>Node &amp;&amp;</code> is a reference to a temporary object (rvalue) of type Node</p>
+
+<p>version of the ctor that take a <code>Node &amp;&amp;</code></p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     Node (Node &amp;&amp;other) :
+<span class="pl-c1">4</span>         data {other.<span class="pl-smi">data</span>},
+<span class="pl-c1">5</span>         next {other.<span class="pl-smi">next</span>} {
+<span class="pl-c1">6</span>         other.<span class="pl-smi">next</span> = <span class="pl-v">nullptr</span>;
+<span class="pl-c1">7</span>     }
+<span class="pl-c1">8</span> };</pre></div>
+
+<p>when other is destroyed, the nodes (other.next) is not destroyed with it.</p>
+
+<p>Similarly:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Node m;
+<span class="pl-c1">2</span> m = addOne(n); <span class="pl-c">// assignment from temporary</span>
+<span class="pl-c1">3</span> 
+<span class="pl-c1">4</span> <span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">5</span>     ...
+<span class="pl-c1">6</span>     Node &amp;<span class="pl-k">operator</span>= (Node &amp;&amp;other) {
+<span class="pl-c1">7</span>         <span class="pl-c">// steal other's data</span>
+<span class="pl-c1">8</span>         <span class="pl-c">// destroy my old data</span>
+<span class="pl-c1">9</span>         <span class="pl-k">using</span> std::swap;
+<span class="pl-c1">10</span>        <span class="pl-c1">swap</span>(data, other.<span class="pl-smi">data</span>);
+<span class="pl-c1">11</span>        <span class="pl-c1">swap</span>(next, other.<span class="pl-smi">data</span>);
+<span class="pl-c1">12</span>        <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">13</span>     }
+<span class="pl-c1">14</span> };</pre></div>
+
+<p>temp will be destroyed and take our old data with it</p>
+
+<p>if you don’t define move ctor/move assign, the copy reversion will be used</p>
+
+<p>if the move version is are defined, they replace to the copy versions where the arguments is a temporary (rvalue)</p>
+
+<h3>
+<a id="user-content-copymove-elision" class="anchor" href="#copymove-elision" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copy/Move Elision</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Vec <span class="pl-en">makeAVec</span>() {<span class="pl-k">return</span> {<span class="pl-c1">0</span>,<span class="pl-c1">0</span>};} <span class="pl-c">// basic ctor</span>
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> Vec v = makeAVec(); <span class="pl-c">// what runs? copy ctor? move ctor?</span></pre></div>
+
+<p>in g++, just the basic ctor ran, no copy ctor, no move ctor</p>
+
+<p>in some circumstances, the compiler is allowed to skip calling copy/move ctors (but doesn’t have to)</p>
+
+<p>in this example: makeAVec writes its result ({0,0}) directly into the space occupied by v in the caller, rather than copy it later</p>
+
+<p>example:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">void</span> <span class="pl-en">doSomething</span> (Vec v) { } <span class="pl-c">// pass by value, copy ctor</span>
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-en">doSomething</span> (makeAVec());
+<span class="pl-c1">4</span> <span class="pl-c">// result of makeAVec written directly into param, no copy</span></pre></div>
+
+<p>this is allows, even if it would change the behavior of the program (e.g. if ctor print things)</p>
+
+<p>you don’t have to know exactly when copy/move elision is allows, just that it is allowed</p>
+
+<p>if you need all of the ctors to run,
+<code>g++14 -fno-elide-constructors</code></p>
+
+<p>but this can slow down your program considerably</p>
+
+<p>in summary, rule of five: if you need a customer version of any one of</p>
+
+<ul>
+<li>  copy ctor</li>
+<li>  copy assign</li>
+<li>  dtor</li>
+<li>  move ctor</li>
+<li>  move assign</li>
+</ul>
+
+<p>then you usually need a custom version of all 5</p>
+
+<p>Note: <code>operator=</code> is a member function, not standalone</p>
+
+<p>when an operator is a member function, this plays a role of the LHS operand</p>
+
+<p>e.g.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span>     
+<span class="pl-c1">4</span>     Vec <span class="pl-k">operator</span>+ (<span class="pl-k">const</span> Vec &amp;v) {
+<span class="pl-c1">5</span>         <span class="pl-k">return</span> {x+v.<span class="pl-smi">x</span>, y+v.<span class="pl-smi">y</span>};
+<span class="pl-c1">6</span>     }
+<span class="pl-c1">7</span>     
+<span class="pl-c1">8</span>     Vec <span class="pl-k">operator</span>* (<span class="pl-k">const</span> <span class="pl-k">int</span> k) {
+<span class="pl-c1">9</span>         <span class="pl-k">return</span> {x*k, y*k}; <span class="pl-c">// implements v*k</span>
+<span class="pl-c1">10</span>     }
+<span class="pl-c1">11</span>     
+<span class="pl-c1">12</span> };</pre></div>
+
+<p>how do we implement k*v, can’t be a member, must be a non-member (as before)</p>
+
+<h3>
+<a id="user-content-io-operators" class="anchor" href="#io-operators" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I/O operators:</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     ostream &amp;<span class="pl-k">operator</span>&lt;&lt; (ostream &amp;out) {
+<span class="pl-c1">3</span>         <span class="pl-k">return</span> out&lt;&lt;x&lt;&lt;<span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span>&lt;&lt;y;
+<span class="pl-c1">4</span>     }
+<span class="pl-c1">5</span> };</pre></div>
+
+<p>what's wrong with this? <code>v &lt;&lt; cout</code></p>
+
+<p>so define <code>&lt;&lt;</code> <code>&gt;&gt;</code> as standalone function</p>
+
+<p>certain operators must be members</p>
+
+<ul>
+<li>  <code>operator =</code>
+</li>
+<li>  <code>operator []</code>
+</li>
+<li>  <code>operator -&gt;</code>
+</li>
+<li>  <code>operator ()</code>
+</li>
+<li>  <code>operator T (where T is a type)</code>
+</li>
+</ul>
+
+<h3>
+<a id="user-content-arrays-and-objects" class="anchor" href="#arrays-and-objects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays and Objects</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span>     Vec (<span class="pl-k">int</span> x, <span class="pl-k">int</span> y):
+<span class="pl-c1">4</span>         x {x}, y {y} {}
+<span class="pl-c1">5</span> };
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-c">// WRONG:</span>
+<span class="pl-c1">8</span> Vec *vp = <span class="pl-k">new</span> Vec[<span class="pl-c1">10</span>];
+<span class="pl-c1">9</span> Vec moreVec[<span class="pl-c1">15</span>];</pre></div>
+
+<p>must be initialized individual , wants to call default ctor on each item, there isn't one, can't initialize.</p>
+
+<p>Options:</p>
+
+<ol>
+<li>Provide a default ctor</li>
+<li>For stack array:
+<code>Vec moreVecs[3] = {{0,0} {1,3} {2,4}};</code>
+</li>
+<li>For heap arrays: create an array of ptrs
+<code>Vec **moreVec = new Vec*[3]</code>
+</li>
+</ol>
+
+<h3>
+<a id="user-content-separate-compilation-for-classes" class="anchor" href="#separate-compilation-for-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Separate Compilation for Classes</h3>
+
+<p>Node.h</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#ifndef _NODE_H_
+<span class="pl-c1">2</span> #define _NODE_H_
+<span class="pl-c1">3</span> 
+<span class="pl-c1">4</span> <span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">5</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">6</span>     Node *next;
+<span class="pl-c1">7</span>     
+<span class="pl-c1">8</span>     <span class="pl-k">explicit</span> <span class="pl-en">Node</span> (<span class="pl-k">int</span> d, Node *n = <span class="pl-v">nullptr</span>);
+<span class="pl-c1">9</span>     Node (<span class="pl-k">const</span> Node &amp;n);
+<span class="pl-c1">10</span> };
+<span class="pl-c1">11</span> 
+<span class="pl-c1">12</span> #endif</pre></div>
+
+<p>Node.cc</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#include <span class="pl-s"><span class="pl-pds">"</span>Node.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-en">Node::Node</span> (<span class="pl-k">int</span> data, Node *next):
+4     data {data}, next {next} {}
+<span class="pl-c1">5</span> 
+<span class="pl-c1">6</span> <span class="pl-en">Node::Node</span> (<span class="pl-k">const</span> Node &amp;n):
+7     data {n.<span class="pl-smi">data</span>}, next {...} {}</pre></div>
+
+<p><code>::</code> called the scope resolution operator
+Node:: means in the context of struct Node, the LHS is a class, not an object</p>
+
+<h3>
+<a id="user-content-const-object" class="anchor" href="#const-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Const Object</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">f</span> (<span class="pl-k">const</span> Node &amp;n) { ... }
+<span class="pl-c1">2</span> <span class="pl-c">// arise often, especially as params</span></pre></div>
+
+<p>what is a const object? can't change its fields</p>
+
+<p>can we call methods on a <code>const</code> object?</p>
+
+<p>yes, can call methods that promise not to modify fields</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">float</span> <span class="pl-en">grade</span>() <span class="pl-k">const</span>;
+<span class="pl-c1">3</span> };</pre></div>
+
+<p>doesn't modify fields, compiler checks that <code>const</code> methods don’t modify fields, only <code>const</code> methods can be called on <code>const</code> objects</p>
+
+<p>want to collect usage stats on student objects.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Studnet</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> numCalls = <span class="pl-c1">0</span>;
+<span class="pl-c1">3</span>     <span class="pl-k">float</span> <span class="pl-en">Grade</span> () { <span class="pl-c">// not can't call on const students</span>
+<span class="pl-c1">4</span>         ++ numCalls; <span class="pl-c">// changing numCallsaffects the physical constness</span>
+<span class="pl-c1">5</span>         <span class="pl-c">// i.e. bit patter of the obj, but not logical constness</span>
+<span class="pl-c1">6</span>     }
+<span class="pl-c1">7</span> };</pre></div>
+
+<p>want to be able to update some fields even if the object is const, declare the field mutable</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Studnet</span>
+<span class="pl-c1">2</span>     <span class="pl-k">mutable</span> <span class="pl-k">int</span> numCalls = <span class="pl-c1">0</span>;
+<span class="pl-c1">3</span>     <span class="pl-k">float</span> <span class="pl-en">grade</span>() <span class="pl-k">const</span> {
+<span class="pl-c1">4</span>         ++ numCalls;
+<span class="pl-c1">5</span>         <span class="pl-k">return</span> <span class="pl-c1">100</span>;
+<span class="pl-c1">6</span>     }
+<span class="pl-c1">7</span> };</pre></div>
+
+<h3>
+<a id="user-content-lecture-11" class="anchor" href="#lecture-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 11</h3>
+
+<p>recall</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Struct Student {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> assns, mt, final;
+<span class="pl-c1">3</span>     <span class="pl-k">mutable</span> <span class="pl-k">int</span> numMethodCalls = <span class="pl-c1">0</span>;
+<span class="pl-c1">4</span>     <span class="pl-k">float</span> <span class="pl-smi">grade</span>() <span class="pl-k">const</span> {
+<span class="pl-c1">5</span>         ++ numMethodCalls;
+<span class="pl-c1">6</span>         <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+<span class="pl-c1">7</span>     }
+<span class="pl-c1">8</span> };</pre></div>
+
+<h3>
+<a id="user-content-static-field--method" class="anchor" href="#static-field--method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static Field &amp; Method</h3>
+
+<p><code>numMethodCalls</code> track # times a method was called a particular object</p>
+
+<p>what if we want to track the # times a method is called over all student objects</p>
+
+<p>or what if we want to track how many students are created</p>
+
+<h3>
+<a id="user-content-static-members" class="anchor" href="#static-members" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static Members</h3>
+
+<p>associated with the class itself, not with any particular object</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span>     <span class="pl-k">static</span> <span class="pl-k">int</span> numInstances;
+<span class="pl-c1">4</span>     Student() {
+<span class="pl-c1">5</span>         numInstances++;
+<span class="pl-c1">6</span>     }
+<span class="pl-c1">7</span> };</pre></div>
+
+<p><code>int Student::numInstances = 0; // in .cc file</code></p>
+
+<ul>
+<li>  static fields must be defined external to the class</li>
+</ul>
+
+<h3>
+<a id="user-content-static-methods" class="anchor" href="#static-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>static methods</h3>
+
+<ul>
+<li>  don’t depend on a specific instance</li>
+<li>  can only access static fields &amp; call other static methods</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">static</span> <span class="pl-k">int</span> numInstances;
+<span class="pl-c1">3</span>     <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">printNumInstances</span>(){
+<span class="pl-c1">4</span>         cout &lt;&lt; numInstances &lt;&lt; endl;
+<span class="pl-c1">5</span>     }
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> Student billy;
+<span class="pl-c1">9</span> Student jane;
+<span class="pl-c1">10</span> <span class="pl-en">Student::printNumInstances</span>();</pre></div>
+
+<h3>
+<a id="user-content-invariants-and-encapsulation" class="anchor" href="#invariants-and-encapsulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Invariants and Encapsulation</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">3</span>     Node *next;
+<span class="pl-c1">4</span>     Node (<span class="pl-k">int</span> d, Node *n);
+<span class="pl-c1">5</span>     <span class="pl-en">~Node</span>(){ <span class="pl-k">delete</span> next;}
+<span class="pl-c1">6</span> }<span class="pl-ii"></span>
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> Node n1 {<span class="pl-c1">1</span>, <span class="pl-k">new</span> Node {<span class="pl-c1">2</span>, <span class="pl-v">nullptr</span>}};
+<span class="pl-c1">9</span> Node n2 {<span class="pl-c1">2</span>, <span class="pl-v">nullptr</span>};
+<span class="pl-c1">10</span> Node n3 {<span class="pl-c1">4</span>, &amp;n2};</pre></div>
+
+<p>what happens when these go out of scope?</p>
+
+<p>n1 - dtor runs, list is deleted, ok</p>
+
+<p>n2 n3 go out of scope, n3's dtor attempts to delete n2</p>
+
+<p>but n2 is on the stack, not on the heap, undefined behavior</p>
+
+<p>class Node relies on an assumption to proper operation that next is either nullptr or a valid ptr to the heap</p>
+
+<p>this is an invariant - a statement that holds true - that next is either nullptr or valid heap ptr - upon which Node relies. but we can't guarantee this invariant - no control over the user - can't guarantee any invariant</p>
+
+<p>e.g. a stack - invariant - last item pushed is first item popped</p>
+
+<ul>
+<li>  but not if the client can manipulate the underlying data</li>
+</ul>
+
+<p>hard to reason about programs if you can't rely on invariants</p>
+
+<p>introduce encapsulation, want clients to treat objects as black boxes - capsules</p>
+
+<ul>
+<li>  implementation details sealed away</li>
+<li>  can only interact via provided methods</li>
+<li>  creates an abstraction, regains control over our objects</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     Vec (<span class="pl-k">int</span> x, <span class="pl-k">int</span> y);
+<span class="pl-c1">3</span> <span class="pl-k">private:</span>
+<span class="pl-c1">4</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">5</span> <span class="pl-k">public:</span>
+<span class="pl-c1">6</span>     Vec <span class="pl-k">operator</span>+ (<span class="pl-k">const</span> Vec &amp;v);
+<span class="pl-c1">7</span> }<span class="pl-ii"></span></pre></div>
+
+<p>public: anyone can see</p>
+
+<p>private: can only be accessed inside class Vec</p>
+
+<p>default visibility in struct - public</p>
+
+<p>in general want field to be private, only method should be public</p>
+
+<p>better to have default visibility - private</p>
+
+<p>switch from struct to class</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     Vec (<span class="pl-k">int</span> x, <span class="pl-k">int</span> y);
+<span class="pl-c1">5</span>     Vec <span class="pl-k">operator</span>+ (<span class="pl-k">const</span> Vec &amp;v);
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>different between struct and class is default visibility</p>
+
+<p>public in struct, private in class</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// list.h</span>
+<span class="pl-c1">2</span> <span class="pl-k">class</span> <span class="pl-en">List</span> {
+<span class="pl-c1">3</span>     <span class="pl-k">struct</span> <span class="pl-en">Node</span>; <span class="pl-c">// private nested class, only accessible within List</span>
+<span class="pl-c1">4</span>     Node *theList = <span class="pl-v">nullptr</span>;
+<span class="pl-c1">5</span> <span class="pl-k">public:</span>
+<span class="pl-c1">6</span>     <span class="pl-k">void</span> <span class="pl-en">addToFront</span> (<span class="pl-k">int</span> n);
+<span class="pl-c1">7</span>     <span class="pl-k">int</span> <span class="pl-en">ith</span> (<span class="pl-k">int</span> i);
+<span class="pl-c1">8</span>     <span class="pl-en">~List</span>();
+<span class="pl-c1">9</span> };
+<span class="pl-c1">10</span> 
+<span class="pl-c1">11</span> <span class="pl-c">// list.cc</span>
+<span class="pl-c1">12</span> #include <span class="pl-s"><span class="pl-pds">"</span>list.h<span class="pl-pds">"</span></span>
+<span class="pl-c1">13</span> 
+<span class="pl-c1">14</span> <span class="pl-k">struct</span> <span class="pl-en">List</span>::Node {
+<span class="pl-c1">15</span>     <span class="pl-k">int</span> data;
+<span class="pl-c1">16</span>     Node *next;
+<span class="pl-c1">17</span>     Node (<span class="pl-k">int</span> d, Node *n){}
+<span class="pl-c1">18</span>     <span class="pl-en">~Node</span>(){<span class="pl-k">delete</span> next};
+<span class="pl-c1">19</span> };
+<span class="pl-c1">20</span> 
+<span class="pl-c1">21</span> <span class="pl-k">void</span> <span class="pl-en">List::addToFront</span> (<span class="pl-k">int</span> n) {
+<span class="pl-c1">22</span>     theList = <span class="pl-k">new</span> Node {n, theList};
+<span class="pl-c1">23</span> }
+<span class="pl-c1">24</span> 
+<span class="pl-c1">25</span> <span class="pl-k">int</span> <span class="pl-en">List::ith</span> (<span class="pl-k">int</span> i) {
+<span class="pl-c1">26</span>     Node *cur = theList;
+<span class="pl-c1">27</span>     <span class="pl-k">for</span> (<span class="pl-k">int</span> n=<span class="pl-c1">0</span>;n&lt;i &amp;&amp; cur; ++n, cur=cur-&gt;next);
+<span class="pl-c1">28</span>     <span class="pl-k">return</span> cur-&gt;data;
+<span class="pl-c1">29</span> }
+<span class="pl-c1">30</span> 
+<span class="pl-c1">31</span> <span class="pl-en">List::~List</span>(){<span class="pl-k">delete</span> the List;}</pre></div>
+
+<p>only List can create/manipulate Node objects,</p>
+
+<p>can guarantee the invariant the next is always nullptr or a valid heap pointer</p>
+
+<p>but now we can’t traverse the list from node to node as would a liked list</p>
+
+<p>repeatedly calling ith to access the whole list is O(n^2) time</p>
+
+<p>but we can't expose the nodes or we lose encapsulation</p>
+
+<h3>
+<a id="user-content-se-topic-design-patterns" class="anchor" href="#se-topic-design-patterns" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SE topic: design patterns</h3>
+
+<p>certain problems arise frequently
+keep track of good solutions, use them in similar situations</p>
+
+<p>iterator pattern</p>
+
+<p>create a class that manages access to Nodes</p>
+
+<p>abstraction of a pointer</p>
+
+<p>walk the list without exposing the actual pointers</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">List</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">struct</span> <span class="pl-en">Node</span>;
+<span class="pl-c1">3</span>     Node *theList;
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     <span class="pl-k">class</span> <span class="pl-en">Iterator</span> {
+<span class="pl-c1">6</span>         Node *p;
+<span class="pl-c1">7</span>     <span class="pl-k">public:</span>
+<span class="pl-c1">8</span>         <span class="pl-k">explicit</span> <span class="pl-en">Iterator</span>(Node *p):p{p}{}
+<span class="pl-c1">9</span>         <span class="pl-k">int</span> &amp;<span class="pl-k">operator</span>* {<span class="pl-k">return</span> p-&gt;data;}
+<span class="pl-c1">10</span>         Iterator &amp;<span class="pl-k">operator</span>++() {
+<span class="pl-c1">11</span>             p=p-&gt;next;
+<span class="pl-c1">12</span>             <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">13</span>         }
+<span class="pl-c1">14</span>         <span class="pl-k">bool</span> <span class="pl-k">operator</span>== (<span class="pl-k">const</span> Iterator &amp;other) {
+<span class="pl-c1">15</span>             <span class="pl-k">return</span> p==other.<span class="pl-smi">p</span>;
+<span class="pl-c1">16</span>         }
+<span class="pl-c1">17</span>         <span class="pl-k">bool</span> <span class="pl-k">operator</span>!= (<span class="pl-k">const</span> Iterator &amp;other) {
+<span class="pl-c1">18</span>             <span class="pl-k">return</span> p!=other.<span class="pl-smi">p</span>;
+<span class="pl-c1">19</span>         }
+<span class="pl-c1">20</span>     };
+<span class="pl-c1">21</span>     
+<span class="pl-c1">22</span>     Iterator <span class="pl-en">begin</span>() { <span class="pl-k">return</span> <span class="pl-c1">Iterator</span> (theList); }
+<span class="pl-c1">23</span>     Iterator <span class="pl-en">end</span>() { <span class="pl-k">return</span> <span class="pl-c1">Iterator</span> (<span class="pl-v">nullptr</span>); }
+<span class="pl-c1">24</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// client:</span>
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> <span class="pl-k">int</span> <span class="pl-en">main</span> () {
+<span class="pl-c1">4</span>     List l;
+<span class="pl-c1">5</span>     l.<span class="pl-c1">addToFront</span>(<span class="pl-c1">1</span>);
+<span class="pl-c1">6</span>     l.<span class="pl-c1">addToFront</span>(<span class="pl-c1">2</span>);
+<span class="pl-c1">7</span>     l.<span class="pl-c1">addToFront</span>(<span class="pl-c1">3</span>);
+<span class="pl-c1">8</span>     <span class="pl-k">for</span> (List::Iterator it=l.<span class="pl-c1">begin</span>(); it != l.<span class="pl-c1">end</span>(); it++) {
+<span class="pl-c1">9</span>         cout &lt;&lt; *it &lt;&lt; endl;
+<span class="pl-c1">10</span>     }
+<span class="pl-c1">11</span> }</pre></div>
+
+<p>shortcut: automatic type deduction</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">auto</span> x = y; <span class="pl-c">// gives x the same type as y</span></pre></div>
+
+<p>alt:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> (<span class="pl-k">auto</span> it=l.begin(); …</pre></div>
+
+<p>shortcut</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> (<span class="pl-k">auto</span> n: l) { <span class="pl-c">// ranged based for loop</span>
+    cout &lt;&lt; n &lt;&lt; endl;
+}</pre></div>
+
+<p>available for any class with </p>
+
+<ul>
+<li>  methods begin, end that produce iterators</li>
+<li>  iterators must support  != ++ *</li>
+</ul>
+
+<p>if you want to modify the items in the list (or save copying)</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">for</span> (<span class="pl-k">auto</span> &amp;n : l) {
+<span class="pl-c1">2</span>     ++ n;
+<span class="pl-c1">3</span> }</pre></div>
+
+<h2>
+<a id="user-content-lecture-12" class="anchor" href="#lecture-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 12</h2>
+
+<p>Recall:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">List</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">struct</span> <span class="pl-en">Node</span>;
+<span class="pl-c1">3</span>     Node *theList;
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     <span class="pl-k">class</span> <span class="pl-en">Iterator</span> {
+<span class="pl-c1">6</span>         Node *p;
+<span class="pl-c1">7</span>     <span class="pl-k">public:</span>
+<span class="pl-c1">8</span>         <span class="pl-k">explicit</span> <span class="pl-en">Iterator</span> (Node *p);
+<span class="pl-c1">9</span>     };
+<span class="pl-c1">10</span>     
+<span class="pl-c1">11</span>     Iterator <span class="pl-en">begin</span>() {<span class="pl-k">return</span> Iterator{theList};}
+<span class="pl-c1">12</span>     Iterator <span class="pl-en">end</span>() {<span class="pl-k">return</span> Iterator{<span class="pl-v">nullptr</span>};}
+<span class="pl-c1">13</span> };</pre></div>
+
+<p>But List client can create iterators directly</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">auto</span> it = List::Iterator (<span class="pl-v">nullptr</span>};</pre></div>
+
+<p>violates encapsulation - client should be called begin/end</p>
+
+<p>we would </p>
+
+<ul>
+<li>  make Iterator's ctor private </li>
+<li>then client can’t call List::Iterator</li>
+<li>but then neither can List</li>
+<li>  solution: give List privileged access to Iterator - make it a <code>friend</code>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">List</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     <span class="pl-k">class</span> <span class="pl-en">Iterator</span> {
+<span class="pl-c1">5</span>         Node *p;
+<span class="pl-c1">6</span>         <span class="pl-k">explicit</span> <span class="pl-en">Iterator</span> (Node *p);
+<span class="pl-c1">7</span>     <span class="pl-k">public:</span>
+<span class="pl-c1">8</span>         ...
+<span class="pl-c1">9</span>         <span class="pl-k">friend</span> <span class="pl-k">class</span> <span class="pl-en">List</span>;
+<span class="pl-c1">10</span>     };
+<span class="pl-c1">11</span>     ...
+<span class="pl-c1">12</span> };</pre></div>
+
+<p>Now, List can still create iterators, but client can only create iterators by calling begin/end</p>
+
+<p>Give your classes as few friends as possible (weakens encapsulation)</p>
+
+<p>Once again, keep fields private,</p>
+
+<p>What if you want to give clients access to fields? Use accessors/mutator (getter/setter) method</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     <span class="pl-k">int</span> <span class="pl-en">getX</span>() <span class="pl-k">const</span> { <span class="pl-k">return</span> x;}
+<span class="pl-c1">5</span>     <span class="pl-k">void</span> <span class="pl-en">setY</span>(<span class="pl-k">int</span> newY) {y = newY;}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>What about operator <code>&lt;&lt;</code>? needs <code>x</code> &amp; <code>y</code>, but can’t be a member function. If <code>getX</code> and <code>getY</code> defined, it is okay</p>
+
+<p>but if you don’t want to provide getX, getY, make <code>operator&lt;&lt;</code> a friend function</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// .h</span>
+<span class="pl-c1">2</span> <span class="pl-k">class</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">3</span>     ...
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     ...
+<span class="pl-c1">6</span>     <span class="pl-k">friend</span> std::ostream &amp;<span class="pl-k">operator</span>&lt;&lt; (std::ostream &amp;out, <span class="pl-k">const</span> Vec &amp;v);
+<span class="pl-c1">7</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// .cc</span>
+<span class="pl-c1">2</span> ostream &amp;<span class="pl-k">operator</span>&lt;&lt; (ostream &amp;out, <span class="pl-k">const</span> Vec &amp;v) {
+<span class="pl-c1">3</span>     <span class="pl-k">return</span> out &lt;&lt; v.<span class="pl-smi">x</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> &lt;&lt; v.<span class="pl-smi">y</span> &lt;&lt; endl;
+<span class="pl-c1">4</span> }</pre></div>
+
+<h3>
+<a id="user-content-tool-topic-make" class="anchor" href="#tool-topic-make" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tool Topic Make:</h3>
+
+<p>Separate compilation:</p>
+
+<div class="highlight highlight-source-shell"><pre>g++14 -c list.cc
+g++14 -c node.cc
+g++14 -c iter.cc
+g++14 -c main.cc
+g++14 main.o iter.o node.o list.o -o myprogram</pre></div>
+
+<p>why do we do this? so we don’t have to recompile files that haven't changed.</p>
+
+<p>but how do we keep track of what’s changed &amp; what hasn't Let Linux help you with - make</p>
+
+<p>Create a Makefile that says which files depend on which other files</p>
+
+<pre><code>myprogra: main.o list.o node.o iter.o
+    g++-5 -std=c++14 main.o list.o node.o iter.o -o myprogram
+
+list.o: list.cc list.h node.h
+    g++-5 -std=c++14 -c list.cc
+
+node.o: node.cc node.h list.h
+    g++-5 -std=c++14 -c node.cc
+
+iter.o : iter.cc list.h
+    g++-5 -std=c++14 -c iter.cc
+
+main.o: main.cc list.h
+    g++-5 -std=c++14 -c main.cc
+</code></pre>
+
+<p>then from the command list: </p>
+
+<div class="highlight highlight-source-shell"><pre>make
+    - builds the whole project
+
+now, change iter.cc
+make
+    - recompiles iter.cc
+    - relinks myprogram</pre></div>
+
+<p>Command make - builds the first target (myprogram) in the Makefile</p>
+
+<p>what does my target depend on? <code>main.o list.o …</code></p>
+
+<p>recursively build these, if necessary</p>
+
+<p>common practice: put a target clean: at the bottom of the Makefile to remove all binaries</p>
+
+<pre><code>…
+.PHONY: clean
+
+clean:
+    rm *.o myprogram
+</code></pre>
+
+<p>generalize with variables</p>
+
+<pre><code>CXX = g++-5 (complier's name)
+CXXFLAGS = -std=c++14 -Wall (options for the compiler
+</code></pre>
+
+<p>e.g.</p>
+
+<pre><code>iter.o: iter.cc iter.h
+    ${CXX} ${XXFLAGS} -c iter.cc
+</code></pre>
+
+<p>shortcut: for any rule of the form</p>
+
+<p><code>x.o: x.cc a.h …</code></p>
+
+<p>can leave out the build command, make guesses that the build command is <code>${CXX} ${CXXFLAGS} -c x.cc -o x.o</code></p>
+
+<p>biggest problem with writing  Makefiles</p>
+
+<ul>
+<li>  writing dependencies</li>
+<li>  and maintaining them if they change</li>
+</ul>
+
+<p>can get help from g++</p>
+
+<div class="highlight highlight-source-shell"><pre>g++14 -MMD -c iter.cc</pre></div>
+
+<ul>
+<li>  creates iter.o and iter.d</li>
+<li>  now just include this in the Makefile</li>
+</ul>
+
+<pre><code>CXX = g++-5
+CXXFLAGS = -std=c++14 -Wall -MMD
+OBJECTS = main.o list.o iter.o node.o
+DEPENDS = ${OBJECTS: .o=.d}
+
+${EXEC}: ${OBJECTS}
+    ${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC}
+
+-include ${DEPENDS}
+</code></pre>
+
+<p>as the project expands just add .o files in the Makefile</p>
+
+<h3>
+<a id="user-content-system-modelling" class="anchor" href="#system-modelling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Modelling</h3>
+
+<p>Building an 00 system involves identifying obstruction and formalizing the relationships among them</p>
+
+<p>helps to map out relationships</p>
+
+<p>popular standard: UML (Unified Modelling Language)</p>
+
+<p>Modelling a class</p>
+
+<table>
+<thead>
+<tr>
+<th>Vec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-x: Integer</td>
+</tr>
+<tr>
+<td>-x: Integer</td>
+</tr>
+<tr>
+<td>+getX: Integer</td>
+</tr>
+<tr>
+<td>+getY: Integer</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>- private</td>
+</tr>
+<tr>
+<td>+ public</td>
+</tr>
+</tbody>
+</table>
+
+<p>relationship: composition</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Vec</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     Vec (<span class="pl-k">int</span> x, <span class="pl-k">int</span> y);
+<span class="pl-c1">5</span> };
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-k">class</span> <span class="pl-en">Basis</span> {
+<span class="pl-c1">8</span>     Vec v1, v2;
+<span class="pl-c1">9</span> };
+<span class="pl-c1">10</span> 
+<span class="pl-c1">11</span> Basis b; <span class="pl-c">// WRONG can't initialize v1, v2</span>
+<span class="pl-c1">12</span> <span class="pl-c">// default ctor for b calls default ctor for v1, v2 which don't exist</span>
+<span class="pl-c1">13</span> 
+<span class="pl-c1">14</span> <span class="pl-k">class</span> <span class="pl-en">Basis</span> {
+<span class="pl-c1">15</span>     Vec v1, v2;
+<span class="pl-c1">16</span> <span class="pl-k">public:</span>
+<span class="pl-c1">17</span>     Basis(): v1{<span class="pl-c1">1</span>,<span class="pl-c1">0</span>}, v2{<span class="pl-c1">0</span>,<span class="pl-c1">1</span>}{}
+<span class="pl-c1">18</span> };</pre></div>
+
+<p>embedding one obj(v1) into another (b) - called composition</p>
+
+<p>relationship between basis and vec is called "owns-a"
+A basis owns two vecs</p>
+
+<p>If A owns a B, then typically:</p>
+
+<ul>
+<li>  B has no identity outside of A</li>
+<li>  if A is destroyed, B is destroyed</li>
+<li>  if A is copied, B is copied</li>
+</ul>
+
+<h2>
+<a id="user-content-lecture-13" class="anchor" href="#lecture-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 13</h2>
+
+<p>If A "owns" B, then typically</p>
+
+<ul>
+<li>  B has no identity outside of A (B is part of A)</li>
+<li>  A destroyed =&gt; B destroyed</li>
+<li>  A copied =&gt; B copied  (deep copies)</li>
+</ul>
+
+<p>Implementation: usually as composition of classes</p>
+
+<p>Means A owns some number of B</p>
+
+<p>Can annotate with multiplicities, field names, etc.</p>
+
+<h3>
+<a id="user-content-aggregation" class="anchor" href="#aggregation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Aggregation</h3>
+
+<p>Compare parts in a car ("owns a") vs car parts in a catalogue.</p>
+
+<p>The catalogue contains the parts, but the parts have an independent existence.</p>
+
+<p>This is a "has a" (aggregation) relationship</p>
+
+<p>If A has a B, then typically,</p>
+
+<ul>
+<li>  B has an existence apart from its association with A</li>
+<li>  If A is destroyed, B lives on</li>
+<li>  If A is copied, B is not (shallow copies), copies of A share the same B</li>
+</ul>
+
+<p>e.g. Parts in a catalogue, ducks in a pond</p>
+
+<p>Typical implementation: pointer fields</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Pond</span> {
+<span class="pl-c1">2</span>     Duck *ducks;
+<span class="pl-c1">3</span> };</pre></div>
+
+<h3>
+<a id="user-content-specialization--generalization-inheritance" class="anchor" href="#specialization--generalization-inheritance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specialization / Generalization (Inheritance)</h3>
+
+<p>Suppose you want to track your collection of books</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     String title, author;
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     Book(...){}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>For textbooks, also want the topic</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Text</span> {
+<span class="pl-c1">2</span>     string title, author;
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">4</span>     string topic;
+<span class="pl-c1">5</span> <span class="pl-k">public:</span> Text (){}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>For comic books, want the hero</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Comic</span> {
+<span class="pl-c1">2</span>     string title, author;
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">4</span>     string hero;
+<span class="pl-c1">5</span> public : Comic(){}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>This is ok, but it does not capture any relationships among books, text, comic.</p>
+
+<p>And how do we create an array (or other collection) with a mixture of these?</p>
+
+<p>Could:</p>
+
+<ul>
+<li>  Use a Union</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">union</span> BookTypes {Book *b, Text *t, Comic *c};
+<span class="pl-c1">2</span> BookTypes myBooks[<span class="pl-c1">20</span>];</pre></div>
+
+<p>But does not know which is which</p>
+
+<ul>
+<li>  Array of void *
+Both solutions subvert the type system</li>
+</ul>
+
+<p>Rather, observe, text and comics are kinds of books, books with extra features.</p>
+
+<p>C++ model with inheritance</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> { <span class="pl-c">// Base class or superclass</span>
+<span class="pl-c1">2</span>     string title, author;
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     Book() {}
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> { <span class="pl-c">// derived class, subclasses</span>
+<span class="pl-c1">9</span>     string topic;
+<span class="pl-c1">10</span> <span class="pl-k">public:</span>
+<span class="pl-c1">11</span>     Text () {}
+<span class="pl-c1">12</span> };
+<span class="pl-c1">13</span> 
+<span class="pl-c1">14</span> <span class="pl-k">class</span> <span class="pl-en">Comic</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">15</span>     string hero;
+<span class="pl-c1">16</span> <span class="pl-k">public:</span>
+<span class="pl-c1">17</span>     Comic () {}
+<span class="pl-c1">18</span> };</pre></div>
+
+<p>Derived classes inherit fields and methods from the base class</p>
+
+<p>So Text, Comic get title, author numPages fields</p>
+
+<p>Any method that can be invoked on Book can be called on Text, Comic</p>
+
+<p>Who can see these members?</p>
+
+<p>Title, author, numPages - private in Book</p>
+
+<p>Can Text, comic see them? No - even subclasses can't see them</p>
+
+<p>How do we initialize Text?</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-c">// WRONG!!</span>
+<span class="pl-c1">2</span> <span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">3</span>     string topic;
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     Text (string title, string author, <span class="pl-k">int</span> numPages, string topic):
+<span class="pl-c1">6</span>         title{title}, author {author}, numPages {numPages}, topics {topics}
+<span class="pl-c1">7</span>     {}
+<span class="pl-c1">8</span> };</pre></div>
+
+<p>Wrong for two reasons</p>
+
+<ul>
+<li>   Title etc are not accessible to Text</li>
+<li>  Once again, when an object B constructed
+
+<ul>
+<li>  Space is allocated</li>
+<li>  Superclass part is constructed</li>
+<li>  Fields are constructed</li>
+<li>  Ctor body runs
+And (b) doesn’t work, Book has no default ctor</li>
+</ul>
+</li>
+</ul>
+
+<p>Fix: invoke <code>Book</code>'s ctor in <code>Text</code>'s member initialization list (MIL)</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     string topic;
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     Text (string title, string author, <span class="pl-k">int</span> numPages, string topics)
+<span class="pl-c1">5</span>         : Book {title, author, numPages}, topics {topic}{}
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>If the super class has no default ctor, subclass must invoke a Book ctor in its MIL</p>
+
+<p>Good reasons to keep superclass fields inaccessible to subclasses
+If you want to give subclasses access to certain members, use protected access:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span> <span class="pl-k">protected:</span> <span class="pl-c">// accessible to the book itself and its subclasses</span>
+<span class="pl-c1">3</span>     string title, author;
+<span class="pl-c1">4</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">5</span> <span class="pl-k">public:</span>
+<span class="pl-c1">6</span>     BookP(...);
+<span class="pl-c1">7</span> };</pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     ...
+<span class="pl-c1">5</span>     <span class="pl-k">void</span> <span class="pl-en">addAuthor</span>(string newAuthor) {
+<span class="pl-c1">6</span>         author += newAuthor;
+<span class="pl-c1">7</span>     }
+<span class="pl-c1">8</span> };</pre></div>
+
+<p>Not a good idea to give subclasses unlimited access to fields.</p>
+
+<p>Better make fields private, but provide protected accessors</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     stirng title, author;
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">4</span> <span class="pl-k">protected:</span>
+<span class="pl-c1">5</span>     string <span class="pl-en">getTitle</span> () <span class="pl-k">const</span>;
+<span class="pl-c1">6</span>     <span class="pl-k">void</span> <span class="pl-en">setAuthoer</span> (string newAuthor);
+<span class="pl-c1">7</span> <span class="pl-k">public:</span>
+<span class="pl-c1">8</span>     Book (...);
+<span class="pl-c1">9</span>     <span class="pl-k">bool</span> <span class="pl-en">isItHeavy</span> () <span class="pl-k">const</span>;
+<span class="pl-c1">10</span> };</pre></div>
+
+<p>Relationship among Book, Text, Comic is called "is a"</p>
+
+<p>Implement "is a" by public inheritance</p>
+
+<p>Now consider the method <code>isItHeavy</code> when is a book heavy</p>
+
+<p>For ordinary books: &gt; 200 pages</p>
+
+<p>For text &gt; 500 pages</p>
+
+<p>For comic &gt; 30 pages</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     ...
+<span class="pl-c1">5</span>     <span class="pl-k">bool</span> <span class="pl-en">isItHeavy</span> () <span class="pl-k">const</span> {<span class="pl-k">return</span> numPages &gt; <span class="pl-c1">200</span>; }
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">9</span>     ...
+<span class="pl-c1">10</span> <span class="pl-k">public:</span>
+<span class="pl-c1">11</span>     ...
+<span class="pl-c1">12</span>     <span class="pl-k">bool</span> <span class="pl-en">isItHeavy</span> () <span class="pl-k">const</span> {<span class="pl-k">return</span> numPages &gt; <span class="pl-c1">500</span>; }
+<span class="pl-c1">13</span> };
+<span class="pl-c1">14</span> 
+<span class="pl-c1">15</span> Book b {<span class="pl-s"><span class="pl-pds">"</span>A small book<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Papa smurf<span class="pl-pds">"</span></span>, <span class="pl-c1">50</span>};
+<span class="pl-c1">16</span> Comic c {<span class="pl-s"><span class="pl-pds">"</span>A big comic<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>, <span class="pl-c1">40</span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>};
+<span class="pl-c1">17</span> 
+<span class="pl-c1">18</span> cout &lt;&lt; b.isItHeavy() &lt;&lt; endl; <span class="pl-c">// false</span>
+<span class="pl-c1">19</span> cout &lt;&lt; c.isItHeavy() &lt;&lt; endl; <span class="pl-c">// true</span>
+<span class="pl-c1">20</span> 
+<span class="pl-c1">21</span> Book b = Comic {<span class="pl-s"><span class="pl-pds">"</span>A big comic<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>, <span class="pl-c1">40</span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>);
+<span class="pl-c1">22</span> 
+<span class="pl-c1">23</span> cout &lt;&lt; b.<span class="pl-c1">isItHeavy</span>() &lt;&lt; endl; <span class="pl-c">// ??</span></pre></div>
+
+<p>NO!!! B is not heavy. <code>Book::isItHeavy()</code> is what runs</p>
+
+<p><code>Book b = Comic {…}</code></p>
+
+<p>Tries to fit a comic object where there is only space for a book. Comic is sliced - hero field is chopped off, comic coerced into a book</p>
+
+<p>So Book <code>b = Comic {…}</code> converts a Comic into a Book and <code>Book::isItHeavy</code> runs</p>
+
+<p>When access objects through pointers,</p>
+
+<p>Slicing is unnecessary and does not occur.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Comic c {...,...,<span class="pl-c1">40</span>,...};
+<span class="pl-c1">2</span> 
+<span class="pl-c1">3</span> Book *pb = &amp;c;
+<span class="pl-c1">4</span> Comic *pc = &amp;c;
+<span class="pl-c1">5</span> 
+<span class="pl-c1">6</span> cout &lt;&lt; pc-&gt;<span class="pl-en">isItHeavy</span>(); <span class="pl-c">// true</span>
+<span class="pl-c1">7</span> cout &lt;&lt; pb-&gt;<span class="pl-en">isItHeavy</span>(); <span class="pl-c">// false</span></pre></div>
+
+<p>Still, <code>Book::isItHeavy()</code> runs when we access <code>pb-&gt;isItHeavy()</code></p>
+
+<p>Same object behaves different, depending on what type of ptr points to it.</p>
+
+<h2>
+<a id="user-content-lecture-14" class="anchor" href="#lecture-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 14</h2>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Comic c {...,...,<span class="pl-c1">40</span>,...};
+<span class="pl-c1">2</span> Book *pb = &amp;c;
+<span class="pl-c1">3</span> Comic *pc = &amp;c;
+<span class="pl-c1">4</span> 
+<span class="pl-c1">5</span> pc-&gt;<span class="pl-en">isItHeavy</span>() <span class="pl-c">// true</span>
+6 pc-&gt;isItHEavy() <span class="pl-c">// false</span></pre></div>
+
+<p>Compiler uses the typr of the ptr (or ref) to decide which isItHeavy to run.</p>
+
+<p>Does not consider the actual type of the object</p>
+
+<p>So a comic is only a comic if a comic ptr points at it.</p>
+
+<p>How do you make Comic act like a comic even when pointed at by a Book ptr?</p>
+
+<h3>
+<a id="user-content-declare-the-method-virtual" class="anchor" href="#declare-the-method-virtual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Declare the method virtual</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">protected:</span>
+<span class="pl-c1">4</span>     <span class="pl-k">int</span> numPages;
+<span class="pl-c1">5</span> <span class="pl-k">public:</span>
+<span class="pl-c1">6</span>     Book();
+<span class="pl-c1">7</span>     <span class="pl-k">virtual</span> book <span class="pl-en">isItHeavy</span>() <span class="pl-k">const</span>;
+<span class="pl-c1">8</span> };
+<span class="pl-c1">9</span> 
+<span class="pl-c1">10</span> <span class="pl-k">class</span> <span class="pl-en">Comic</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">11</span>     ...
+<span class="pl-c1">12</span> <span class="pl-k">public:</span>
+<span class="pl-c1">13</span>     <span class="pl-k">bool</span> <span class="pl-en">isItHeavy</span>() <span class="pl-k">override</span>;
+<span class="pl-c1">14</span> };
+<span class="pl-c1">15</span> 
+<span class="pl-c1">16</span> Comic c {...};
+<span class="pl-c1">17</span> Book *pb = &amp;c; <span class="pl-c">// true</span>
+<span class="pl-c1">18</span> Book &amp;rb = c; <span class="pl-c">// true</span>
+<span class="pl-c1">19</span> Comic *pc = c; <span class="pl-c">// true</span>
+<span class="pl-c1">20</span> Book b = c; <span class="pl-c">// false</span></pre></div>
+
+<p>Virtual methods - chosen based on the actual type of the object at runtime.</p>
+
+<p>Accommodates multiple types under one abstraction: <strong>polymorphism</strong> ("many forms")</p>
+
+<p>Note: this is why a function void f (istream &amp;in)
+Can be passed an ifsream - ifstream is a subclass of istream</p>
+
+<div class="highlight highlight-source-c++"><pre>DANGER
+<span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">One</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     One (<span class="pl-k">int</span> x=<span class="pl-c1">0</span>, <span class="pl-k">int</span> y=<span class="pl-c1">0</span>)
+<span class="pl-c1">5</span>         : x{x}, y{y} {}
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-k">class</span> <span class="pl-en">Two</span> : <span class="pl-k">public</span> <span class="pl-en">One</span> {
+<span class="pl-c1">9</span>     <span class="pl-k">int</span> z;
+<span class="pl-c1">10</span> <span class="pl-k">public:</span>
+<span class="pl-c1">11</span>     Two (<span class="pl-k">int</span> x=<span class="pl-c1">0</span>,<span class="pl-k">int</span> y=<span class="pl-c1">0</span>, <span class="pl-k">int</span> z=<span class="pl-c1">0</span>)
+<span class="pl-c1">12</span>         : One{x,y}, z{z} {}
+<span class="pl-c1">13</span> };
+<span class="pl-c1">14</span> 
+<span class="pl-c1">15</span> <span class="pl-k">void</span> <span class="pl-en">f</span> (One *a)
+16 {
+<span class="pl-c1">17</span>     a[<span class="pl-c1">0</span>] = {<span class="pl-c1">6</span>,<span class="pl-c1">7</span>};
+<span class="pl-c1">18</span>     a[<span class="pl-c1">1</span>] = {<span class="pl-c1">8</span>,<span class="pl-c1">9</span>};
+<span class="pl-c1">19</span> }
+<span class="pl-c1">20</span> 
+<span class="pl-c1">21</span> Two myArray[] = {{<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>},{<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>}};
+<span class="pl-c1">22</span> 
+<span class="pl-c1">23</span> <span class="pl-en">f</span>(myArray);
+myArray:
+<span class="pl-c1">123</span> <span class="pl-c1">456</span>
+
+myArray
+<span class="pl-c1">678</span> <span class="pl-c1">956</span></pre></div>
+
+<p>Never use arrays of objects polymorphically</p>
+
+<p>If you want polymorphism - array of ptrs</p>
+
+<p>Dtor revisited</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">X</span> {
+<span class="pl-c1">2</span>     <span class="pl-k">int</span> *x;
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     X (<span class="pl-k">int</span> n) : x{<span class="pl-k">new</span> <span class="pl-k">int</span>[n]} {}
+<span class="pl-c1">5</span>     <span class="pl-en">~X</span> () { <span class="pl-k">delete []</span> x; }
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> 
+<span class="pl-c1">8</span> <span class="pl-k">class</span> <span class="pl-en">Y</span> {
+<span class="pl-c1">9</span>     <span class="pl-k">int</span> *y;
+<span class="pl-c1">10</span> <span class="pl-k">public:</span>
+<span class="pl-c1">11</span>     Y (<span class="pl-k">int</span> m, <span class="pl-k">int</span> n) :X{n} y{<span class="pl-k">new</span> <span class="pl-k">int</span>[m]} {}
+<span class="pl-c1">12</span>     <span class="pl-en">~Y</span> () {<span class="pl-k">delete []</span> y;}
+<span class="pl-c1">13</span> };
+<span class="pl-c1">14</span> 
+<span class="pl-c1">15</span> <span class="pl-c">//USE valgrid to use detect leak</span></pre></div>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿X *myX = <span class="pl-k">new</span> Y {<span class="pl-c1">5</span>, <span class="pl-c1">10</span>};
+<span class="pl-c1">2</span> <span class="pl-k">delete</span> myXl</pre></div>
+
+<p>leaks memory!</p>
+
+<p>Calls <code>~X</code> but not <code>~Y</code></p>
+
+<p>So only x, but not y, is freed</p>
+
+<p>To ensure that deletion through a superclass ptr calls the subclass dtor - declare the dtor virtual</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">X</span>{
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     ...
+<span class="pl-c1">5</span>     <span class="pl-k">virtual</span> <span class="pl-en">~X</span>();
+<span class="pl-c1">6</span> };
+<span class="pl-c1">7</span> </pre></div>
+
+<p>ALWAYS make the dtor virtual in classes that are meant to be classes</p>
+
+<p>even if the virtual dtor does nothing</p>
+
+<p>If class is not meant to be subclass declare it final</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Y</span> final : public X {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> };</pre></div>
+
+<h3>
+<a id="user-content-pure-virtual-methods-abstraction-class" class="anchor" href="#pure-virtual-methods-abstraction-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pure virtual methods abstraction class</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span> <span class="pl-k">protected:</span>
+<span class="pl-c1">3</span>     <span class="pl-k">int</span> numCourses;
+<span class="pl-c1">4</span> <span class="pl-k">public:</span>
+<span class="pl-c1">5</span>     ...
+<span class="pl-c1">6</span>     <span class="pl-k">virtual</span> <span class="pl-k">int</span> <span class="pl-en">fees</span> () <span class="pl-k">const</span>;
+<span class="pl-c1">7</span> };
+<span class="pl-c1">8</span> 
+<span class="pl-c1">9</span> <span class="pl-c">// 2 kinds of students: regular &amp; coop</span>
+<span class="pl-c1">10</span> 
+<span class="pl-c1">11</span> <span class="pl-k">class</span> <span class="pl-en">Regular</span> : <span class="pl-k">public</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">12</span> <span class="pl-k">public:</span>
+<span class="pl-c1">13</span>     <span class="pl-k">int</span> <span class="pl-en">fees</span> () <span class="pl-k">const</span> <span class="pl-k">override</span>;
+<span class="pl-c1">14</span> };
+<span class="pl-c1">15</span> 
+<span class="pl-c1">16</span> <span class="pl-k">class</span> <span class="pl-en">CoOp</span> : <span class="pl-k">public</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">17</span> <span class="pl-k">public:</span>
+<span class="pl-c1">18</span>     <span class="pl-k">int</span> <span class="pl-en">fees</span> () <span class="pl-k">const</span> <span class="pl-k">override</span>;
+<span class="pl-c1">19</span> };</pre></div>
+
+<p>What do we put for <code>Student::fees</code>?</p>
+
+<p>Don’t know - every student should be regular or coop</p>
+
+<p>Can explicitly <code>give Student::fees</code> no implementation</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Student</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     <span class="pl-k">virtual</span> <span class="pl-k">int</span> <span class="pl-en">fees</span> () <span class="pl-k">const</span> = 0;
+<span class="pl-c1">5</span>     <span class="pl-c">// no implementation called a pure virtual method</span>
+<span class="pl-c1">6</span> };</pre></div>
+
+<p>A class with a pure virtual method cannot be instantiated
+Called an abstract class</p>
+
+<p><code>Student s; // not allows, purpose is to organize subclass</code></p>
+
+<p>Subclasses of abstract classes are abstract, unless they implement ALL pure virtual method.</p>
+
+<p>Non-abstract classes are called concrete classes.</p>
+
+<p>UML virtual &amp; pure virtual method: italics</p>
+
+<p>Abstract class - class name in italics, protected: #</p>
+
+<h3>
+<a id="user-content-inheritance-and-copymove" class="anchor" href="#inheritance-and-copymove" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inheritance and copy/move</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">2</span>     ...
+<span class="pl-c1">3</span> <span class="pl-k">public:</span>
+<span class="pl-c1">4</span>     <span class="pl-c">// defines all copy/move operations</span>
+<span class="pl-c1">5</span> };
+<span class="pl-c1">6</span> 
+<span class="pl-c1">7</span> <span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-c1">8</span>     ...
+<span class="pl-c1">9</span> <span class="pl-k">public:</span>
+<span class="pl-c1">10</span>     <span class="pl-c">// des not define copy / move operations</span>
+<span class="pl-c1">11</span> };
+<span class="pl-c1">12</span> 
+<span class="pl-c1">13</span> Text t {<span class="pl-s"><span class="pl-pds">"</span>Algorithms<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>CLRS<span class="pl-pds">"</span></span>, <span class="pl-c1">500</span>, <span class="pl-s"><span class="pl-pds">"</span>CS<span class="pl-pds">"</span></span>};
+<span class="pl-c1">14</span> Text t2 = t; <span class="pl-c">// no copy ctor in text - what happens?</span></pre></div>
+
+<ul>
+<li>  Calls Book's copy ctor</li>
+<li>  Then goes field-by-field (i.e. default behavior) for the Text part</li>
+<li>  Same for other operators</li>
+</ul>
+
+<p>To write your own:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿Text::Text (<span class="pl-k">const</span> Text &amp;other)
+<span class="pl-c1">2</span>     : Book {Text}, topic {other.<span class="pl-smi">topic</span>} {}
+<span class="pl-c1">3</span> 
+<span class="pl-c1">4</span> Text &amp;Text::<span class="pl-k">operator</span>= (<span class="pl-k">const</span> Text &amp;other) {
+<span class="pl-c1">5</span>     Book::<span class="pl-k">operator</span>= (other);
+<span class="pl-c1">6</span>     topic = other.<span class="pl-smi">topic</span>;
+<span class="pl-c1">7</span>     <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+<span class="pl-c1">8</span> }
+<span class="pl-c1">9</span> 
+<span class="pl-c1">10</span> <span class="pl-en">Text::Text</span> (Text &amp;&amp;other)
+11     : Book {<span class="pl-c1">std::move</span>(other)}, topic{<span class="pl-c1">std::move</span>(other)} {}
+<span class="pl-c1">12</span> 
+<span class="pl-c1">13</span> 
+<span class="pl-c1">14</span> Text &amp;Text::<span class="pl-k">operator</span>= (Text &amp;&amp;other) {
+<span class="pl-c1">15</span>     Book::<span class="pl-k">operator</span>= (<span class="pl-c1">std::move</span> (other));
+<span class="pl-c1">16</span>     topic = <span class="pl-c1">std::move</span>(other.<span class="pl-smi">topic</span>);
+<span class="pl-c1">17</span> }</pre></div>
+
+<p>Even though other points at an rvalue, other itself is an lvalue</p>
+
+<p><code>Std::move()</code> forces lvalue x to be treated as an rvalue, so that move version of operations run</p>
+</article></body></html>

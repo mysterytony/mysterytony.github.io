@@ -444,5 +444,349 @@ cout << i << endl;
 
 ## 2.7 Expression
 
+|   | C/C++ | Priority|
+|---|-------|---------|
+| postfix | `::` `.` `->` `[]` `call` `cast` | high |
+| prefix (unary) | `+` `-` `!` `~` `&` `*` `cast` `new` `delete` `sizeof` | |
+| binary | `*` `/` `%` | |
+| | `+` `-` | |
+| bit shift | `<<` `>>` | |
+| relational | `<` `<=` `>` `>=` | |
+| equality | `==` `!=` | |
+| bitwise | `&` | |
+| | `^` | |
+| | `|` | |
+| logical | `&&` | |
+| | `||` | |
+| conditional | `? :` | |
+| assignment | `=` `+=` `-=` `*=` `/=` `%=` `<<=` `>>=` `&=` `^=` `|=` | |
+| comma | `,` | low |
+
+*	Subexpressions and argument evaluation is unspecified
+
+```CPP
+(i+j)*(k+j);       // either + done first
+(i=j)+(j=i);       // either = done first
+g(i) + f(k) +h(j); //g f or h called in any order
+f(p++, p++, p++);  // arguments evaluated in any order
+```
+
+* **Beware of overflow**
+
+```CPP
+unsigned int a = 4294967295, b = 4294967295, c = 4294967295;
+(a+b)/c;    // => 0 as a+b overflows leaving zero
+(a/c)+(b/c) // => 2
+```
+
+**Perform divides before multiplies (if possible) to keep numbers small**
+
+*	C++ relational/equality return `false / true`; C return `0/1`
+*	General assignment operators only evaluate left-hand side once:
+
+```CPP
+v[f(3)] += 1;          // only calls f once
+v[f(3)] = v[f(3)] + 1; // calls f twice
+```
+
+*	Bit-shift operators, `<<` (left), and `>>` (right) shift bits in integral variables left and right.
+	*	left shift is multiplying by 2, modulus variable's size
+	*	right shift is dividing by 2 if unsigned or positive
+	*	undefined if right operand is negative or $\geq$ to length of left operand.
+
+``` CPP
+int x, y, z;
+x = y = z = 1;
+cout << (x << 1) << ’ ’ << (y << 2) << ’ ’ << (z << 3) << endl;
+x = y = z = 16;
+cout << (x >> 1) << ’ ’ << (y >> 2) << ’ ’ << (z >> 3) << endl;
+2 4 8
+8 4 2
+```
+
+### 2.7.1 Conversion
+
+*	**Conversion** transforms a value of another type by changing the value of the new type's representation.
+*	Conversions occur implicitly by compiler or explicitly by programmer using **cast** operator or C++ **static_cast** operator.
+
+```CPP
+int i; double d;
+d = i; // implicit (compiler)
+d = (double) i; // explicit with cast (programmer)
+d = static cast<double>( i ); // C++
+```
+
+*	Two kinds of conversions:
+	*	**widening/promotion** conversion, no information is lost
+		bool -> char -> shoft int -> long int -> double
+	*	**narrowing** conversion, information can be lost:
+		double -> char -> short int -> long int -> double
+*	C/C++ have implicit widening and narrowing conversions
+*	**Beware of implicit narrowing conversions**
+
+```CPP
+int i; double d;
+i = d = 3.5; // d -> 3.5
+d = i = 3.5; // d -> 3.0 truncation
+```
+
+*	Good practice is to perform narrowing conversions explicitly with cast as documentation.
+
+```CPP
+int i; double d1 = 7.2, d2 = 3.5;
+i = (int) d1; // explicit narrowing conversion
+i = (int) d1 / (int) d2; // explicit narrowing conversions for integer division
+i = static cast<int>(d1 / d2); // alternative technique after integer division
+```
+
+*	C++ supports casting among user defined types
+
+### 2.7.2 Coercion
+
+*	**Coercion** reinterprets a value to another type but the result is may not be meaningful in the new type's representation.
+*	Some narrowing conversions are considered coercions.
+	*	e.g. when a value is truncated or converting non-zero to `true`, the result is nonsense in the new type's representation.
+*	Also, having type `char` represent ASCII characters and integral (byte) values allows:
+
+```CPP
+char ch = 'z' - 'a'; // character arithmetic
+```
+
+which is often unreasonable as it can generate an invalid character.
+
+*	But the most common coercion is through pointers:
+
+```CPP
+int i, *ip = &i; // ip is a pointer to an integer
+double d, *dp = &d; // dp is a pointer to a double
+dp = (double *) ip; // lie, say dp points at double but really an integer
+dp = reinterpret cast<double *>( ip );
+```
+
+using explicit cast, programmer has lied to compiler about type of `ip`
+
+*	Signed/unsigned coercion
+
+```CPP
+unsigned int size;
+cin >> size; // negatives become positives
+if ( size < 0 ) cout << "invalid range" << endl;
+int arr[size];
+```
+
+*	`size` is unsigned because an array cannot have negative size.
+*	`cin` does not check for negative values for `unsigned` => 2 reads as 4294967294
+*	Use safe coercion for checking range of size
+
+```CPP
+if ((int)size < 0) cout << "invalid range" << endl;
+```
+
+*	Must be consistent with types
+
+```CPP
+for ( int i = 0; i < size; i += 1 ) { }
+. . .
+test.cc:12:22: warning: comparison between signed and unsigned integer expressions
+```
+
+*	**Good practice is to limit narrowing conversions and NEVER lie about a variable's type**
+
+## 2.8 Unformatted I/O
+
+*	Expensive to convert from internal (computer) to external (human) forms (bits <=> characters)
+*	When data does not have to be seen by a human, use efficient unformatted I/O so no conversions.
+*	Uses same mechanisms as formatted I/O to connect variable to file (open / close)
+*	`read` and `write` routines directly transfer bytes from/to a file, where each takes a pointer to the data and number of bytes of data.
+
+```CPP
+read( char *data, streamsize num );
+write( char *data, streamsize num );
+```
+
+*	Read/write of types other than characters requires a coercion cast or C++ `reinterpret_cast`
+
+```CPP
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() {
+	const unsigned int size = 10;
+	int arr[size];
+	{ // read array
+		ifstream infile( "myfile" ); // open input file “myfile”
+		infile.read( reinterpret cast<char *>(&arr), size * sizeof( arr[0] ) ); // coercion
+	} // close file
+	. . . // modify array
+	{ // print array
+		ofstream outfile( "myfile" ); // open output file “myfile”
+		outfile.write( (char *)&arr, size * sizeof( arr[0] ) ); // coercion
+	} // close file
+}
+```
+
+*	Need special command to view unformatted file as printable characters
+*	E.g., view internal values as bytes sequence for 32-bit `int` values
+
+```Bash
+$ od -t u1 myfile
+0000000 0 0 0 0 1 0 0 0 2 0 0 0 3 0 0 0
+0000020 4 0 0 0 5 0 0 0 6 0 0 0 7 0 0 0
+0000040 8 0 0 0 9 0 0 0
+```
+
+*	Coercion is unnecessary if buffer type was `void *`
+
+## 2.9 Math Operations
+
+*	`#include <cmath>` provides overloaded real-float mathematical-routine for types `float`, `double` and `long double`.
+
+| operation  | routine  |   | operation  | routine     |
+|------------|----------|---|------------|-------------|
+| $\|x\|$    | `abs(x)` |   | $x \mod y$ | `fmod(x,y)` |
+| $\arccos x$| `acos(x)`|   | $\ln x$    | `log(x)`    |
+| $\arcsin x$| `asin(x)`|   | $\log x$   | `log10(x)`  |
+| $\arctan x$| `atan(x)`|   | $x^y$      | `pow(x,y)`  |
+| $\lceil{x}\rceil$ | `ceil(x)`|   | $\sin x$   | `sin(x)`    |
+| $\cos x$ | `cos(x)` | | $\sinh x$ | `sinh(x)` |
+| $\cosh x$ | `cosh(x)` | | $\sqrt{x}$ | `sqrt(x)` |
+| $e^x$ | `exp(x)` | | $\tan x$ | `tan(x)` |
+| $\lfloor{x}\rfloor$ | `floor(x)` | | $\tanh(x)$ | `tanh(x)` |
+
+*	Some systems also provide `long double` math constants
+*	`pow(x,y)` $(x^y)$ is computed using logarithm, $10^{y\log x}$ (versus repeated multiplication), when $y$ is non-integral value => $y\geq 0$
+
+```CPP
+pow( -2.0, 3.0 ); −23 = −2×−2×−2 = −8
+pow( -2.0, 3.1 ); −23.1 = 103.1×log−2.0 = nan (not a number)
+```
+
+*	Quadratic roots of $ax^2+bx+c$ are $r=(-b\pm \sqrt{b^2-4ac})/2a$
+
+```CPP
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+	double a = 3.5, b = 2.1, c = -1.2;
+	double dis = sqrt( b * b - 4.0 * a * c ), dem = 2.0 * a;
+	cout << "root1: " << ( -b + dis ) / dem << endl;
+	cout << "root2: " << ( -b - dis ) / dem << endl;
+}
+```
+
+## 2.10 Control Structures
+
+*	block
+
+```CPP
+{ intermixed decls/stmts }
+```
+
+*	selection
+
+```CPP
+if ( bool-expr1 ) stmt1
+else if ( bool-expr2 ) stmt2
+. . .
+else stmtN
+
+switch ( integral-expr ) {
+	case c1: stmts1; break;
+	. . .
+	case cN: stmtsN; break;
+	default: stmts0;
+}
+```
+
+*	looping
+
+```CPP
+while ( bool-expr ) stmt
+
+do stmt while ( bool-expr ) ;
+
+for (init-expr ;bool-expr ;incr-expr ) stmt
+```
+
+*	transfer
+
+```CPP
+break
+continue
+goto label
+return [ expr ]
+throw [ expr ]
+```
+
+*	label
+
+```CPP
+label: stmt
+```
+
+### 2.10.1 Block
+
+*	Compound statement serves two purposes
+	*	bracket several statements into a single statement
+	*	introduce local declarations
+*	**Good practice is use a block versus single statement to allow adding statements**
+*	Nested block variables are allocated last-in first-out (LIFO) from the **stack** memory area
+
+| code | static | heap | <- free memory -> | stack |
+|------|--------|------|-------------------|-------|
+
+*	Nested block declarations reduces declaration clutter at start of block
+*	Variable names can be reused in different blocks, i.e., possible **shadow** (hiding) prior variables
+
+```CPP
+int i = 1; . . . // first i
+{ int k = i, i = 2, j = i; . . . // k = first i, second i overrides first
+	{ int i = 3;. . . // third i (overrides second)
+```
+
+### 2.10.2 Selection
+
+*	C/C++ selection statements are `if` and `switch`
+*	For nested `if` statements, `else` matches closest `if`, which results in the **dangling else** problem
+*	Unnecessary equality for boolean as value is already `true` or `false`
+*	Redundant `if` statement
+
+```CPP
+if ( a < b ) return true;
+else return false;
+
+return a<b;
+```
+
+*	Conversion causes problems (use `-Wall`)
+*	Assign in expressions causes problems because conditional expression is tested for $\neq 0$
+*	A `switch` statement selectively executes one of $N$ alternatives based on matching an **integral** value with a series of case clauses
+
+```CPP
+switch ( day ) { // integral expression
+	// STATEMENTS HERE NOT EXECUTED!!!
+	case Mon: case Tue: case Wed: case Thu: // case value list
+	cout << "PROGRAM" << endl;
+	break; // exit switch
+	case Fri:
+	wallet += pay;
+	/* FALL THROUGH */
+	case Sat:
+	cout << "PARTY" << endl;
+	wallet -= party;
+	break; // exit switch
+	case Sun:
+	cout << "REST" << endl;
+	break; // exit switch
+	default: // optional
+	cerr << "ERROR: bad day" << endl;
+	exit( EXIT FAILURE ); // TERMINATE PROGRAM
+}
+```
+
+*	Only one label for each `case` clause but a list of `case` clauses is allowed.
+
 ---
-ends page 54
+
+ends page 61

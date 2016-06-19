@@ -1595,7 +1595,554 @@ cout &lt;&lt; i &lt;&lt; endl;</pre></div>
 <h2>
 <a id="user-content-27-expression" class="anchor" href="#27-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.7 Expression</h2>
 
+<table>
+<thead>
+<tr>
+<th></th>
+<th>C/C++</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>postfix</td>
+<td>
+<code>::</code> <code>.</code> <code>-&gt;</code> <code>[]</code> <code>call</code> <code>cast</code>
+</td>
+<td>high</td>
+</tr>
+<tr>
+<td>prefix (unary)</td>
+<td>
+<code>+</code> <code>-</code> <code>!</code> <code>~</code> <code>&amp;</code> <code>*</code> <code>cast</code> <code>new</code> <code>delete</code> <code>sizeof</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>binary</td>
+<td>
+<code>*</code> <code>/</code> <code>%</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<code>+</code> <code>-</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>bit shift</td>
+<td>
+<code>&lt;&lt;</code> <code>&gt;&gt;</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>relational</td>
+<td>
+<code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>equality</td>
+<td>
+<code>==</code> <code>!=</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>bitwise</td>
+<td><code>&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>^</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>|</code></td>
+<td></td>
+</tr>
+<tr>
+<td>logical</td>
+<td><code>&amp;&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>||</code></td>
+<td></td>
+</tr>
+<tr>
+<td>conditional</td>
+<td><code>? :</code></td>
+<td></td>
+</tr>
+<tr>
+<td>assignment</td>
+<td>
+<code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code> <code>&amp;=</code> <code>^=</code> <code>|=</code>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>comma</td>
+<td><code>,</code></td>
+<td>low</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>  Subexpressions and argument evaluation is unspecified</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>(i+j)*(k+j);       <span class="pl-c">// either + done first</span>
+(i=j)+(j=i);       <span class="pl-c">// either = done first</span>
+<span class="pl-en">g</span>(i) + f(k) +h(j); <span class="pl-c">//g f or h called in any order</span>
+<span class="pl-en">f</span>(p++, p++, p++);  <span class="pl-c">// arguments evaluated in any order</span></pre></div>
+
+<ul>
+<li><strong>Beware of overflow</strong></li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">unsigned</span> <span class="pl-k">int</span> a = <span class="pl-c1">4294967295</span>, b = <span class="pl-c1">4294967295</span>, c = <span class="pl-c1">4294967295</span>;
+(a+b)/c;    <span class="pl-c">// =&gt; 0 as a+b overflows leaving zero</span>
+(a/c)+(b/c) <span class="pl-c">// =&gt; 2</span></pre></div>
+
+<p><strong>Perform divides before multiplies (if possible) to keep numbers small</strong></p>
+
+<ul>
+<li>  C++ relational/equality return <code>false / true</code>; C return <code>0/1</code>
+</li>
+<li>  General assignment operators only evaluate left-hand side once:</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>v[f(<span class="pl-c1">3</span>)] += <span class="pl-c1">1</span>;          <span class="pl-c">// only calls f once</span>
+v[f(<span class="pl-c1">3</span>)] = v[f(<span class="pl-c1">3</span>)] + <span class="pl-c1">1</span>; <span class="pl-c">// calls f twice</span></pre></div>
+
+<ul>
+<li>  Bit-shift operators, <code>&lt;&lt;</code> (left), and <code>&gt;&gt;</code> (right) shift bits in integral variables left and right.
+
+<ul>
+<li>  left shift is multiplying by 2, modulus variable's size</li>
+<li>  right shift is dividing by 2 if unsigned or positive</li>
+<li>  undefined if right operand is negative or $\geq$ to length of left operand.</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> x, y, z;
+x = y = z = <span class="pl-c1">1</span>;
+cout &lt;&lt; (x &lt;&lt; <span class="pl-c1">1</span>) &lt;&lt; ’ ’ &lt;&lt; (y &lt;&lt; <span class="pl-c1">2</span>) &lt;&lt; ’ ’ &lt;&lt; (z &lt;&lt; <span class="pl-c1">3</span>) &lt;&lt; endl;
+x = y = z = <span class="pl-c1">16</span>;
+cout &lt;&lt; (x &gt;&gt; <span class="pl-c1">1</span>) &lt;&lt; ’ ’ &lt;&lt; (y &gt;&gt; <span class="pl-c1">2</span>) &lt;&lt; ’ ’ &lt;&lt; (z &gt;&gt; <span class="pl-c1">3</span>) &lt;&lt; endl;
+<span class="pl-c1">2</span> <span class="pl-c1">4</span> <span class="pl-c1">8</span>
+<span class="pl-c1">8</span> <span class="pl-c1">4</span> <span class="pl-c1">2</span></pre></div>
+
+<h3>
+<a id="user-content-271-conversion" class="anchor" href="#271-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.7.1 Conversion</h3>
+
+<ul>
+<li>  <strong>Conversion</strong> transforms a value of another type by changing the value of the new type's representation.</li>
+<li>  Conversions occur implicitly by compiler or explicitly by programmer using <strong>cast</strong> operator or C++ <strong>static_cast</strong> operator.</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> i; <span class="pl-k">double</span> d;
+d = i; <span class="pl-c">// implicit (compiler)</span>
+d = (<span class="pl-k">double</span>) i; <span class="pl-c">// explicit with cast (programmer)</span>
+d = <span class="pl-k">static</span> cast&lt;<span class="pl-k">double</span>&gt;( i ); <span class="pl-c">// C++</span></pre></div>
+
+<ul>
+<li>  Two kinds of conversions:
+
+<ul>
+<li>  <strong>widening/promotion</strong> conversion, no information is lost
+bool -&gt; char -&gt; shoft int -&gt; long int -&gt; double</li>
+<li>  <strong>narrowing</strong> conversion, information can be lost:
+double -&gt; char -&gt; short int -&gt; long int -&gt; double</li>
+</ul>
+</li>
+<li>  C/C++ have implicit widening and narrowing conversions</li>
+<li>  <strong>Beware of implicit narrowing conversions</strong>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> i; <span class="pl-k">double</span> d;
+i = d = <span class="pl-c1">3.5</span>; <span class="pl-c">// d -&gt; 3.5</span>
+d = i = <span class="pl-c1">3.5</span>; <span class="pl-c">// d -&gt; 3.0 truncation</span></pre></div>
+
+<ul>
+<li>  Good practice is to perform narrowing conversions explicitly with cast as documentation.</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> i; <span class="pl-k">double</span> d1 = <span class="pl-c1">7.2</span>, d2 = <span class="pl-c1">3.5</span>;
+i = (<span class="pl-k">int</span>) d1; <span class="pl-c">// explicit narrowing conversion</span>
+i = (<span class="pl-k">int</span>) d1 / (<span class="pl-k">int</span>) d2; <span class="pl-c">// explicit narrowing conversions for integer division</span>
+i = <span class="pl-k">static</span> cast&lt;<span class="pl-k">int</span>&gt;(d1 / d2); <span class="pl-c">// alternative technique after integer division</span></pre></div>
+
+<ul>
+<li>  C++ supports casting among user defined types</li>
+</ul>
+
+<h3>
+<a id="user-content-272-coercion" class="anchor" href="#272-coercion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.7.2 Coercion</h3>
+
+<ul>
+<li>  <strong>Coercion</strong> reinterprets a value to another type but the result is may not be meaningful in the new type's representation.</li>
+<li>  Some narrowing conversions are considered coercions.
+
+<ul>
+<li>  e.g. when a value is truncated or converting non-zero to <code>true</code>, the result is nonsense in the new type's representation.</li>
+</ul>
+</li>
+<li>  Also, having type <code>char</code> represent ASCII characters and integral (byte) values allows:</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">char</span> ch = <span class="pl-s"><span class="pl-pds">'</span>z<span class="pl-pds">'</span></span> - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>; <span class="pl-c">// character arithmetic</span></pre></div>
+
+<p>which is often unreasonable as it can generate an invalid character.</p>
+
+<ul>
+<li>  But the most common coercion is through pointers:</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> i, *ip = &amp;i; <span class="pl-c">// ip is a pointer to an integer</span>
+<span class="pl-k">double</span> d, *dp = &amp;d; <span class="pl-c">// dp is a pointer to a double</span>
+dp = (<span class="pl-k">double</span> *) ip; <span class="pl-c">// lie, say dp points at double but really an integer</span>
+dp = reinterpret cast&lt;<span class="pl-k">double</span> *&gt;( ip );</pre></div>
+
+<p>using explicit cast, programmer has lied to compiler about type of <code>ip</code></p>
+
+<ul>
+<li>  Signed/unsigned coercion</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">unsigned</span> <span class="pl-k">int</span> size;
+cin &gt;&gt; size; <span class="pl-c">// negatives become positives</span>
+<span class="pl-k">if</span> ( size &lt; <span class="pl-c1">0</span> ) cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>invalid range<span class="pl-pds">"</span></span> &lt;&lt; endl;
+<span class="pl-k">int</span> arr[size];</pre></div>
+
+<ul>
+<li>  <code>size</code> is unsigned because an array cannot have negative size.</li>
+<li>  <code>cin</code> does not check for negative values for <code>unsigned</code> =&gt; 2 reads as 4294967294</li>
+<li>  Use safe coercion for checking range of size</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">if</span> ((<span class="pl-k">int</span>)size &lt; <span class="pl-c1">0</span>) cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>invalid range<span class="pl-pds">"</span></span> &lt;&lt; endl;</pre></div>
+
+<ul>
+<li>  Must be consistent with types</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> ( <span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; size; i += <span class="pl-c1">1</span> ) { }
+. . .
+test.cc:<span class="pl-c1">12</span>:<span class="pl-c1">22</span>: warning: comparison between <span class="pl-k">signed</span> <span class="pl-k">and</span> <span class="pl-k">unsigned</span> integer expressions</pre></div>
+
+<ul>
+<li>  <strong>Good practice is to limit narrowing conversions and NEVER lie about a variable's type</strong>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-28-unformatted-io" class="anchor" href="#28-unformatted-io" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.8 Unformatted I/O</h2>
+
+<ul>
+<li>  Expensive to convert from internal (computer) to external (human) forms (bits &lt;=&gt; characters)</li>
+<li>  When data does not have to be seen by a human, use efficient unformatted I/O so no conversions.</li>
+<li>  Uses same mechanisms as formatted I/O to connect variable to file (open / close)</li>
+<li>  <code>read</code> and <code>write</code> routines directly transfer bytes from/to a file, where each takes a pointer to the data and number of bytes of data.</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-en">read</span>( <span class="pl-k">char</span> *data, streamsize num );
+<span class="pl-en">write</span>( <span class="pl-k">char</span> *data, streamsize num );</pre></div>
+
+<ul>
+<li>  Read/write of types other than characters requires a coercion cast or C++ <code>reinterpret_cast</code>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>fstream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">const</span> <span class="pl-k">unsigned</span> <span class="pl-k">int</span> size = <span class="pl-c1">10</span>;
+    <span class="pl-k">int</span> arr[size];
+    { <span class="pl-c">// read array</span>
+        ifstream <span class="pl-smi">infile</span>( <span class="pl-s"><span class="pl-pds">"</span>myfile<span class="pl-pds">"</span></span> ); <span class="pl-c">// open input file “myfile”</span>
+        infile.<span class="pl-c1">read</span>( reinterpret cast&lt;<span class="pl-k">char</span> *&gt;(&amp;arr), size * <span class="pl-k">sizeof</span>( arr[<span class="pl-c1">0</span>] ) ); <span class="pl-c">// coercion</span>
+    } <span class="pl-c">// close file</span>
+    . . . <span class="pl-c">// modify array</span>
+    { <span class="pl-c">// print array</span>
+        ofstream <span class="pl-smi">outfile</span>( <span class="pl-s"><span class="pl-pds">"</span>myfile<span class="pl-pds">"</span></span> ); <span class="pl-c">// open output file “myfile”</span>
+        outfile.<span class="pl-c1">write</span>( (<span class="pl-k">char</span> *)&amp;arr, size * <span class="pl-k">sizeof</span>( arr[<span class="pl-c1">0</span>] ) ); <span class="pl-c">// coercion</span>
+    } <span class="pl-c">// close file</span>
+}</pre></div>
+
+<ul>
+<li>  Need special command to view unformatted file as printable characters</li>
+<li>  E.g., view internal values as bytes sequence for 32-bit <code>int</code> values</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ od -t u1 myfile
+0000000 0 0 0 0 1 0 0 0 2 0 0 0 3 0 0 0
+0000020 4 0 0 0 5 0 0 0 6 0 0 0 7 0 0 0
+0000040 8 0 0 0 9 0 0 0</pre></div>
+
+<ul>
+<li>  Coercion is unnecessary if buffer type was <code>void *</code>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-29-math-operations" class="anchor" href="#29-math-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.9 Math Operations</h2>
+
+<ul>
+<li>  <code>#include &lt;cmath&gt;</code> provides overloaded real-float mathematical-routine for types <code>float</code>, <code>double</code> and <code>long double</code>.</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>operation</th>
+<th>routine</th>
+<th></th>
+<th>operation</th>
+<th>routine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$|x|$</td>
+<td><code>abs(x)</code></td>
+<td></td>
+<td>$x \mod y$</td>
+<td><code>fmod(x,y)</code></td>
+</tr>
+<tr>
+<td>$\arccos x$</td>
+<td><code>acos(x)</code></td>
+<td></td>
+<td>$\ln x$</td>
+<td><code>log(x)</code></td>
+</tr>
+<tr>
+<td>$\arcsin x$</td>
+<td><code>asin(x)</code></td>
+<td></td>
+<td>$\log x$</td>
+<td><code>log10(x)</code></td>
+</tr>
+<tr>
+<td>$\arctan x$</td>
+<td><code>atan(x)</code></td>
+<td></td>
+<td>$x^y$</td>
+<td><code>pow(x,y)</code></td>
+</tr>
+<tr>
+<td>$\lceil{x}\rceil$</td>
+<td><code>ceil(x)</code></td>
+<td></td>
+<td>$\sin x$</td>
+<td><code>sin(x)</code></td>
+</tr>
+<tr>
+<td>$\cos x$</td>
+<td><code>cos(x)</code></td>
+<td></td>
+<td>$\sinh x$</td>
+<td><code>sinh(x)</code></td>
+</tr>
+<tr>
+<td>$\cosh x$</td>
+<td><code>cosh(x)</code></td>
+<td></td>
+<td>$\sqrt{x}$</td>
+<td><code>sqrt(x)</code></td>
+</tr>
+<tr>
+<td>$e^x$</td>
+<td><code>exp(x)</code></td>
+<td></td>
+<td>$\tan x$</td>
+<td><code>tan(x)</code></td>
+</tr>
+<tr>
+<td>$\lfloor{x}\rfloor$</td>
+<td><code>floor(x)</code></td>
+<td></td>
+<td>$\tanh(x)$</td>
+<td><code>tanh(x)</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>  Some systems also provide <code>long double</code> math constants</li>
+<li>  <code>pow(x,y)</code> $(x^y)$ is computed using logarithm, $10^{y\log x}$ (versus repeated multiplication), when $y$ is non-integral value =&gt; $y\geq 0$</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-en">pow</span>( -<span class="pl-c1">2.0</span>, <span class="pl-c1">3.0</span> ); −<span class="pl-c1">23</span> = −<span class="pl-c1">2</span>×−<span class="pl-c1">2</span>×−<span class="pl-c1">2</span> = −<span class="pl-c1">8</span>
+<span class="pl-en">pow</span>( -<span class="pl-c1">2.0</span>, <span class="pl-c1">3.1</span> ); −<span class="pl-c1">23.1</span> = <span class="pl-c1">103.1</span>×log−<span class="pl-c1">2.0</span> = nan (<span class="pl-k">not</span> a number)</pre></div>
+
+<ul>
+<li>  Quadratic roots of $ax^2+bx+c$ are $r=(-b\pm \sqrt{b^2-4ac})/2a$</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>cmath<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">double</span> a = <span class="pl-c1">3.5</span>, b = <span class="pl-c1">2.1</span>, c = -<span class="pl-c1">1.2</span>;
+    <span class="pl-k">double</span> dis = <span class="pl-c1">sqrt</span>( b * b - <span class="pl-c1">4.0</span> * a * c ), dem = <span class="pl-c1">2.0</span> * a;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>root1: <span class="pl-pds">"</span></span> &lt;&lt; ( -b + dis ) / dem &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>root2: <span class="pl-pds">"</span></span> &lt;&lt; ( -b - dis ) / dem &lt;&lt; endl;
+}</pre></div>
+
+<h2>
+<a id="user-content-210-control-structures" class="anchor" href="#210-control-structures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.10 Control Structures</h2>
+
+<ul>
+<li>  block</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>{ intermixed decls/stmts }</pre></div>
+
+<ul>
+<li>  selection</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">if</span> ( <span class="pl-k">bool</span>-expr1 ) stmt1
+<span class="pl-k">else</span> <span class="pl-k">if</span> ( <span class="pl-k">bool</span>-expr2 ) stmt2
+. . .
+<span class="pl-k">else</span> stmtN
+
+<span class="pl-k">switch</span> ( integral-expr ) {
+    <span class="pl-k">case</span> c1: stmts1; <span class="pl-k">break</span>;
+    . . .
+    <span class="pl-k">case</span> cN: stmtsN; <span class="pl-k">break</span>;
+    <span class="pl-k">default</span>: stmts0;
+}</pre></div>
+
+<ul>
+<li>  looping</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">while</span> ( <span class="pl-k">bool</span>-expr ) stmt
+
+<span class="pl-k">do</span> stmt <span class="pl-k">while</span> ( <span class="pl-k">bool</span>-expr ) ;
+
+<span class="pl-k">for</span> (init-expr ;<span class="pl-k">bool</span>-expr ;incr-expr ) stmt</pre></div>
+
+<ul>
+<li>  transfer</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">break</span>
+<span class="pl-k">continue</span>
+<span class="pl-k">goto</span> label
+<span class="pl-k">return</span> [ expr ]
+<span class="pl-k">throw</span> [ expr ]</pre></div>
+
+<ul>
+<li>  label</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>label: stmt</pre></div>
+
+<h3>
+<a id="user-content-2101-block" class="anchor" href="#2101-block" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.10.1 Block</h3>
+
+<ul>
+<li>  Compound statement serves two purposes
+
+<ul>
+<li>  bracket several statements into a single statement</li>
+<li>  introduce local declarations</li>
+</ul>
+</li>
+<li>  <strong>Good practice is use a block versus single statement to allow adding statements</strong>
+</li>
+<li>  Nested block variables are allocated last-in first-out (LIFO) from the <strong>stack</strong> memory area</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>code</th>
+<th>static</th>
+<th>heap</th>
+<th>&lt;- free memory -&gt;</th>
+<th>stack</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<ul>
+<li>  Nested block declarations reduces declaration clutter at start of block</li>
+<li>  Variable names can be reused in different blocks, i.e., possible <strong>shadow</strong> (hiding) prior variables</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> i = <span class="pl-c1">1</span>; . . . <span class="pl-c">// first i</span>
+{ <span class="pl-k">int</span> k = i, i = <span class="pl-c1">2</span>, j = i; . . . <span class="pl-c">// k = first i, second i overrides first</span>
+    { <span class="pl-k">int</span> i = <span class="pl-c1">3</span>;. . . <span class="pl-c">// third i (overrides second)</span></pre></div>
+
+<h3>
+<a id="user-content-2102-selection" class="anchor" href="#2102-selection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.10.2 Selection</h3>
+
+<ul>
+<li>  C/C++ selection statements are <code>if</code> and <code>switch</code>
+</li>
+<li>  For nested <code>if</code> statements, <code>else</code> matches closest <code>if</code>, which results in the <strong>dangling else</strong> problem</li>
+<li>  Unnecessary equality for boolean as value is already <code>true</code> or <code>false</code>
+</li>
+<li>  Redundant <code>if</code> statement</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">if</span> ( a &lt; b ) <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+<span class="pl-k">else</span> <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+
+<span class="pl-k">return</span> a&lt;b;</pre></div>
+
+<ul>
+<li>  Conversion causes problems (use <code>-Wall</code>)</li>
+<li>  Assign in expressions causes problems because conditional expression is tested for $\neq 0$</li>
+<li>  A <code>switch</code> statement selectively executes one of $N$ alternatives based on matching an <strong>integral</strong> value with a series of case clauses</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">switch</span> ( day ) { <span class="pl-c">// integral expression</span>
+    <span class="pl-c">// STATEMENTS HERE NOT EXECUTED!!!</span>
+    <span class="pl-k">case</span> Mon: <span class="pl-k">case</span> Tue: <span class="pl-k">case</span> Wed: <span class="pl-k">case</span> Thu: <span class="pl-c">// case value list</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>PROGRAM<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    <span class="pl-k">break</span>; <span class="pl-c">// exit switch</span>
+    <span class="pl-k">case</span> Fri:
+    wallet += pay;
+    <span class="pl-c">/* FALL THROUGH */</span>
+    <span class="pl-k">case</span> Sat:
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>PARTY<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    wallet -= party;
+    <span class="pl-k">break</span>; <span class="pl-c">// exit switch</span>
+    <span class="pl-k">case</span> Sun:
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>REST<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    <span class="pl-k">break</span>; <span class="pl-c">// exit switch</span>
+    <span class="pl-k">default</span>: <span class="pl-c">// optional</span>
+    cerr &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>ERROR: bad day<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    <span class="pl-c1">exit</span>( EXIT FAILURE ); <span class="pl-c">// TERMINATE PROGRAM</span>
+}</pre></div>
+
+<ul>
+<li>  Only one label for each <code>case</code> clause but a list of <code>case</code> clauses is allowed.</li>
+</ul>
+
 <hr>
 
-<p>ends page 54</p>
+<p>ends page 61</p>
 </article></body></html>
