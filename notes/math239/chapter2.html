@@ -469,7 +469,7 @@ pre {
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: #BBBBBB;
+    background-color: #DBDBDB;
     /*border-radius: 3px;*/
 }
 
@@ -730,8 +730,8 @@ pre {
     color: #4B0158;
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 2px solid #210027;
-    background-color: #FDF3FF
+    /*border: 2px solid #210027;*/
+    background-color: #FEFAFF
 }</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 MathJax.Hub.Config({
@@ -819,4 +819,237 @@ MathJax.Hub.Config({
 [x^n] (x(1-x^2)^{-1})^k &amp;= [x^n] x^k (1-x^2)^{-k} \\
 &amp;= [x^{n-k}](1-x^2)^{-k} \\
 &amp;= [x^{n-k}]\sum_{i\geq 0}{i+k-1 \choose k-1}x^{2i} \end{align*}$$</p>
+
+<p>The coefficient is zero if $n-k$ is odd. If $n-k$ is even then the required coefficient occurs for $i=\frac{n-k}2$ and is</p>
+
+<p>$${\frac{n-k}2+k-1 \choose k-1}={\frac{n+k-2}2 \choose k-1}$$</p>
+
+<p>Thus this is the number of $k$-part composition of $n$ in which each part is odd.</p>
+
+<p>$\square$</p>
+
+<h4>
+<a id="user-content-214-problem" class="anchor" href="#214-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.4 Problem</h4>
+
+<p>How many compositions of $n$ are there with $k$ parts, each part at most 5?</p>
+
+<p>In this case let $S=\{1,2,3,4,5 \}^k$, and the required compositions are the elements of $S$ of weight $n$. Thus the required generating series is</p>
+
+<p>$$\begin{align*} \Phi_S(x) &amp;= \Phi_{\{1,2,3,4,5\}^k}(x) \\
+&amp;= (\Phi_{\{1,2,3,4,5\}}(x))^k \text{ , by Product Lemma} \\
+&amp;= (x^1+x^2+x^3+x^4+x^5)^k \\
+&amp;= (x(1-x^5)(1-x)^{-1})^k \text{ by finite Geometric Sum} \\
+&amp;= x^k(1-x^5)^k(1-x)^{-k}\end{align*}$$</p>
+
+<p>Therefore, the number of composition is</p>
+
+<p>$$\begin{align*} 
+[x^n] x^k(1-x^5)^k(1-x)^{-k} &amp;= [x^{n-k}] \sum_{i \geq 0} {k \choose i} (-x^5)^i \sum_{j \geq 0} {j+k-1 \choose k-1}x^j \\
+&amp;= [x^{n-k}] \sum_{i \geq 0} \sum_{j \geq 0} {k \choose i} (-1)^i {j+k-1 \choose k-1} x^{5i+j} \\
+&amp;= \sum_{i=0}^{\left\lfloor{\frac{n-k}{5}}\right\rfloor} {k \choose i}(-1)^i{n-k-5i+k-1 \choose k-1}\end{align*}$$</p>
+
+<p>where $\left\lfloor{\frac{n-k}{5}}\right\rfloor$ is the "integer part" of $\frac{n-k}5$.</p>
+
+<p>$\square$</p>
+
+<h4>
+<a id="user-content-215-problem" class="anchor" href="#215-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.5 Problem</h4>
+
+<p>How many compositions of $n$ are there, $n\geq 0$?</p>
+
+<p>Here we let $S=\cup_{k\geq 0}\mathbb{N}^k$, where the term $k=0$ is the empty composition (of 0). Then the compositions of $n$ are elements of $S$ of weight $n$, so the generating series is</p>
+
+<p>$$\begin{align*}
+\Phi_S(x) &amp;= \Phi_{\cup_{k\geq 0}\mathbb{N}^k}(x) \\
+&amp;= \sum_{k\geq 0} \Phi_{\mathbb{N}^k}(x) \text{ , by Sum Lemma} \\
+&amp;= \sum_{k\geq 0} (\Phi_{\mathbb{N}}(x))^k \text{ , by Product Lemma} \\
+&amp;= \sum_{k\geq 0}\left(\sum_{i\geq 1}x^i\right)^k \\
+&amp;= \sum_{k\geq 0}(x(1-x)^{-1})^k \text{ , by Geometric Series} \\
+&amp;= \left(1+\frac{x}{1-2x}\right)
+\end{align*}$$</p>
+
+<p>Hence the number of compositions is</p>
+
+<p>$$\begin{align*}
+[x^n]\left(1+\frac{x}{1-2x}\right) &amp;=[x^n]\left(1+\sum_{i\geq 0}2^ix^{i+1}\right) \\
+&amp;=
+\begin{cases} 
+1 &amp; \quad n=0 \\ 
+2^{n-1} &amp; \quad n \geq 1 
+\end{cases}
+\end{align*}$$</p>
+
+<p>$\square$</p>
+
+<h4>
+<a id="user-content-216-problem" class="anchor" href="#216-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.6 Problem</h4>
+
+<p>How many compositions of $n$ are there where each part is odd?</p>
+
+<p>Let $\mathbb{N}_{odd}=\{1,3,5,7,...\}$. The set of all compositions where each part is odd is</p>
+
+<p>$$S=\cup_{k \geq 0} \mathbb{N}_{odd}^k$$</p>
+
+<p>The generating series of $\mathbb{N}_{odd}$ is</p>
+
+<p>$$\Phi_{\mathbb{N}_{odd}}(x) = x +x^3+x^5+\cdots =\frac{x}{1-x^2}$$</p>
+
+<p>By the product lemma, the generating series for compositions with $k$ odd parts is then</p>
+
+<p>$$\Phi_{\mathbb{N}_{odd}^k}(x) =\left(\frac{x}{1-x^2}\right)^k$$</p>
+
+<p>By the sum lemma, the generating series for our problem is</p>
+
+<p>$$\begin{align*}
+\Phi_S(x) &amp;= \sum_{k\geq 0} \Phi_{\mathbb{N}_{odd}^k} \\
+&amp;= \sum_{k \geq 0} \left(\frac{x}{1-x^2}\right)^k \\
+&amp;= \frac{1}{1-\frac{x}{1-x^2}} \text{ by Geometric Series} \\
+&amp;= \frac{1-x^2}{1-x-x^2} \end{align*}$$</p>
+
+<p>The answer to our question is $[x^n]\frac{1-x^2}{1-x-x^2}$</p>
+
+<p>$\square$</p>
+
+<p>Here we could not use existing tools to figure out an explicit formula for the coefficient of $\frac{1-x^2}{1-x-x^2}$. But let's derive a recurrence based on the method described in Problem 1.7.1. If we let $\Phi_S(x)=\sum a_x x^n$, then we get</p>
+
+<p>$$1-x^2=(1-x-x^2)\sum_{n\geq 0}a_n x^n = a_0 +(a_1 - a_0)x + \sum+{n\geq 2}(a_n-a_{n-1}-a_{n-2})x^n$$</p>
+
+<p>By comparing coefficients on both sides, we get</p>
+
+<p>$$a_0=1, a_1=1,a_2=1,a_n=a_{n-1}+a_{n-2} \text{ for } n\geq 3$$</p>
+
+<p>Other than $a_0$, the rest are terms in the Fibonacci sequence. So for $n\geq 1$, the number of compositions of $n$ where each part is odd is the $n$-th term in the Fibonacci sequence.</p>
+
+<h2>
+<a id="user-content-23-binary-strings" class="anchor" href="#23-binary-strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3 Binary Strings</h2>
+
+<h4>
+<a id="user-content-231-definition" class="anchor" href="#231-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3.1 Definition</h4>
+
+<p>A <strong>binary string</strong> or $\{0,1\}$-<strong>string</strong> is a string of 0's and 1's, its <strong>length</strong> is the number of occurrences of 0 and 1 in the string.</p>
+
+<p>For example, 01101 is a binary string of length five. We will use $l(\alpha)$ to denote the length of a string $\alpha$. There is a single string, $\epsilon$, of length 0, called the <strong>empty string</strong>. Now there are clearly $2^n$ binary strings of length $n$, since there are 2 choices, 0 or 1, for each of the $n$ symbols in a string of length $n$. In this section, we count the number of binary strings of length $n$ subject to various restrictions. For example, we might consider strings that have no three consecutive onces. Since we will always be interested in the number of strings of a given length, the generating series for strings in this section will all use the length of a string as the weight function. Thus, for a set $A$ of binary string, we have</p>
+
+<p>$$\Phi_A(x)= \sum_{\alpha \in A}x^{l(\alpha)}$$</p>
+
+<p>We will build up longer binary strings by piecing together short binary strings. If $a_1$ and $a_2$ are binary strings, then $a_1 a_2$ is the string formed by <strong>concatenating</strong> $a_1$ and $a_2$. For example, if $a_1=0100$ and $a_2=001$, then $a_1a_2=0100001$. Further, if $A$ and $B$ are set of binary strings, we define</p>
+
+<p>$$AB=\{ab:a\in A, b\in B\}$$</p>
+
+<p>We also define</p>
+
+<p>$$A^{*}=\{\epsilon\}\cup A \cup AA \cup AAA \cdots = \{\epsilon\}\cup A \cup A^2 \cup A^3 \cdots$$</p>
+
+<p>So $A^{<em>}$ is the set of strings formed by concatenating any number of strings in $A$. For example, in this notation, the set of all binary string is given by $\{0,1\}^{</em>}$.</p>
+
+<p>For $\{0,1\}$-string $a,b$, we say that $b$ is a <strong>substring</strong> of $a$ if $a=cbd$ for some binary string $c,d$. Our problems will often be expressed in terms of the <strong>blocks</strong> of a binary string, which are maximal nonempty substrings consisting of only 0's or only 1's. For example, the string 00111001 has four blocks: (00, 111, 00, 1).</p>
+
+<h4>
+<a id="user-content-232-problem" class="anchor" href="#232-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3.2 Problem</h4>
+
+<p>Let $a_n$ be the number of $\{0,1\}$-strings of length $n$ which contain no three consecutive 1's (or which contain no substring "111"). Prove that</p>
+
+<p>$$a_n=[x^n] \frac{1+x+x^2}{1-x-x^2-x^3} \text{, for } n \geq 0$$</p>
+
+<p>Let $S$ by the set of binary strings with no three consecutive 1's. We will decompose each string by decomposing it after every occurrence of 0. For example, the string 00011010100 decomposes into (0,0,0,110,10,10,0) and the string 10111001 decomposes into (10,1110,0,1). This decomposition has two important properties. First, each string is decomposed uniquely. Second, the decomposition does not separate consecutive ones, so a string is in $S$ if and only if no piece in the decomposition contains three consecutive ones. So just by examining the pieces, we that $S$ contains the first but not the second. When we decompose a string in S, each piece will be in $\{0,10,110\}$, except possibly for the last piece which can be 1 or 11. so we can write $S$ as</p>
+
+<p>$$S=\{0,10,110\}^*\{\epsilon,1,11\}$$</p>
+
+<p>Since the length is additive under composition, we can use this expression for $S$ together with the Sum and Product Lemmas to compute $\Phi_S(x)$. Note that</p>
+
+<p>$$\Phi_{\{0,10,110\}}(x) = x+x^2+x^3$$</p>
+
+<p>and</p>
+
+<p>$$\Phi_{\{\epsilon,1,11\}}(x)=1+x+x^2$$</p>
+
+<p>Moreover</p>
+
+<p>$$\{0,10,110\}^*=\{\epsilon\}\cup\{0,10,110\}\cup\{0,10,110\}^2\cdots$$</p>
+
+<p>So</p>
+
+<p>$$\begin{align*} \Phi_{\{0,10,110\}^{*}}(x) &amp;= 1 + \Phi_{\{0,10,110\}}(x) + \left(\Phi_{\{0,10,110\}}(x)\right)^2 + \cdots \\
+&amp;= \frac{1}{1-\Phi_{\{0,10,110\}}(x)}\end{align*}$$</p>
+
+<p>Therefore</p>
+
+<p>$$\begin{align*} \Phi_S(x) &amp;= \frac{1}{1-\Phi_{\{0,10,110\}}(x)} \Phi_{\{\epsilon,1,11\}}(x) \\
+&amp;=\frac{1+x+x^2}{1-x-x^2-x^3} \end{align*}$$</p>
+
+<p>as required.</p>
+
+<p>$\square$</p>
+
+<h2>
+<a id="user-content-24-unambiguous-expressions" class="anchor" href="#24-unambiguous-expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4 Unambiguous Expressions</h2>
+
+<p>The solution to Problem 2.3.2 glosses over a subtle but important point. We used the Product Lemma to expand $Phi_{AB}(x)$, but the Product Lemma concerns the expansion of $Phi_{A\times B}(x)$. The sets $A\times B$ and $AB$ are closely related:</p>
+
+<p>$$AB=\{ab: (a,b)\in A\times B\}$$</p>
+
+<p>So concatenation defines a map from $A\times B$ to $AB$. The problem lies in the fact that this map need not be a bijection; that is, there may be distinct pairs $(a_1,b_1)$ and $(a_2,b_2)$ in $A\times B$ with $a_1b_1=a_2b_2$. Moreover, when this happens, we will not have $\Phi_{AB}(x)=\Phi_{A\times B}(x)$.</p>
+
+<p>We say that the expression $AB$ is <strong>ambiguous</strong> if there exist distinct pairs  $(a_1,b_1)$ and $(a_2,b_2)$ in $A\times B$ with $a_1b_1=a_2b_2$, otherwise, we say that $AB$ is an <strong>unambiguous expression</strong>. In other words, $AB$ is unambiguous if each string uniquely decomposes into a string in $A$ concatenated with a string in $B$. Note that if $A$ and $B$ are finite sets, then $AB$ is unambiguous if and only if $|AB|=|A \times B|$.</p>
+
+<p>We will use similar terminology for other constructions of binary string. For example, the expression $A \cup B$ is unambiguous when $A \cap B = \emptyset$. More generally, we will compose expressions for sets of strings using concatenation and union of smaller sets; such an expression is unambiguous when each concatenation operation and each union operation is unambiguous. Thus $A^{*}$ is unambiguous if the sets $\{\epsilon\}, A, A^2 ,...$ are disjoint and, for each $i\in N_{\geq 0}$, $A^i$ is unambiguous.</p>
+
+<p>It is important to note that it is the description of the set of strings using sum, concatenation and the $*$-operation which might be ambiguous. A set of strings itself is never ambiguous or unambiguous.</p>
+
+<h2>
+<a id="user-content-25-some-decomposition-rules" class="anchor" href="#25-some-decomposition-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5 Some Decomposition Rules</h2>
+
+<p>Let's return briefly to the solution of Problem 2.3.2. We expressed the set $S$ as</p>
+
+<p>$$\{ 0,10,110 \}^{*}\{\epsilon,1,11\}$$</p>
+
+<p>It is not difficult to show directly that this expression is unambiguous, however, the reason that it is unambiguous is implicit in our solution. We considered the decomposition of a binary string into a sequence of substrings, obtained by breaking the string after each occurrence of 0. The expression above is generating the pieces of that decomposition. Since the decomposition rule is unambiguous, the expression is unambiguous.</p>
+
+<p>Here are some of the common decomposition rules for the set $S$ of all binary strings.</p>
+
+<ul>
+<li>  Decompose a string after each 0 or 1. Each piece in the decomposition will be either 0 or 1. This gives rise to the expression</li>
+</ul>
+
+<p>$$S=\{0,1\}^{*}$$</p>
+
+<ul>
+<li>  Decompose a string after each occurrence of 0. Each piece in the decomposition will be from $\{0,10,110,...\}=\{1\}^{*}\{0\}$ except possibly for the last piece which may consist only of 1's. This gives rise to the expression</li>
+</ul>
+
+<p>$$S=(\{1\}^{*}\{0\})^{*}\{1\}^{*}$$</p>
+
+<ul>
+<li>  Decompose a string after each block of 0's. Each piece in the decomposition, except possibly the first and last pieces, will consist of a block of 1's followed by a block of 0's. The first piece may consist only of a block of 0's and the last piece may consist only of a block of 1's. This gives rise to the expression</li>
+</ul>
+
+<p>$$s=\{0\}^{*}(\{1\}\{1\}^{*}\{0\}\{0\}^{*})^{*}\{1\}^{*}$$</p>
+
+<p>Moreover, since each of these decomposition rules in unambiguous, the corresponding expressions are unambiguous.</p>
+
+<h2>
+<a id="user-content-26-sum-and-product-rules-for-strings" class="anchor" href="#26-sum-and-product-rules-for-strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.6 Sum and Product Rules for Strings</h2>
+
+<p>If $A$ and $B$ are sets of strings and $A \cap B=\emptyset$, then</p>
+
+<p>$$\Phi_{A\cup B}(x)=\Phi_A(x)+\Phi_B(x)$$</p>
+
+<p>as we would hope. We also have the following.</p>
+
+<h4>
+<a id="user-content-261-theorem" class="anchor" href="#261-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.6.1 Theorem</h4>
+
+<p>Let $A,B$ be sets of binary strings</p>
+
+<p>a.  If the expression $AB$ is unambiguous, then</p>
+
+<p>$$\Phi_{AB}(x)=\Phi_A(x)\Phi_B(x)$$</p>
+
+<p>b.  If the expression $A^{*}$ is unambiguous, then</p>
+
+<p>$$\Phi_{A^{*}}(x)=(1-\Phi_A(x))^{-1}$$</p>
+
+<hr>
+
+<p>ends page 44</p>
 </article></body></html>

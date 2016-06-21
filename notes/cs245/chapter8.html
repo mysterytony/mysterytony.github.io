@@ -1,4 +1,4 @@
-* {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>* {
     /*box-sizing: border-box;*/
 }
 
@@ -732,4 +732,85 @@ pre {
     padding-bottom: 5px;
     /*border: 2px solid #210027;*/
     background-color: #FEFAFF
-}
+}</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter8</title></head><body><article class="markdown-body"><h1 id="sequent-calculus-lk"><a name="user-content-sequent-calculus-lk" href="#sequent-calculus-lk" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sequent Calculus (LK)</h1>
+<h4 id="motivation"><a name="user-content-motivation" href="#motivation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Motivation</h4>
+<ul>
+<li>A strength of Natural Deduction is that it gives well with our intuition in searching for and writing proofs.</li>
+<li>A weakness of Natural Deduction is that there is no algorithm for searching for proofs.</li>
+<li>Introducing sequent calculus provides a proof system in which there is an algorithm for finding a proof, if one exists.</li>
+</ul>
+<h4 id="definition"><a name="user-content-definition" href="#definition" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+<p>Idea: make a proof system that manipulates <strong>assumptions</strong> as well as the formula that is being proven.</p>
+<p>Let $\Gamma$ and $\Delta$ be sets of formula, we call $\Gamma \vdash \Delta$ a <strong>sequent</strong>.</p>
+<p>We write $\Gamma \vdash \Delta$ to indicate that $\Gamma$ proves <strong>at least one</strong> formula in $\Delta$.</p>
+<p><strong>Notation:</strong> in sequent we write</p>
+<ul>
+<li>$\Gamma,\varphi$ for $\Gamma \cup \{\varphi\}$ and</li>
+<li>$\Gamma, \Delta$ for $\Gamma \cup \Delta$</li>
+</ul>
+<h4 id="identity-rules"><a name="user-content-identity-rules" href="#identity-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Identity Rules</h4>
+<p>$$\frac{}{\Gamma, \varphi \vdash \varphi, \Delta} \text{(Axiom)}$$</p>
+<p>$$\frac{\Gamma \vdash \varphi, \Delta \quad \Gamma, \varphi \vdash \Delta}{\Gamma \vdash \Delta} \text{(Cut)}$$</p>
+<h4 id="logical-rules"><a name="user-content-logical-rules" href="#logical-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Logical Rules:</h4>
+<p>$$\frac{\Gamma\vdash\varphi,\Delta}{\Gamma,(\lnot\varphi)\vdash\Delta} (\lnot L)$$</p>
+<p>$$\frac{\Gamma,\varphi \vdash \Delta}{\Gamma\vdash(\lnot\varphi),\Delta}(\lnot R)$$</p>
+<p>$$\frac{\Gamma\vdash\varphi,\Delta \quad \Gamma, \psi\vdash\Delta}{\Gamma,(\varphi\rightarrow\psi)\vdash\Delta}(\rightarrow L)$$</p>
+<p>$$\frac{\Gamma,\varphi\vdash\psi,\Delta}{\Gamma\vdash(\varphi\rightarrow\psi),\Delta}(\rightarrow R)$$</p>
+<p>The formula $(\lnot \varphi)$ and $(\varphi \rightarrow \psi)$ in the $\lnot L$, $\lnot R$, $\rightarrow L$ and $\rightarrow R$ rules are called <strong>principal formula</strong> of the inference.</p>
+<p>The formula $\varphi$ is called the <strong>cut formula</strong> in the Cut inference.</p>
+<p>Note: in many (more formal) definitions of LK, sequents are formed by two <strong>sequences</strong> of formula; then additional <strong>structural inference rules</strong>, such as exchange (allowing to swap formula in the sequence), contraction (allowing to remove adjacent duplicate formula), etc., are needed.</p>
+<p>Similarly, $\bot \vdash_{LK} \varphi$ for any formula $\varphi$.</p>
+<h4 id="soundness"><a name="user-content-soundness" href="#soundness" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Soundness</h4>
+<p>If $\Gamma\vdash\varphi$ then $\Gamma \models \varphi$</p>
+<h4 id="weakening"><a name="user-content-weakening" href="#weakening" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Weakening</h4>
+<p>If $\Gamma\vdash_{LK}\Delta$ then also $\Gamma, \Gamma&rsquo; \vdash_{LK} \Delta, \Delta&rsquo;$ for any sets of formula $\Gamma&rsquo;$ and $\Delta&rsquo;$.</p>
+<h4 id="deduction-theorem"><a name="user-content-deduction-theorem" href="#deduction-theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deduction theorem</h4>
+<p>If $\Gamma \vdash (\varphi \rightarrow \psi), \Delta$ then also $\Gamma, \varphi \vdash \psi, \Delta$. We get $\Gamma, \varphi \vdash \varphi\rightarrow\psi,\psi,\Delta$ by weakening from our assumption; then</p>
+<p>$$\frac{\frac{\vdots}{\Gamma,\varphi\vdash\varphi\rightarrow\psi,\psi,\Delta}(Wkn) \quad \frac{\frac{}{\Gamma,\varphi\vdash\varphi,\psi\Delta}(Ax) \quad \frac{}{\Gamma,\varphi,\psi\vdash\psi,\Delta}(Ax)}{\Gamma,\varphi,\varphi\rightarrow\psi\vdash\psi,\Delta}(\rightarrow L)}{\Gamma,\varphi \vdash, \psi, \Delta} (Cut)$$</p>
+<h4 id="completeness-reduction-from-hilbert-system"><a name="user-content-completeness-reduction-from-hilbert-system" href="#completeness-reduction-from-hilbert-system" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Completeness: reduction from Hilbert System</h4>
+<p>If $\Gamma\models\varphi$ then $\Gamma\vdash\varphi$.</p>
+<h4 id="cut-elimination-motivation"><a name="user-content-cut-elimination-motivation" href="#cut-elimination-motivation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Cut Elimination - Motivation</h4>
+<p>Apart from the Cut rule, all rules have the property that the formula above the line are subformula of the formula below the line.</p>
+<p>So if we could eliminate the Cut rule, then we would be able to search for a proof algorithmically.</p>
+<ul>
+<li>Start with the conclusion at the bottom</li>
+<li>Select a formula in the conclusion to decompose (going upwards) according to one of the non-Cut rules.</li>
+<li>The new formula get simpler at every step</li>
+<li>There are finitely many choices available ( and finitely many new branches created) at every step.</li>
+<li>Hence after finitely many steps, our process will terminate.</li>
+<li>If at that point all branches have arrived at the Axiom, then we have a proof. Otherwise, no proof exists.</li>
+</ul>
+<h4 id="theorem"><a name="user-content-theorem" href="#theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+<p>For every proof of a sequent $\Gamma\vdash\Delta$ in LK there is also proof of the same sequent in LK\{Cut}</p>
+<h4 id="remark-on-the-proof"><a name="user-content-remark-on-the-proof" href="#remark-on-the-proof" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark on the Proof</h4>
+<p>It bears repeating that the induction step performs induction simultaneously on</p>
+<ul>
+<li>the size of the proof, and</li>
+<li>complexity of the cut formula.</li>
+</ul></article></body></html>

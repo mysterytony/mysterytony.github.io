@@ -122,12 +122,3 @@ i.e., $\mod{\Sigma}$ denotes the set of valuations which satisfy $\Sigma$.
 A set $S$ of valuations is called **definable** if
 
 $$S=\mod(\Sigma), \text{ for some set } \Sigma \text{ of formulae}$$
-
-#### Motivation
-
-*	A strength of Natural Deduction is that it gives well with our intuition in searching for and writing proofs.
-*	A weakness of Natural Deduction is that there is no algorithm for searching for proofs.
-*	Introducing sequent calculus provides a proof system in which there is an algorithm for finding a proof, if one exists.
-
----
-ends page  115

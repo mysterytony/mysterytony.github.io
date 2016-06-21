@@ -1,4 +1,4 @@
-* {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>* {
     /*box-sizing: border-box;*/
 }
 
@@ -732,4 +732,264 @@ pre {
     padding-bottom: 5px;
     /*border: 2px solid #210027;*/
     background-color: #FEFAFF
-}
+}</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter9</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-first-order-predicate-logic" class="anchor" href="#first-order-predicate-logic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>First-Order Predicate Logic</h1>
+
+<h4>
+<a id="user-content-what-propositional-logic-cannot-express" class="anchor" href="#what-propositional-logic-cannot-express" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What Propositional Logic Cannot Express</h4>
+
+<p>Propositional logic dealt with logical forms of compound propositions. It worked well with relationships like <em>not, or if/then</em>.</p>
+
+<p>We would like to have a way to talk about <strong>individual</strong> (also called <strong>objects</strong>) and in addition to talk about some objects, and all objects, without enumerating all objects in a set.</p>
+
+<p>This requires extensions to Propositional Logic.</p>
+
+<p>Some example statements:</p>
+
+<blockquote>
+<p>Not all birds can fly.
+Every student is younger than some instructor.</p>
+</blockquote>
+
+<p>These refer to things: birds, students, instructors. They also refer to properties of things, either as individuals (ability to fly) or in combination (relative age).</p>
+
+<p>We would like to make such statements in our logic and to combine them with the connectives of propositional logic.</p>
+
+<p>More examples:</p>
+
+<blockquote>
+<p>For any natural number $n$, there is a prime number greater than $n$.
+$2^{100}$ is a natural number.
+There is a prime number greater than $2^{100}$.
+There is a number $c$ such that for every input of $n$ characters, the program executes at most $c\cdot n^2$ operations.</p>
+</blockquote>
+
+<p><strong>First-Order Logic (FOL)</strong>, also called <strong>Predicate Logic</strong>, gives us a language to express statements about objects and their properties.</p>
+
+<h4>
+<a id="user-content-ingredients-of-fol" class="anchor" href="#ingredients-of-fol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ingredients of FOL</h4>
+
+<p>FOL is expressed with the following ingredients:</p>
+
+<ul>
+<li>  A domain of objects (individual) 
+(e.g. the set of natural number, people)</li>
+<li>  Name of individuals (e.g. '0', Prime Minister)
+(also called "constants")</li>
+<li>  Variables (denoting "generic" objects)</li>
+<li>  Relations (e.g. equal, younger-than, etc.)</li>
+<li>  Functions (e.g. '+', mother-of)</li>
+<li>  Quantifiers</li>
+<li>  Propositional connectives</li>
+</ul>
+
+<h4>
+<a id="user-content-domains" class="anchor" href="#domains" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Domains</h4>
+
+<p>A <strong>domain</strong> is a set of objects. In principle, any non-empty set can be a domain: the natural numbers, people now alive, $\{T,F\}$, etc.</p>
+
+<p>Normally, one or more objects in the domain will have a name: e.g., 0, Stephen Harper, T, etc. Such name are called <strong>constant symbols</strong>.</p>
+
+<h4>
+<a id="user-content-predicatesrelations" class="anchor" href="#predicatesrelations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Predicates/Relations</h4>
+
+<p>A <strong>predicate</strong>, or <strong>relation</strong>, represents a property that an individual, or collection of individuals, may (or may not) have. In English, we might express as</p>
+
+<blockquote>
+<p>"... is a student"</p>
+</blockquote>
+
+<p>In symbolic logic, we write "$S(x)$" to mean "$x$ has property $S$"</p>
+
+<p>For example, if $S$ is the property of being a student, then "Alex is a student" becomes "$S(Alex)$".</p>
+
+<p>Similarly, we might use $I(Sam)$ for "Sam is an instructor" and $Y(Alex, Sam)$" for "Alex is younger than Sam".</p>
+
+<h4>
+<a id="user-content-representing-relations" class="anchor" href="#representing-relations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Representing Relations</h4>
+
+<p>Mathematically, we represent a relation by the set of all things that have the property. If $S$ is the set of all students, then $x\in S$ means $x$ is a student. The only restriction on a relation is that it must be a subset of the domain.</p>
+
+<p>A $k$-ary relation is a set of $k$-tuple of domain elements. For example, the binary relation less-than, over a domain $D$, is represented by the set</p>
+
+<p>$$\{\langle x,y \rangle \in D^2|x&lt;y\}$$</p>
+
+<p>(In a "relational database", the listing of such a set is called a "table")</p>
+
+<h4>
+<a id="user-content-variables" class="anchor" href="#variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variables</h4>
+
+<p><strong>Variables</strong> make statements more expressive.</p>
+
+<p>You may think of a variable as a "place holder", or "blank", that can be replaced by a concrete object.</p>
+
+<p>Alternatively, a variable is a name without a fixed referent. Which object the name refers to can vary from time to time.</p>
+
+<p>A variable lets us refer to an object, without specifying--perhaps without even knowing--which particular object it is. Thus we can express a relation "in the abstract".</p>
+
+<p>$$\begin{align*} S(x): &amp; x \text{ is a student} \\
+I(x): &amp; x \text{ is an instructor} \\
+Y(x,y): &amp; x \text{ is younger than y} \end{align*}$$</p>
+
+<h4>
+<a id="user-content-uses-of-variables" class="anchor" href="#uses-of-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uses of Variables</h4>
+
+<p>In general, we use variables that range over the domain to make general statements, such as</p>
+
+<p>$$x^2 \geq 0$$</p>
+
+<p>and in expressing conditions which individuals may or may not satisfy, such as</p>
+
+<p>$$x+x=x*x$$</p>
+
+<p>This latter condition is satisfied by only two numbers: 0 and 2.</p>
+
+<p>The meaning of such expression will depend on the domain. For example, the formula $x^2&lt;x$ is always fast over the domain of integers, but not over the domain of rational numbers.</p>
+
+<h4>
+<a id="user-content-quantifiers" class="anchor" href="#quantifiers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quantifiers</h4>
+
+<p>How to handle "Every student $x$ is younger than some professor $y$"?</p>
+
+<p>In math-speak, we say "for all" to express "every" and "there exist" to express "some". A familiar example from calculus:</p>
+
+<blockquote>
+<p>For all $\epsilon&gt;0$, there exists $\delta&gt;0$ such that for all $y$, if $|x-y|&lt;\delta$ then $|f(x)-f(y)|&lt;\epsilon$.</p>
+</blockquote>
+
+<p>"For all" is denoted $\forall$, the <strong>universal quantifier</strong> symbol, and</p>
+
+<p>"there exists" is denoted by $\exists$, the <strong>existential quantifier</strong> symbol.</p>
+
+<p>In FOL, the above comes out as the formula:</p>
+
+<p>$$\forall \epsilon \cdot 
+\left(
+    \epsilon &gt; 0 \rightarrow \exists \delta \cdot
+    \left(
+        \delta &gt; 0 \land \forall y \cdot
+        \left(
+            |x-y| &lt; \delta \rightarrow |f(x)-f(y)|&lt;\epsilon
+        \right)
+    \right)
+\right)
+$$</p>
+
+<h4>
+<a id="user-content-quantifier-examples" class="anchor" href="#quantifier-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quantifier Examples</h4>
+
+<p>Quantifiers require a variable: $\forall x$ (for all $x$) or $\exists z$ (there exists $z$).</p>
+
+<p>For example, the statement "Not all birds can fly" can be written as</p>
+
+<p>$$
+\lnot 
+\left(
+    \forall x \cdot
+    \left(
+        B(x)\rightarrow F(x)
+    \right)
+\right)
+$$</p>
+
+<p>"Every student is younger than some instructor" can become</p>
+
+<p>$$
+\forall x \cdot
+\left(
+    S(x)\rightarrow
+    \left(
+        \exists y \cdot
+        \left(
+            I(y) \land Y(x,y)
+        \right)
+    \right)
+\right)
+$$</p>
+
+<h4>
+<a id="user-content-functions" class="anchor" href="#functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions</h4>
+
+<p>In addition to predicates and quantifiers, first-order logic extends propositional logic by using <strong>functions</strong> as well. to see why, consider the following statement.</p>
+
+<blockquote>
+<p>Every child is younger than its mother</p>
+</blockquote>
+
+<p>One might try to express this statement in FOL by the formula</p>
+
+<p>$$
+\forall x \cdot \forall y \cdot
+\left(
+    \left(
+        C(x) \land M(y, x)
+    \right)
+    \rightarrow Y(x,y)
+\right)
+$$</p>
+
+<p>But this allows $x$ to have several mothers!</p>
+
+<p><strong>Functions</strong> in FOL gives us a way to express statements more concisely. The previous example can be expressed as</p>
+
+<p>$$
+\forall x \cdot
+\left(
+    C(x) \rightarrow Y(x, m(x))
+\right)
+$$</p>
+
+<p>Where $m$ denotes the function that takes one argument and returns the mother of that argument.</p>
+
+<p>Formally, we represent a $k$-ary function $f$ as the $k+1$-ary relation $R_j$ given by</p>
+
+<p>$$R_f=
+\{
+    \langle
+    x_1,...,x_k,x_{k+1}
+    \rangle
+    \in D^{k+1} | f(x_1,...,x_k)=x_{k+1}
+\}
+$$</p>
+
+<h4>
+<a id="user-content-further-examples" class="anchor" href="#further-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Further Examples</h4>
+
+<p>More examples:</p>
+
+<p>Alex and Sam have the same maternal grandmother:</p>
+
+<p>$$m(m(a))=m(m(s))$$</p>
+
+<p>Some program computes the squaring function:</p>
+
+<p>$$\exists p \cdot \forall x \cdot r(p,x)=x*x$$</p>
+
+<p>These use $m(\cdot)$ as "mother-of" and $r(\cdot, \cdot)$ as "result-of".</p>
+</article></body></html>
