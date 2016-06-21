@@ -730,8 +730,8 @@ pre {
     color: #4B0158;
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 2px solid #210027;
-    background-color: #FDF3FF
+    /*border: 2px solid #210027;*/
+    background-color: #FEFAFF
 }</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 MathJax.Hub.Config({
@@ -3789,4 +3789,264 @@ Called an abstract class</p>
 <p>Even though other points at an rvalue, other itself is an lvalue</p>
 
 <p><code>Std::move()</code> forces lvalue x to be treated as an rvalue, so that move version of operations run</p>
+
+<h2>
+<a id="user-content-lecture-15" class="anchor" href="#lecture-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 15</h2>
+
+<div class="highlight highlight-source-c++"><pre>Text t1 {...}, t2 {...};
+Book *pb1 = &amp;t1, *pb2 = &amp;t2;
+*pb1 = *pb2; <span class="pl-c">// Book::operator= runs</span></pre></div>
+
+<p>Partial assignment - copies only the Book part</p>
+
+<p>How can we fix this? Try making <code>operator=</code> virtual</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Book</span> {
+    ...
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> Book &amp; <span class="pl-k">operator</span>= (<span class="pl-k">const</span> Book &amp; other);
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+    ...
+<span class="pl-k">public:</span>
+    Text &amp; <span class="pl-k">operator</span>= (<span class="pl-k">const</span> Book &amp;other) override;
+};</pre></div>
+
+<p>Note: different return types, but parameter types must be the same, or it is not an override (and won't compile).</p>
+
+<p>Assignment to a Book object to a Text variable would be allowed:</p>
+
+<div class="highlight highlight-source-c++"><pre>Text t {...};
+Book b {...};
+Text *pt = &amp;t;
+Book &amp;pb = &amp;b;
+*pt = *pb;</pre></div>
+
+<p>Uses a Book to assign a Text, BAD but it compiles.</p>
+
+<p>Also:</p>
+
+<div class="highlight highlight-source-c++"><pre>Comic c {...};
+Comic *pc = &amp;c;
+*pt = *pc;</pre></div>
+
+<p>If <code>operator=</code> is non-virtual, partial assignment though base class parts;</p>
+
+<p>If <code>virtual</code>, compiler allows mixed assignment.</p>
+
+<p>Recommendation: All super classes should be <code>abstract</code>.</p>
+
+<p>Rewrite Book hierarchy:</p>
+
+<table>
+<thead>
+<tr>
+<th>Abstract Book</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/\</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>||</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Normal Book</td>
+<td>Text</td>
+<td>Comic</td>
+</tr>
+</tbody>
+</table>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">AbstractBook</span> {
+    string title, author;
+    <span class="pl-k">int</span> numPages;
+<span class="pl-k">protected:</span>
+<span class="pl-c">// protected modifier prevents assignment through base class pointers from compiling</span>
+<span class="pl-c">// but implementation still available to subclasses</span>
+    Abstract Book &amp; <span class="pl-k">operator</span>= (<span class="pl-k">const</span> Abstract Book &amp; other);
+<span class="pl-k">public:</span>
+    Abstract <span class="pl-en">Book</span> (...);
+    <span class="pl-k">virtual</span> <span class="pl-en">~AbstractBook</span> () = <span class="pl-c1">0</span>; <span class="pl-c">// Need at least one pure virtual method</span>
+    <span class="pl-c">// If you don't have one, use the dtor</span>
+};
+
+<span class="pl-k">class</span> <span class="pl-en">NormalBook</span> : <span class="pl-k">public</span> <span class="pl-en">AbstractBook</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-en">NormalBook</span> (...);
+    <span class="pl-en">~NormalBook</span> (...);
+    NormalBook &amp; <span class="pl-k">operator</span>= (<span class="pl-k">const</span> NormalBook &amp; other) {
+        AbstractBook::<span class="pl-k">operator</span>= (other);
+        <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+    }
+}<span class="pl-ii"></span>
+
+<span class="pl-c">// Other classes - similar</span></pre></div>
+
+<p>This solution prevents partial &amp; mixed assignment.</p>
+
+<p>Note: <code>virtual</code> dtor MUST be implemented, even though it is pure virtual.</p>
+
+<p><code>AbstractBook::~AbstractBook() {}</code></p>
+
+<h3>
+<a id="user-content-templates" class="anchor" href="#templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Templates</h3>
+
+<p>Huge topic - just the highlights</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">List</span> {
+    <span class="pl-k">struct</span> <span class="pl-en">Node</span>;
+    Node *p;
+    ...
+};
+
+<span class="pl-k">class</span> <span class="pl-en">List</span>::Node {
+    <span class="pl-k">int</span> data;
+    Node * next;
+};</pre></div>
+
+<p>What if you want to store something else? Whole new class?</p>
+
+<p>Or a <code>template</code> - class parameterized by a type</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">template </span>&lt;<span class="pl-k">typename</span> T&gt; <span class="pl-k">class</span> <span class="pl-en">stack</span> {
+    <span class="pl-k">int</span> size;
+    <span class="pl-k">int</span> cap;
+    T * contents;
+<span class="pl-k">public:</span>
+    <span class="pl-en">Stack</span> () {...}
+    <span class="pl-k">void</span> <span class="pl-en">push</span> (T x) {...}
+    T <span class="pl-en">top</span> () {...}
+    <span class="pl-k">void</span> <span class="pl-en">pop</span>() {...}
+};
+
+<span class="pl-k">template </span>&lt;<span class="pl-k">typename</span> T&gt; <span class="pl-k">class</span> <span class="pl-en">List</span> {
+    <span class="pl-k">struct</span> <span class="pl-en">Node</span> {
+        T data;
+        Node * next;
+    };
+    Node * theList;
+<span class="pl-k">public:</span>
+    <span class="pl-k">class</span> <span class="pl-en">Iterator</span> {
+        Node *p;
+        <span class="pl-k">explicit</span> <span class="pl-en">Iterator</span> (Node * p) : p{p} {}
+    <span class="pl-k">public:</span>
+        T &amp; <span class="pl-k">operator</span>* () {<span class="pl-k">return</span> p-&gt;data; }
+    }<span class="pl-ii"></span>
+
+    T <span class="pl-en">ith</span> (<span class="pl-k">int</span> i) {...}
+    <span class="pl-k">void</span> <span class="pl-en">addToFront</span> (T n) {...}
+}<span class="pl-ii"></span>
+
+
+<span class="pl-c">// Client:</span>
+List &lt;<span class="pl-k">int</span>&gt; l1;
+List &lt;List &lt;<span class="pl-k">int</span>&gt;&gt; l2;
+l1.addToFront(<span class="pl-c1">3</span>);
+l2.addToFront(l1);
+<span class="pl-k">for</span> (List&lt;<span class="pl-k">int</span>&gt;::Iterator it = l1.begin(); it != l1.end(); ++it) {
+    ...
+}</pre></div>
+
+<p>Compiler specializes templates at the source code level, before compilation.</p>
+
+<p>Note: all template code in <code>.h</code> file</p>
+
+<h3>
+<a id="user-content-the-standard-template-library-stl" class="anchor" href="#the-standard-template-library-stl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Standard Template Library (STL)</h3>
+
+<p>Large # of useful templates</p>
+
+<p>e.g. dynamic-length arrays: <code>vector</code></p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>vector<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+
+vector &lt;<span class="pl-k">int</span>&gt; v {<span class="pl-c1">4</span>,<span class="pl-c1">5</span>};
+v.emplace_back(<span class="pl-c1">6</span>); <span class="pl-c">// 4,5,6</span>
+v.emplace_back(<span class="pl-c1">7</span>); <span class="pl-c">// 4,5,6,7</span>
+
+<span class="pl-c">// Note:</span>
+
+vector &lt;<span class="pl-k">int</span>&gt; <span class="pl-en">v</span> (<span class="pl-c1">4</span>,<span class="pl-c1">5</span>); <span class="pl-c">// produce {5,5,5,5}</span></pre></div>
+
+<p>looping over vectors:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> (<span class="pl-k">int</span> i=<span class="pl-c1">0</span>;i&lt;v.size();++i) {
+    cout &lt;&lt; v[i] &lt;&lt; endl;
+}
+
+<span class="pl-k">for</span> (vector&lt;<span class="pl-k">int</span>&gt;::iterator it = v.begin(); it != v.end(); ++i) {
+
+}
+
+<span class="pl-c">// or</span>
+
+<span class="pl-k">for</span> (<span class="pl-k">auto</span> n : v) {
+    ...
+}
+
+<span class="pl-c">// to iterate in reverse</span>
+
+<span class="pl-k">for</span> (vector&lt;<span class="pl-k">int</span>&gt;::reverse_iterator it = v.rbegin(); it != v.rend(); ++i) {
+
+}</pre></div>
+
+<p>use iterator to remove items from a vector</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">auto</span> it = v.erase (v.begin()); <span class="pl-c">// erase item 0</span>
+<span class="pl-c">// returns an iterator to the first item after the erase</span>
+
+it = v.erase (v.begin() + <span class="pl-c1">3</span>); <span class="pl-c">// erase 4th item</span>
+
+it = v.erase(it); <span class="pl-c">// erase item pointed by it</span>
+
+it = v.erase(it.end()-<span class="pl-c1">1</span>); <span class="pl-c">// erase the last item</span>
+
+v.pop_back() <span class="pl-c">// remove last element</span></pre></div>
+
+<p><code>v[i];</code></p>
+
+<ul>
+<li>  returns the ith element of v</li>
+<li>  unchecked: if you go out of bounds - undefined behavior</li>
+</ul>
+
+<p><code>v.at(i)</code></p>
+
+<ul>
+<li>  check version of <code>v[i]</code>
+</li>
+<li>  what happens when you go out of bounds?</li>
+</ul>
+
+<p>Problem:</p>
+
+<ul>
+<li>  vector's code can detect the error, but doesn't know what to do about it.</li>
+<li>  client can respond, but can't detect the error</li>
+</ul>
+
+<p>C solution:</p>
+
+<ul>
+<li>  function return a status code or set the global variable error number</li>
+<li>  leads to awkward programming</li>
+<li>  encourages programmers to ignore error checks</li>
+</ul>
+
+<p>C++ solution:</p>
+
+<ul>
+<li>  when an error condition occurs, the function raises an exception</li>
+</ul>
 </article></body></html>

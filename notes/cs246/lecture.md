@@ -3075,3 +3075,248 @@ To write your own:
 Even though other points at an rvalue, other itself is an lvalue
 
 `Std::move()` forces lvalue x to be treated as an rvalue, so that move version of operations run
+
+## Lecture 15
+
+```CPP
+Text t1 {...}, t2 {...};
+Book *pb1 = &t1, *pb2 = &t2;
+*pb1 = *pb2; // Book::operator= runs
+```
+
+Partial assignment - copies only the Book part
+
+How can we fix this? Try making `operator=` virtual
+
+```CPP
+class Book {
+	...
+public:
+	virtual Book & operator= (const Book & other);
+};
+
+class Text : public Book {
+	...
+public:
+	Text & operator= (const Book &other) override;
+};
+```
+
+Note: different return types, but parameter types must be the same, or it is not an override (and won't compile).
+
+Assignment to a Book object to a Text variable would be allowed:
+
+```CPP
+Text t {...};
+Book b {...};
+Text *pt = &t;
+Book &pb = &b;
+*pt = *pb;
+```
+
+Uses a Book to assign a Text, BAD but it compiles.
+
+Also:
+
+```CPP
+Comic c {...};
+Comic *pc = &c;
+*pt = *pc;
+```
+
+If `operator=` is non-virtual, partial assignment though base class parts;
+
+If `virtual`, compiler allows mixed assignment.
+
+Recommendation:	All super classes should be `abstract`.
+
+Rewrite Book hierarchy:
+
+| Abstract Book |   |   |
+|---|---|---|
+| /\ | | |
+| \|\| | |
+| Normal Book | Text | Comic |
+
+```CPP
+class AbstractBook {
+	string title, author;
+	int numPages;
+protected:
+// protected modifier prevents assignment through base class pointers from compiling
+// but implementation still available to subclasses
+	Abstract Book & operator= (const Abstract Book & other);
+public:
+	Abstract Book (...);
+	virtual ~AbstractBook () = 0; // Need at least one pure virtual method
+	// If you don't have one, use the dtor
+};
+
+class NormalBook : public AbstractBook {
+public:
+	NormalBook (...);
+	~NormalBook (...);
+	NormalBook & operator= (const NormalBook & other) {
+		AbstractBook::operator= (other);
+		return *this;
+	}
+}
+
+// Other classes - similar
+```
+
+This solution prevents partial & mixed assignment.
+
+Note: `virtual` dtor MUST be implemented, even though it is pure virtual.
+
+`AbstractBook::~AbstractBook() {}`
+
+### Templates
+
+Huge topic - just the highlights
+
+```CPP
+class List {
+	struct Node;
+	Node *p;
+	...
+};
+
+class List::Node {
+	int data;
+	Node * next;
+};
+```
+
+What if you want to store something else? Whole new class?
+
+Or a `template` - class parameterized by a type
+
+```CPP
+template <typename T> class stack {
+	int size;
+	int cap;
+	T * contents;
+public:
+	Stack () {...}
+	void push (T x) {...}
+	T top () {...}
+	void pop() {...}
+};
+
+template <typename T> class List {
+	struct Node {
+		T data;
+		Node * next;
+	};
+	Node * theList;
+public:
+	class Iterator {
+		Node *p;
+		explicit Iterator (Node * p) : p{p} {}
+	public:
+		T & operator* () {return p->data; }
+	}
+
+	T ith (int i) {...}
+	void addToFront (T n) {...}
+}
+
+
+// Client:
+List <int> l1;
+List <List <int>> l2;
+l1.addToFront(3);
+l2.addToFront(l1);
+for (List<int>::Iterator it = l1.begin(); it != l1.end(); ++it) {
+	...
+}
+```
+
+Compiler specializes templates at the source code level, before compilation.
+
+Note: all template code in `.h` file
+
+### The Standard Template Library (STL)
+
+Large # of useful templates
+
+e.g. dynamic-length arrays: `vector`
+
+```CPP
+#include <vector>
+
+using namespace std;
+
+vector <int> v {4,5};
+v.emplace_back(6); // 4,5,6
+v.emplace_back(7); // 4,5,6,7
+
+// Note:
+
+vector <int> v (4,5); // produce {5,5,5,5}
+```
+
+looping over vectors:
+
+```CPP
+for (int i=0;i<v.size();++i) {
+	cout << v[i] << endl;
+}
+
+for (vector<int>::iterator it = v.begin(); it != v.end(); ++i) {
+
+}
+
+// or
+
+for (auto n : v) {
+	...
+}
+
+// to iterate in reverse
+
+for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); ++i) {
+
+}
+```
+
+use iterator to remove items from a vector
+
+```CPP
+auto it = v.erase (v.begin()); // erase item 0
+// returns an iterator to the first item after the erase
+
+it = v.erase (v.begin() + 3); // erase 4th item
+
+it = v.erase(it); // erase item pointed by it
+
+it = v.erase(it.end()-1); // erase the last item
+
+v.pop_back() // remove last element
+```
+
+`v[i];`
+
+*	returns the ith element of v
+*	unchecked: if you go out of bounds - undefined behavior
+
+`v.at(i)`
+
+*	check version of `v[i]`
+*	what happens when you go out of bounds?
+
+Problem:
+
+*	vector's code can detect the error, but doesn't know what to do about it.
+*	client can respond, but can't detect the error
+
+C solution:
+
+*	function return a status code or set the global variable error number
+*	leads to awkward programming
+*	encourages programmers to ignore error checks
+
+C++ solution:
+
+*	when an error condition occurs, the function raises an exception
