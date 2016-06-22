@@ -58,9 +58,11 @@ can also redirect input: `cat < inputfile.txt`
 *	seems equivalent to `cat inputfile.txt`
 
 what's the difference? **(important)**
+
 `cat inputfile.txt`
 *	passes the name `inputfile.txt` as an argument to cat. cat opens the file
 *	opens the file inputfile.txt and displays its contents
+
 `cat < inputfile.txt`
 *	the shell opens the file and passes its contents to cat in place of the keyboard
 
@@ -104,7 +106,7 @@ tools:
 solution:
 
 ```BASH
-head -20 smaple.txt | wc
+head -20 smaple.txt | wc -w
 ```
 
 ## Lecture 2
@@ -290,13 +292,13 @@ pwd
 
 give the file execute permission: `chmod u+x myscript` 
 
-run the file `./myscript
+run the file `./myscript`
 
 Variables 
 
 `x=1` (NO spaces)
 
- `echo $x`
+`echo $x`
 
 Use `$` when fetching the value of a variable. 
 
@@ -324,21 +326,22 @@ Some global variable
 
 `echo *` prints every file in the dir
 
-`echo "*"` `echo '*'` print * , suppress globbing
+`echo "*"` `echo '*'` print `*` , suppress globbing
 
 `echo "$PATH"` prints the path
 
-`echo '$PATH'` prints $PATH
+`echo '$PATH'` prints `$PATH`
 
 `$` expression happens in double quotes, but not single quotes
 
 Special variable for script
 
-$1, $2, … command line args
+`$1, $2, …` command line args
 
 e.g.
 check whether a word is in the dictionary
-./isItAWord hello
+
+`./isItAWord hello`
 
 ```BASH
 #!/bin/bash
@@ -394,7 +397,7 @@ else
 fi
 ```
 
-loops: print #s from 1 to $1
+loops: print `#s` from `1` to `$1`
 
 ```BASH
 #!/bin/bash
@@ -405,16 +408,16 @@ while [ $x -le $1 ]; do
 done
 ```
 
-e.g. rename all .cpp files to .cc
+e.g. rename all `.cpp` files to `.cc`
 
 ```BASH
 #!/bin/bash
-for name in *.cpp ; do # sets the var to each word in the given list
+for name in *.cpp; do  # sets the var to each word in the given list
 	mv ${name} ${name%cpp}cc
 done
 ```
 
-How many times does word $1 occur in file $2?
+How many times does word `$1` occur in file `$2`?
 
 ```BASH
 #!/bin/bash
@@ -477,10 +480,8 @@ answer $(cal $1 $2 | awk '{print $6}' | egrep "[0-9]" | tail -1) $1
 *	is not debugging, cannot debug without testing
 *	cannot guarantee correctness - can only prove wrongness
 *	ideally, developer & tester are different people
-
 *	Human testing: humans look over code, fine flaws, code inspection, walk through
 *	Machine testing: run program on selected input, check against spec. cannot check everything, choose test cases carefully
-
 *	Black/White/Grey-box testing: no/full/some knowledge of program implementation
 
 start with black-box, supplement with white box
@@ -533,11 +534,12 @@ int main() {
 *	output: `std::cout<<...<<...<<...`
 *	`std::endl` = end of line
 *	`using namespace std`, let you say `cout/endl` instead of `std::cout//std::endl`
-*	return statement, returns status code to shell ($?)
+*	return statement, returns status code to shell (`$?`)
 	if left out, main returns 0
 *	compiling C++ programs:
-	`g++-5 -std=c++14 program.cc -o program` <- the name of the executable binary (if not specified: a.out)
-	or if you modified .profile
+	`g++-5 -std=c++14 program.cc -o program` <- the name of the executable binary (if not specified: `a.out`)
+	or if you modified `.profile`
+
 	`g++14 program.cc -o program`
 *	to run: `./program`
 
@@ -574,6 +576,7 @@ int main() {
 
 what if the input doesn't contain an integer next?
 *	statement fails, value of var is undefined
+
 what if the input is exhausted? (EOF) before you get two ints? - same
 
 if the read fails, `cin.fail()` fill be true
@@ -633,21 +636,21 @@ Example 2.0
 ```
 
 
-Note >> is C's right bitshift operator
+Note `>>` is C's right bitshift operator
 
-a>>b shifts a's bits b positional to the right
+`a>>b` shifts `a`'s bits `b` positional to the right
 
-21 >> 3 = 2
+`21 >> 3 = 2`
 
-But when LHS is cin, >> is the "get from" operator.
+But when LHS is `cin`, `>>` is the "get from" operator.
 
-operator >> input: LHS cin  (istream)
+operator `>>` input: LHS `cin`  (`istream`)
                               
 RHS data (several possible types)
 
-output: return cin back (istream)
+output: return `cin` back (`istream`)
 
-This is why we can write cin >> x >> y >> z;
+This is why we can write `cin >> x >> y >> z;`
 
 Example 3.0
 
@@ -694,7 +697,7 @@ Read all ints and echo to stdout until EOF. Skip non-integer input.
 
 ### Reading Strings
 
-type std::string (#include <string>)
+type `std::string` (`#include <string>`)
 
 ```CPP
 1 ﻿int main() {
@@ -707,8 +710,8 @@ type std::string (#include <string>)
 *	skips leading white space
 *	stops at whitespace
 
-what if we want the whitespace? getline(cin, s)
-*	reads from current position to the next new line into s
+what if we want the whitespace? `getline(cin, s)`
+*	reads from current position to the next new line into `s`
 
 ```CPP
 1 ﻿cout << 95 << endl; // prints 95
@@ -730,9 +733,10 @@ Other manipulators: see notes `#include <iomanip>`
 
 Stream abstraction applies to other sources of data
 
-Files: Read from a file instead of stdin
+Files: Read from a file instead of `stdin`
 
 `std::ifstream` read from a file
+
 `std::ofstream` write to a file
 
 ### File access in C
@@ -766,7 +770,7 @@ C++:
 10 }
 ```
 
-Anything you can do with cin/cout, you can also to with an ifstream/ofstream
+Anything you can do with `cin/cout`, you can also to with an `ifstream/ofstream`
 
 Example: Strings - attach a stream to a string variable and read from/write to the string
 
@@ -816,17 +820,21 @@ Example: echo #, skip non-#
 
 ###Strings
 
-In C: array of char (char * or char[]) terminated by \0
+In C: array of char (`char *` or `char[]`) terminated by `\0`
 *	must explicitly manage memory - allocate more memory as strings get larger
-*	easy to overwrite \0 and corrupt the string
+*	easy to overwrite `\0` and corrupt the string
+
 C++: grow as needed (no need to manage memory)
 *	safer to manipulate
 
 Example
 
-string s = "hello" -> c-style string (charr array)  // string s{"Hello"};
+```CPP
+string s = "hello";
+string s{"Hello"};
+```
 
-'h'	'e'	'l'	'l'	'o'	'\0'
+`'h' 'e' 'l' 'l' 'o' '\0'`
 
 C++ string created from C string on initialization
 
