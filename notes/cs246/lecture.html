@@ -841,14 +841,18 @@ some words</pre></div>
 </li>
 </ul>
 
-<p>what's the difference? <strong>(important)</strong>
-<code>cat inputfile.txt</code></p>
+<p>what's the difference? <strong>(important)</strong></p>
+
+<p><code>cat inputfile.txt</code></p>
 
 <ul>
 <li>  passes the name <code>inputfile.txt</code> as an argument to cat. cat opens the file</li>
-<li>  opens the file inputfile.txt and displays its contents
-<code>cat &lt; inputfile.txt</code>
-</li>
+<li>  opens the file inputfile.txt and displays its contents</li>
+</ul>
+
+<p><code>cat &lt; inputfile.txt</code></p>
+
+<ul>
 <li>  the shell opens the file and passes its contents to cat in place of the keyboard</li>
 </ul>
 
@@ -913,7 +917,7 @@ some words</pre></div>
 
 <p>solution:</p>
 
-<div class="highlight highlight-source-shell"><pre>head -20 smaple.txt <span class="pl-k">|</span> wc</pre></div>
+<div class="highlight highlight-source-shell"><pre>head -20 smaple.txt <span class="pl-k">|</span> wc -w</pre></div>
 
 <h2>
 <a id="user-content-lecture-2" class="anchor" href="#lecture-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 2</h2>
@@ -1138,7 +1142,7 @@ whoami
 
 <p>give the file execute permission: <code>chmod u+x myscript</code> </p>
 
-<p>run the file `./myscript</p>
+<p>run the file <code>./myscript</code></p>
 
 <p>Variables </p>
 
@@ -1173,21 +1177,22 @@ contents of the directory</pre></div>
 
 <p><code>echo *</code> prints every file in the dir</p>
 
-<p><code>echo "*"</code> <code>echo '*'</code> print * , suppress globbing</p>
+<p><code>echo "*"</code> <code>echo '*'</code> print <code>*</code> , suppress globbing</p>
 
 <p><code>echo "$PATH"</code> prints the path</p>
 
-<p><code>echo '$PATH'</code> prints $PATH</p>
+<p><code>echo '$PATH'</code> prints <code>$PATH</code></p>
 
 <p><code>$</code> expression happens in double quotes, but not single quotes</p>
 
 <p>Special variable for script</p>
 
-<p>$1, $2, … command line args</p>
+<p><code>$1, $2, …</code> command line args</p>
 
 <p>e.g.
-check whether a word is in the dictionary
-./isItAWord hello</p>
+check whether a word is in the dictionary</p>
+
+<p><code>./isItAWord hello</code></p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
 egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</span>$<span class="pl-pds">"</span></span> /usr/share/dict/words</pre></div>
@@ -1235,7 +1240,7 @@ egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</
 …
 <span class="pl-k">fi</span></pre></div>
 
-<p>loops: print #s from 1 to $1</p>
+<p>loops: print <code>#s</code> from <code>1</code> to <code>$1</code></p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
 x=1
@@ -1244,14 +1249,14 @@ x=1
     x=<span class="pl-s"><span class="pl-pds">$((</span>x<span class="pl-k">+</span><span class="pl-c1">1</span><span class="pl-pds">))</span></span> <span class="pl-c"># $((...)) for arithmetic</span>
 <span class="pl-k">done</span></pre></div>
 
-<p>e.g. rename all .cpp files to .cc</p>
+<p>e.g. rename all <code>.cpp</code> files to <code>.cc</code></p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
-<span class="pl-k">for</span> <span class="pl-smi">name in *.cpp ; do # sets the var to each word</span> <span class="pl-k">in</span> the given list
+<span class="pl-k">for</span> <span class="pl-smi">name in *.cpp; do  # sets the var to each word</span> <span class="pl-k">in</span> the given list
     mv <span class="pl-smi">${name}</span> <span class="pl-smi">${name<span class="pl-k">%</span>cpp}</span>cc
 <span class="pl-k">done</span></pre></div>
 
-<p>How many times does word $1 occur in file $2?</p>
+<p>How many times does word <code>$1</code> occur in file <code>$2</code>?</p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
 x=0
@@ -1314,10 +1319,10 @@ answer <span class="pl-s"><span class="pl-pds">$(</span>cal <span class="pl-smi"
 </li>
 <li>  is not debugging, cannot debug without testing</li>
 <li>  cannot guarantee correctness - can only prove wrongness</li>
-<li><p>ideally, developer &amp; tester are different people</p></li>
-<li><p>Human testing: humans look over code, fine flaws, code inspection, walk through</p></li>
-<li><p>Machine testing: run program on selected input, check against spec. cannot check everything, choose test cases carefully</p></li>
-<li><p>Black/White/Grey-box testing: no/full/some knowledge of program implementation</p></li>
+<li>  ideally, developer &amp; tester are different people</li>
+<li>  Human testing: humans look over code, fine flaws, code inspection, walk through</li>
+<li>  Machine testing: run program on selected input, check against spec. cannot check everything, choose test cases carefully</li>
+<li>  Black/White/Grey-box testing: no/full/some knowledge of program implementation</li>
 </ul>
 
 <p>start with black-box, supplement with white box</p>
@@ -1382,12 +1387,14 @@ answer <span class="pl-s"><span class="pl-pds">$(</span>cal <span class="pl-smi"
 <li>  <code>std::endl</code> = end of line</li>
 <li>  <code>using namespace std</code>, let you say <code>cout/endl</code> instead of <code>std::cout//std::endl</code>
 </li>
-<li>  return statement, returns status code to shell ($?)
+<li>  return statement, returns status code to shell (<code>$?</code>)
 if left out, main returns 0</li>
-<li>  compiling C++ programs:
-<code>g++-5 -std=c++14 program.cc -o program</code> &lt;- the name of the executable binary (if not specified: a.out)
-or if you modified .profile
-<code>g++14 program.cc -o program</code>
+<li>
+<p>compiling C++ programs:
+<code>g++-5 -std=c++14 program.cc -o program</code> &lt;- the name of the executable binary (if not specified: <code>a.out</code>)
+or if you modified <code>.profile</code></p>
+
+<p><code>g++14 program.cc -o program</code></p>
 </li>
 <li>  to run: <code>./program</code>
 </li>
@@ -1431,9 +1438,10 @@ or if you modified .profile
 <p>what if the input doesn't contain an integer next?</p>
 
 <ul>
-<li>  statement fails, value of var is undefined
-what if the input is exhausted? (EOF) before you get two ints? - same</li>
+<li>  statement fails, value of var is undefined</li>
 </ul>
+
+<p>what if the input is exhausted? (EOF) before you get two ints? - same</p>
 
 <p>if the read fails, <code>cin.fail()</code> fill be true</p>
 
@@ -1489,21 +1497,21 @@ what if the input is exhausted? (EOF) before you get two ints? - same</li>
 <span class="pl-c1">7</span>     }
 <span class="pl-c1">8</span> }</pre></div>
 
-<p>Note &gt;&gt; is C's right bitshift operator</p>
+<p>Note <code>&gt;&gt;</code> is C's right bitshift operator</p>
 
-<p>a&gt;&gt;b shifts a's bits b positional to the right</p>
+<p><code>a&gt;&gt;b</code> shifts <code>a</code>'s bits <code>b</code> positional to the right</p>
 
-<p>21 &gt;&gt; 3 = 2</p>
+<p><code>21 &gt;&gt; 3 = 2</code></p>
 
-<p>But when LHS is cin, &gt;&gt; is the "get from" operator.</p>
+<p>But when LHS is <code>cin</code>, <code>&gt;&gt;</code> is the "get from" operator.</p>
 
-<p>operator &gt;&gt; input: LHS cin  (istream)</p>
+<p>operator <code>&gt;&gt;</code> input: LHS <code>cin</code>  (<code>istream</code>)</p>
 
 <p>RHS data (several possible types)</p>
 
-<p>output: return cin back (istream)</p>
+<p>output: return <code>cin</code> back (<code>istream</code>)</p>
 
-<p>This is why we can write cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;</p>
+<p>This is why we can write <code>cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;</code></p>
 
 <p>Example 3.0</p>
 
@@ -1545,7 +1553,7 @@ what if the input is exhausted? (EOF) before you get two ints? - same</li>
 <h3>
 <a id="user-content-reading-strings" class="anchor" href="#reading-strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading Strings</h3>
 
-<p>type std::string (#include )</p>
+<p>type <code>std::string</code> (<code>#include &lt;string&gt;</code>)</p>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
 <span class="pl-c1">2</span>     string s;
@@ -1558,10 +1566,11 @@ what if the input is exhausted? (EOF) before you get two ints? - same</li>
 <li>  stops at whitespace</li>
 </ul>
 
-<p>what if we want the whitespace? getline(cin, s)</p>
+<p>what if we want the whitespace? <code>getline(cin, s)</code></p>
 
 <ul>
-<li>  reads from current position to the next new line into s</li>
+<li>  reads from current position to the next new line into <code>s</code>
+</li>
 </ul>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿cout &lt;&lt; <span class="pl-c1">95</span> &lt;&lt; endl; <span class="pl-c">// prints 95</span></pre></div>
@@ -1578,10 +1587,11 @@ what if the input is exhausted? (EOF) before you get two ints? - same</li>
 
 <p>Stream abstraction applies to other sources of data</p>
 
-<p>Files: Read from a file instead of stdin</p>
+<p>Files: Read from a file instead of <code>stdin</code></p>
 
-<p><code>std::ifstream</code> read from a file
-<code>std::ofstream</code> write to a file</p>
+<p><code>std::ifstream</code> read from a file</p>
+
+<p><code>std::ofstream</code> write to a file</p>
 
 <h3>
 <a id="user-content-file-access-in-c" class="anchor" href="#file-access-in-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File access in C</h3>
@@ -1611,7 +1621,7 @@ what if the input is exhausted? (EOF) before you get two ints? - same</li>
 <span class="pl-c1">9</span>     } <span class="pl-c">// file is closed when the ifstream (file) goes out of scope</span>
 <span class="pl-c1">10</span> }</pre></div>
 
-<p>Anything you can do with cin/cout, you can also to with an ifstream/ofstream</p>
+<p>Anything you can do with <code>cin/cout</code>, you can also to with an <code>ifstream/ofstream</code></p>
 
 <p>Example: Strings - attach a stream to a string variable and read from/write to the string</p>
 
@@ -1654,20 +1664,25 @@ convert string to #</p>
 <h3>
 <a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h3>
 
-<p>In C: array of char (char * or char[]) terminated by \0</p>
+<p>In C: array of char (<code>char *</code> or <code>char[]</code>) terminated by <code>\0</code></p>
 
 <ul>
 <li>  must explicitly manage memory - allocate more memory as strings get larger</li>
-<li>  easy to overwrite \0 and corrupt the string
-C++: grow as needed (no need to manage memory)</li>
+<li>  easy to overwrite <code>\0</code> and corrupt the string</li>
+</ul>
+
+<p>C++: grow as needed (no need to manage memory)</p>
+
+<ul>
 <li>  safer to manipulate</li>
 </ul>
 
 <p>Example</p>
 
-<p>string s = "hello" -&gt; c-style string (charr array)  // string s{"Hello"};</p>
+<div class="highlight highlight-source-c++"><pre>string s = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>;
+string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>};</pre></div>
 
-<p>'h' 'e' 'l' 'l' 'o' '\0'</p>
+<p><code>'h' 'e' 'l' 'l' 'o' '\0'</code></p>
 
 <p>C++ string created from C string on initialization</p>
 
