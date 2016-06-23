@@ -795,9 +795,9 @@ MathJax.Hub.Config({
 <li>  command-line (type commands at a prompt, more versatile)</li>
 </ul>
 
-<p>This course - bash (command line)</p>
+<p>This course - sh (command line)</p>
 
-<p>type <code>echo $0</code> should output <code>-bash</code></p>
+<p>type <code>echo $0</code> should output <code>-sh</code></p>
 
 <p>Linux File System</p>
 
@@ -1135,7 +1135,7 @@ sort words<span class="pl-k">*</span>.txt <span class="pl-k">|</span> uniq</pre>
 
 <p>e.g. print date, current dir, current dir</p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash # "shebang" line execute this file a bash script</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh # "shebang" line execute this file a sh script</span>
 date
 whoami
 <span class="pl-c1">pwd</span></pre></div>
@@ -1194,7 +1194,7 @@ check whether a word is in the dictionary</p>
 
 <p><code>./isItAWord hello</code></p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</span>$<span class="pl-pds">"</span></span> /usr/share/dict/words</pre></div>
 
 <ul>
@@ -1204,7 +1204,7 @@ egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</
 
 <p>e.g. a good password should not be in the dictionary</p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</span>$<span class="pl-pds">"</span></span> /usr/share/dict/words <span class="pl-k">&gt;</span> /dev/null <span class="pl-c">#suppress output</span></pre></div>
 
 <p>every program returns a status code when it's finished.</p>
@@ -1242,7 +1242,7 @@ egrep <span class="pl-s"><span class="pl-pds">"</span>^<span class="pl-smi">$1</
 
 <p>loops: print <code>#s</code> from <code>1</code> to <code>$1</code></p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 x=1
 <span class="pl-k">while</span> [ <span class="pl-smi">$x</span> <span class="pl-k">-le</span> <span class="pl-smi">$1</span> ]<span class="pl-k">;</span> <span class="pl-k">do</span>
     <span class="pl-c1">echo</span> <span class="pl-smi">$x</span>
@@ -1251,14 +1251,14 @@ x=1
 
 <p>e.g. rename all <code>.cpp</code> files to <code>.cc</code></p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 <span class="pl-k">for</span> <span class="pl-smi">name in *.cpp; do  # sets the var to each word</span> <span class="pl-k">in</span> the given list
     mv <span class="pl-smi">${name}</span> <span class="pl-smi">${name<span class="pl-k">%</span>cpp}</span>cc
 <span class="pl-k">done</span></pre></div>
 
 <p>How many times does word <code>$1</code> occur in file <code>$2</code>?</p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 x=0
 <span class="pl-k">for</span> <span class="pl-smi">word</span> <span class="pl-k">in</span> <span class="pl-s"><span class="pl-pds">$(</span>cat <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$2</span><span class="pl-pds">"</span></span><span class="pl-pds">)</span></span><span class="pl-k">;</span> <span class="pl-k">do</span> <span class="pl-c"># surround vars with double quotes</span>
     <span class="pl-k">if</span> [ word <span class="pl-k">==</span> <span class="pl-smi">$1</span> ]<span class="pl-k">;</span> <span class="pl-k">then</span>
@@ -1271,7 +1271,7 @@ x=0
 
 <p>Example: payday is the last Friday of the month, when is this month's payday? 2 tasks: compute date &amp; format answer</p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 <span class="pl-en">answer</span>() {
     <span class="pl-k">if</span> [ <span class="pl-smi">$1</span> <span class="pl-k">-eq</span> 31 ]<span class="pl-k">;</span> <span class="pl-k">then</span>
         <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>This month: the 31st<span class="pl-pds">"</span></span>
@@ -1287,7 +1287,7 @@ answer <span class="pl-s"><span class="pl-pds">$(</span>cal <span class="pl-k">|
 
 <p><code>cal June 2016</code> gives June 2016 calendar, so let <code>payday June 2016</code> gives June's payday</p>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/sh</span>
 <span class="pl-en">answer</span>() {
     <span class="pl-k">if</span> [ <span class="pl-smi">$2</span> ]<span class="pl-k">;</span> <span class="pl-k">then</span>
         preamble=<span class="pl-smi">$2</span>
@@ -2625,7 +2625,7 @@ ends.</p>
 
 <p>in some circumstances, the compiler is allowed to skip calling copy/move ctors (but doesn’t have to)</p>
 
-<p>in this example: makeAVec writes its result ({0,0}) directly into the space occupied by v in the caller, rather than copy it later</p>
+<p>in this example: <code>makeAVec</code> writes its result (<code>{0,0}</code>) directly into the space occupied by <code>v</code> in the caller, rather than copy it later</p>
 
 <p>example:</p>
 
@@ -2792,7 +2792,7 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 
 <p>want to be able to update some fields even if the object is const, declare the field mutable</p>
 
-<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Studnet</span>
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Studnet</span> {
 <span class="pl-c1">2</span>     <span class="pl-k">mutable</span> <span class="pl-k">int</span> numCalls = <span class="pl-c1">0</span>;
 <span class="pl-c1">3</span>     <span class="pl-k">float</span> <span class="pl-en">grade</span>() <span class="pl-k">const</span> {
 <span class="pl-c1">4</span>         ++ numCalls;
@@ -2800,8 +2800,8 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 <span class="pl-c1">6</span>     }
 <span class="pl-c1">7</span> };</pre></div>
 
-<h3>
-<a id="user-content-lecture-11" class="anchor" href="#lecture-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 11</h3>
+<h2>
+<a id="user-content-lecture-11" class="anchor" href="#lecture-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 11</h2>
 
 <p>recall</p>
 
@@ -2817,9 +2817,9 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 <h3>
 <a id="user-content-static-field--method" class="anchor" href="#static-field--method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static Field &amp; Method</h3>
 
-<p><code>numMethodCalls</code> track # times a method was called a particular object</p>
+<p><code>numMethodCalls</code> track the number of times a method was called a particular object</p>
 
-<p>what if we want to track the # times a method is called over all student objects</p>
+<p>what if we want to track the number of times a method is called over all student objects</p>
 
 <p>or what if we want to track how many students are created</p>
 
@@ -2843,7 +2843,7 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 </ul>
 
 <h3>
-<a id="user-content-static-methods" class="anchor" href="#static-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>static methods</h3>
+<a id="user-content-static-methods" class="anchor" href="#static-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static Methods</h3>
 
 <ul>
 <li>  don’t depend on a specific instance</li>
@@ -2877,15 +2877,15 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 
 <p>what happens when these go out of scope?</p>
 
-<p>n1 - dtor runs, list is deleted, ok</p>
+<p><code>n1</code> - dtor runs, list is deleted, ok</p>
 
-<p>n2 n3 go out of scope, n3's dtor attempts to delete n2</p>
+<p><code>n2</code> <code>n3</code> go out of scope, <code>n3</code>'s dtor attempts to delete <code>n2</code></p>
 
-<p>but n2 is on the stack, not on the heap, undefined behavior</p>
+<p>but <code>n2</code> is on the stack, not on the heap, undefined behavior</p>
 
-<p>class Node relies on an assumption to proper operation that next is either nullptr or a valid ptr to the heap</p>
+<p>class <code>Node</code> relies on an assumption to proper operation that next is either <code>nullptr</code> or a valid ptr to the heap</p>
 
-<p>this is an invariant - a statement that holds true - that next is either nullptr or valid heap ptr - upon which Node relies. but we can't guarantee this invariant - no control over the user - can't guarantee any invariant</p>
+<p>this is an invariant - a statement that holds true - that next is either <code>nullptr</code> or valid heap ptr - upon which Node relies. but we can't guarantee this invariant - no control over the user - can't guarantee any invariant</p>
 
 <p>e.g. a stack - invariant - last item pushed is first item popped</p>
 
@@ -2911,15 +2911,15 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 <span class="pl-c1">6</span>     Vec <span class="pl-k">operator</span>+ (<span class="pl-k">const</span> Vec &amp;v);
 <span class="pl-c1">7</span> }<span class="pl-ii"></span></pre></div>
 
-<p>public: anyone can see</p>
+<p><code>public</code>: anyone can see</p>
 
-<p>private: can only be accessed inside class Vec</p>
+<p><code>private</code>: can only be accessed inside <code>class Vec</code></p>
 
-<p>default visibility in struct - public</p>
+<p>default visibility in struct - <code>public</code></p>
 
-<p>in general want field to be private, only method should be public</p>
+<p>in general want field to be <code>private</code>, only method should be <code>public</code></p>
 
-<p>better to have default visibility - private</p>
+<p>better to have default visibility - <code>private</code></p>
 
 <p>switch from struct to class</p>
 
@@ -2964,15 +2964,15 @@ Node:: means in the context of struct Node, the LHS is a class, not an object</p
 <span class="pl-c1">28</span>     <span class="pl-k">return</span> cur-&gt;data;
 <span class="pl-c1">29</span> }
 <span class="pl-c1">30</span> 
-<span class="pl-c1">31</span> <span class="pl-en">List::~List</span>(){<span class="pl-k">delete</span> the List;}</pre></div>
+<span class="pl-c1">31</span> <span class="pl-en">List::~List</span>(){<span class="pl-k">delete</span> theList;}</pre></div>
 
 <p>only List can create/manipulate Node objects,</p>
 
-<p>can guarantee the invariant the next is always nullptr or a valid heap pointer</p>
+<p>can guarantee the invariant the <code>next</code> is always <code>nullptr</code> or a valid heap pointer</p>
 
 <p>but now we can’t traverse the list from node to node as would a liked list</p>
 
-<p>repeatedly calling ith to access the whole list is O(n^2) time</p>
+<p>repeatedly calling <code>ith</code> to access the whole list is $O(n^2)$ time</p>
 
 <p>but we can't expose the nodes or we lose encapsulation</p>
 
@@ -2984,7 +2984,7 @@ keep track of good solutions, use them in similar situations</p>
 
 <p>iterator pattern</p>
 
-<p>create a class that manages access to Nodes</p>
+<p>create a class that manages access to <code>Nodes</code></p>
 
 <p>abstraction of a pointer</p>
 
@@ -3044,8 +3044,9 @@ keep track of good solutions, use them in similar situations</p>
 <p>available for any class with </p>
 
 <ul>
-<li>  methods begin, end that produce iterators</li>
-<li>  iterators must support  != ++ *</li>
+<li>  methods <code>begin</code>, <code>end</code> that produce iterators</li>
+<li>  iterators must support  <code>!=</code> <code>++</code> <code>*</code>
+</li>
 </ul>
 
 <p>if you want to modify the items in the list (or save copying)</p>
@@ -3083,8 +3084,9 @@ keep track of good solutions, use them in similar situations</p>
 
 <ul>
 <li>  make Iterator's ctor private </li>
-<li>then client can’t call List::Iterator</li>
-<li>but then neither can List</li>
+<li>  then client can’t call <code>List::Iterator</code>
+</li>
+<li>  but then neither can List</li>
 <li>  solution: give List privileged access to Iterator - make it a <code>friend</code>
 </li>
 </ul>
@@ -3147,7 +3149,7 @@ g++14 main.o iter.o node.o list.o -o myprogram</pre></div>
 
 <p>why do we do this? so we don’t have to recompile files that haven't changed.</p>
 
-<p>but how do we keep track of what’s changed &amp; what hasn't Let Linux help you with - make</p>
+<p>but how do we keep track of what’s changed &amp; what hasn't Let Linux help you with - <code>make</code></p>
 
 <p>Create a Makefile that says which files depend on which other files</p>
 
@@ -3169,15 +3171,24 @@ main.o: main.cc list.h
 
 <p>then from the command list: </p>
 
-<div class="highlight highlight-source-shell"><pre>make
-    - builds the whole project
+<div class="highlight highlight-source-shell"><pre>make</pre></div>
 
-now, change iter.cc
-make
-    - recompiles iter.cc
-    - relinks myprogram</pre></div>
+<ul>
+<li>builds the whole project</li>
+</ul>
 
-<p>Command make - builds the first target (myprogram) in the Makefile</p>
+<p>now, change <code>iter.cc</code></p>
+
+<div class="highlight highlight-source-shell"><pre>make</pre></div>
+
+<ul>
+<li>recompiles <code>iter.cc</code>
+</li>
+<li>relinks <code>myprogram</code>
+</li>
+</ul>
+
+<p>Command <code>make</code> - builds the first target (<code>myprogram</code>) in the Makefile</p>
 
 <p>what does my target depend on? <code>main.o list.o …</code></p>
 
@@ -3195,7 +3206,7 @@ clean:
 <p>generalize with variables</p>
 
 <pre><code>CXX = g++-5 (complier's name)
-CXXFLAGS = -std=c++14 -Wall (options for the compiler
+CXXFLAGS = -std=c++14 -Wall (options for the compiler)
 </code></pre>
 
 <p>e.g.</p>
@@ -3222,7 +3233,8 @@ CXXFLAGS = -std=c++14 -Wall (options for the compiler
 <div class="highlight highlight-source-shell"><pre>g++14 -MMD -c iter.cc</pre></div>
 
 <ul>
-<li>  creates iter.o and iter.d</li>
+<li>  creates <code>iter.o</code> and <code>iter.d</code>
+</li>
 <li>  now just include this in the Makefile</li>
 </ul>
 
@@ -3230,6 +3242,7 @@ CXXFLAGS = -std=c++14 -Wall (options for the compiler
 CXXFLAGS = -std=c++14 -Wall -MMD
 OBJECTS = main.o list.o iter.o node.o
 DEPENDS = ${OBJECTS: .o=.d}
+EXEC = myProgram
 
 ${EXEC}: ${OBJECTS}
     ${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC}
@@ -3237,18 +3250,18 @@ ${EXEC}: ${OBJECTS}
 -include ${DEPENDS}
 </code></pre>
 
-<p>as the project expands just add .o files in the Makefile</p>
+<p>as the project expands just add <code>.o</code> files in the Makefile</p>
 
 <h3>
 <a id="user-content-system-modelling" class="anchor" href="#system-modelling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Modelling</h3>
 
-<p>Building an 00 system involves identifying obstruction and formalizing the relationships among them</p>
+<p>Building a system involves identifying obstruction and formalizing the relationships among them</p>
 
 <p>helps to map out relationships</p>
 
-<p>popular standard: UML (Unified Modelling Language)</p>
+<p>popular standard: UML (Unified Modeling Language)</p>
 
-<p>Modelling a class</p>
+<p>Modeling a class</p>
 
 <table>
 <thead>
@@ -3264,22 +3277,20 @@ ${EXEC}: ${OBJECTS}
 <td>-x: Integer</td>
 </tr>
 <tr>
+<td></td>
+</tr>
+<tr>
 <td>+getX: Integer</td>
 </tr>
 <tr>
 <td>+getY: Integer</td>
 </tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>- private</td>
-</tr>
-<tr>
-<td>+ public</td>
-</tr>
 </tbody>
 </table>
+
+<p><code>-</code> private</p>
+
+<p><code>+</code> public</p>
 
 <p>relationship: composition</p>
 

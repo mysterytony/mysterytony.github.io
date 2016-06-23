@@ -21,9 +21,9 @@ Modules:
 *	graphical (click with mouse/touch interface)
 *	command-line (type commands at a prompt, more versatile)
 
-This course - bash (command line)
+This course - sh (command line)
 
-type `echo $0` should output `-bash`
+type `echo $0` should output `-sh`
 
 Linux File System
 *	command `cat`: displays the contents of a file
@@ -36,7 +36,7 @@ Linux File System
 
 what if you just type `cat`? nothing happens, `cat` is waiting for input
 
-```BASH
+```sh
 cat
 some words
 some words
@@ -105,7 +105,7 @@ tools:
 
 solution:
 
-```BASH
+```sh
 head -20 smaple.txt | wc -w
 ```
 
@@ -123,7 +123,7 @@ Want: a duplicate free list of all words in these files
 
 solution:
 
-```BASH
+```sh
 cat words*.txt | sort | uniq
 sort words*.txt | uniq
 ```
@@ -283,8 +283,8 @@ files containing sequences of shell commands executed as programs.
 
 e.g. print date, current dir, current dir
 
-```BASH
-#!/bin/bash # "shebang" line execute this file a bash script
+```sh
+#!/bin/sh # "shebang" line execute this file a sh script
 date
 whoami
 pwd
@@ -310,7 +310,7 @@ all variables contain strings (x above is the string "1")
 
 e.g.
 
-```BASH
+```sh
 >dir=~/cs246 
 >echo ${dir} 
 /u/bmlushma/cs246 
@@ -343,8 +343,8 @@ check whether a word is in the dictionary
 
 `./isItAWord hello`
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 egrep "^$1$" /usr/share/dict/words
 ```
 
@@ -353,8 +353,8 @@ egrep "^$1$" /usr/share/dict/words
 
 e.g. a good password should not be in the dictionary
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 egrep "^$1$" /usr/share/dict/words > /dev/null #suppress output
 ```
 
@@ -366,7 +366,7 @@ every program returns a status code when it's finished.
 
 `$?` = status code of most recently executed command
 
-```BASH
+```sh
 if [ $? -eq 0 ]; then
 	echo Bad password
 else
@@ -376,7 +376,7 @@ fi
 
 verify # of arguments, print error msg if wrong
 
-```BASH
+```sh
 usage () {
 	echo "usage: $0 password" # $0 is the name of the program/script
 }
@@ -387,7 +387,7 @@ if [ $# -neq 1 ]; then # $# is the number of arguments
 fi
 ```
 
-```BASH
+```sh
 if [ cond ]; then
 …
 elif [ cond ]; then
@@ -399,8 +399,8 @@ fi
 
 loops: print `#s` from `1` to `$1`
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 x=1
 while [ $x -le $1 ]; do
 	echo $x
@@ -410,8 +410,8 @@ done
 
 e.g. rename all `.cpp` files to `.cc`
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 for name in *.cpp; do  # sets the var to each word in the given list
 	mv ${name} ${name%cpp}cc
 done
@@ -419,8 +419,8 @@ done
 
 How many times does word `$1` occur in file `$2`?
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 x=0
 for word in $(cat "$2"); do # surround vars with double quotes
 	if [ word == $1 ]; then
@@ -433,8 +433,8 @@ done
 
 Example: payday is the last Friday of the month, when is this month's payday? 2 tasks: compute date & format answer
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 answer() {
 	if [ $1 -eq 31 ]; then
 		echo "This month: the 31st"
@@ -451,8 +451,8 @@ generalize to any month
 
 `cal June 2016` gives June 2016 calendar, so let `payday June 2016` gives June's payday
 
-```BASH
-#!/bin/bash
+```sh
+#!/bin/sh
 answer() {
 	if [ $2 ]; then
 		preamble=$2
@@ -1265,7 +1265,7 @@ can also define symbols via compiler arguments
 14 }
 ```
 
-```BASH
+```sh
 g++14 -DDEBUG debug.cc -o debug
 ```
 
@@ -1306,7 +1306,7 @@ Recall
 
 compiling separately
 
-```BASH
+```sh
 g++14 -c vec.cc
 g++14 -c main.c  # -> compile only, don’t link
 #-c produces an object file (.o)
@@ -1884,7 +1884,7 @@ in g++, just the basic ctor ran, no copy ctor, no move ctor
 
 in some circumstances, the compiler is allowed to skip calling copy/move ctors (but doesn’t have to)
 
-in this example: makeAVec writes its result ({0,0}) directly into the space occupied by v in the caller, rather than copy it later
+in this example: `makeAVec` writes its result (`{0,0}`) directly into the space occupied by `v` in the caller, rather than copy it later
 
 example:
 
@@ -2052,7 +2052,7 @@ want to collect usage stats on student objects.
 want to be able to update some fields even if the object is const, declare the field mutable
 
 ```cpp
-1 ﻿struct Studnet
+1 ﻿struct Studnet {
 2     mutable int numCalls = 0;
 3     float grade() const {
 4         ++ numCalls;
@@ -2061,7 +2061,7 @@ want to be able to update some fields even if the object is const, declare the f
 7 };
 ```
 
-### Lecture 11
+## Lecture 11
 
 recall
 
@@ -2078,9 +2078,9 @@ recall
 
 ### Static Field & Method
 
-`numMethodCalls` track # times a method was called a particular object
+`numMethodCalls` track the number of times a method was called a particular object
 
-what if we want to track the # times a method is called over all student objects
+what if we want to track the number of times a method is called over all student objects
 
 or what if we want to track how many students are created
 
@@ -2101,7 +2101,7 @@ associated with the class itself, not with any particular object
 `int Student::numInstances = 0; // in .cc file`
 *	static fields must be defined external to the class
 
-###static methods
+### Static Methods
 *	don’t depend on a specific instance
 *	can only access static fields & call other static methods
 
@@ -2135,15 +2135,15 @@ associated with the class itself, not with any particular object
 
 what happens when these go out of scope?
 
-n1 - dtor runs, list is deleted, ok
+`n1` - dtor runs, list is deleted, ok
 
-n2 n3 go out of scope, n3's dtor attempts to delete n2
+`n2` `n3` go out of scope, `n3`'s dtor attempts to delete `n2`
 
-but n2 is on the stack, not on the heap, undefined behavior
+but `n2` is on the stack, not on the heap, undefined behavior
 
-class Node relies on an assumption to proper operation that next is either nullptr or a valid ptr to the heap
+class `Node` relies on an assumption to proper operation that next is either `nullptr` or a valid ptr to the heap
 
-this is an invariant - a statement that holds true - that next is either nullptr or valid heap ptr - upon which Node relies. but we can't guarantee this invariant - no control over the user - can't guarantee any invariant
+this is an invariant - a statement that holds true - that next is either `nullptr` or valid heap ptr - upon which Node relies. but we can't guarantee this invariant - no control over the user - can't guarantee any invariant
 
 e.g. a stack - invariant - last item pushed is first item popped
 *	but not if the client can manipulate the underlying data
@@ -2165,15 +2165,15 @@ introduce encapsulation, want clients to treat objects as black boxes - capsules
 7 }
 ```
 
-public: anyone can see
+`public`: anyone can see
 
-private: can only be accessed inside class Vec
+`private`: can only be accessed inside `class Vec`
 
-default visibility in struct - public
+default visibility in struct - `public`
 
-in general want field to be private, only method should be public
+in general want field to be `private`, only method should be `public`
 
-better to have default visibility - private
+better to have default visibility - `private`
 
 switch from struct to class
 
@@ -2221,16 +2221,16 @@ public in struct, private in class
 28     return cur->data;
 29 }
 30 
-31 List::~List(){delete the List;}
+31 List::~List(){delete theList;}
 ```
 
 only List can create/manipulate Node objects,
 
-can guarantee the invariant the next is always nullptr or a valid heap pointer
+can guarantee the invariant the `next` is always `nullptr` or a valid heap pointer
 
 but now we can’t traverse the list from node to node as would a liked list
 
-repeatedly calling ith to access the whole list is O(n^2) time
+repeatedly calling `ith` to access the whole list is $O(n^2)$ time
 
 but we can't expose the nodes or we lose encapsulation
 
@@ -2241,7 +2241,7 @@ keep track of good solutions, use them in similar situations
 
 iterator pattern
 
-create a class that manages access to Nodes
+create a class that manages access to `Nodes`
 
 abstraction of a pointer
 
@@ -2309,8 +2309,8 @@ for (auto n: l) { // ranged based for loop
 ```
 
 available for any class with 
-*	methods begin, end that produce iterators
-*	iterators must support  != ++ *
+*	methods `begin`, `end` that produce iterators
+*	iterators must support  `!=` `++` `*`
 
 if you want to modify the items in the list (or save copying)
 
@@ -2350,8 +2350,8 @@ violates encapsulation - client should be called begin/end
 
 we would 
 *	make Iterator's ctor private 
-* then client can’t call List::Iterator
-* but then neither can List
+*	then client can’t call `List::Iterator`
+*	but then neither can List
 *	solution: give List privileged access to Iterator - make it a `friend`
 
 ```cpp
@@ -2411,7 +2411,7 @@ but if you don’t want to provide getX, getY, make `operator<<` a friend functi
 
 Separate compilation:
 
-```BASH
+```sh
 g++14 -c list.cc
 g++14 -c node.cc
 g++14 -c iter.cc
@@ -2421,7 +2421,7 @@ g++14 main.o iter.o node.o list.o -o myprogram
 
 why do we do this? so we don’t have to recompile files that haven't changed.
 
-but how do we keep track of what’s changed & what hasn't Let Linux help you with - make
+but how do we keep track of what’s changed & what hasn't Let Linux help you with - `make`
 
 Create a Makefile that says which files depend on which other files
 
@@ -2444,17 +2444,22 @@ main.o: main.cc list.h
 
 then from the command list: 
 
-```BASH
+```sh
 make
-	- builds the whole project
-
-now, change iter.cc
-make
-	- recompiles iter.cc
-	- relinks myprogram
 ```
 
-Command make - builds the first target (myprogram) in the Makefile
+- builds the whole project
+
+now, change `iter.cc`
+
+```sh
+make
+```
+
+- recompiles `iter.cc`
+- relinks `myprogram`
+
+Command `make` - builds the first target (`myprogram`) in the Makefile
 
 what does my target depend on? `main.o list.o …`
 
@@ -2474,7 +2479,7 @@ generalize with variables
 
 ```
 CXX = g++-5 (complier's name)
-CXXFLAGS = -std=c++14 -Wall (options for the compiler
+CXXFLAGS = -std=c++14 -Wall (options for the compiler)
 ```
 
 e.g.
@@ -2497,10 +2502,10 @@ biggest problem with writing  Makefiles
 
 can get help from g++
 
-```BASH
+```sh
 g++14 -MMD -c iter.cc
 ```
-*	creates iter.o and iter.d
+*	creates `iter.o` and `iter.d`
 *	now just include this in the Makefile
 
 ```
@@ -2508,6 +2513,7 @@ CXX = g++-5
 CXXFLAGS = -std=c++14 -Wall -MMD
 OBJECTS = main.o list.o iter.o node.o
 DEPENDS = ${OBJECTS: .o=.d}
+EXEC = myProgram
 
 ${EXEC}: ${OBJECTS}
 	${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC}
@@ -2515,27 +2521,29 @@ ${EXEC}: ${OBJECTS}
 -include ${DEPENDS}
 ```
 
-as the project expands just add .o files in the Makefile
+as the project expands just add `.o` files in the Makefile
 
 ### System Modelling
 
-Building an 00 system involves identifying obstruction and formalizing the relationships among them
+Building a system involves identifying obstruction and formalizing the relationships among them
 
 helps to map out relationships
 
-popular standard: UML (Unified Modelling Language)
+popular standard: UML (Unified Modeling Language)
 
-Modelling a class
+Modeling a class
 
 | Vec |
 |-----|
 |-x: Integer|
 |-x: Integer|
+||
 |+getX: Integer|
 |+getY: Integer|
-||
-|- private|
-|+ public|
+
+`-` private
+
+`+` public
 
 relationship: composition
 
