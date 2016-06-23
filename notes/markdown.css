@@ -469,7 +469,7 @@ pre {
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: #DBDBDB;
+    background-color: #F1F1F1;
     /*border-radius: 3px;*/
 }
 
@@ -545,7 +545,7 @@ pre {
 }
 
 .markdown-body .pl-c {
-    color: #969896;
+    color: #009B00;
 }
 
 .markdown-body .pl-c1,

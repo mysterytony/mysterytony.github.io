@@ -2297,7 +2297,7 @@ auto x = y; // gives x the same type as y
 alt:
 
 ```cpp
-for (auto it=l.begin(); …
+for (auto it=l.begin();...)
 ```
 
 shortcut
@@ -2343,7 +2343,7 @@ Recall:
 But List client can create iterators directly
 
 ```cpp
-1 ﻿auto it = List::Iterator (nullptr};
+1 ﻿auto it = List::Iterator (nullptr);
 ```
 
 violates encapsulation - client should be called begin/end
@@ -2804,7 +2804,7 @@ For comic > 30 pages
 18 cout << b.isItHeavy() << endl; // false
 19 cout << c.isItHeavy() << endl; // true
 20 
-21 Book b = Comic {"A big comic", "...", 40, "...");
+21 Book b = Comic {"A big comic", "...", 40, "..."};
 22 
 23 cout << b.isItHeavy() << endl; // ??
 ```
@@ -3322,3 +3322,211 @@ C solution:
 C++ solution:
 
 *	when an error condition occurs, the function raises an exception
+
+## Lecture 16
+
+### Exception
+
+C++ when an error condition arises, function raises an exception.
+
+What happens? By default, execution stops. But we can write *handlers* to *catch* exceptions and deal with them.
+
+`vector<T>::at` raises an exception `std::out_of_range` when it fails.
+
+Handles as follows:
+
+```cpp
+#include <stdexcept>
+...
+try {
+	cout << v.at(1000) << endl; // statement that may raise an exception go in the try block
+} catch (out_of_range r) { // exception type and actual object
+	cerr << "range error" << r.what() << endl;
+}
+```
+
+Now consider:
+
+```cpp
+void f() {
+	throw out_of_range ("f");
+}
+
+void g() { f(); }
+void h() { g(); }
+
+int main() {
+	try {
+		h();
+	} catch (out_of_range) {
+		...
+	}
+}
+```
+
+What happens? `main` calls `h`, `h` calls `g`, `g` calls `f`, `f` throws. `g` has no handler for `out_of_range`, control goes back through the call chain (*unwinds* the stack) until a handler is found.
+
+control goes all the way back to `main`, `main` handles the exception. If no handlers in the entire call chain, program terminates.
+
+What is `out_of_range`? A class.
+
+`throw out_of_range {"f"};` invokes `out_of_range`'s ctor with argument "f" <- auxiliary info
+
+To examine that info:
+
+```cpp
+try {...}
+catch (out_of_range ex) {
+	cout << ex.what() << endl;
+}
+```
+
+A handler can do part of the recovery job - execute some corrective code and throw another exception.
+
+```cpp
+try {...}
+catch (someErrorType s) {
+	...
+	throw SomeOtherException("...");
+}
+```
+
+OR: throw the same exception:
+
+```cpp
+try {...}
+catch (someErrorType s) {
+	...
+	throw;
+}
+```
+
+`throw;` 
+
+*	actual type of `s` is retained
+
+`throw s;`
+
+*	`s` may be a subtype of `someErrorType`
+*	rethrows a new exception of type `someErrorType`
+
+A handler can act as a catch-all:
+
+```cpp
+try {}
+catch (...) { // literally dot dot dot
+	//...
+}
+```
+
+You can throw anything you want. Don't have to throw objects.
+
+Define your own classes (or use appropriate existing ones) for errors
+
+```cpp
+class BadInput {};
+try {
+	int n;
+	if (!(cin>>n)) throw BadInput{};
+} catch (BadInput &) { // caught by reference, prevents slicing
+	cerr << "Input not well-formed" << endl;
+}
+```
+
+Note:
+
+```cpp
+class BaseExn {};
+class DrivedExn : public BaseExn {} ;
+
+void f() {
+	DrivedExn d;
+	BaseExn &b = d;
+	throw b;
+}
+...
+try {
+	f();
+}
+catch (BaseExn &b) {}
+catch (DerivedExn &d) {}
+```
+
+Which handler runs? `BaseExn` handler runs, the type of the reference (i.e. the static type of the object) determines the handler.
+
+Some standard exceptions:
+
+`length_error`: attempting to resize strings/vectors that are too long
+
+`bad_alloc`: `new` fails
+
+`ios::failure`: I/O streams fails in some way
+
+NEVER EVER, let a dtor throw an exception. If the dtor that throws is executed during stack unwinding while dealing with another exception, you now have two active unhandled exceptions and the program will abort immediately.
+
+### Design Pattern continued
+
+Guiding principle: program with interfaces, not implementations
+
+*	abstract base classes to define interface
+*	work with pointers and references to abstract base classes and call their methods
+*	concrete subclasses can be swapped in and out
+*	abstraction over a variety of behaviors
+
+```cpp
+class List {
+	struct Node;
+	Node theList;
+public:
+	class Iterator : AbstractIterator {
+
+	};
+};
+
+class AbstractIterator {
+public:
+	virtual int & operator* () = 0;
+	virtual AbstractIterator & operator++ () = 0;
+	virtual bool operator!= (...) = 0;
+	virtual ~AbstractIterator();
+};
+
+class Set {
+public:
+	class Iterator : public AbstractIterator {
+
+	};
+};
+```
+
+Then you can write code that operates over iterators:
+
+```cpp
+template <typename T>
+void foreach (AbstractIterator start, AbstractIterator end, T f) {
+	while (start != end) {
+		f (*start); // f has to be something callable
+		++ start;
+	}
+} // works on lists and sets
+
+List &l;
+foreach (l1.begin(), l1.end(), somefunction);
+```
+
+### Observer Pattern
+
+publish-subscribe model
+
+One class: publisher/subject - generates data
+
+One ore more subscriber/observer - receives data and react to it
+
+e.g.
+
+publisher: spreadsheet cells;
+observer: charts - cell changes => charts update
+
+can be many different kinds of observer objects - subject should not need to know details
+
+![observer-pattern-uml](http://tonyli.tk/notes/cs246/observer-pattern-uml.png "observer-pattern-uml")

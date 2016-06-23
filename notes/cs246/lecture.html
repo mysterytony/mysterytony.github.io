@@ -469,7 +469,7 @@ pre {
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: #DBDBDB;
+    background-color: #F1F1F1;
     /*border-radius: 3px;*/
 }
 
@@ -545,7 +545,7 @@ pre {
 }
 
 .markdown-body .pl-c {
-    color: #969896;
+    color: #009B00;
 }
 
 .markdown-body .pl-c1,
@@ -3033,7 +3033,7 @@ keep track of good solutions, use them in similar situations</p>
 
 <p>alt:</p>
 
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> (<span class="pl-k">auto</span> it=l.begin(); …</pre></div>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> (<span class="pl-k">auto</span> it=l.begin();...)</pre></div>
 
 <p>shortcut</p>
 
@@ -3075,7 +3075,7 @@ keep track of good solutions, use them in similar situations</p>
 
 <p>But List client can create iterators directly</p>
 
-<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">auto</span> it = List::Iterator (<span class="pl-v">nullptr</span>};</pre></div>
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">auto</span> it = List::Iterator (<span class="pl-v">nullptr</span>);</pre></div>
 
 <p>violates encapsulation - client should be called begin/end</p>
 
@@ -3547,9 +3547,9 @@ If you want to give subclasses access to certain members, use protected access:<
 <span class="pl-c1">18</span> cout &lt;&lt; b.isItHeavy() &lt;&lt; endl; <span class="pl-c">// false</span>
 <span class="pl-c1">19</span> cout &lt;&lt; c.isItHeavy() &lt;&lt; endl; <span class="pl-c">// true</span>
 <span class="pl-c1">20</span> 
-<span class="pl-c1">21</span> Book b = Comic {<span class="pl-s"><span class="pl-pds">"</span>A big comic<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>, <span class="pl-c1">40</span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>);
+<span class="pl-c1">21</span> Book b = Comic {<span class="pl-s"><span class="pl-pds">"</span>A big comic<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>, <span class="pl-c1">40</span>, <span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>};
 <span class="pl-c1">22</span> 
-<span class="pl-c1">23</span> cout &lt;&lt; b.<span class="pl-c1">isItHeavy</span>() &lt;&lt; endl; <span class="pl-c">// ??</span></pre></div>
+<span class="pl-c1">23</span> cout &lt;&lt; b.isItHeavy() &lt;&lt; endl; <span class="pl-c">// ??</span></pre></div>
 
 <p>NO!!! B is not heavy. <code>Book::isItHeavy()</code> is what runs</p>
 
@@ -4061,4 +4061,204 @@ v.pop_back() <span class="pl-c">// remove last element</span></pre></div>
 <ul>
 <li>  when an error condition occurs, the function raises an exception</li>
 </ul>
+
+<h2>
+<a id="user-content-lecture-16" class="anchor" href="#lecture-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 16</h2>
+
+<h3>
+<a id="user-content-exception" class="anchor" href="#exception" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exception</h3>
+
+<p>C++ when an error condition arises, function raises an exception.</p>
+
+<p>What happens? By default, execution stops. But we can write <em>handlers</em> to <em>catch</em> exceptions and deal with them.</p>
+
+<p><code>vector&lt;T&gt;::at</code> raises an exception <code>std::out_of_range</code> when it fails.</p>
+
+<p>Handles as follows:</p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdexcept<span class="pl-pds">&gt;</span></span>
+...
+<span class="pl-k">try</span> {
+    cout &lt;&lt; v.<span class="pl-c1">at</span>(<span class="pl-c1">1000</span>) &lt;&lt; endl; <span class="pl-c">// statement that may raise an exception go in the try block</span>
+} <span class="pl-k">catch</span> (out_of_range r) { <span class="pl-c">// exception type and actual object</span>
+    cerr &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>range error<span class="pl-pds">"</span></span> &lt;&lt; r.<span class="pl-c1">what</span>() &lt;&lt; endl;
+}</pre></div>
+
+<p>Now consider:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    <span class="pl-k">throw</span> <span class="pl-smi">out_of_range</span> (<span class="pl-s"><span class="pl-pds">"</span>f<span class="pl-pds">"</span></span>);
+}
+
+<span class="pl-k">void</span> <span class="pl-en">g</span>() { <span class="pl-c1">f</span>(); }
+<span class="pl-k">void</span> <span class="pl-en">h</span>() { <span class="pl-c1">g</span>(); }
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">try</span> {
+        <span class="pl-c1">h</span>();
+    } <span class="pl-k">catch</span> (out_of_range) {
+        ...
+    }
+}</pre></div>
+
+<p>What happens? <code>main</code> calls <code>h</code>, <code>h</code> calls <code>g</code>, <code>g</code> calls <code>f</code>, <code>f</code> throws. <code>g</code> has no handler for <code>out_of_range</code>, control goes back through the call chain (<em>unwinds</em> the stack) until a handler is found.</p>
+
+<p>control goes all the way back to <code>main</code>, <code>main</code> handles the exception. If no handlers in the entire call chain, program terminates.</p>
+
+<p>What is <code>out_of_range</code>? A class.</p>
+
+<p><code>throw out_of_range {"f"};</code> invokes <code>out_of_range</code>'s ctor with argument "f" &lt;- auxiliary info</p>
+
+<p>To examine that info:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">try</span> {...}
+<span class="pl-k">catch</span> (out_of_range ex) {
+    cout &lt;&lt; ex.<span class="pl-c1">what</span>() &lt;&lt; endl;
+}</pre></div>
+
+<p>A handler can do part of the recovery job - execute some corrective code and throw another exception.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">try</span> {...}
+<span class="pl-k">catch</span> (someErrorType s) {
+    ...
+    <span class="pl-k">throw</span> <span class="pl-smi">SomeOtherException</span>(<span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>);
+}</pre></div>
+
+<p>OR: throw the same exception:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">try</span> {...}
+<span class="pl-k">catch</span> (someErrorType s) {
+    ...
+    <span class="pl-k">throw</span>;
+}</pre></div>
+
+<p><code>throw;</code> </p>
+
+<ul>
+<li>  actual type of <code>s</code> is retained</li>
+</ul>
+
+<p><code>throw s;</code></p>
+
+<ul>
+<li>  <code>s</code> may be a subtype of <code>someErrorType</code>
+</li>
+<li>  rethrows a new exception of type <code>someErrorType</code>
+</li>
+</ul>
+
+<p>A handler can act as a catch-all:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">try</span> {}
+<span class="pl-k">catch</span> (...) { <span class="pl-c">// literally dot dot dot</span>
+    <span class="pl-c">//...</span>
+}</pre></div>
+
+<p>You can throw anything you want. Don't have to throw objects.</p>
+
+<p>Define your own classes (or use appropriate existing ones) for errors</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">BadInput</span> {};
+<span class="pl-k">try</span> {
+    <span class="pl-k">int</span> n;
+    <span class="pl-k">if</span> (!(cin&gt;&gt;n)) <span class="pl-k">throw</span> BadInput{};
+} <span class="pl-k">catch</span> (BadInput &amp;) { <span class="pl-c">// caught by reference, prevents slicing</span>
+    cerr &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Input not well-formed<span class="pl-pds">"</span></span> &lt;&lt; endl;
+}</pre></div>
+
+<p>Note:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">BaseExn</span> {};
+<span class="pl-k">class</span> <span class="pl-en">DrivedExn</span> : <span class="pl-k">public</span> <span class="pl-en">BaseExn</span> {} ;
+
+<span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    DrivedExn d;
+    BaseExn &amp;b = d;
+    <span class="pl-k">throw</span> b;
+}
+...
+<span class="pl-k">try</span> {
+    <span class="pl-c1">f</span>();
+}
+<span class="pl-k">catch</span> (BaseExn &amp;b) {}
+<span class="pl-k">catch</span> (DerivedExn &amp;d) {}</pre></div>
+
+<p>Which handler runs? <code>BaseExn</code> handler runs, the type of the reference (i.e. the static type of the object) determines the handler.</p>
+
+<p>Some standard exceptions:</p>
+
+<p><code>length_error</code>: attempting to resize strings/vectors that are too long</p>
+
+<p><code>bad_alloc</code>: <code>new</code> fails</p>
+
+<p><code>ios::failure</code>: I/O streams fails in some way</p>
+
+<p>NEVER EVER, let a dtor throw an exception. If the dtor that throws is executed during stack unwinding while dealing with another exception, you now have two active unhandled exceptions and the program will abort immediately.</p>
+
+<h3>
+<a id="user-content-design-pattern-continued" class="anchor" href="#design-pattern-continued" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design Pattern continued</h3>
+
+<p>Guiding principle: program with interfaces, not implementations</p>
+
+<ul>
+<li>  abstract base classes to define interface</li>
+<li>  work with pointers and references to abstract base classes and call their methods</li>
+<li>  concrete subclasses can be swapped in and out</li>
+<li>  abstraction over a variety of behaviors</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">List</span> {
+    <span class="pl-k">struct</span> <span class="pl-en">Node</span>;
+    Node theList;
+<span class="pl-k">public:</span>
+    <span class="pl-k">class</span> <span class="pl-en">Iterator</span> : AbstractIterator {
+
+    };
+};
+
+<span class="pl-k">class</span> <span class="pl-en">AbstractIterator</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">int</span> &amp; <span class="pl-k">operator</span>* () = <span class="pl-c1">0</span>;
+    <span class="pl-k">virtual</span> AbstractIterator &amp; <span class="pl-k">operator</span>++ () = <span class="pl-c1">0</span>;
+    <span class="pl-k">virtual</span> <span class="pl-k">bool</span> <span class="pl-k">operator</span>!= (...) = <span class="pl-c1">0</span>;
+    <span class="pl-k">virtual</span> <span class="pl-en">~AbstractIterator</span>();
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Set</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">class</span> <span class="pl-en">Iterator</span> : <span class="pl-k">public</span> <span class="pl-en">AbstractIterator</span> {
+
+    };
+};</pre></div>
+
+<p>Then you can write code that operates over iterators:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">template </span>&lt;<span class="pl-k">typename</span> T&gt;
+<span class="pl-k">void</span> <span class="pl-en">foreach</span> (AbstractIterator start, AbstractIterator end, T f) {
+    <span class="pl-k">while</span> (start != end) {
+        <span class="pl-c1">f</span> (*start); <span class="pl-c">// f has to be something callable</span>
+        ++ start;
+    }
+} <span class="pl-c">// works on lists and sets</span>
+
+List &amp;l;
+<span class="pl-en">foreach</span> (l1.begin(), l1.end(), somefunction);</pre></div>
+
+<h3>
+<a id="user-content-observer-pattern" class="anchor" href="#observer-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Observer Pattern</h3>
+
+<p>publish-subscribe model</p>
+
+<p>One class: publisher/subject - generates data</p>
+
+<p>One ore more subscriber/observer - receives data and react to it</p>
+
+<p>e.g.</p>
+
+<p>publisher: spreadsheet cells;
+observer: charts - cell changes =&gt; charts update</p>
+
+<p>can be many different kinds of observer objects - subject should not need to know details</p>
+
+<p><a href="https://camo.githubusercontent.com/74133b58a572b68db0f6e67d211b2cd8bbf0720b/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6f627365727665722d7061747465726e2d756d6c2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/74133b58a572b68db0f6e67d211b2cd8bbf0720b/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6f627365727665722d7061747465726e2d756d6c2e706e67" alt="observer-pattern-uml" title="observer-pattern-uml" data-canonical-src="http://tonyli.tk/notes/cs246/observer-pattern-uml.png" style="max-width:100%;"></a></p>
 </article></body></html>
