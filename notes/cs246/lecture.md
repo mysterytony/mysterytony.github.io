@@ -517,7 +517,7 @@ int main() {
 
 Hello world in C++
 
-```CPP
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -559,7 +559,7 @@ operator "points" in the direction information flow
 
 add two numbers:
 
-```CPP
+```cpp
 #include <iostream>
 using namespace std;
 int main() {
@@ -587,7 +587,7 @@ but not until the attempted read fails
 
 example: read all ints from stdin, echo them one per line stop at bad input or EOF
 
-```CPP
+```cpp
 ﻿int main() {
 	int i;
 	while (true) {
@@ -604,7 +604,7 @@ Example 1.0
 
 Read all ints from stdin + echo, one per line, to stdout. Stop on bad input or EOF
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     int i;
 3     while (true) {
@@ -624,7 +624,7 @@ There is an implicit conversion from cin to bool
 
 Example 2.0
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     int i;
 3     while (true) {
@@ -654,7 +654,7 @@ This is why we can write `cin >> x >> y >> z;`
 
 Example 3.0
 
-```CPP
+```cpp
 1 ﻿int main () {
 2     int i;
 3     while (true) {
@@ -666,7 +666,7 @@ Example 3.0
 
 Example 4.0
 
-```CPP
+```cpp
 1 ﻿int main () {
 2     int i;
 3     while (cin>>i) {
@@ -679,7 +679,7 @@ Example
 
 Read all ints and echo to stdout until EOF. Skip non-integer input.
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     int i;
 3     while (true) {
@@ -699,7 +699,7 @@ Read all ints and echo to stdout until EOF. Skip non-integer input.
 
 type `std::string` (`#include <string>`)
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     string s;
 3     cin >> s; // read a string
@@ -713,19 +713,19 @@ type `std::string` (`#include <string>`)
 what if we want the whitespace? `getline(cin, s)`
 *	reads from current position to the next new line into `s`
 
-```CPP
+```cpp
 1 ﻿cout << 95 << endl; // prints 95
 ```
 
 what if we want to print a number in hexadecimal?
 
-```CPP
+```cpp
 1 ﻿cout << hex << 95 << endl; // prints 5f
 ```
 
 I/O manipulator, all subsequent ints printed in hex
 
-```CPP
+```cpp
 1 ﻿cout << dec;// go back to decimal
 ```
 
@@ -757,7 +757,7 @@ Files: Read from a file instead of `stdin`
 
 C++:
 
-```CPP
+```cpp
 1 ﻿#include <iostream>
 2 #include <fstream>
 3 using namespcae std;
@@ -774,13 +774,13 @@ Anything you can do with `cin/cout`, you can also to with an `ifstream/ofstream`
 
 Example: Strings - attach a stream to a string variable and read from/write to the string
 
-```CPP
+```cpp
 1 ﻿#include <sstream>
 2 std::istringstream; //read from a string
 3 std::ostringstream; //write to a string
 ```
 
-```CPP
+```cpp
 1 ﻿int hi = 100;
 2 int lo = 1;
 3 ostringstream ss;
@@ -792,7 +792,7 @@ Example: Strings - attach a stream to a string variable and read from/write to t
 Example
 convert string to #
 
-```CPP
+```cpp
 1 ﻿int n;
 2 while (true) {
 3     cout << "Enter a number " << endl;
@@ -807,7 +807,7 @@ convert string to #
 
 Example: echo #, skip non-#
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     string s;
 3     while (cin >> s) {
@@ -829,7 +829,7 @@ C++: grow as needed (no need to manage memory)
 
 Example
 
-```CPP
+```cpp
 string s = "hello";
 string s{"Hello"};
 ```
@@ -852,7 +852,7 @@ concat:  `s3 = s1+s2; s3+=s4;`
 
 ### Default function parameters
 
-```CPP
+```cpp
 1 ﻿void printSuiteFile(string name = "suite.txt") { // default value
 2     ifstream file {name};
 3     string s;
@@ -873,7 +873,7 @@ C:
 
 C++: functions with different parameter lists can share the same name (overload)
 
-```CPP
+```cpp
 1 ﻿int neg(int n){return -n;}
 2 bool neg(bool b){return !b;}
 ```
@@ -893,20 +893,20 @@ C:
 
 C++:
 
-```CPP
+```cpp
 1 ﻿int neg(int n) {return -n;}
 2 bool neg(bool b) {return !b;}
 ```
 
-compiler uses # & type of arguments to decide which neg is being called.
+compiler uses numbers & types of arguments to decide which `neg` is being called.
 
-overloads must differ in # or type of argument, may not differ in just return type;
+overloads must differ in number or type of argument, may not differ in just return type;
 
-we have seen this already: >>, << are overloaded - behavior depends on types of args.
+we have seen this already: `>>`, `<<` are overloaded - behavior depends on types of args.
 
 ### struct:
 
-```CPP
+```cpp
 1 ﻿struct Node{
 2     int data;
 3     Node *next;
@@ -915,20 +915,20 @@ we have seen this already: >>, << are overloaded - behavior depends on types of 
 
 wrong:
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     int data;
 3     Node next;
 4 };
 ```
 
-```CPP
+```cpp
 1 ﻿Node n1 {5, nullptr};
 ```
 
 syntax for null pointers in C++, do not use NULL or 0 in this class.
 
-```CPP
+```cpp
 1 ﻿const Node n2=n1;
 ```
 
@@ -936,7 +936,7 @@ immutable copy of n1
 
 recall:
 
-```CPP
+```cpp
 1 ﻿void inc (int n) {n=n+1;}
 2 
 3 int x=5;
@@ -944,11 +944,11 @@ recall:
 5 cout<<x<<endl;
 ```
 
-prints 5, inc gets a copy of x, increments the copy, original unchanged.
+prints 5, `inc` gets a copy of `x`, increments the copy, original unchanged.
 
 if a function needs to modify an argument pass a ptr:
 
-```CPP
+```cpp
 1 ﻿void inc (int *n) {*n=*n+1;}
 2 
 3 int x;
@@ -956,69 +956,69 @@ if a function needs to modify an argument pass a ptr:
 5 count<<x<<endl;
 ```
 
-x's address passed by value (copied), inc changed the data at that address, visible to the caller
+x's address passed by value (copied), `inc` changed the data at that address, visible to the caller
 
-Q: why cin>>x and not cin>>&x
+Q: why `cin>>x` and not `cin>>&x`
 
 A: C++ has another ptr-like type: references
 
 ### References
 
-```CPP
+```cpp
 1 ﻿int y=10;
 2 int &z=y; // z is an lvaule reference to int (y)
 3 // like a const ptr
 4 // similar to int * const z = &y; <- the pointer is const
 ```
 
-in all cases, z be behaviors exactly like y. z is an alias ("another name") for y
+in all cases, `z` be behaviors exactly like `y`. `z` is an alias ("another name") for `y`
 
 things you can't do with lvalue references
-*	leave them uninitialized, e.g. int &x;  Wrong
-*	must be initialized with something that has an address (an lvalue), since refs are ptrs, e.g. int &x =3;  Wrong
-*	int &x = y + z;  Wrong
-*	create a ptr to a reference int &*x;  Wrong
-*	reference to ptr is ok: int *&x;   OK
-*	create a reference to a reference: int &&r;  Wrong, this means something different
-*	create an array of references int &r[3]={n,n,n};  Wrong
+*	leave them uninitialized, e.g. `int &x;` <- Wrong
+*	must be initialized with something that has an address (an lvalue), since refs are ptrs, e.g. `int &x =3;` <- Wrong
+*	int `&x = y + z;` <- Wrong
+*	create a ptr to a reference `int &*x;` <- Wrong
+*	reference to ptr is ok: `int *&x;`  <- OK
+*	create a reference to a reference: `int &&r;` <- Wrong, this means something different
+*	create an array of references `int &r[3]={n,n,n};` <- Wrong
 
-what can youd o?
+what can you do?
 *	pass as function parameters
-*	1 ﻿void inc (int &n) {n=n+1;}
+*	`void inc (int &n) {n=n+1;}`
 *	no ptr deref, const, ptr to the arg (x) changes to n affect x
 
-```CPP
+```cpp
 1 ﻿int x = 5;
 2 inc (x);
 3 cout << x << endl; // prints 6
 ```
 
-cin takes x as a reference.
+`cin` takes `x` as a reference.
 
-```CPP
+```cpp
 1 ﻿istream &operator >>(istream &in, int &n);
 ```
 
-pass by value e.g. int f (int n) {…} copies the argument
+pass by value e.g. `int f (int n) {…}` copies the argument
 
 if the argument is big, the copy is expensive.
 
 slow:
 
-```CPP
+```cpp
 1 ﻿struct ReallyBig {...};
 2 int f (ReallyBig rb) {...};
 ```
 
 avoid copy, alias, fast
 
-```CPP
+```cpp
 1 ﻿int g (ReallyBig &rb) {...}
 ```
 
-but could change rb in the caller
+but could change `rb` in the caller
 
-```CPP
+```cpp
 1 ﻿int h (const ReallyBig &rb) {...}
 ```
 
@@ -1026,7 +1026,7 @@ fast, no copy, the parameter cannot be changed
 
 advice: perfer pass by const ref over pass by value for anything larger than an int, unless the function needs to make a copy anyway, then maybe use pass by value
 
-```CPP
+```cpp
 1 ﻿int f (int &n) {...}
 2 int g (const int &n) {...}
 3 
@@ -1043,7 +1043,7 @@ compiler creates a temporary location in memory to hold the 5, so the ref n has 
 
 C:
 
-```CPP
+```cpp
 1 ﻿int *p = malloc(... *sizeof(int));
 2 ...
 3 free(p);
@@ -1052,7 +1052,7 @@ DON’T USE THESE IN C++
 
 C++:
 
-```CPP
+```cpp
 1 ﻿// new & delete type-aware, less error-prone
 2 
 3 struct Node {
@@ -1077,7 +1077,7 @@ if you don't delete all allocated memory: memory leak - program will eventually 
 
 we regard as incorrect
 
-```CPP
+```cpp
 1 ﻿Node getMeANode() {
 2     Node n;
 3     return n;
@@ -1105,7 +1105,7 @@ we regard as incorrect
 
 Give our own meanings to C++ operators
 
-```CPP
+```cpp
 1 ﻿struct vec {
 2     int x, y;
 3 }
@@ -1118,7 +1118,7 @@ Give our own meanings to C++ operators
 
 ## Lecture 7
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     int data;
 3     Node *next;
@@ -1129,17 +1129,17 @@ Give our own meanings to C++ operators
 8 delete np;
 ```
 
-```CPP
+```cpp
 1 ﻿Node *myArray = new Node[10];
 2 
 3 delete [] myArray;
 ```
 
-use delete with ordinary new
+use `delete` with ordinary new
 
-use delete [] with array new, don’t mix them
+use `delete []` with array new, don’t mix them
 
-```CPP
+```cpp
 1 ﻿struct Vec {
 2     int x, y;
 3 };
@@ -1158,7 +1158,7 @@ use delete [] with array new, don’t mix them
 16 }
 ```
 
-```CPP
+```cpp
 1 ﻿struct Grade {
 2     int theGrade;
 3 };
@@ -1186,11 +1186,11 @@ including old C headers - new naming convention
 
 e.g., instead of `#include <stdio.h>` use `#include <cstdio>`
 
-`#define` VAR VALUE -> sets a preprocessor value, then all occurrences of VAR in the source file are replaced with VALUE
+`#define VAR VALUE` -> sets a preprocessor value, then all occurrences of VAR in the source file are replaced with VALUE
 
 e.g.
 
-```CPP
+```cpp
 1 ﻿#define MAX 10
 2 
 3 int x[MAX];
@@ -1202,13 +1202,13 @@ e.g.
 
 use `const` definition instead
 
-```CPP
+```cpp
 1 ﻿#define FLAG // sets var FLAG, value is the empty string.
 ```
 
 Defined constants useful for conditional compilation.
 
-```CPP
+```cpp
 1 ﻿#define IOS 1
 2 #define BBOS 2
 3 #define OS BBOS
@@ -1221,7 +1221,7 @@ Defined constants useful for conditional compilation.
 
 special case:
 
-```CPP
+```cpp
 1 ﻿#if 0
 2 ...
 3 #endif
@@ -1232,7 +1232,7 @@ special case:
 
 can also define symbols via compiler arguments
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     cout << X << endl;
 3 }
@@ -1243,12 +1243,12 @@ can also define symbols via compiler arguments
 8 15
 ```
 
-```CPP
-1 ﻿#indef NAME
+```cpp
+1 ﻿#ifdef NAME
 2 #ifndef NAME // true if name has/has not been defined
 ```
 
-```CPP
+```cpp
 1 ﻿int main() {
 2     #ifdef DEBUG
 3         cerr << "setting x=1" << endl;
@@ -1273,16 +1273,16 @@ g++14 -DDEBUG debug.cc -o debug
 
 split programs into composable modules, which provide interface & implementation
 
-interface: type definition, function header .h file
+interface: type definition, function header `.h` file
 
-implementation: full definition for every provided functions .cc file
+implementation: full definition for every provided functions `.cc` file
 
 Recall
 
 *	declaration - assert existence
 *	definition - full detail, allocate space (vars/functions)
 
-```CPP
+```cpp
 1 ﻿// interface vec.h
 2 struct Vec {
 3     int x, y;
@@ -1315,7 +1315,7 @@ g++14 vec.o main.o -o main # -> invokes the linker
 
 suppose we write a linear algebra module
 
-```CPP
+```cpp
 1 ﻿//linalg.h
 2 #include "vec.h"
 3 
@@ -1332,7 +1332,7 @@ suppose we write a linear algebra module
 
 need to prevent files from being included more than once.
 
-```CPP
+```cpp
 1 ﻿//vec.h use #include guard
 2 #ifndef _VEC_H_
 3 #define _VEC_H_
@@ -1342,17 +1342,17 @@ need to prevent files from being included more than once.
 
 first time which is included symbol `_VEC_H_`, so file is included subsequently,` _VEC_H_` is defined so contents are suppressed.
 
-Always put `#include` guards in .h files
+Always put `#include` guards in `.h` files
 
-Never put using namespace std in header files
+Never put `using namespace std` in header files
 
 the using directive will forced on any client who includes the file
 
 so use the prefix `std::` in headers
 
-Never include .cc files
+Never include `.cc` files
 
-Never compile .h files
+Never compile `.h` files
 
 ## Lecture 8
 
@@ -1360,7 +1360,7 @@ Never compile .h files
 
 can put functions inside structs.
 
-```CPP
+```cpp
 1 ﻿struct student {
 2     int assigns, mt, final;
 3     float grade() {
@@ -1384,19 +1384,19 @@ what do assngs, mt, final mean inside of `grade(){…}`?
 
 they are fields of the current object, upon which grade was invoked.
 
-```CPP
+```cpp
 1 ﻿student billy{...};
 2 billy.grade(); // uses billy's assng, mt, final
 ```
 formally, methods take a hidden extra parameter called `this` pointer to the object on which the method was invoked
 
-```CPP
+```cpp
 1 ﻿billy.grade(); // this == &billy
 ```
 
 can write:
 
-```CPP
+```cpp
 1 ﻿struct student P
 2     float grade() {
 3         return this->assign * 0.4 + this->mt * 0.2 + this->final * 0.4;
@@ -1410,7 +1410,7 @@ Student `billy {60,70,80};` Ok but limited
 
 Better - include a method that does initialization - a constructor (ctor)
 
-```CPP
+```cpp
 1 ﻿struct student {
 2     int assns, mt, final;
 3     float grade() {...};
@@ -1422,7 +1422,7 @@ Better - include a method that does initialization - a constructor (ctor)
 9 };
 ```
 
-```CPP
+```cpp
 1 ﻿student billy {60, 70, 80};
 ```
 
@@ -1432,20 +1432,20 @@ if no constructor has been defined, then these initialize the individual fields 
 
 or
 
-```CPP
+```cpp
 1 ﻿student billy = student{60,70,80};
 ```
 
 or
 
-```CPP
+```cpp
 1 ﻿student billy (60, 70, 80);
 2 student billy = student(60, 70, 80);
 ```
 
 uniform initialization
 
-```CPP
+```cpp
 1 ﻿string s = "hello";
 2 string s("hello");
 3 string s{"hello"};
@@ -1459,7 +1459,7 @@ heap allocation: `student *pBilly = new student{60, 70, 80};`
 
 advantages of ctors: default params, overloading, sanity check
 
-```CPP
+```cpp
 1 ﻿struct student {
 2     student (int assns = 0, int mt = 0, int final = 0) {
 3         ...
@@ -1476,12 +1476,12 @@ every class comes with a default (i.e. zero argument) ctor (which just default c
 
 e.g. `Vec v; // default ctor (does nothing in this case)`
 
-but, the built in default ctor goes away if you prove any ctor
+but, the built in default ctor goes away if you provide any ctor
 
-```CPP
+```cpp
 1 ﻿struct Vec {
 2     int x, y;
-3     Vec {int x, int y) {
+3     Vec (int x, int y) {
 4         this->x = x;
 5         this->y = y;
 6     }
@@ -1493,7 +1493,7 @@ but, the built in default ctor goes away if you prove any ctor
 
 what if a struct contain constants or ref
 
-```CPP
+```cpp
 1 ﻿struct myStruct {
 2     const int myConst; // must be initialized
 3     int &myRef; // must be initialized
@@ -1502,7 +1502,7 @@ what if a struct contain constants or ref
 
 initialize:
 
-```CPP
+```cpp
 1 ﻿int z;
 2 struct myStruct {
 3     const int myConst = 5;
@@ -1512,7 +1512,7 @@ initialize:
 7 // But does every instance of myStruct need to have the same value of myConst, myRef?
 ```
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     const int id;
 3     // constant doesn't change but not the same for all studnet
@@ -1529,7 +1529,7 @@ what happens when an object is created
 
 ### member initialization list (MIL)
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     const int id;
 3     int assns, mt, final;
@@ -1542,22 +1542,20 @@ Note
 
 can initialize any field this way, not just consts and refs
 
-sometimes more efficient than setting fields in ctor body
-
-(without run default ctor in stor in step 2 then reassign in 3
+sometimes more efficient than setting fields in ctor body (without run default ctor in step 2 then reassign in step 3)
 
 fields are initialized in the order in which they are declared in the struct, even if the MIL orders them differently
 
 what if a field is initialized in line and in the MIL?
 
-```CPP
+```cpp
 1 ﻿struct Vec{
 2     int x=0, y=0;
 3     Vec (int x): x{x} {}
 4 };
 ```
 
-```CPP
+```cpp
 1 ﻿student billy {60, 70, 80};
 2 student bobby {billy};
 ```
@@ -1566,9 +1564,7 @@ what if a field is initialized in line and in the MIL?
 
 invoked when constructing on object as a copy of another
 
-Note
-
-every class comes with
+Note: every class comes with
 *	a default ctor (default - constructs all fields that are objects, lost if you define any ctor)
 *	a copy constructor (just copies all fields)
 *	a copy assignment operator
@@ -1578,7 +1574,7 @@ every class comes with
 
 building your own copy ctor
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     ...
 3     Student() {...}
@@ -1591,7 +1587,7 @@ when is the built in copy ctor not correct
 
 ## Lecture 9
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     int assns, mt, final;
 3     ...
@@ -1600,21 +1596,17 @@ when is the built in copy ctor not correct
 6 };
 ```
 
-```CPP
+```cpp
 1 ﻿Node *n = new Node{1, new Node{2, new Node{3, nullptr}}};
 2 Node m = *n;
 3 Node *p = new Node {*n};
 ```
 
-n	->	1	2	3
-m	1		/|\	
-p	->	1	/|\	
-
 simple copy fields => only first node is actually copied (shallow copy)
 
 if you want a deep copy (copy the whole list), write your own copy ctor
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     ...
 3     Node (const Node &other):
@@ -1625,6 +1617,7 @@ if you want a deep copy (copy the whole list), write your own copy ctor
 recursive copies the rest of the list
 
 the copy ctor is called:
+
 1.	when an object is initialized with another object (same class)
 2.	when an object is passed by value
 3.	when an object is returned from a function
@@ -1633,7 +1626,7 @@ the copy ctor is called:
 
 Careful with ctors that can take on parameter
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     ...
 3     Node (int data): data{data}, next{nullptr}{}
@@ -1644,13 +1637,14 @@ single-arg ctors create implicit conversions
 
 e.g.
 
-```CPP
+```cpp
 Node n{4};
 Node n{5};
-but also Node n = 4; - implicit conversion from int to Node
+// but also
+Node n = 4; // implicit conversion from int to Node
 ```
 
-```CPP
+```cpp
 int f(Node n){…}
 f(4); //works, 4 implicitly converted to Node
 ```
@@ -1662,7 +1656,7 @@ Danger
 
 Good idea: disable the implicit conversion, make the ctor explicit
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     ...
 3     explicit Node(int d): data{d}, next{nullptr}{}
@@ -1687,7 +1681,7 @@ classes come with a dtor (runs dtor for all fields, that are objects)
 
 when do we need to write one?
 
-```CPP
+```cpp
 1 ﻿Node *np = new Node {1, new Node {2, new Node {3, nullptr}}};
 2 // if np goes out of scope, the pointer is reclaimed (stack allocated) and list is leaked
 3 
@@ -1707,7 +1701,7 @@ recursively calls `*next`'s dtor, so the whole list is deallocated
 
 ### Copy Assignment Operator
 
-```CPP
+```cpp
 1 ﻿Student billy {60, 70, 80};
 2 Student jane {billy}; // copy ctor
 3 Student joey; // default ctor
@@ -1715,7 +1709,7 @@ recursively calls `*next`'s dtor, so the whole list is deallocated
 5 // copy assignment operator, uses compiler'supplied default
 ```
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     ...
 3     Node &operator= (const Node &other) {
@@ -1729,18 +1723,18 @@ recursively calls `*next`'s dtor, so the whole list is deallocated
 11 }; // DANGEROUS
 ```
 
-```CPP
+```cpp
 Node n{1,new Node{2, new Node{3, nullptr}}};
 n=n;
 ```
 
-deletes n & then tries to copy n to n
+deletes `n` & then tries to copy `n` to `n`
 
 undefined behavior
 
 when writing `operator=` always watch out self assignment
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     ...
 3     Node &opeartor= (const Node &other) {
@@ -1755,7 +1749,7 @@ when writing `operator=` always watch out self assignment
 
 Better:
 
-```CPP
+```cpp
 1 ﻿Node &operator= (const Node &other) {
 2     if (this==&other) return *this;
 3     Node *temp = next;
@@ -1768,7 +1762,7 @@ Better:
 
 alternative: copy and swap idiom
 
-```CPP
+```cpp
 1 ﻿#include <utility>
 2 
 3 struct Node {
@@ -1795,7 +1789,7 @@ an lvalue reference (&) is like a const. ptr with auto-deref, always initialized
 
 Now, consider
 
-```CPP
+```cpp
 1 ﻿Node n{1, new Node{2, nullptr}};
 2 Node m=n; // copy ctor
 3 Node m2;
@@ -1826,7 +1820,7 @@ wasteful to do a full copy
 
 ## Lecture 10
 
-```CPP
+```cpp
 1 ﻿Node n {1, new Node {2, nullptr}};
 2 Node n2 = n; // copy ctor
 3 Node n3 = plusOne(n); // copy ctor
@@ -1840,7 +1834,7 @@ C++ rvalue reference `Node &&` is a reference to a temporary object (rvalue) of 
 
 version of the ctor that take a `Node &&`
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     ...
 3     Node (Node &&other) :
@@ -1855,7 +1849,7 @@ when other is destroyed, the nodes (other.next) is not destroyed with it.
 
 Similarly:
 
-```CPP
+```cpp
 1 ﻿Node m;
 2 m = addOne(n); // assignment from temporary
 3 
@@ -1880,7 +1874,7 @@ if the move version is are defined, they replace to the copy versions where the 
 
 ### Copy/Move Elision
 
-```CPP
+```cpp
 1 ﻿Vec makeAVec() {return {0,0};} // basic ctor
 2 
 3 Vec v = makeAVec(); // what runs? copy ctor? move ctor?
@@ -1894,7 +1888,7 @@ in this example: makeAVec writes its result ({0,0}) directly into the space occu
 
 example:
 
-```CPP
+```cpp
 1 ﻿void doSomething (Vec v) { } // pass by value, copy ctor
 2 
 3 doSomething (makeAVec());
@@ -1925,7 +1919,7 @@ when an operator is a member function, this plays a role of the LHS operand
 
 e.g.
 
-```CPP
+```cpp
 1 ﻿struct Vec {
 2     int x, y;
 3     
@@ -1944,7 +1938,7 @@ how do we implement k*v, can’t be a member, must be a non-member (as before)
 
 ### I/O operators:
 
-```CPP
+```cpp
 1 ﻿struct Vec {
 2     ostream &operator<< (ostream &out) {
 3         return out<<x<<' '<<y;
@@ -1966,7 +1960,7 @@ certain operators must be members
 
 ### Arrays and Objects
 
-```CPP
+```cpp
 1 ﻿struct Vec {
 2     int x, y;
 3     Vec (int x, int y):
@@ -1992,7 +1986,7 @@ Options:
 
 Node.h
 
-```CPP
+```cpp
 1 ﻿#ifndef _NODE_H_
 2 #define _NODE_H_
 3 
@@ -2009,7 +2003,7 @@ Node.h
 
 Node.cc
 
-```CPP
+```cpp
 1 ﻿#include "Node.h"
 2 
 3 Node::Node (int data, Node *next):
@@ -2024,7 +2018,7 @@ Node:: means in the context of struct Node, the LHS is a class, not an object
 
 ### Const Object
 
-```CPP
+```cpp
 1 ﻿int f (const Node &n) { ... }
 2 // arise often, especially as params
 ```
@@ -2035,7 +2029,7 @@ can we call methods on a `const` object?
 
 yes, can call methods that promise not to modify fields
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     float grade() const;
 3 };
@@ -2045,7 +2039,7 @@ doesn't modify fields, compiler checks that `const` methods don’t modify field
 
 want to collect usage stats on student objects.
 
-```CPP
+```cpp
 1 ﻿struct Studnet {
 2     int numCalls = 0;
 3     float Grade () { // not can't call on const students
@@ -2057,7 +2051,7 @@ want to collect usage stats on student objects.
 
 want to be able to update some fields even if the object is const, declare the field mutable
 
-```CPP
+```cpp
 1 ﻿struct Studnet
 2     mutable int numCalls = 0;
 3     float grade() const {
@@ -2071,7 +2065,7 @@ want to be able to update some fields even if the object is const, declare the f
 
 recall
 
-```CPP
+```cpp
 1 ﻿Struct Student {
 2     int assns, mt, final;
 3     mutable int numMethodCalls = 0;
@@ -2094,7 +2088,7 @@ or what if we want to track how many students are created
 
 associated with the class itself, not with any particular object
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     ...
 3     static int numInstances;
@@ -2111,7 +2105,7 @@ associated with the class itself, not with any particular object
 *	don’t depend on a specific instance
 *	can only access static fields & call other static methods
 
-```CPP
+```cpp
 1 ﻿struct Student {
 2     static int numInstances;
 3     static void printNumInstances(){
@@ -2126,7 +2120,7 @@ associated with the class itself, not with any particular object
 
 ### Invariants and Encapsulation
 
-```CPP
+```cpp
 1 ﻿struct Node {
 2     int data;
 3     Node *next;
@@ -2161,7 +2155,7 @@ introduce encapsulation, want clients to treat objects as black boxes - capsules
 *	can only interact via provided methods
 *	creates an abstraction, regains control over our objects
 
-```CPP
+```cpp
 1 ﻿struct Vec {
 2     Vec (int x, int y);
 3 private:
@@ -2183,7 +2177,7 @@ better to have default visibility - private
 
 switch from struct to class
 
-```CPP
+```cpp
 1 ﻿class Vec {
 2     int x, y;
 3 public:
@@ -2196,7 +2190,7 @@ different between struct and class is default visibility
 
 public in struct, private in class
 
-```CPP
+```cpp
 1 ﻿// list.h
 2 class List {
 3     struct Node; // private nested class, only accessible within List
@@ -2253,7 +2247,7 @@ abstraction of a pointer
 
 walk the list without exposing the actual pointers
 
-```CPP
+```cpp
 1 ﻿class List {
 2     struct Node;
 3     Node *theList;
@@ -2280,7 +2274,7 @@ walk the list without exposing the actual pointers
 24 };
 ```
 
-```CPP
+```cpp
 1 ﻿// client:
 2 
 3 int main () {
@@ -2296,19 +2290,19 @@ walk the list without exposing the actual pointers
 
 shortcut: automatic type deduction
 
-```CPP
+```cpp
 auto x = y; // gives x the same type as y
 ```
 
 alt:
 
-```CPP
+```cpp
 for (auto it=l.begin(); …
 ```
 
 shortcut
 
-```CPP
+```cpp
 for (auto n: l) { // ranged based for loop
 	cout << n << endl;
 }
@@ -2320,7 +2314,7 @@ available for any class with
 
 if you want to modify the items in the list (or save copying)
 
-```CPP
+```cpp
 1 ﻿for (auto &n : l) {
 2     ++ n;
 3 }
@@ -2330,7 +2324,7 @@ if you want to modify the items in the list (or save copying)
 
 Recall:
 
-```CPP
+```cpp
 1 ﻿class List {
 2     struct Node;
 3     Node *theList;
@@ -2348,7 +2342,7 @@ Recall:
 
 But List client can create iterators directly
 
-```CPP
+```cpp
 1 ﻿auto it = List::Iterator (nullptr};
 ```
 
@@ -2360,7 +2354,7 @@ we would
 * but then neither can List
 *	solution: give List privileged access to Iterator - make it a `friend`
 
-```CPP
+```cpp
 1 ﻿class List {
 2     ...
 3 public:
@@ -2383,7 +2377,7 @@ Once again, keep fields private,
 
 What if you want to give clients access to fields? Use accessors/mutator (getter/setter) method
 
-```CPP
+```cpp
 1 ﻿class Vec {
 2     int x, y;
 3 public:
@@ -2396,7 +2390,7 @@ What about operator `<<`? needs `x` & `y`, but can’t be a member function. If 
 
 but if you don’t want to provide getX, getY, make `operator<<` a friend function
 
-```CPP
+```cpp
 1 ﻿// .h
 2 class Vec {
 3     ...
@@ -2406,7 +2400,7 @@ but if you don’t want to provide getX, getY, make `operator<<` a friend functi
 7 };
 ```
 
-```CPP
+```cpp
 1 ﻿// .cc
 2 ostream &operator<< (ostream &out, const Vec &v) {
 3     return out << v.x << ' ' << v.y << endl;
@@ -2545,7 +2539,7 @@ Modelling a class
 
 relationship: composition
 
-```CPP
+```cpp
 1 ﻿class Vec {
 2     int x, y;
 3 public:
@@ -2606,7 +2600,7 @@ e.g. Parts in a catalogue, ducks in a pond
 
 Typical implementation: pointer fields
 
-```CPP
+```cpp
 1 ﻿class Pond {
 2     Duck *ducks;
 3 };
@@ -2616,7 +2610,7 @@ Typical implementation: pointer fields
 
 Suppose you want to track your collection of books
 
-```CPP
+```cpp
 1 ﻿class Book {
 2     String title, author;
 3     int numPages;
@@ -2627,7 +2621,7 @@ Suppose you want to track your collection of books
 
 For textbooks, also want the topic
 
-```CPP
+```cpp
 1 ﻿class Text {
 2     string title, author;
 3     int numPages;
@@ -2638,7 +2632,7 @@ For textbooks, also want the topic
 
 For comic books, want the hero
 
-```CPP
+```cpp
 1 ﻿class Comic {
 2     string title, author;
 3     int numPages;
@@ -2654,7 +2648,7 @@ And how do we create an array (or other collection) with a mixture of these?
 Could:
 *	Use a Union
 
-```CPP
+```cpp
 1 ﻿union BookTypes {Book *b, Text *t, Comic *c};
 2 BookTypes myBooks[20];
 ```
@@ -2668,7 +2662,7 @@ Rather, observe, text and comics are kinds of books, books with extra features.
 
 C++ model with inheritance
 
-```CPP
+```cpp
 1 ﻿class Book { // Base class or superclass
 2     string title, author;
 3     int numPages;
@@ -2703,7 +2697,7 @@ Can Text, comic see them? No - even subclasses can't see them
 
 How do we initialize Text?
 
-```CPP
+```cpp
 1 ﻿// WRONG!!
 2 class Text : public Book {
 3     string topic;
@@ -2725,7 +2719,7 @@ Wrong for two reasons
 
 Fix: invoke `Book`'s ctor in `Text`'s member initialization list (MIL)
 
-```CPP
+```cpp
 1 ﻿class Text : public Book {
 2     string topic;
 3 public:
@@ -2739,7 +2733,7 @@ If the super class has no default ctor, subclass must invoke a Book ctor in its 
 Good reasons to keep superclass fields inaccessible to subclasses
 If you want to give subclasses access to certain members, use protected access:
 
-```CPP
+```cpp
 1 ﻿class Book {
 2 protected: // accessible to the book itself and its subclasses
 3     string title, author;
@@ -2749,7 +2743,7 @@ If you want to give subclasses access to certain members, use protected access:
 7 };
 ```
 
-```CPP
+```cpp
 1 ﻿class Text : public Book {
 2     ...
 3 public:
@@ -2764,7 +2758,7 @@ Not a good idea to give subclasses unlimited access to fields.
 
 Better make fields private, but provide protected accessors
 
-```CPP
+```cpp
 1 ﻿class Book {
 2     stirng title, author;
 3     int numPages;
@@ -2789,7 +2783,7 @@ For text > 500 pages
 
 For comic > 30 pages
 
-```CPP
+```cpp
 1 ﻿class Book {
 2     ...
 3 public:
@@ -2827,7 +2821,7 @@ When access objects through pointers,
 
 Slicing is unnecessary and does not occur.
 
-```CPP
+```cpp
 1 ﻿Comic c {...,...,40,...};
 2 
 3 Book *pb = &c;
@@ -2843,7 +2837,7 @@ Same object behaves different, depending on what type of ptr points to it.
 
 ## Lecture 14
 
-```CPP
+```cpp
 1 ﻿Comic c {...,...,40,...};
 2 Book *pb = &c;
 3 Comic *pc = &c;
@@ -2862,7 +2856,7 @@ How do you make Comic act like a comic even when pointed at by a Book ptr?
 
 ### Declare the method virtual
 
-```CPP
+```cpp
 1 ﻿class Book {
 2     ...
 3 protected:
@@ -2892,7 +2886,7 @@ Accommodates multiple types under one abstraction: **polymorphism** ("many forms
 Note: this is why a function void f (istream &in)
 Can be passed an ifsream - ifstream is a subclass of istream
 
-```CPP
+```cpp
 DANGER
 1 ﻿class One {
 2     int x, y;
@@ -2930,7 +2924,7 @@ If you want polymorphism - array of ptrs
 
 Dtor revisited
 
-```CPP
+```cpp
 1 ﻿class X {
 2     int *x;
 3 public:
@@ -2948,7 +2942,7 @@ Dtor revisited
 15 //USE valgrid to use detect leak
 ```
 
-```CPP
+```cpp
 1 ﻿X *myX = new Y {5, 10};
 2 delete myXl
 ```
@@ -2961,7 +2955,7 @@ So only x, but not y, is freed
 
 To ensure that deletion through a superclass ptr calls the subclass dtor - declare the dtor virtual
 
-```CPP
+```cpp
 1 ﻿class X{
 2     ...
 3 public:
@@ -2977,7 +2971,7 @@ even if the virtual dtor does nothing
 
 If class is not meant to be subclass declare it final
 
-```CPP
+```cpp
 1 ﻿class Y final : public X {
 2     ...
 3 };
@@ -2985,7 +2979,7 @@ If class is not meant to be subclass declare it final
 
 ### Pure virtual methods abstraction class
 
-```CPP
+```cpp
 1 ﻿class Student {
 2 protected:
 3     int numCourses;
@@ -3013,7 +3007,7 @@ Don’t know - every student should be regular or coop
 
 Can explicitly `give Student::fees` no implementation
 
-```CPP
+```cpp
 1 ﻿class Student {
 2     ...
 3 public:
@@ -3037,7 +3031,7 @@ Abstract class - class name in italics, protected: #
 
 ### Inheritance and copy/move
 
-```CPP
+```cpp
 1 ﻿class Book {
 2     ...
 3 public:
@@ -3060,7 +3054,7 @@ Abstract class - class name in italics, protected: #
 
 To write your own:
 
-```CPP
+```cpp
 1 ﻿Text::Text (const Text &other)
 2     : Book {Text}, topic {other.topic} {}
 3 
@@ -3086,7 +3080,7 @@ Even though other points at an rvalue, other itself is an lvalue
 
 ## Lecture 15
 
-```CPP
+```cpp
 Text t1 {...}, t2 {...};
 Book *pb1 = &t1, *pb2 = &t2;
 *pb1 = *pb2; // Book::operator= runs
@@ -3096,7 +3090,7 @@ Partial assignment - copies only the Book part
 
 How can we fix this? Try making `operator=` virtual
 
-```CPP
+```cpp
 class Book {
 	...
 public:
@@ -3114,7 +3108,7 @@ Note: different return types, but parameter types must be the same, or it is not
 
 Assignment to a Book object to a Text variable would be allowed:
 
-```CPP
+```cpp
 Text t {...};
 Book b {...};
 Text *pt = &t;
@@ -3126,7 +3120,7 @@ Uses a Book to assign a Text, BAD but it compiles.
 
 Also:
 
-```CPP
+```cpp
 Comic c {...};
 Comic *pc = &c;
 *pt = *pc;
@@ -3146,7 +3140,7 @@ Rewrite Book hierarchy:
 | \|\| | |
 | Normal Book | Text | Comic |
 
-```CPP
+```cpp
 class AbstractBook {
 	string title, author;
 	int numPages;
@@ -3183,7 +3177,7 @@ Note: `virtual` dtor MUST be implemented, even though it is pure virtual.
 
 Huge topic - just the highlights
 
-```CPP
+```cpp
 class List {
 	struct Node;
 	Node *p;
@@ -3200,7 +3194,7 @@ What if you want to store something else? Whole new class?
 
 Or a `template` - class parameterized by a type
 
-```CPP
+```cpp
 template <typename T> class stack {
 	int size;
 	int cap;
@@ -3251,7 +3245,7 @@ Large # of useful templates
 
 e.g. dynamic-length arrays: `vector`
 
-```CPP
+```cpp
 #include <vector>
 
 using namespace std;
@@ -3267,7 +3261,7 @@ vector <int> v (4,5); // produce {5,5,5,5}
 
 looping over vectors:
 
-```CPP
+```cpp
 for (int i=0;i<v.size();++i) {
 	cout << v[i] << endl;
 }
@@ -3291,7 +3285,7 @@ for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); ++i) {
 
 use iterator to remove items from a vector
 
-```CPP
+```cpp
 auto it = v.erase (v.begin()); // erase item 0
 // returns an iterator to the first item after the erase
 

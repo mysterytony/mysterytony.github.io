@@ -1739,11 +1739,11 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">neg</span>(<span class="pl-k">int</span> n) {<span class="pl-k">return</span> -n;}
 <span class="pl-c1">2</span> <span class="pl-k">bool</span> <span class="pl-en">neg</span>(<span class="pl-k">bool</span> b) {<span class="pl-k">return</span> !b;}</pre></div>
 
-<p>compiler uses # &amp; type of arguments to decide which neg is being called.</p>
+<p>compiler uses numbers &amp; types of arguments to decide which <code>neg</code> is being called.</p>
 
-<p>overloads must differ in # or type of argument, may not differ in just return type;</p>
+<p>overloads must differ in number or type of argument, may not differ in just return type;</p>
 
-<p>we have seen this already: &gt;&gt;, &lt;&lt; are overloaded - behavior depends on types of args.</p>
+<p>we have seen this already: <code>&gt;&gt;</code>, <code>&lt;&lt;</code> are overloaded - behavior depends on types of args.</p>
 
 <h3>
 <a id="user-content-struct" class="anchor" href="#struct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>struct:</h3>
@@ -1776,7 +1776,7 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <span class="pl-c1">4</span> <span class="pl-en">inc</span>(x);
 <span class="pl-c1">5</span> cout&lt;&lt;x&lt;&lt;endl;</pre></div>
 
-<p>prints 5, inc gets a copy of x, increments the copy, original unchanged.</p>
+<p>prints 5, <code>inc</code> gets a copy of <code>x</code>, increments the copy, original unchanged.</p>
 
 <p>if a function needs to modify an argument pass a ptr:</p>
 
@@ -1786,9 +1786,9 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <span class="pl-c1">4</span> <span class="pl-en">inc</span>(&amp;x);
 <span class="pl-c1">5</span> count&lt;&lt;x&lt;&lt;endl;</pre></div>
 
-<p>x's address passed by value (copied), inc changed the data at that address, visible to the caller</p>
+<p>x's address passed by value (copied), <code>inc</code> changed the data at that address, visible to the caller</p>
 
-<p>Q: why cin&gt;&gt;x and not cin&gt;&gt;&amp;x</p>
+<p>Q: why <code>cin&gt;&gt;x</code> and not <code>cin&gt;&gt;&amp;x</code></p>
 
 <p>A: C++ has another ptr-like type: references</p>
 
@@ -1800,25 +1800,26 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <span class="pl-c1">3</span> <span class="pl-c">// like a const ptr</span>
 <span class="pl-c1">4</span> <span class="pl-c">// similar to int * const z = &amp;y; &lt;- the pointer is const</span></pre></div>
 
-<p>in all cases, z be behaviors exactly like y. z is an alias ("another name") for y</p>
+<p>in all cases, <code>z</code> be behaviors exactly like <code>y</code>. <code>z</code> is an alias ("another name") for <code>y</code></p>
 
 <p>things you can't do with lvalue references</p>
 
 <ul>
-<li>  leave them uninitialized, e.g. int &amp;x;  Wrong</li>
-<li>  must be initialized with something that has an address (an lvalue), since refs are ptrs, e.g. int &amp;x =3;  Wrong</li>
-<li>  int &amp;x = y + z;  Wrong</li>
-<li>  create a ptr to a reference int &amp;*x;  Wrong</li>
-<li>  reference to ptr is ok: int *&amp;x;   OK</li>
-<li>  create a reference to a reference: int &amp;&amp;r;  Wrong, this means something different</li>
-<li>  create an array of references int &amp;r[3]={n,n,n};  Wrong</li>
+<li>  leave them uninitialized, e.g. <code>int &amp;x;</code> &lt;- Wrong</li>
+<li>  must be initialized with something that has an address (an lvalue), since refs are ptrs, e.g. <code>int &amp;x =3;</code> &lt;- Wrong</li>
+<li>  int <code>&amp;x = y + z;</code> &lt;- Wrong</li>
+<li>  create a ptr to a reference <code>int &amp;*x;</code> &lt;- Wrong</li>
+<li>  reference to ptr is ok: <code>int *&amp;x;</code>  &lt;- OK</li>
+<li>  create a reference to a reference: <code>int &amp;&amp;r;</code> &lt;- Wrong, this means something different</li>
+<li>  create an array of references <code>int &amp;r[3]={n,n,n};</code> &lt;- Wrong</li>
 </ul>
 
-<p>what can youd o?</p>
+<p>what can you do?</p>
 
 <ul>
 <li>  pass as function parameters</li>
-<li>  1 ﻿void inc (int &amp;n) {n=n+1;}</li>
+<li>  <code>void inc (int &amp;n) {n=n+1;}</code>
+</li>
 <li>  no ptr deref, const, ptr to the arg (x) changes to n affect x</li>
 </ul>
 
@@ -1826,11 +1827,11 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <span class="pl-c1">2</span> <span class="pl-en">inc</span> (x);
 <span class="pl-c1">3</span> cout &lt;&lt; x &lt;&lt; endl; <span class="pl-c">// prints 6</span></pre></div>
 
-<p>cin takes x as a reference.</p>
+<p><code>cin</code> takes <code>x</code> as a reference.</p>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿istream &amp;<span class="pl-k">operator</span> &gt;&gt;(istream &amp;in, <span class="pl-k">int</span> &amp;n);</pre></div>
 
-<p>pass by value e.g. int f (int n) {…} copies the argument</p>
+<p>pass by value e.g. <code>int f (int n) {…}</code> copies the argument</p>
 
 <p>if the argument is big, the copy is expensive.</p>
 
@@ -1843,7 +1844,7 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">g</span> (ReallyBig &amp;rb) {...}</pre></div>
 
-<p>but could change rb in the caller</p>
+<p>but could change <code>rb</code> in the caller</p>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">h</span> (<span class="pl-k">const</span> ReallyBig &amp;rb) {...}</pre></div>
 
@@ -1950,9 +1951,9 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <span class="pl-c1">2</span> 
 <span class="pl-c1">3</span> <span class="pl-k">delete []</span> myArray;</pre></div>
 
-<p>use delete with ordinary new</p>
+<p>use <code>delete</code> with ordinary new</p>
 
-<p>use delete [] with array new, don’t mix them</p>
+<p>use <code>delete []</code> with array new, don’t mix them</p>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
 <span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
@@ -1998,7 +1999,7 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 
 <p>e.g., instead of <code>#include &lt;stdio.h&gt;</code> use <code>#include &lt;cstdio&gt;</code></p>
 
-<p><code>#define</code> VAR VALUE -&gt; sets a preprocessor value, then all occurrences of VAR in the source file are replaced with VALUE</p>
+<p><code>#define VAR VALUE</code> -&gt; sets a preprocessor value, then all occurrences of VAR in the source file are replaced with VALUE</p>
 
 <p>e.g.</p>
 
@@ -2045,7 +2046,7 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 <span class="pl-c1">7</span> ./define
 <span class="pl-c1">8</span> <span class="pl-c1">15</span></pre></div>
 
-<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#indef NAME
+<div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿#ifdef NAME
 <span class="pl-c1">2</span> #ifndef NAME <span class="pl-c">// true if name has/has not been defined</span></pre></div>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">int</span> <span class="pl-en">main</span>() {
@@ -2070,9 +2071,9 @@ string s{<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pd
 
 <p>split programs into composable modules, which provide interface &amp; implementation</p>
 
-<p>interface: type definition, function header .h file</p>
+<p>interface: type definition, function header <code>.h</code> file</p>
 
-<p>implementation: full definition for every provided functions .cc file</p>
+<p>implementation: full definition for every provided functions <code>.cc</code> file</p>
 
 <p>Recall</p>
 
@@ -2133,17 +2134,17 @@ g++14 vec.o main.o -o main <span class="pl-c"># -&gt; invokes the linker</span><
 
 <p>first time which is included symbol <code>_VEC_H_</code>, so file is included subsequently,<code>_VEC_H_</code> is defined so contents are suppressed.</p>
 
-<p>Always put <code>#include</code> guards in .h files</p>
+<p>Always put <code>#include</code> guards in <code>.h</code> files</p>
 
-<p>Never put using namespace std in header files</p>
+<p>Never put <code>using namespace std</code> in header files</p>
 
 <p>the using directive will forced on any client who includes the file</p>
 
 <p>so use the prefix <code>std::</code> in headers</p>
 
-<p>Never include .cc files</p>
+<p>Never include <code>.cc</code> files</p>
 
-<p>Never compile .h files</p>
+<p>Never compile <code>.h</code> files</p>
 
 <h2>
 <a id="user-content-lecture-8" class="anchor" href="#lecture-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 8</h2>
@@ -2251,11 +2252,11 @@ g++14 vec.o main.o -o main <span class="pl-c"># -&gt; invokes the linker</span><
 
 <p>e.g. <code>Vec v; // default ctor (does nothing in this case)</code></p>
 
-<p>but, the built in default ctor goes away if you prove any ctor</p>
+<p>but, the built in default ctor goes away if you provide any ctor</p>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-c1">1</span> ﻿<span class="pl-k">struct</span> <span class="pl-en">Vec</span> {
 <span class="pl-c1">2</span>     <span class="pl-k">int</span> x, y;
-<span class="pl-c1">3</span>     Vec {<span class="pl-k">int</span> x, <span class="pl-k">int</span> y) {
+<span class="pl-c1">3</span>     Vec (<span class="pl-k">int</span> x, <span class="pl-k">int</span> y) {
 <span class="pl-c1">4</span>         <span class="pl-v">this</span>-&gt;x = x;
 <span class="pl-c1">5</span>         <span class="pl-v">this</span>-&gt;y = y;
 <span class="pl-c1">6</span>     }
@@ -2311,9 +2312,7 @@ g++14 vec.o main.o -o main <span class="pl-c"># -&gt; invokes the linker</span><
 
 <p>can initialize any field this way, not just consts and refs</p>
 
-<p>sometimes more efficient than setting fields in ctor body</p>
-
-<p>(without run default ctor in stor in step 2 then reassign in 3</p>
+<p>sometimes more efficient than setting fields in ctor body (without run default ctor in step 2 then reassign in step 3)</p>
 
 <p>fields are initialized in the order in which they are declared in the struct, even if the MIL orders them differently</p>
 
@@ -2332,9 +2331,7 @@ g++14 vec.o main.o -o main <span class="pl-c"># -&gt; invokes the linker</span><
 
 <p>invoked when constructing on object as a copy of another</p>
 
-<p>Note</p>
-
-<p>every class comes with</p>
+<p>Note: every class comes with</p>
 
 <ul>
 <li>  a default ctor (default - constructs all fields that are objects, lost if you define any ctor)</li>
@@ -2370,10 +2367,6 @@ g++14 vec.o main.o -o main <span class="pl-c"># -&gt; invokes the linker</span><
 <span class="pl-c1">2</span> Node m = *n;
 <span class="pl-c1">3</span> Node *p = <span class="pl-k">new</span> Node {*n};</pre></div>
 
-<p>n   -&gt;  1   2   3
-m   1       /|\ 
-p   -&gt;  1   /|\ </p>
-
 <p>simple copy fields =&gt; only first node is actually copied (shallow copy)</p>
 
 <p>if you want a deep copy (copy the whole list), write your own copy ctor</p>
@@ -2386,10 +2379,13 @@ p   -&gt;  1   /|\ </p>
 
 <p>recursive copies the rest of the list</p>
 
-<p>the copy ctor is called:
-1.  when an object is initialized with another object (same class)
-2.  when an object is passed by value
-3.  when an object is returned from a function</p>
+<p>the copy ctor is called:</p>
+
+<ol>
+<li> when an object is initialized with another object (same class)</li>
+<li> when an object is passed by value</li>
+<li> when an object is returned from a function</li>
+</ol>
 
 <p>(exception to all 3, later)</p>
 
@@ -2406,7 +2402,8 @@ p   -&gt;  1   /|\ </p>
 
 <div class="highlight highlight-source-c++"><pre>Node n{<span class="pl-c1">4</span>};
 Node n{<span class="pl-c1">5</span>};
-but also Node n = <span class="pl-c1">4</span>; - implicit conversion from <span class="pl-k">int</span> to Node</pre></div>
+<span class="pl-c">// but also</span>
+Node n = <span class="pl-c1">4</span>; <span class="pl-c">// implicit conversion from int to Node</span></pre></div>
 
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> <span class="pl-en">f</span>(Node n){…}
 <span class="pl-en">f</span>(<span class="pl-c1">4</span>); <span class="pl-c">//works, 4 implicitly converted to Node</span></pre></div>
@@ -2485,7 +2482,7 @@ Node n = <span class="pl-c1">4</span>; <span class="pl-c">// not legal now</span
 <div class="highlight highlight-source-c++"><pre>Node n{<span class="pl-c1">1</span>,<span class="pl-k">new</span> Node{<span class="pl-c1">2</span>, <span class="pl-k">new</span> Node{<span class="pl-c1">3</span>, <span class="pl-v">nullptr</span>}}};
 n=n;</pre></div>
 
-<p>deletes n &amp; then tries to copy n to n</p>
+<p>deletes <code>n</code> &amp; then tries to copy <code>n</code> to <code>n</code></p>
 
 <p>undefined behavior</p>
 
