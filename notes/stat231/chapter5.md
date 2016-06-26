@@ -1,1 +1,5 @@
 # Chapter 5: Tests of Hypotheses
+
+## 5.1 Introduction
+
+What does it mean to test a hypothesis in the light of observed data or information? When studying tests of hypothesis it is helpful to draw an analogy with the criminal court system used in many places in the world, where the two hypothesis "the defendant is innocent" and "the defendant is guilty" are not treated symmetrically. In these courts, the court assumes a priori that the first hypothesis, "the defendant is innocent" is true, and then the prosecution attempts to find sufficient evidence to show that this hypothesis of innocence is not plausible. There is no requirement that the defendant be proved innocent. At the end of the trial the judge or jury may conclude that there was insufficient evidence for a finding of guilty and the defendant is then exonerated.
