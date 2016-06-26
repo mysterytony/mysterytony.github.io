@@ -5,7 +5,7 @@
 In statistical estimation we use two models:
 
 1.	A model for variation in the population or process being studied which includes the attributes which are to be estimated
-2.	A model which takes in to account how the data were collected and which is constructed in conjunction which the model in (1)
+2.	A model which takes in to account how the data were collected and which is constructed in conjunction with the model in (1)
 
 We use these two models for estimating the unknown attributes based on the observed data and determining the uncertainty in the estimates. The unknown attributes are usually represented by unknown parameters $\theta$ in the models or by functions of the unknown parameters. We have already seen in Chapter 2, that these unknown parameters can be estimated using the method of maximum likelihood and invariance property of maximum likelihood estimates.
 
@@ -49,7 +49,7 @@ Suppose we have a variate of interest (for example, the height in meters of a ma
 
 $$\tilde{\mu}=\bar{Y}=\frac{1}{n}\sum_{i=1}^{n}Y_i$$
 
-where $\bar{Y}\sim G(\mu, \sigma/\sqrt{n})$. If we knew $\sigma$ we could determine how often the estimator $\tilde{\mu}=\bar{Y}$ is within s specified amount of the mean.
+where $\bar{Y}\sim G(\mu, \sigma/\sqrt{n})$. If we knew $\sigma$ we could determine how often the estimator $\tilde{\mu}=\bar{Y}$ is within a specified amount of the mean.
 
 For example, if the variate is height and heights are measured in meters than we could determine how often the estimator $\tilde{\mu}=\bar{Y}$ is with in 0.01 meters of the true mean $\mu$ as follows:
 
@@ -100,9 +100,9 @@ $$0\leq R(\theta) \leq 1 \quad \text{for all } \theta\in\Omega$$
 
 #### Definition 24
 
-A $100\%$ likelihood interval for $\theta$ is the set $\{\theta : R(\theta)\geq p\}$.
+A $100 p \%$ likelihood interval for $\theta$ is the set $\\\{\theta : R(\theta)\geq p\\\}$.
 
-Actually, $\{\theta : R(\theta)\geq p\}$ is not necessarily an interval unless $R(\theta)$ is unimodal, but this is the case for all models that we consider here. The motivation for this approach is that the values of $\theta$ that give large values of $L(\theta)$ and hence $R(\theta)$, are the most plausible in light of the data. The main challenge is to decide what $p$ to choose; we show later that choosing $p\in\[0.10,0.15\]$ is often useful. 
+Actually, $\\\{\theta : R(\theta)\geq p\\\}$ is not necessarily an interval unless $R(\theta)$ is unimodal, but this is the case for all models that we consider here. The motivation for this approach is that the values of $\theta$ that give large values of $L(\theta)$ and hence $R(\theta)$, are the most plausible in light of the data. The main challenge is to decide what $p$ to choose; we show later that choosing $p\in\[0.10,0.15\]$ is often useful. 
 
 #### Example 4.3.1 Polls
 
@@ -153,7 +153,7 @@ $$P\[L(Y)\leq \theta \leq U(Y)\]=p$$
 
 where $p$ is called the confidence coefficient.
 
-If $p=0.95$ indicates that $95\%$ of the samples that we would draw from this model result in an interval which includes the true value of the parameter. This gives us some confidence that for a particular sample, such as the one at ahnd, and true value of the parameter is contained in the interval.
+If $p=0.95$ indicates that $95\%$ of the samples that we would draw from this model result in an interval which includes the true value of the parameter. This gives us some confidence that for a particular sample, such as the one at hand, and true value of the parameter is contained in the interval.
 
 #### Example 4.4.1 Gaussian distribution with known standard deviation
 
@@ -177,5 +177,242 @@ $$\begin{align\*} p &= P\[a\leq Q(Y;\theta) \leq b\] \\\
 &= P\[L(Y)\leq \theta \leq U(Y)\] \\\
 &= P(\theta\in \[L(Y), U(Y)\])\end{align\*}$$
 
----
-end page 121
+the interval $\[L(y),U(y)\]$ is a $100p\%$ confidence interval for $\theta$. The confidence coefficient for the interval $\[L(y),U(y)\]$ is equal to $p$ which does not depend on $\theta$. The confidence coefficient does depend on $a$ and $b$, but there are determined by the known distribution of $Q(Y;\theta)$.
+
+## 4.5 The Chi-squared and $t$ Distributions
+
+In this section we introduce two new distributions, the Chi-squared distribution and the Student $t$ distribution. These two distributions play an important role in constructing confidence intervals and the tests of hypotheses to be discussed in Chapter 5.
+
+### The $\mathcal{X}^2$ (Chi-squared) Distribution
+
+To define the Chi-squared distribution we first recall the Gamma function and its properties:
+
+$$\Gamma(\alpha) = \int_{0}^{\infty} y^{\alpha-1}e^{-y}dy \quad \text{for } \alpha > 0$$
+
+#### Properties of the Gamma Function:
+
+1.	$\Gamma(\alpha)=(\alpha-1)\Gamma(\alpha-1)$
+2.	$\Gamma(\alpha)=(\alpha-1)! \quad \text{for } \alpha = 1,2,3...$
+3.	$\Gamma(1/2)=\sqrt{\pi}$
+
+The $\mathcal{X}^2(k)$ distribution is a continuous family of distributions on $(0,\infty)$ with probability density function of the form
+
+$$f(x;k)=\frac{1}{2^{k/2}\Gamma(k/2)}x^{(k/2)-1}e^{-x/2} \quad \text{for } x > 0$$
+
+where $k \in \\\{1,2,...\\\}$ is a parameter of the distribution. We write $X\sim \mathcal{X}^2{k}$. The parameter $k$ is referred to as the **"degrees of freedom"** (d.f.) parameter. For $k=2$, the probability density function is the Exponential $(2)$ probability density function. For $k>2$, the probability density function is unimodal with maximum value at $x=k-2$. For values of $k>30$, the probability density function resembles that of a $N(k,2k)$ probability function.
+
+The cumulative distribution function, $F(x;k)$, can be given in closed algebraic form for even values of $k$.
+
+If $X \sim \mathcal{X}^2 (k)$ then
+
+$$E(X)=k \quad \text{and} \quad Var(X)=2k$$
+
+#### Theorem 29
+
+Let $W_1,...,W_n$ be independent random variables with $W_i \sim \mathcal{X}^2 (k_i)$. Then 
+
+$$S=\sum_{i=1}^n W-i \sim \mathcal{X}^2 \left( \sum_{i=1}^n k_i \right)$$
+
+#### Theorem 30
+
+If $Z \sim G(0,1)$ then the distribution of $W = Z^2$ is $\mathcal{X}^2 (1)$
+
+#### Corollary 31
+
+If $Z_1,...,Z_n$ are mutually independent $G(0,1)$ random variables and $S=\sum_{i=1}^n Z_i^2$, then $S\sim \mathcal{X}^2(n)$.
+
+### Student's $t$ Distribution
+
+Student's $t$ distribution (or more simply the $t$ distribution) has probability density function
+
+$$f(t;k)=c_k(1+\frac{t^2}{k})^{-(k+1)/2} \quad \text{for } t\in\mathbb{R} \quad \text{and } k= 1,2,...$$
+
+where the constant $c_k$ is given by
+
+$$c_k \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(\frac k2)}$$
+
+The parameter $k$ is call the **degree of freedom**. We write $T\sim t(k)$ to indicate that the random variable $T$ has a Student $t$ distribution with $k$ degrees of freedom.
+
+The $t$ probability density function is similar to that of the $G(0,1)$ distribution in several respects: it is symmetric about the origin, it is unimodal, and indeed for large value of $k$, the graph of the probability density function $f(t;k)$ is indistinguishable from that of the $G(0,1)$ probability density function. The primary difference, for small $k$, is in the tail of the distribution. The $t$ probability density function has fatter "tails" or more area in the extreme left and right tails.
+
+The $t$ distribution arises as a result of the following theorem involving the ratio of a $N(0,1)$ random variable and an independent Chi-squared random variable.
+
+#### Theorem 32
+
+Suppose $Z \sim G(0,1)$ and $U \sim X^2(k)$ independently. Let
+
+$$T=\frac{Z}{\sqrt{U/k}}$$
+
+Then $T$ has **Student's $t$ distribution with $k$ degrees of freedom**.
+
+## 4.6 Likelihood-Based Confidence Intervals
+
+We will now show that likelihood intervals are also confidence intervals. Recall the relative likelihood
+
+$$R(\theta) = \frac{L(\theta)}{L(\hat{\theta})}$$
+
+is a function of the maximum likelihood estimate $\hat{\theta}$. Replace the estimate $\hat{\theta}$ by the random variable (the estimator) $\tilde{\theta}$ and define the random variable $\Lambda (\theta)$
+
+$$\Lambda(\theta) = -2\log \left\[ \frac{L(\theta)}{L{\tilde{\theta}}} \right\]$$
+
+where $\tilde\theta$ is the maximum likelihood estimator. The random variable $\Lambda(\theta)$ is called the **likelihood ratio statistic**. The following theorem implies that $\Lambda(\theta)$ is an asymptotic pivotal quantity.
+
+#### Theorem 33
+
+If $L(\theta)$ is based in $Y=(Y_1,...,Y_n)$, a random sample of size $n$, and if $\theta$ is the true value of the scalar parameter, then (under mild mathematical conditions) the distribution $\Lambda(\theta)$ converges to a $\mathcal{X}^2(1)$ distribution as $n\rightarrow \infty$.
+
+This theorem means that $\Lambda(\theta)$ can be used as a pivotal quantity for sufficiently large $n$ in order to obtain approximate confidence interval for $\theta$.
+
+#### Theorem 34
+
+A $100p\%$ likelihood interval in an approximately $100q\%$ where $q=2P(Z \leq \sqrt{-2\log p})-1$ and $Z\sim N(0,1)$.
+
+#### Theorem 35
+
+If $a$ is a value such that
+
+$$p=2P(Z\leq a)-1 \quad \text{where } Z \sim N(0,1)$$
+
+then the likelihood interval $\\\{\theta: R(\theta) \geq e^{-a^2/2}\\\}$ is an approximate $100p\%$ confidence interval.
+
+## 4.7 Confidence Interval for Parameters in the $G(\mu, \sigma)$ Model
+
+Suppose that $Y\sim G(\mu, \sigma)$ models a response variate $y$ in some population or process. A random sample $Y_1,...,Y_n$ is selected, and we want to estimate the model parameters. We have already seen that the maximum likelihood estimators of $\mu$ and $\sigma^2$ are
+
+$$\tilde{\mu} = \bar{Y} = \frac 1n \sum_{i=1}^n Y_i \quad \text{and} \quad \tilde{\sigma}^2 = \frac 1n \sum_{i=1}^n (Y_i-\bar{Y})^2 $$
+
+A closely related point estimator of $\sigma^2$ is the sample variance,
+
+$$S^2 = \frac 1 {n-1} \sum_{i=1}^n (Y_i-\bar{Y})^2$$
+
+which differs from $\sigma^2$ only by the choice of denominator. Indeed if $n$ is large there is very little difference between $S^2$ and $\tilde{\sigma}^2$. Note that the sample variance has the advantage that it is an "unbiased" estimator, that is, $E(S^2)=\sigma^2$. This follows since
+
+$$E\[(Y_i-\mu)^2\]=Var(Y_i)=\sigma^2 \quad E\[(\bar{Y}-\mu)^2\]=Var(\bar{Y})=\frac {\sigma^2} n$$
+
+and
+
+$$E(S^2) = \sigma^2$$
+
+### Confidence Intervals for $\mu$
+
+If $\sigma$ were known then
+
+$$Z=\frac{\bar{Y}-\mu}{\sigma / \sqrt{n}} \sim G(0,1)$$
+
+would be a pivotal quantity that could be used to obtain confidence intervals for $\mu$. However, $\sigma$ is generally unknown. Fortunately it turns out that if we simply replace $\sigma$ with either the maximum likelihood estimator $\tilde{\sigma}$ or the sample variance $S$ in $Z$, then we still have a pivotal quantity. We will write the pivotal quantity in terms of $S$. The pivotal quantity is
+
+$$T=\frac{\bar{Y}-\mu}{S/\sqrt{n}}$$
+
+Since $S$, unlike $\sigma$, is a random variable the distribution $T$ is no longer $G(0,1)$. The random variable $T$ actually has a $t$ distribution.
+
+
+#### Theorem 36
+
+Suppose $Y_1,...,Y_n$ is a random sample from the $G(\mu, \sigma)$ distribution with sample mean $\bar{Y}$ and sample variance $S^2$. Then
+
+$$T=\frac{\bar{Y}-\mu}{S/\sqrt{n}} \sim t(n-1)$$
+
+In other words if we replace $\sigma$ in the pivotal quantity by its estimator $S$, the distribution of the resulting pivotal quantity has a $t(n-1)$ distribution rather than a $G(0,1)$ distribution. The degrees of freedom are inherited from the degrees of freedom of the Chi-squared random variable $U$ or from $S^2$.
+
+We now show how to use the $t$ distribution to obtain a confidence interval for $\mu$ when $\sigma$ is unknown. Since it has a $t$ distribution with $n-1$ degrees of freedom which is a completely known distribution, we can use this pivotal quantity to construct a $100p\%$ confidence interval for $\mu$. Since $t$ distribution is symmetric we determine the constant $a$ such that $P(-a\leq T\leq a)=p$ using the $t$ table.
+
+$$
+\begin{align\*}
+p &= P(-a \leq T \leq a) \\\
+&= P\left(-a \leq \frac{\bar{Y}-\mu}{S/\sqrt{n}} \leq a\right) \\\
+&= P(\bar{Y} -aS/\sqrt{n} \leq \mu \leq \bar{Y} + aS/\sqrt{n})
+\end{align\*}
+$$
+
+a $100p\%$ confidence interval for $\mu$ is given by
+
+$$\[ \bar{y} - as/sqrt{n}, \bar{y} + as/sqrt{n}\]$$
+
+As usual the method used to construct this interval implies that $100p\%$ of the confidence intervals constructed from samples drawn from this population contain the true value of $\mu$.
+
+We note that this interval is of the form $\mu \pm as/\sqrt{n}$ or
+
+$$\text{estimate } \pm a \times \text{ estimated standard deviation of estimator}$$
+
+Recall that a confidence interval for $\mu$ in the case of a $G(\mu, \sigma)$ population when $\sigma$ is known has a similar form
+
+$$\text{estimate } \pm a \times \text{ standard deviation of estimator}$$
+
+except that the standard deviation of the estimator is known in this case and the value of $a$ is taken from a $G(0,1)$ distribution rather than the $t$ distribution.
+
+### Behavior as $n\rightarrow\infty$
+
+As $n$ increases, confidence intervals behave in a largely predictable fashion. First the estimated standard deviation gets closer to the true standard deviation $\sigma$. Second as the degree of freedom increase, the $t$ distribution approaches the Gaussian so that the quantiles of the $t$ distribution approach that of the $G(0,1)$ distribution.
+
+### Sample size required for a given width of confidence interval for $\mu$
+
+If we know the value of $\sigma$ approximately, we can determine the value of $n$ needed to make a $95\%$ confidence interval a given length. This is used in deciding how large a sample to take in a future study. A $95\%$ confidence interval using the Normal quantiles takes the form $y \pm 1.96\sigma/\sqrt{n}$. If we wish a $95\%$ confidence interval of the form $\bar{y} \pm d$ (the width of the confidence interval is then $2d$), we should choose
+
+$$n\approx (1.96\sigma/d)^2$$
+
+We would usually choose $n$ a little larger than this formula gives to accommodate the fact that we used Normal quantiles rather than the quantiles of the $t$ distribution which are larger in value.
+
+### Confidence Intervals for $\sigma^2$ and $\sigma$
+
+Suppose that $Y_1,...,Y_n$ is random sample from the $G(\mu, \sigma)$ distribution. We have seen that there are two closely related estimators for the population variance, $\tilde{\sigma}^2$ and the sample variance $S^2$. We use $S^2$ to build a confidence interval for the parameter $\sigma^2$. Such a construction depends on the following result.
+
+#### Theorem 37
+
+Suppose $Y_1,...,Y_n$ is a random sample from the $G(\mu, \sigma)$ distribution with sample variance $S^2$. Then the random variable
+
+$$\frac{(n-1)S^2}{\sigma^2} = \frac{1}{\sigma^2} \sum_{i=1}^{n} (Y_1-\bar{Y})^2$$
+
+has a Chi-squared distribution with $n-1$ degrees of freedom.
+
+We will now show how we can use Theorem 37 to construct a $100\%$ confidence interval for the parameter $\sigma^2$ or $\sigma$. First note that it is a pivotal quantity since its distribution is completely known. Using Chi-table to find constants $a$ and $b$ such that
+
+$$P(a \leq U \leq b)=p$$
+
+where $U\sim \mathcal{X}^2(n-1)$. Since
+
+$$
+\begin{align\*}
+p &= P(a \leq U \leq b) \\\
+&= P\left( \sqrt{\frac{(n-1)S^2}{b}} \leq \sigma \leq \sqrt{\frac{(n-1)S^2}{1}} \right)
+\end{align\*}
+$$
+
+a $100\%$ confidence interval for $\sigma^2$ is
+
+$$\left\[ \frac{(n-1)s^2}{b} , \frac{(n-1)s^2}{a} \right\]$$
+
+and a $100p\%$ confidence interval for $\sigma$ is
+
+$$\left\[ \sqrt{\frac{(n-1)s^2}{b}} , \sqrt{\frac{(n-1)s^2}{a}} \right\]$$
+
+As usual the choice for $a$ $b$ is not unique. For convenience, $a$ and $b$ are usually chosen such that
+
+$$P(U\leq a)=P(U > b) = \frac{1-p} 2$$
+
+where $U\sim \mathcal{X}^2(n-1)$
+
+Note that, unlike confidence intervals for $\mu$, the confidence interval for $\sigma^2$ is not symmetric about $s^2$, the estimator of $\sigma^2$. This happens of course because $\mathcal{X}^2(n-1)$ distribution is not symmetric.
+
+In some application we are interested in an upper bound on $\sigma$ (because small $\sigma$ is "good" in some sense). In this case we take $b=\infty$ and find $a$ such that $P(a \leq U)=p$ or $P(U \leq a)=1-p$ so that a one-sided $100p\%$ confidence interval for $\sigma$ is
+
+$$\left\[0 , \sqrt{\frac{(n-1)s^2}{a}} \right\]$$
+
+### Prediction Interval for a Future Observation
+
+In chapter 3 23 mentioned that a common type of statistical problem was a predictive problem in which the experimenter wishes to predict the response of a variate for a given unit. This is often the case in finance or in economics. For example, financial institutions need to predict the price of a stock or interest rate in a week or a month because this effects the value of their investments. We will not show how to do this in the case where the Gaussian model for the data is valid.
+
+Suppose that $y_1,...,y_n$ is an observed random sample from a $G(\mu, \sigma)$ population and that $Y$ is an new observation which is to be drawn at random from the same $G(\mu, \sigma)$ population. We want to estimate $Y$ and obtain an interval of values for $Y$. As usual we estimate the unknown parameter $\mu$ and $\sigma$ using $\hat{\mu}=\bar{y}$ and $s$ respectively. Our best point estimate of $Y$ based on the data we have already observed is $\hat{\mu}$ with corresponding estimator $\tilde{\mu}=\bar{Y}\sim N(\mu, \sigma^2/n)$. To obtain an interval of values for $Y$ we note that $Y\sim G(\mu, \sigma)$ independently of $\tilde{\mu}=\bar{Y}\sim n(\mu, \sigma^2/n)$. Since $E(Y-\tilde{\mu})=\mu-\mu=0$ and $Var(Y-\tilde{\mu})=\sigma^2+\sigma^2/n$ therefore
+
+$$Y-\tilde{\mu}=Y-\bar{Y} \sim N\left( 0, \sigma^2\left( 1+\frac 1n \right) \right)$$
+
+Also
+
+$$\frac{Y-\bar{Y}}{S\sqrt{1+\frac 1n}} \sim t(n-1)$$
+
+is a pivotal quantity which can be used to obtain an interval value for $Y$. Let $a$ be the value such that $P(-a \leq T \leq a)=p$ which is obtained from $t$ table.
+
+Therefore
+
+$$\left\[ \bar{y}-as\sqrt{1+\frac 1n}, \bar{y}+as\sqrt{1+\frac 1n} \right\]$$
+
+is an interval of values for the future observation $Y$ with confidence coefficient $p$. The interval is called a $100p\%$ **prediction interval** instead of a confidence interval since $Y$ is not a parameter but a random variable. Note that the interval is wider than a $100p\%$ confidence interval for mean $\mu$. This makes sense since $mu$ is an unknown constant with no variability while $Y$ is a random variable with its own variability $\sigma^2$.
