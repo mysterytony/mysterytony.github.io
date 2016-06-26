@@ -1205,7 +1205,21 @@ $$</p>
 <h3>
 <a id="user-content-prediction-interval-for-a-future-observation" class="anchor" href="#prediction-interval-for-a-future-observation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prediction Interval for a Future Observation</h3>
 
-<hr>
+<p>In chapter 3 23 mentioned that a common type of statistical problem was a predictive problem in which the experimenter wishes to predict the response of a variate for a given unit. This is often the case in finance or in economics. For example, financial institutions need to predict the price of a stock or interest rate in a week or a month because this effects the value of their investments. We will not show how to do this in the case where the Gaussian model for the data is valid.</p>
 
-<p>ends page 140</p>
+<p>Suppose that $y_1,...,y_n$ is an observed random sample from a $G(\mu, \sigma)$ population and that $Y$ is an new observation which is to be drawn at random from the same $G(\mu, \sigma)$ population. We want to estimate $Y$ and obtain an interval of values for $Y$. As usual we estimate the unknown parameter $\mu$ and $\sigma$ using $\hat{\mu}=\bar{y}$ and $s$ respectively. Our best point estimate of $Y$ based on the data we have already observed is $\hat{\mu}$ with corresponding estimator $\tilde{\mu}=\bar{Y}\sim N(\mu, \sigma^2/n)$. To obtain an interval of values for $Y$ we note that $Y\sim G(\mu, \sigma)$ independently of $\tilde{\mu}=\bar{Y}\sim n(\mu, \sigma^2/n)$. Since $E(Y-\tilde{\mu})=\mu-\mu=0$ and $Var(Y-\tilde{\mu})=\sigma^2+\sigma^2/n$ therefore</p>
+
+<p>$$Y-\tilde{\mu}=Y-\bar{Y} \sim N\left( 0, \sigma^2\left( 1+\frac 1n \right) \right)$$</p>
+
+<p>Also</p>
+
+<p>$$\frac{Y-\bar{Y}}{S\sqrt{1+\frac 1n}} \sim t(n-1)$$</p>
+
+<p>is a pivotal quantity which can be used to obtain an interval value for $Y$. Let $a$ be the value such that $P(-a \leq T \leq a)=p$ which is obtained from $t$ table.</p>
+
+<p>Therefore</p>
+
+<p>$$\left[ \bar{y}-as\sqrt{1+\frac 1n}, \bar{y}+as\sqrt{1+\frac 1n} \right]$$</p>
+
+<p>is an interval of values for the future observation $Y$ with confidence coefficient $p$. The interval is called a $100p\%$ <strong>prediction interval</strong> instead of a confidence interval since $Y$ is not a parameter but a random variable. Note that the interval is wider than a $100p\%$ confidence interval for mean $\mu$. This makes sense since $mu$ is an unknown constant with no variability while $Y$ is a random variable with its own variability $\sigma^2$.</p>
 </article></body></html>
