@@ -4272,4 +4272,193 @@ observer: charts - cell changes =&gt; charts update</p>
 <p>can be many different kinds of observer objects - subject should not need to know details</p>
 
 <p><a href="https://camo.githubusercontent.com/74133b58a572b68db0f6e67d211b2cd8bbf0720b/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6f627365727665722d7061747465726e2d756d6c2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/74133b58a572b68db0f6e67d211b2cd8bbf0720b/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6f627365727665722d7061747465726e2d756d6c2e706e67" alt="observer-pattern-uml" title="observer-pattern-uml" data-canonical-src="http://tonyli.tk/notes/cs246/observer-pattern-uml.png" style="max-width:100%;"></a></p>
+
+<p>Sequence of method calls:</p>
+
+<ol>
+<li> Subject's state is updated</li>
+<li> Subject's <code>notifyObservers()</code> calls each observer's notify</li>
+<li> Each observer calls <code>ConcreteSubject::getState</code> to query the sate &amp; acts accordingly</li>
+</ol>
+
+<p>Example: Horse races</p>
+
+<p>Subject - publishers winners</p>
+
+<p>Observer - individual bettors</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Subject</span> {
+    vector &lt;Observer *&gt; observers;
+<span class="pl-k">public:</span>
+    <span class="pl-en">Subject</span>();
+    <span class="pl-k">void</span> <span class="pl-en">attach</span>(Observer *ob) {
+        observers.<span class="pl-c1">emplace_back</span>(ob);
+    }
+    <span class="pl-k">void</span> <span class="pl-en">detach</span>(Observer *ob) {
+        <span class="pl-c">// remove ob from observers</span>
+    }
+    <span class="pl-k">void</span> <span class="pl-en">notifyObservers</span>() {
+        <span class="pl-k">for</span> (<span class="pl-k">auto</span> &amp;ob : observers) ob-&gt;<span class="pl-c1">notify</span>();
+    }
+    <span class="pl-k">virtual</span> <span class="pl-en">~Subject</span>() = <span class="pl-c1">0</span>;
+};
+
+<span class="pl-en">Subject::~Subject</span>() {}
+
+<span class="pl-k">class</span> <span class="pl-en">Observer</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">notify</span>() = 0;
+    <span class="pl-k">virtual</span> <span class="pl-en">~Observer</span>();
+};
+
+<span class="pl-k">class</span> <span class="pl-en">HorseRace</span> : <span class="pl-k">public</span> <span class="pl-en">Subject</span>{
+    ifstream in; <span class="pl-c">// source of data</span>
+    string lastWinner;
+<span class="pl-k">public:</span>
+    <span class="pl-en">HorseRace</span>(string source): in{source} {}
+    <span class="pl-k">bool</span> <span class="pl-en">runRace</span>(); <span class="pl-c">// turn if successful</span>
+    string <span class="pl-en">getState</span>() {<span class="pl-k">return</span> lastWinner;}
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Bettor</span> : <span class="pl-k">public</span> <span class="pl-en">Observer</span> {
+    HorseRace * subject;
+    string name, myHorse;
+<span class="pl-k">public:</span>
+    <span class="pl-en">Bettor</span> (...) : ... {
+        subject-&gt;<span class="pl-c1">attach</span>(<span class="pl-v">this</span>);
+    }
+    <span class="pl-k">void</span> <span class="pl-en">notify</span>() <span class="pl-k">override</span> {
+        string winner = subject-&gt;<span class="pl-c1">getState</span>();
+        cout &lt;&lt; ((winner == myHorse) ? <span class="pl-s"><span class="pl-pds">"</span>Win!<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>Lose<span class="pl-pds">"</span></span>) &lt;&lt; endl;
+    }
+    <span class="pl-en">~Better</span>() {
+        subject-&gt;<span class="pl-c1">detach</span>(<span class="pl-v">this</span>);
+    }
+}<span class="pl-ii"></span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    HorseRace hr;
+    Bettor <span class="pl-smi">Larry</span> (&amp;hr, <span class="pl-s"><span class="pl-pds">"</span>Larry<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>RunLikeACow<span class="pl-pds">"</span></span>);
+    <span class="pl-c">// ... other bettors</span>
+    <span class="pl-k">while</span> (hr.<span class="pl-c1">runRace</span>()) {
+        hr.<span class="pl-c1">notifyObservers</span>();
+    }
+}</pre></div>
+
+<h3>
+<a id="user-content-simplifications" class="anchor" href="#simplifications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simplifications</h3>
+
+<ol>
+<li> If only one subject, could merge subject and concrete subject</li>
+<li> If the state is trivial (so that just being notified tells you all you need to know) don't need <code>getState</code>
+</li>
+<li> If the subject is the observer, (e.g. cells in a grid) could merge these classes</li>
+</ol>
+
+<h3>
+<a id="user-content-decorator-pattern" class="anchor" href="#decorator-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decorator Pattern</h3>
+
+<p>want to enhance an object at runtime (add functionality/features)</p>
+
+<p>e.g. window system: start with a basic window, add scrollbar, add menu</p>
+
+<p>want to choose these enhancement at runtime</p>
+
+<p><a href="https://camo.githubusercontent.com/a4dc16b6cefa69d235a7e2e3e764b33a8a165107/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6465636f7261746f722e706e67" target="_blank"><img src="https://camo.githubusercontent.com/a4dc16b6cefa69d235a7e2e3e764b33a8a165107/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6465636f7261746f722e706e67" alt="decorator-pattern-uml" title="decorator-pattern-uml" data-canonical-src="http://tonyli.tk/notes/cs246/decorator.png" style="max-width:100%;"></a></p>
+
+<p>Component - defines the interface - operations your objects will provide</p>
+
+<p>ConcreteComponent - implements the interface</p>
+
+<p>Decorators - all inherit from Decorator, which inherits from component</p>
+
+<p>Every Decorator is a component and every Decorator has a component</p>
+
+<p>e.g. Window with scrollbar is a window and has a ptr to the underlying plain window</p>
+
+<p>Window with a scrollbar and menu is a window and has a ptr to window with scrollbar which has a pointer to a basic window.</p>
+
+<p>e.g. Pizza</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Pizza</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">float</span> <span class="pl-en">price</span>() <span class="pl-k">const</span> = 0;
+    <span class="pl-k">virtual</span> string <span class="pl-en">desc</span>() <span class="pl-k">const</span> = 0;
+    <span class="pl-k">virtual</span> <span class="pl-en">~Pizza</span>();
+};
+
+<span class="pl-k">class</span> <span class="pl-en">CrustAndSauce</span> : <span class="pl-k">public</span> <span class="pl-en">Pizza</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">float</span> <span class="pl-en">price</span>() <span class="pl-k">const</span> <span class="pl-k">override</span> { <span class="pl-k">return</span> <span class="pl-c1">5.99</span>; }
+    <span class="pl-k">float</span> <span class="pl-en">desc</span>() <span class="pl-k">const</span> <span class="pl-k">override</span> { <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Piazza<span class="pl-pds">"</span></span>; }
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Decorator</span> : <span class="pl-k">public</span> <span class="pl-en">Pizza</span> {
+<span class="pl-k">protected:</span>
+    Pizza *component;
+<span class="pl-k">public:</span>
+    <span class="pl-en">Decorator</span>(Piazza *p): component{p} {}
+    <span class="pl-k">virtual</span> <span class="pl-en">~Decorator</span>() {<span class="pl-k">delete</span> component; }
+};
+
+<span class="pl-k">class</span> <span class="pl-en">StuffedCrust</span> : <span class="pl-k">public</span> <span class="pl-en">Decorator</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-en">StuffedCrust</span> (Pizza *p): Decorator{p} {}
+    <span class="pl-k">float</span> <span class="pl-en">price</span>() <span class="pl-k">const</span> <span class="pl-k">override</span> { <span class="pl-k">return</span> component-&gt;<span class="pl-c1">price</span>() + <span class="pl-c1">2.69</span>; }
+    string <span class="pl-en">desc</span>() <span class="pl-k">const</span> <span class="pl-k">override</span> { <span class="pl-k">return</span> component-&gt;<span class="pl-c1">desc</span>() + <span class="pl-s"><span class="pl-pds">"</span> with stuffed crust<span class="pl-pds">"</span></span>; }
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Topping</span> : <span class="pl-k">public</span> <span class="pl-en">Decorator</span> {
+    string theTopping;
+<span class="pl-k">public:</span>
+    <span class="pl-en">Topping</span> (Pizza *p, string topping) : Decorator {p}, theTopping {topping} {}
+    <span class="pl-k">float</span> <span class="pl-en">price</span>() <span class="pl-k">const</span> <span class="pl-k">override</span> { <span class="pl-k">return</span> component-&gt;<span class="pl-c1">price</span>() + <span class="pl-c1">0.75</span>; }
+    string <span class="pl-en">desc</span>() <span class="pl-k">const</span> <span class="pl-k">override</span> { <span class="pl-k">return</span> component-&gt;<span class="pl-c1">desc</span>() + <span class="pl-s"><span class="pl-pds">"</span> with <span class="pl-pds">"</span></span> + topping; }
+};
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>() {
+    Pizza *p1 = <span class="pl-k">new</span> CrustAndSauce;
+    p1 = <span class="pl-k">new</span> <span class="pl-c1">Topping</span> (p1, <span class="pl-s"><span class="pl-pds">"</span>cheese<span class="pl-pds">"</span></span>);
+    p1 = <span class="pl-k">new</span> <span class="pl-c1">Topping</span> (p1, <span class="pl-s"><span class="pl-pds">"</span>mushrooms<span class="pl-pds">"</span></span>);
+    p1 = <span class="pl-k">new</span> <span class="pl-c1">StuffedCrust</span>(p1);
+    cout &lt;&lt; p1-&gt;<span class="pl-c1">desc</span>() &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span> &lt;&lt; p1-&gt;<span class="pl-c1">price</span>() &lt;&lt; endl;
+    <span class="pl-k">delete</span> p1;
+}</pre></div>
+
+<h3>
+<a id="user-content-factory-method-pattern" class="anchor" href="#factory-method-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Factory Method Pattern</h3>
+
+<p>Write a video game with 2 kinds of enemies: turtles and bullets</p>
+
+<p>System randomly sends turtles &amp; bullets, but bullets become more frequent in later levels</p>
+
+<p>Never know exactly which enemy comes next, so don't call ctors directly.</p>
+
+<p><a href="https://camo.githubusercontent.com/739ff0cf08bb3d70922aae832b0f39c15651ad42/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f67656e65726963556d6c2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/739ff0cf08bb3d70922aae832b0f39c15651ad42/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f67656e65726963556d6c2e706e67" alt="factory-pattern-uml" title="factory-pattern-uml" data-canonical-src="http://tonyli.tk/notes/cs246/genericUml.png" style="max-width:100%;"></a></p>
+
+<p>Instead, put a factory method inside level that creates enemies</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Level</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> Enemy * <span class="pl-en">createEnemy</span>() = 0;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">NormalLevel</span> : <span class="pl-k">public</span> <span class="pl-en">Level</span> {
+<span class="pl-k">public:</span>
+    Enemy * <span class="pl-en">createEnemy</span> () <span class="pl-k">override</span> {
+        <span class="pl-c">// mostly turtles</span>
+    }
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Castle</span> : <span class="pl-k">public</span> <span class="pl-en">Level</span> {
+<span class="pl-k">public:</span>
+    Enmey * <span class="pl-en">createEnemy</span> () <span class="pl-k">override</span> {
+        <span class="pl-c">// mostly bullets</span>
+    }
+};
+
+<span class="pl-k">int</span> <span class="pl-en">main</span> () {
+    Level *l = <span class="pl-k">new</span> NormalLevel;
+    Enemy *e = l-&gt;<span class="pl-c1">createEnemy</span>();
+}</pre></div>
 </article></body></html>
