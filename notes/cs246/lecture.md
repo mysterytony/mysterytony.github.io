@@ -3538,3 +3538,91 @@ observer: charts - cell changes => charts update
 can be many different kinds of observer objects - subject should not need to know details
 
 ![observer-pattern-uml](http://tonyli.tk/notes/cs246/observer-pattern-uml.png "observer-pattern-uml")
+
+Sequence of method calls:
+
+1.	Subject's state is updated
+2.	Subject's `notifyObservers()` calls each observer's notify
+3.	Each observer calls `ConcreteSubject::getState` to query the sate & acts accordingly
+
+Example: Horse races
+
+Subject - publishers winners
+
+Observer - individual bettors
+
+```cpp
+class Subject {
+	vector <Observer *> observers;
+public:
+	Subject();
+	void attach(Observer *ob) {
+		observers.emplace_back(ob);
+	}
+	void detach(Observer *ob) {
+		// remove ob from observers
+	}
+	void notifyObservers() {
+		for (auto &ob : observers) ob->notify();
+	}
+	virtual ~Subject() = 0;
+};
+
+Subject::~Subject() {}
+
+class Observer {
+public:
+	virtual void notify() = 0;
+	virtual ~Observer();
+};
+
+class HorseRace : public Subject{
+	ifstream in; // source of data
+	string lastWinner;
+public:
+	HorseRace(string source): in{source} {}
+	bool runRace(); // turn if successful
+	string getState() {return lastWinner;}
+};
+
+class Bettor : public Observer {
+	HorseRace * subject;
+	string name, myHorse;
+public:
+	Bettor (...) : ... {
+		subject->attach(this);
+	}
+	void notify() override {
+		string winner = subject->getState();
+		cout << ((winner == myHorse) ? "Win!" : "Lose") << endl;
+	}
+	~Better() {
+		subject->detach(this);
+	}
+}
+
+int main() {
+	HorseRace hr;
+	Bettor Larry (&hr, "Larry", "RunLikeACow");
+	// ... other bettors
+	while (hr.runRace()) {
+		hr.notifyObservers();
+	}
+}
+```
+
+### Simplifications
+
+1.	If only one subject, could merge subject and concrete subject
+2.	If the state is trivial (so that just being notified tells you all you need to know) don't need `getState`
+3.	If the subject is the observer, (e.g. cells in a grid) could merge these classes
+
+### Decorator Pattern
+
+want to enhance an object at runtime (add functionality/features)
+
+e.g. window system: start with a basic window, add scrollbar, add menu
+
+want to choose these enhancement at runtime
+
+![decorator-pattern-uml](http://tonyli.tk/notes/cs246/decorator.png "decorator-pattern-uml")
