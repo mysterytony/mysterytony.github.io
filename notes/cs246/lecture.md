@@ -3626,3 +3626,103 @@ e.g. window system: start with a basic window, add scrollbar, add menu
 want to choose these enhancement at runtime
 
 ![decorator-pattern-uml](http://tonyli.tk/notes/cs246/decorator.png "decorator-pattern-uml")
+
+Component - defines the interface - operations your objects will provide
+
+ConcreteComponent - implements the interface
+
+Decorators - all inherit from Decorator, which inherits from component
+
+Every Decorator is a component and every Decorator has a component
+
+e.g. Window with scrollbar is a window and has a ptr to the underlying plain window
+
+Window with a scrollbar and menu is a window and has a ptr to window with scrollbar which has a pointer to a basic window.
+
+e.g. Pizza
+
+```cpp
+class Pizza {
+public:
+	virtual float price() const = 0;
+	virtual string desc() const = 0;
+	virtual ~Pizza();
+};
+
+class CrustAndSauce : public Pizza {
+public:
+	float price() const override { return 5.99; }
+	float desc() const override { return "Piazza"; }
+};
+
+class Decorator : public Pizza {
+protected:
+	Pizza *component;
+public:
+	Decorator(Piazza *p): component{p} {}
+	virtual ~Decorator() {delete component; }
+};
+
+class StuffedCrust : public Decorator {
+public:
+	StuffedCrust (Pizza *p): Decorator{p} {}
+	float price() const override { return component->price() + 2.69; }
+	string desc() const override { return component->desc() + " with stuffed crust"; }
+};
+
+class Topping : public Decorator {
+	string theTopping;
+public:
+	Topping (Pizza *p, string topping) : Decorator {p}, theTopping {topping} {}
+	float price() const override { return component->price() + 0.75; }
+	string desc() const override { return component->desc() + " with " + topping; }
+};
+
+int main() {
+	Pizza *p1 = new CrustAndSauce;
+	p1 = new Topping (p1, "cheese");
+	p1 = new Topping (p1, "mushrooms");
+	p1 = new StuffedCrust(p1);
+	cout << p1->desc() << " " << p1->price() << endl;
+	delete p1;
+}
+```
+
+### Factory Method Pattern
+
+Write a video game with 2 kinds of enemies: turtles and bullets
+
+System randomly sends turtles & bullets, but bullets become more frequent in later levels
+
+Never know exactly which enemy comes next, so don't call ctors directly.
+
+![factory-pattern-uml](http://tonyli.tk/notes/cs246/genericUml.png "factory-pattern-uml")
+
+Instead, put a factory method inside level that creates enemies
+
+```cpp
+class Level {
+public:
+	virtual Enemy * createEnemy() = 0;
+};
+
+class NormalLevel : public Level {
+public:
+	Enemy * createEnemy () override {
+		// mostly turtles
+	}
+};
+
+class Castle : public Level {
+public:
+	Enmey * createEnemy () override {
+		// mostly bullets
+	}
+};
+
+int main () {
+	Level *l = new NormalLevel;
+	Enemy *e = l->createEnemy();
+}
+```
+
