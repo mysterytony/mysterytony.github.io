@@ -3539,6 +3539,8 @@ can be many different kinds of observer objects - subject should not need to kno
 
 ![observer-pattern-uml](http://tonyli.tk/notes/cs246/observer-pattern-uml.png "observer-pattern-uml")
 
+## Lecture 17
+
 Sequence of method calls:
 
 1.	Subject's state is updated
@@ -3726,3 +3728,212 @@ int main () {
 }
 ```
 
+## Lecture 18
+
+### Template Method Pattern
+
+Want subclasses to override superclass behavior, but some aspect must stay the same.
+
+e.g. there are red and green turtles
+
+```cpp
+class Turtle {
+public:
+	void Draw () {
+		drawHead();
+		drawShell();
+		drawFeet();
+	}
+
+private:
+	void drawHead();
+	void drawFeetw();
+	virtual void drawShell () = 0;
+};
+
+class RedTurtle : public Turtle {
+	void drawShell () override; // draw red shell
+};
+
+class GreenTurtle : public Turtle {
+	void drawShell () override; // draw green shell
+};
+```
+
+Subclasses can't change the way a turtle is `draw` (`head, shell, feet`) but can change the way the shell is drawn.
+
+Extension: The Non-Virtual Interface (NVI) idiom
+
+*	A public virtual method is really two things:
+	*	An interface to the client
+	*	Indicates provided behavior with pre/post conditions
+	*	An interface to subclasses
+	*	A "hook" to insert specialized behavior
+*	Hard to separate these idea is they are tied to the same functions
+	*	What if you later want to separate the customizable behavior into two functions, maybe with some unchanging code in between, while still providing clients the same interface?
+	*	How could you make sure overriding function conform to the pre/post conditions.
+
+The NVI idioms ways:
+*	All public methods should be non-virtual
+*	All virtual method should be private or at least protected.
+*	Except the dtor
+
+Example
+
+```cpp
+class DigitalMedia {
+public:
+	virtual void play() = 0;
+};
+
+// In NVI
+
+class DigitalMedia {
+public:
+	void play() {
+		doPlay();
+		// can add before/after code
+		// e.g. check copyright, update play count
+	}
+private:
+	virtual void doPlay() = 0;
+	// add another virtual "hook"
+	virtual void displayCoverArt();
+}
+```
+
+Extends template method: puts every virtual method inside a template method.
+
+### STL Maps
+
+for creating dictionaries
+
+e.g. "arrays" that map strings to ints
+
+```cpp
+#include <map>
+
+std::map <string, int> m;
+m["abc"] = 1;
+m["def"] = 4;
+cout << m["ghi"] << endl; // print 0
+cout << m["abc"] << endl; // print 1
+```
+
+if the key is not present, it is inserted, and the value is default constructed (for int, 0)
+
+`m.erase("abc");`
+
+`if (m.count("abc"))` 0 = not found, 1 = found
+
+Iterating over a map: sorted key order fields
+
+```cpp
+for (auto &p : m) {
+	count  << p.first << ' ' << p.second << endl;
+}
+```
+
+`p`'s type is `pair<string, int> &` (utility)
+
+### Tools Debugger
+
+GUN debugger `gbd`
+
+To use: must compile with `-g` (enables debugging info)
+
+To run the debugger: `gdb ./a.out`
+
+Command:
+
+*	`r` (run) runs the program, if the program crashes - tells you which line
+*	`bt` (backtrace) prints the chain of function calls that got you here
+*	`l` (list) list the source surrounding the current point of execution
+*	`p` (print) print the value of a var/expr
+
+Break points: tell gdb to stop the program at certain points so you can see what's going on
+
+`break f` break when entering function f
+
+`break myfile.cc:15` break on myfile.cc like 15
+
+`s` step - run one like
+
+`c` continue - run till next breakpoint
+
+### Visitor Pattern
+
+For implementing double dispatch
+
+virtual methods chosen based on the actual type (at runtime) of the object on which it is called
+
+What if you want to choose based on two objects?
+
+e.g. Striking enemies with various weapons
+
+Want something like `virtual void strike(Enemy &e, Weapon &w)`
+
+```cpp
+class Enemy {
+	virtual void beStuckBy (Weapon &w);
+	// choose based on enemy, not on weapon
+};
+
+class Weapon {
+	virtual void strike (Enemy &e);
+	// choose based on weapon but not on enemy
+};
+```
+
+Trick to get dispatch based on both:
+
+Combine overriding with overloading
+
+```cpp
+class Enemy {
+public:
+	virtual void beStruckBy (Weapon &w)  = 0;
+};
+
+class Turtle : public Enemy {
+public:
+	void beStruckBy (Weapon &w) override {w.strike(*this);}
+};
+
+class Bullet : public Enemy {
+public:
+	void beStruckBy(Weapon &w) override {w.strike(*this);}
+};
+
+class Weapon {
+public:
+	virtual void strike (Turtle &t) = 0;
+	virtual void strike (Bullet &b) = 0;
+};
+
+class Stick : public Weapon {
+public:
+	void strike (Turtle &t) override {
+		// strike turtle with stick
+	}
+
+	void strike (Bullet &b) override {
+		// strike bullet with stick
+	}
+};
+```
+
+```cpp
+Enemy *e = new Bullet;
+Weapon *w = new Rock;
+
+e->beStruckBy(*w);
+```
+
+What happens?
+
+`Bullet::beStruckBy` runs (virtual method)
+
+*	calls `weapon::strike`, `*this` is Bullet
+*	Bullet version of strike chosen at compile time
+*	Virtual method call resolves to `Rock::strike(Bullet &);`
