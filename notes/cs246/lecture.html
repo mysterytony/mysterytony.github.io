@@ -4273,6 +4273,9 @@ observer: charts - cell changes =&gt; charts update</p>
 
 <p><a href="https://camo.githubusercontent.com/74133b58a572b68db0f6e67d211b2cd8bbf0720b/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6f627365727665722d7061747465726e2d756d6c2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/74133b58a572b68db0f6e67d211b2cd8bbf0720b/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f6f627365727665722d7061747465726e2d756d6c2e706e67" alt="observer-pattern-uml" title="observer-pattern-uml" data-canonical-src="http://tonyli.tk/notes/cs246/observer-pattern-uml.png" style="max-width:100%;"></a></p>
 
+<h2>
+<a id="user-content-lecture-17" class="anchor" href="#lecture-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 17</h2>
+
 <p>Sequence of method calls:</p>
 
 <ol>
@@ -4461,4 +4464,223 @@ observer: charts - cell changes =&gt; charts update</p>
     Level *l = <span class="pl-k">new</span> NormalLevel;
     Enemy *e = l-&gt;<span class="pl-c1">createEnemy</span>();
 }</pre></div>
+
+<h2>
+<a id="user-content-lecture-18" class="anchor" href="#lecture-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 18</h2>
+
+<h3>
+<a id="user-content-template-method-pattern" class="anchor" href="#template-method-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template Method Pattern</h3>
+
+<p>Want subclasses to override superclass behavior, but some aspect must stay the same.</p>
+
+<p>e.g. there are red and green turtles</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Turtle</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">Draw</span> () {
+        <span class="pl-c1">drawHead</span>();
+        <span class="pl-c1">drawShell</span>();
+        <span class="pl-c1">drawFeet</span>();
+    }
+
+<span class="pl-k">private:</span>
+    <span class="pl-k">void</span> <span class="pl-en">drawHead</span>();
+    <span class="pl-k">void</span> <span class="pl-en">drawFeetw</span>();
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">drawShell</span> () = 0;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">RedTurtle</span> : <span class="pl-k">public</span> <span class="pl-en">Turtle</span> {
+    <span class="pl-k">void</span> <span class="pl-en">drawShell</span> () <span class="pl-k">override</span>; <span class="pl-c">// draw red shell</span>
+};
+
+<span class="pl-k">class</span> <span class="pl-en">GreenTurtle</span> : <span class="pl-k">public</span> <span class="pl-en">Turtle</span> {
+    <span class="pl-k">void</span> <span class="pl-en">drawShell</span> () <span class="pl-k">override</span>; <span class="pl-c">// draw green shell</span>
+};</pre></div>
+
+<p>Subclasses can't change the way a turtle is <code>draw</code> (<code>head, shell, feet</code>) but can change the way the shell is drawn.</p>
+
+<p>Extension: The Non-Virtual Interface (NVI) idiom</p>
+
+<ul>
+<li>  A public virtual method is really two things:
+
+<ul>
+<li>  An interface to the client</li>
+<li>  Indicates provided behavior with pre/post conditions</li>
+<li>  An interface to subclasses</li>
+<li>  A "hook" to insert specialized behavior</li>
+</ul>
+</li>
+<li>  Hard to separate these idea is they are tied to the same functions
+
+<ul>
+<li>  What if you later want to separate the customizable behavior into two functions, maybe with some unchanging code in between, while still providing clients the same interface?</li>
+<li>  How could you make sure overriding function conform to the pre/post conditions.</li>
+</ul>
+</li>
+</ul>
+
+<p>The NVI idioms ways:</p>
+
+<ul>
+<li>  All public methods should be non-virtual</li>
+<li>  All virtual method should be private or at least protected.</li>
+<li>  Except the dtor</li>
+</ul>
+
+<p>Example</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">DigitalMedia</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">play</span>() = 0;
+};
+
+<span class="pl-c">// In NVI</span>
+
+<span class="pl-k">class</span> <span class="pl-en">DigitalMedia</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">play</span>() {
+        <span class="pl-c1">doPlay</span>();
+        <span class="pl-c">// can add before/after code</span>
+        <span class="pl-c">// e.g. check copyright, update play count</span>
+    }
+<span class="pl-k">private:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">doPlay</span>() = 0;
+    <span class="pl-c">// add another virtual "hook"</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">displayCoverArt</span>();
+}<span class="pl-ii"></span></pre></div>
+
+<p>Extends template method: puts every virtual method inside a template method.</p>
+
+<h3>
+<a id="user-content-stl-maps" class="anchor" href="#stl-maps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STL Maps</h3>
+
+<p>for creating dictionaries</p>
+
+<p>e.g. "arrays" that map strings to ints</p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>map<span class="pl-pds">&gt;</span></span>
+
+std::map &lt;string, <span class="pl-k">int</span>&gt; m;
+m[<span class="pl-s"><span class="pl-pds">"</span>abc<span class="pl-pds">"</span></span>] = <span class="pl-c1">1</span>;
+m[<span class="pl-s"><span class="pl-pds">"</span>def<span class="pl-pds">"</span></span>] = <span class="pl-c1">4</span>;
+cout &lt;&lt; m[<span class="pl-s"><span class="pl-pds">"</span>ghi<span class="pl-pds">"</span></span>] &lt;&lt; endl; <span class="pl-c">// print 0</span>
+cout &lt;&lt; m[<span class="pl-s"><span class="pl-pds">"</span>abc<span class="pl-pds">"</span></span>] &lt;&lt; endl; <span class="pl-c">// print 1</span></pre></div>
+
+<p>if the key is not present, it is inserted, and the value is default constructed (for int, 0)</p>
+
+<p><code>m.erase("abc");</code></p>
+
+<p><code>if (m.count("abc"))</code> 0 = not found, 1 = found</p>
+
+<p>Iterating over a map: sorted key order fields</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">for</span> (<span class="pl-k">auto</span> &amp;p : m) {
+    count  &lt;&lt; p.<span class="pl-smi">first</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> &lt;&lt; p.<span class="pl-smi">second</span> &lt;&lt; endl;
+}</pre></div>
+
+<p><code>p</code>'s type is <code>pair&lt;string, int&gt; &amp;</code> (utility)</p>
+
+<h3>
+<a id="user-content-tools-debugger" class="anchor" href="#tools-debugger" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools Debugger</h3>
+
+<p>GUN debugger <code>gbd</code></p>
+
+<p>To use: must compile with <code>-g</code> (enables debugging info)</p>
+
+<p>To run the debugger: <code>gdb ./a.out</code></p>
+
+<p>Command:</p>
+
+<ul>
+<li>  <code>r</code> (run) runs the program, if the program crashes - tells you which line</li>
+<li>  <code>bt</code> (backtrace) prints the chain of function calls that got you here</li>
+<li>  <code>l</code> (list) list the source surrounding the current point of execution</li>
+<li>  <code>p</code> (print) print the value of a var/expr</li>
+</ul>
+
+<p>Break points: tell gdb to stop the program at certain points so you can see what's going on</p>
+
+<p><code>break f</code> break when entering function f</p>
+
+<p><code>break myfile.cc:15</code> break on myfile.cc like 15</p>
+
+<p><code>s</code> step - run one like</p>
+
+<p><code>c</code> continue - run till next breakpoint</p>
+
+<h3>
+<a id="user-content-visitor-pattern" class="anchor" href="#visitor-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Visitor Pattern</h3>
+
+<p>For implementing double dispatch</p>
+
+<p>virtual methods chosen based on the actual type (at runtime) of the object on which it is called</p>
+
+<p>What if you want to choose based on two objects?</p>
+
+<p>e.g. Striking enemies with various weapons</p>
+
+<p>Want something like <code>virtual void strike(Enemy &amp;e, Weapon &amp;w)</code></p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Enemy</span> {
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">beStuckBy</span> (Weapon &amp;w);
+    <span class="pl-c">// choose based on enemy, not on weapon</span>
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Weapon</span> {
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">strike</span> (Enemy &amp;e);
+    <span class="pl-c">// choose based on weapon but not on enemy</span>
+};</pre></div>
+
+<p>Trick to get dispatch based on both:</p>
+
+<p>Combine overriding with overloading</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Enemy</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">beStruckBy</span> (Weapon &amp;w)  = 0;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Turtle</span> : <span class="pl-k">public</span> <span class="pl-en">Enemy</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">beStruckBy</span> (Weapon &amp;w) <span class="pl-k">override</span> {w.<span class="pl-c1">strike</span>(*<span class="pl-v">this</span>);}
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Bullet</span> : <span class="pl-k">public</span> <span class="pl-en">Enemy</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">beStruckBy</span>(Weapon &amp;w) <span class="pl-k">override</span> {w.<span class="pl-c1">strike</span>(*<span class="pl-v">this</span>);}
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Weapon</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">strike</span> (Turtle &amp;t) = 0;
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">strike</span> (Bullet &amp;b) = 0;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Stick</span> : <span class="pl-k">public</span> <span class="pl-en">Weapon</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">strike</span> (Turtle &amp;t) <span class="pl-k">override</span> {
+        <span class="pl-c">// strike turtle with stick</span>
+    }
+
+    <span class="pl-k">void</span> <span class="pl-en">strike</span> (Bullet &amp;b) <span class="pl-k">override</span> {
+        <span class="pl-c">// strike bullet with stick</span>
+    }
+};</pre></div>
+
+<div class="highlight highlight-source-c++"><pre>Enemy *e = <span class="pl-k">new</span> Bullet;
+Weapon *w = <span class="pl-k">new</span> Rock;
+
+e-&gt;<span class="pl-en">beStruckBy</span>(*w);</pre></div>
+
+<p>What happens?</p>
+
+<p><code>Bullet::beStruckBy</code> runs (virtual method)</p>
+
+<ul>
+<li>  calls <code>weapon::strike</code>, <code>*this</code> is Bullet</li>
+<li>  Bullet version of strike chosen at compile time</li>
+<li>  Virtual method call resolves to <code>Rock::strike(Bullet &amp;);</code>
+</li>
+</ul>
 </article></body></html>
