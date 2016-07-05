@@ -4683,4 +4683,192 @@ e-&gt;<span class="pl-en">beStruckBy</span>(*w);</pre></div>
 <li>  Virtual method call resolves to <code>Rock::strike(Bullet &amp;);</code>
 </li>
 </ul>
+
+<h2>
+<a id="user-content-lecture-19" class="anchor" href="#lecture-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 19</h2>
+
+<p>Recall: visitor pattern</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Enemy</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">beStruckedBy</span> (Weapon &amp; w) = 0;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Turtle</span> : <span class="pl-k">public</span> <span class="pl-en">Enemy</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">beStruckedBy</span> (Weapon &amp; w) <span class="pl-k">override</span> { w.<span class="pl-c1">strike</span>(*<span class="pl-v">this</span>); }
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Weapon</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">strike</span> (Turtle &amp; t) = 0;
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">strike</span> (Bullet &amp; t) = 0;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Stick</span> : <span class="pl-k">public</span> <span class="pl-en">Weapon</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">strike</span> (Turtle &amp; t) <span class="pl-k">override</span> {
+        <span class="pl-c">// strike turtle with stick</span>
+    }
+    <span class="pl-k">void</span> <span class="pl-en">strike</span> (Bullet &amp; b) <span class="pl-k">override</span> {
+        <span class="pl-c">// strike bullet with stick</span>
+    }
+};</pre></div>
+
+<p>Visitor can be used to add functionality to existing classes, without changing or recompiling the classes themselves.</p>
+
+<p>E.g. Add a visitor to the Book hierarchy</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Book</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">accept</span> (BookVisitor &amp; bv) { bv.<span class="pl-c1">visit</span>(*<span class="pl-v">this</span>); }
+};
+<span class="pl-k">class</span> <span class="pl-en">Text</span> : <span class="pl-k">public</span> <span class="pl-en">Book</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">accept</span> (BookVisitor &amp;bv) <span class="pl-k">override</span> { bv.<span class="pl-c1">visit</span>(*<span class="pl-v">this</span>); }
+};
+<span class="pl-k">class</span> <span class="pl-en">BookVisitor</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">visit</span> (Book &amp;b) = 0;
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">visit</span> (Text &amp;t) = 0;
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">visit</span> (Comic &amp;c) = 0;
+};</pre></div>
+
+<p>Application: track how many books of each type I have. Use a <code>map&lt;string.int&gt;</code> - could add <code>virtual void updateCatalogue()</code> to each classes or write a visitor</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Catalogue</span> : <span class="pl-k">public</span> <span class="pl-en">BookVisitor</span> {
+    map &lt;string, <span class="pl-k">int</span>&gt; theCat;
+<span class="pl-k">public:</span>
+    map &lt;string, <span class="pl-k">int</span>&gt; <span class="pl-en">getCatalogue</span>() { <span class="pl-k">return</span> theCat; }
+    <span class="pl-k">void</span> <span class="pl-en">visit</span> (Book &amp;b) { ++ theCat[b.<span class="pl-c1">getAuthor</span>()]; }
+    <span class="pl-k">void</span> <span class="pl-en">visit</span> (Text &amp;t) { ++ theCat[b.<span class="pl-c1">getTopic</span>()]; }
+    <span class="pl-k">void</span> <span class="pl-en">visit</span> (Comic &amp;c) { ++ theCat[b.<span class="pl-c1">getHero</span>()]; }
+};</pre></div>
+
+<p>book includes BookVisitor, BookVisitor includes text, text includes book - circular include dependency - won't be included - Text doesn't know what Book is.</p>
+
+<h3>
+<a id="user-content-compilation-dependencies" class="anchor" href="#compilation-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compilation Dependencies</h3>
+
+<p>When does a compilation dependency exist?</p>
+
+<p>Consider:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">A</span> {};
+
+<span class="pl-c">//compilation dependency need to know how big A is to know how big B,C are</span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>a.h<span class="pl-pds">"</span></span>
+<span class="pl-k">class</span> <span class="pl-en">B</span> : <span class="pl-k">public</span> <span class="pl-en">A</span> {};
+
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>a.h<span class="pl-pds">"</span></span>
+<span class="pl-k">class</span> <span class="pl-en">C</span> {
+    A myA;
+};
+
+<span class="pl-c">// all pointers are the same size</span>
+<span class="pl-k">class</span> <span class="pl-en">A</span>;
+<span class="pl-k">class</span> <span class="pl-en">D</span> {
+    A * myA;
+};
+
+<span class="pl-c">// affects type-checking only</span>
+<span class="pl-k">class</span> <span class="pl-en">A</span>;
+<span class="pl-k">class</span> <span class="pl-en">E</span> {
+    A <span class="pl-en">f</span>(A x);
+};</pre></div>
+
+<p>If there is no compilation dependency necessitated by the code, don't introduce one with extra <code>#include</code></p>
+
+<p>when class A changes, only A, B, C need recompilation.</p>
+
+<p>Now, in the implementation of D, E</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c">// b.cc</span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>a.h<span class="pl-pds">"</span></span>
+<span class="pl-k">void</span> <span class="pl-en">D::f</span> () {
+    myA -&gt; <span class="pl-c1">someMethod</span> ();
+}</pre></div>
+
+<p>need to know about class A here, a true compilation dependency</p>
+
+<p>Do the <code>#include</code> in the <code>.cc</code> instead of the <code>.h</code>, where possible.</p>
+
+<p>Now, consider the <code>XWindow</code> class</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">XWindow</span> {
+    Display *d;
+    Window w;
+    <span class="pl-k">int</span> s;
+    GC gc;
+    <span class="pl-k">unsigned</span> <span class="pl-k">long</span> colors [<span class="pl-c1">10</span>];
+<span class="pl-k">public:</span>
+    ...
+};</pre></div>
+
+<p>This is private data, yet we can look at it, do we know what it all means, do we care?</p>
+
+<p>What if I add or change a private member? All clients must recompile. Would be better to hide these details away.</p>
+
+<p>Solution: pimpl idiom ("pointer to implementation")</p>
+
+<p>crate a second class XWindowImpl</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c">// XWindowImpl.h</span>
+
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>X11/Xlib.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">struct</span> <span class="pl-en">XWindowImpl</span> {
+    Display *d;
+    Window w;
+    <span class="pl-k">int</span> s;
+    GC gc;
+    <span class="pl-k">unsigned</span> <span class="pl-k">long</span> color [<span class="pl-c1">10</span>];
+};
+
+<span class="pl-c">// ====</span>
+
+<span class="pl-c">// window.h</span>
+
+<span class="pl-c">// no need to include xlib.h</span>
+<span class="pl-k">class</span> <span class="pl-en">XWindowImpl</span>; <span class="pl-c">// forward declare</span>
+
+<span class="pl-k">class</span> <span class="pl-en">XWindow</span> {
+    XWindowImpl * pImpl;
+<span class="pl-k">public:</span>
+    ...
+};
+
+<span class="pl-c">// window.cc</span>
+
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>window.h<span class="pl-pds">"</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>XWindowImpl.h<span class="pl-pds">"</span></span>
+
+<span class="pl-en">XWindow::XWindow</span> (...) : pImpl {<span class="pl-k">new</span> XWindowImpl} {}
+
+<span class="pl-c">// destroy pImpl in dtor</span>
+
+<span class="pl-c">// Other method: replace fields d,w,s with pImpl-&gt;d pImpl-&gt;w ...</span></pre></div>
+
+<p>If you keep all private fields in <code>XWindowImpl</code> then only window.cc needs to be recompiled if you change <code>XWindow</code>'s implementation.</p>
+
+<p>Generalization: What if there are several possible window implementation XWindows and YWindows? Then make the Impl struct a superclass</p>
+
+<p>pImpl idiom with class hierarchy of implementation is call the <strong>bridge pattern</strong></p>
+
+<p><a href="https://camo.githubusercontent.com/769548885fab1374475a793f235df729b699f7cd/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f4272696467652e706e67" target="_blank"><img src="https://camo.githubusercontent.com/769548885fab1374475a793f235df729b699f7cd/687474703a2f2f746f6e796c692e746b2f6e6f7465732f63733234362f4272696467652e706e67" alt="bridge-uml" title="bridge-uml" data-canonical-src="http://tonyli.tk/notes/cs246/Bridge.png" style="max-width:100%;"></a></p>
+
+<h3>
+<a id="user-content-measures-of-design-quality" class="anchor" href="#measures-of-design-quality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Measures of Design Quality</h3>
+
+<p>Coupling and cohesion</p>
+
+<p>coupling: the degree of which distinct program modules depends on each other.</p>
+
+<p>Low:</p>
+
+<ul>
+<li>  module communication via function calls with basic params/results</li>
+<li>  modules pass arrays/structs back and forth</li>
+<li>  modules affect each other's control flow.</li>
+</ul>
 </article></body></html>

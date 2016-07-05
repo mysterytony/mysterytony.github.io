@@ -3937,3 +3937,201 @@ What happens?
 *	calls `weapon::strike`, `*this` is Bullet
 *	Bullet version of strike chosen at compile time
 *	Virtual method call resolves to `Rock::strike(Bullet &);`
+
+## Lecture 19
+
+Recall: visitor pattern
+
+```cpp
+class Enemy {
+public:
+	virtual void beStruckedBy (Weapon & w) = 0;
+};
+
+class Turtle : public Enemy {
+public:
+	void beStruckedBy (Weapon & w) override { w.strike(*this); }
+};
+
+class Weapon {
+public:
+	virtual void strike (Turtle & t) = 0;
+	virtual void strike (Bullet & t) = 0;
+};
+
+class Stick : public Weapon {
+public:
+	void strike (Turtle & t) override {
+		// strike turtle with stick
+	}
+	void strike (Bullet & b) override {
+		// strike bullet with stick
+	}
+};
+```
+
+Visitor can be used to add functionality to existing classes, without changing or recompiling the classes themselves.
+
+E.g. Add a visitor to the Book hierarchy
+
+```cpp
+class Book {
+public:
+	virtual void accept (BookVisitor & bv) { bv.visit(*this); }
+};
+class Text : public Book {
+public:
+	void accept (BookVisitor &bv) override { bv.visit(*this); }
+};
+class BookVisitor {
+public:
+	virtual void visit (Book &b) = 0;
+	virtual void visit (Text &t) = 0;
+	virtual void visit (Comic &c) = 0;
+};
+```
+
+Application: track how many books of each type I have. Use a `map<string.int>` - could add `virtual void updateCatalogue()` to each classes or write a visitor
+
+```cpp
+class Catalogue : public BookVisitor {
+	map <string, int> theCat;
+public:
+	map <string, int> getCatalogue() { return theCat; }
+	void visit (Book &b) { ++ theCat[b.getAuthor()]; }
+	void visit (Text &t) { ++ theCat[b.getTopic()]; }
+	void visit (Comic &c) { ++ theCat[b.getHero()]; }
+};
+```
+
+book includes BookVisitor, BookVisitor includes text, text includes book - circular include dependency - won't be included - Text doesn't know what Book is.
+
+### Compilation Dependencies
+
+When does a compilation dependency exist?
+
+Consider:
+
+```cpp
+class A {};
+
+//compilation dependency need to know how big A is to know how big B,C are
+#include "a.h"
+class B : public A {};
+
+#include "a.h"
+class C {
+	A myA;
+};
+
+// all pointers are the same size
+class A;
+class D {
+	A * myA;
+};
+
+// affects type-checking only
+class A;
+class E {
+	A f(A x);
+};
+```
+
+If there is no compilation dependency necessitated by the code, don't introduce one with extra `#include`
+
+when class A changes, only A, B, C need recompilation.
+
+Now, in the implementation of D, E
+
+```cpp
+// b.cc
+#include "a.h"
+void D::f () {
+	myA -> someMethod ();
+}
+```
+
+need to know about class A here, a true compilation dependency
+
+Do the `#include` in the `.cc` instead of the `.h`, where possible.
+
+Now, consider the `XWindow` class
+
+```cpp
+class XWindow {
+	Display *d;
+	Window w;
+	int s;
+	GC gc;
+	unsigned long colors [10];
+public:
+	...
+};
+```
+
+This is private data, yet we can look at it, do we know what it all means, do we care?
+
+What if I add or change a private member? All clients must recompile. Would be better to hide these details away.
+
+Solution: pimpl idiom ("pointer to implementation")
+
+crate a second class XWindowImpl
+
+```cpp
+// XWindowImpl.h
+
+#include <X11/Xlib.h>
+
+struct XWindowImpl {
+	Display *d;
+	Window w;
+	int s;
+	GC gc;
+	unsigned long color [10];
+};
+
+// ====
+
+// window.h
+
+// no need to include xlib.h
+class XWindowImpl; // forward declare
+
+class XWindow {
+	XWindowImpl * pImpl;
+public:
+	...
+};
+
+// window.cc
+
+#include "window.h"
+#include "XWindowImpl.h"
+
+XWindow::XWindow (...) : pImpl {new XWindowImpl} {}
+
+// destroy pImpl in dtor
+
+// Other method: replace fields d,w,s with pImpl->d pImpl->w ...
+```
+
+If you keep all private fields in `XWindowImpl` then only window.cc needs to be recompiled if you change `XWindow`'s implementation.
+
+Generalization: What if there are several possible window implementation XWindows and YWindows? Then make the Impl struct a superclass
+
+pImpl idiom with class hierarchy of implementation is call the **bridge pattern**
+
+![bridge-uml](http://tonyli.tk/notes/cs246/Bridge.png "bridge-uml")
+
+### Measures of Design Quality
+
+Coupling and cohesion
+
+coupling: the degree of which distinct program modules depends on each other.
+
+Low:
+
+*	module communication via function calls with basic params/results
+*	modules pass arrays/structs back and forth
+*	modules affect each other's control flow.
+

@@ -33,7 +33,7 @@
 
 Java:
 
-```Java
+```java
 import java.lang.*; // implicit
 class Hello {
 	public static
@@ -46,7 +46,7 @@ class Hello {
 
 C:
 
-```C
+```c
 #include <stdio.h>
 int main() {
 	printf( "Hello!\n" );
@@ -56,7 +56,7 @@ int main() {
 
 C++:
 
-```CPP
+```cpp
 #include <iostream> // access to output
 using namespace std; // direct naming
 int main() { // program starts here
@@ -124,7 +124,7 @@ $ ./firstprog
 
 *	Declarations may have an initializing assignment:
 
-```CPP
+```cpp
 int i = 3; int i = 3, j = i, k = f( j );
 int j = 4 + i;
 int k = f( j );
@@ -156,7 +156,7 @@ int k = f( j );
 
 *	Use the right literal for a variable's type:
 
-```CPP
+```cpp
 bool b = true; // not 1
 int i = 1; // not 1.0
 double d = 1.0 // not 1
@@ -166,7 +166,7 @@ const char *cs = "a"; // not ’a’
 
 *	Literals are **undesignated**, compiler chooses smallest type, or **designated**, programmer chooses type with suffixes: `L/l` => `long`, `LL/ll` => `long long`, `U/u` => unsigned, and `F/f` => `float`
 
-```CPP
+```cpp
 -3 // undesignated, int
 -3L // designated, long int
 1000000000000000000 // undesignated, long long int (why?)
@@ -179,7 +179,7 @@ const char *cs = "a"; // not ’a’
 
 *	Juxtaposed string literals are concatenated
 
-```CPP
+```cpp
 "John" // divide literal for readability
 "Doe"; // even over multiple lines
 "JohnDoe";
@@ -201,7 +201,7 @@ const char *cs = "a"; // not ’a’
 
 *	C/C++ provides user literals (write-once/read-only) with type qualifier `const`
 
-```CPP
+```cpp
 const char Initial = 'D';
 const short int Size = 3, SupSize = Size + 7;
 const double PI = 3.14159;
@@ -210,7 +210,7 @@ const double PI = 3.14159;
 *	C/C++ `const` variable **must** be assigned a value at declaration, the value can be the result of a expression.
 *	A `const` variable can (only) appear in context where a literal can appear.
 
-```CPP
+```cpp
 Size = 7; //disallowed
 ```
 
@@ -251,7 +251,7 @@ char s[10]; // string of at most 10 characters
 *	**Note different call syntax `c.substr(2,3)` versus `substr(c,2,3)`**
 *	contrast C and C++ style strings (note the management of string storage)
 
-```CPP
+```cpp
 #include <string.h> // C string routines
 #include <string> // C++ string routines
 using namespace std;
@@ -313,7 +313,7 @@ int main () {
 	*	unbuffered so output appears immediately
 *	stream files other than 3 implicit ones require declaring each file object
 
-```CPP
+```cpp
 #include <fstream> // required for stream-file declarations
 ifstream infile ("myinfile"); // input file
 ofstream outfile ("myoutfile") // output file
@@ -327,7 +327,7 @@ ofstream outfile ("myoutfile") // output file
 	where both files are located in the directory where the program is run
 *	check for successful opening of a file using the stream member `fail` e.g. `infile.fail()`, which returns `true` if the open failed and `false` otherwise
 
-```CPP
+```cpp
 if (infile.fail()) // open failed, print message and exit
 if (outfile.fail()) // open failed, print message and exit
 ```
@@ -371,7 +371,7 @@ System.out.println(i + " " + j); // build a string and print it
 
 *	C/C++ output style has a list of formats and values, and output operation generate strings:
 
-```CPP
+```cpp
 cout << i << " " << j << endl; // print each string as formed
 ```
 
@@ -399,7 +399,7 @@ cout << i << " " << j << endl; // print each string as formed
 *	`ignore` skips $n$ characters
 *	`getline(stream, string, char)` reads strings with white spaces allowing different delimiting characters (no buffer overflow)
 
-```CPP
+```cpp
 getline(cin,c,' '); // read characters until ' ' => cin >> c
 getline(cin,c,'@'); // read characters until '@'
 getline(cin,c,'\n'); // read character until newline (default)
@@ -407,7 +407,7 @@ getline(cin,c,'\n'); // read character until newline (default)
 
 *	Read in file-names, which may contain spaces, and process each file:
 
-```CPP
+```cpp
 #include <fstream>
 using namespace std;
 int main() {
@@ -427,7 +427,7 @@ int main() {
 *	`stringstream` allows I/O from a string
 *	Tokenized whitespace separated word
 
-```CPP
+```cpp
 #include <sstream>
 string tok, line = "  the \"quick\" brown\n";
 stringstream ss;
@@ -464,7 +464,7 @@ cout << i << endl;
 
 *	Subexpressions and argument evaluation is unspecified
 
-```CPP
+```cpp
 (i+j)*(k+j);       // either + done first
 (i=j)+(j=i);       // either = done first
 g(i) + f(k) +h(j); //g f or h called in any order
@@ -473,7 +473,7 @@ f(p++, p++, p++);  // arguments evaluated in any order
 
 * **Beware of overflow**
 
-```CPP
+```cpp
 unsigned int a = 4294967295, b = 4294967295, c = 4294967295;
 (a+b)/c;    // => 0 as a+b overflows leaving zero
 (a/c)+(b/c) // => 2
@@ -484,7 +484,7 @@ unsigned int a = 4294967295, b = 4294967295, c = 4294967295;
 *	C++ relational/equality return `false / true`; C return `0/1`
 *	General assignment operators only evaluate left-hand side once:
 
-```CPP
+```cpp
 v[f(3)] += 1;          // only calls f once
 v[f(3)] = v[f(3)] + 1; // calls f twice
 ```
@@ -494,7 +494,7 @@ v[f(3)] = v[f(3)] + 1; // calls f twice
 	*	right shift is dividing by 2 if unsigned or positive
 	*	undefined if right operand is negative or $\geq$ to length of left operand.
 
-``` CPP
+``` cpp
 int x, y, z;
 x = y = z = 1;
 cout << (x << 1) << ’ ’ << (y << 2) << ’ ’ << (z << 3) << endl;
@@ -509,7 +509,7 @@ cout << (x >> 1) << ’ ’ << (y >> 2) << ’ ’ << (z >> 3) << endl;
 *	**Conversion** transforms a value of another type by changing the value of the new type's representation.
 *	Conversions occur implicitly by compiler or explicitly by programmer using **cast** operator or C++ **static_cast** operator.
 
-```CPP
+```cpp
 int i; double d;
 d = i; // implicit (compiler)
 d = (double) i; // explicit with cast (programmer)
@@ -524,7 +524,7 @@ d = static cast<double>( i ); // C++
 *	C/C++ have implicit widening and narrowing conversions
 *	**Beware of implicit narrowing conversions**
 
-```CPP
+```cpp
 int i; double d;
 i = d = 3.5; // d -> 3.5
 d = i = 3.5; // d -> 3.0 truncation
@@ -532,7 +532,7 @@ d = i = 3.5; // d -> 3.0 truncation
 
 *	Good practice is to perform narrowing conversions explicitly with cast as documentation.
 
-```CPP
+```cpp
 int i; double d1 = 7.2, d2 = 3.5;
 i = (int) d1; // explicit narrowing conversion
 i = (int) d1 / (int) d2; // explicit narrowing conversions for integer division
@@ -548,7 +548,7 @@ i = static cast<int>(d1 / d2); // alternative technique after integer division
 	*	e.g. when a value is truncated or converting non-zero to `true`, the result is nonsense in the new type's representation.
 *	Also, having type `char` represent ASCII characters and integral (byte) values allows:
 
-```CPP
+```cpp
 char ch = 'z' - 'a'; // character arithmetic
 ```
 
@@ -556,7 +556,7 @@ which is often unreasonable as it can generate an invalid character.
 
 *	But the most common coercion is through pointers:
 
-```CPP
+```cpp
 int i, *ip = &i; // ip is a pointer to an integer
 double d, *dp = &d; // dp is a pointer to a double
 dp = (double *) ip; // lie, say dp points at double but really an integer
@@ -567,7 +567,7 @@ using explicit cast, programmer has lied to compiler about type of `ip`
 
 *	Signed/unsigned coercion
 
-```CPP
+```cpp
 unsigned int size;
 cin >> size; // negatives become positives
 if ( size < 0 ) cout << "invalid range" << endl;
@@ -578,13 +578,13 @@ int arr[size];
 *	`cin` does not check for negative values for `unsigned` => 2 reads as 4294967294
 *	Use safe coercion for checking range of size
 
-```CPP
+```cpp
 if ((int)size < 0) cout << "invalid range" << endl;
 ```
 
 *	Must be consistent with types
 
-```CPP
+```cpp
 for ( int i = 0; i < size; i += 1 ) { }
 . . .
 test.cc:12:22: warning: comparison between signed and unsigned integer expressions
@@ -599,14 +599,14 @@ test.cc:12:22: warning: comparison between signed and unsigned integer expressio
 *	Uses same mechanisms as formatted I/O to connect variable to file (open / close)
 *	`read` and `write` routines directly transfer bytes from/to a file, where each takes a pointer to the data and number of bytes of data.
 
-```CPP
+```cpp
 read( char *data, streamsize num );
 write( char *data, streamsize num );
 ```
 
 *	Read/write of types other than characters requires a coercion cast or C++ `reinterpret_cast`
 
-```CPP
+```cpp
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -656,14 +656,14 @@ $ od -t u1 myfile
 *	Some systems also provide `long double` math constants
 *	`pow(x,y)` $(x^y)$ is computed using logarithm, $10^{y\log x}$ (versus repeated multiplication), when $y$ is non-integral value => $y\geq 0$
 
-```CPP
+```cpp
 pow( -2.0, 3.0 ); −23 = −2×−2×−2 = −8
 pow( -2.0, 3.1 ); −23.1 = 103.1×log−2.0 = nan (not a number)
 ```
 
 *	Quadratic roots of $ax^2+bx+c$ are $r=(-b\pm \sqrt{b^2-4ac})/2a$
 
-```CPP
+```cpp
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -679,13 +679,13 @@ int main() {
 
 *	block
 
-```CPP
+```cpp
 { intermixed decls/stmts }
 ```
 
 *	selection
 
-```CPP
+```cpp
 if ( bool-expr1 ) stmt1
 else if ( bool-expr2 ) stmt2
 . . .
@@ -701,7 +701,7 @@ switch ( integral-expr ) {
 
 *	looping
 
-```CPP
+```cpp
 while ( bool-expr ) stmt
 
 do stmt while ( bool-expr ) ;
@@ -711,7 +711,7 @@ for (init-expr ;bool-expr ;incr-expr ) stmt
 
 *	transfer
 
-```CPP
+```cpp
 break
 continue
 goto label
@@ -721,7 +721,7 @@ throw [ expr ]
 
 *	label
 
-```CPP
+```cpp
 label: stmt
 ```
 
@@ -739,10 +739,10 @@ label: stmt
 *	Nested block declarations reduces declaration clutter at start of block
 *	Variable names can be reused in different blocks, i.e., possible **shadow** (hiding) prior variables
 
-```CPP
+```cpp
 int i = 1; . . . // first i
 { int k = i, i = 2, j = i; . . . // k = first i, second i overrides first
-	{ int i = 3;. . . // third i (overrides second)
+	{ int i = 3;. . .}} // third i (overrides second)
 ```
 
 ### 2.10.2 Selection
@@ -752,18 +752,20 @@ int i = 1; . . . // first i
 *	Unnecessary equality for boolean as value is already `true` or `false`
 *	Redundant `if` statement
 
-```CPP
-if ( a < b ) return true;
-else return false;
-
-return a<b;
+```cpp
+if ( a < b ) {
+	return true;
+}
+else {
+	return false;
+}
 ```
 
 *	Conversion causes problems (use `-Wall`)
 *	Assign in expressions causes problems because conditional expression is tested for $\neq 0$
 *	A `switch` statement selectively executes one of $N$ alternatives based on matching an **integral** value with a series of case clauses
 
-```CPP
+```cpp
 switch ( day ) { // integral expression
 	// STATEMENTS HERE NOT EXECUTED!!!
 	case Mon: case Tue: case Wed: case Thu: // case value list
@@ -786,7 +788,20 @@ switch ( day ) { // integral expression
 ```
 
 *	Only one label for each `case` clause but a list of `case` clauses is allowed.
+*	Once case label matches, the clauses statements are executed, and control continues to the `next` statement. (comment each fall through)
+*	If no case clause is matched and there is a `default` clause, its statements are executed, and control continues to the next statement.
+*	Unless there is a `break` statement to prematurely exit the `switch` statement.
+*	**It is a common error to forget the `break` in `case` clause**
+*	Otherwise, the `switch` statement does nothing.
+*	`case` label does not define a block
 
----
+```cpp
+switch (i) {
+	case 3: { // start new block
+		int j = i; // can now declare new variables
+	}
+}
+```
 
-ends page 61
+### 2.10.3 Multi-Exit Loop (Review)
+

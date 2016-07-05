@@ -27,7 +27,7 @@ high
 
 #### malloc
 
-The `malloc` (memory allocation) function obtains memory the heap dynamically. It is provided in `<stdlin.h>`.
+The `malloc` (memory allocation) function obtains memory the heap dynamically. It is provided in `<stdin.h>`.
 
 ```C
 // malloc(s) requests s bytes of memory from the heap
