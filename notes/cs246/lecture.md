@@ -4133,5 +4133,4 @@ Low:
 
 *	module communication via function calls with basic params/results
 *	modules pass arrays/structs back and forth
-*	modules affect each other's control flow.
-
+*	modules affect each other's control flow
