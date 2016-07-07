@@ -52,6 +52,7 @@ pre {
 
 .markdown-body img {
     border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
 }
 
 .markdown-body hr {
@@ -4871,4 +4872,186 @@ e-&gt;<span class="pl-en">beStruckBy</span>(*w);</pre></div>
 <li>  modules pass arrays/structs back and forth</li>
 <li>  modules affect each other's control flow</li>
 </ul>
+
+<h2>
+<a id="user-content-lecture-20" class="anchor" href="#lecture-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 20</h2>
+
+<ul>
+<li>  modules share global data</li>
+</ul>
+
+<p>High:</p>
+
+<ul>
+<li>  modules have access to each other's implementation (friends)</li>
+</ul>
+
+<p>High Coupling:</p>
+
+<ul>
+<li>  changes to one module require greater changes to other modules</li>
+<li>  harder to reuse individual modules</li>
+</ul>
+
+<p>Cohesion : how closely elements of a module are related to each other</p>
+
+<p>Low:</p>
+
+<ul>
+<li>  arbitrary grouping of unrelated elements (e.g. <code>&lt;utility&gt;</code>)</li>
+<li>  elements share a common theme, otherwise unrelated, perhaps some common base code (e.g. <code>&lt;algorithm&gt;</code>)</li>
+<li>  elements manipulate state over the life of an object (e.g. open/read/close files)</li>
+<li>  elements pass data to each other</li>
+</ul>
+
+<p>High:</p>
+
+<ul>
+<li>  elements cooperate to perform exactly one task</li>
+</ul>
+
+<p>Low Cohesion:</p>
+
+<ul>
+<li>  poorly organized code</li>
+<li>  hard to understand, maintain</li>
+</ul>
+
+<p>Goal: low coupling, high cohesion</p>
+
+<h3>
+<a id="user-content-decoupling-the-interface-mvc" class="anchor" href="#decoupling-the-interface-mvc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoupling the Interface (MVC)</h3>
+
+<p>Your primary program classes should not print things!</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">ChessBoard</span> {
+    ...
+    <span class="pl-k">void</span> <span class="pl-en">f</span>() {
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>your move.<span class="pl-pds">"</span></span>;
+    }
+};</pre></div>
+
+<p>Bad design - inhibits code reuse</p>
+
+<p>What if you want to reuse <code>ChessBoard</code>, but not have it print to <code>stdout</code>?</p>
+
+<p>One solution: give the class stream object on which it can do I/O</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">ChessBoard</span> {
+    istream &amp;in;
+    ostream &amp;out;
+<span class="pl-k">public:</span>
+    <span class="pl-en">ChessBoard</span> (istream &amp;in, ostream &amp;out) : in {in}, out {out} {}
+};</pre></div>
+
+<p>Better: but what if we don't want to use stream at all?</p>
+
+<p>Your chessboard class should not be interacting at all</p>
+
+<p>Single responsibility principle: "A class should have only one reason to change"</p>
+
+<p>game state and communication are two reason to change</p>
+
+<p>Better: Communicate with chessboard via params and results and occasionally via exns</p>
+
+<p>So should main do all the communication and then call ChessBoard methods?</p>
+
+<p>No, hard to reuse code if it is in main</p>
+
+<p>Should have a class to manage interaction, that is separate from the game state class.</p>
+
+<p>Pattern: Model View Controller (MVC)</p>
+
+<p>Separate the distinct notions of the data (or state), the presentation of the data, and the control of the data</p>
+
+<p>Model: the main data you are manipulating (e.g. game state)</p>
+
+<p>View: how the model is displayed</p>
+
+<p>Controller: how the model is manipulated</p>
+
+<p>Model: </p>
+
+<ul>
+<li>  can have multiple views (e.g. text and graphics)</li>
+<li>  doesn't need to know about their details</li>
+<li>  class observer pattern (or could communicate through controller)</li>
+</ul>
+
+<p>Controller:</p>
+
+<ul>
+<li>  mediates control flow between model and view</li>
+<li>  may encapsulate turn-taking, or full game rules</li>
+<li>  may communicate with the users for input (or this could be the view)</li>
+</ul>
+
+<p>By decoupling presentation and control, MVC promotes reuse</p>
+
+<h3>
+<a id="user-content-exception-safety" class="anchor" href="#exception-safety" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exception Safety</h3>
+
+<p>Consider:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    MyClass *p = <span class="pl-k">new</span> MyClass;
+    MyClass mc;
+    <span class="pl-c1">g</span>();
+    <span class="pl-k">delete</span> p;
+}</pre></div>
+
+<p>no leaks, but what if <code>g()</code> raises an exception</p>
+
+<p>What is guaranteed?</p>
+
+<p>During stack unwinding, all stack allocated data is cleaned up, dtors run, memory is reclaimed</p>
+
+<p>heap allocated data is not deleted</p>
+
+<p>If <code>g</code> throws, <code>*p</code> is leaked but <code>mc</code> is not.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    MyClass *p = <span class="pl-k">new</span> MyClass;
+    MyClass m
+    <span class="pl-k">try</span> {
+        <span class="pl-c1">g</span>();
+    } <span class="pl-k">catch</span> (...) {
+        <span class="pl-k">delete</span> p;
+        <span class="pl-k">throw</span>;
+    }
+    <span class="pl-k">delete</span> p;
+}</pre></div>
+
+<p>Tedious, error-prone, duplicates code: how else can we guarantee that something (i.e. <code>delete p</code>) will happen no matter how we exit f (i.e. normally or exceptionally)?</p>
+
+<p>Some language: <code>finally</code> clauses guarantee certain final actions, not C++</p>
+
+<p>Only thing you can count on in C++ - dtors for stack allocated data will run</p>
+
+<p>Use stack-allocated data as much as possible - use the guarantee to your advantage</p>
+
+<p>C++ idiom: RAII - Resource Acquisition Is Initialization</p>
+
+<p>Every resource should be wrapped in a stack-allocated object, whose dtor deletes it.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">h</span>() {
+    ifstream f {<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>}; <span class="pl-c">// acquiring the resource ("file") = initializing the object (f)</span>
+    <span class="pl-c">// the file is guaranteed to be closed when f is popped from the stack (f's dtor runs)</span>
+}</pre></div>
+
+<p>This can be done with dynamic memory</p>
+
+<p><code>class std::unique-ptr &lt;T&gt;</code>   (<code>#include &lt;memory&gt;</code>) takes a <code>T*</code> in the ctor - dtor will delete the ptr.</p>
+
+<p>in between, can dereference just like a ptr</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    <span class="pl-k">auto</span> p = std::make_unique &lt;MyClass&gt; (<span class="pl-c">/* ctor arguments*/</span>);
+    <span class="pl-c">// std::unique_ptr &lt;MyClass&gt;</span>
+    <span class="pl-c">// allocates a MyClass on the heap</span>
+    MyClass mc;
+    <span class="pl-c1">g</span>();
+}</pre></div>
+
+<p>}</p>
 </article></body></html>

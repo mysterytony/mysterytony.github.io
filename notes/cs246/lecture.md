@@ -4134,3 +4134,179 @@ Low:
 *	module communication via function calls with basic params/results
 *	modules pass arrays/structs back and forth
 *	modules affect each other's control flow
+
+## Lecture 20
+
+*	modules share global data
+
+High:
+
+*	modules have access to each other's implementation (friends)
+
+High Coupling:
+
+*	changes to one module require greater changes to other modules
+*	harder to reuse individual modules
+
+Cohesion : how closely elements of a module are related to each other
+
+Low:
+
+*	arbitrary grouping of unrelated elements (e.g. `<utility>`)
+*	elements share a common theme, otherwise unrelated, perhaps some common base code (e.g. `<algorithm>`)
+*	elements manipulate state over the life of an object (e.g. open/read/close files)
+*	elements pass data to each other
+
+High:
+
+*	elements cooperate to perform exactly one task
+
+Low Cohesion:
+
+*	poorly organized code
+*	hard to understand, maintain
+
+Goal: low coupling, high cohesion
+
+### Decoupling the Interface (MVC)
+
+Your primary program classes should not print things!
+
+```cpp
+class ChessBoard {
+	...
+	void f() {
+		cout << "your move.";
+	}
+};
+```
+
+Bad design - inhibits code reuse
+
+What if you want to reuse `ChessBoard`, but not have it print to `stdout`?
+
+One solution: give the class stream object on which it can do I/O
+
+```cpp
+class ChessBoard {
+	istream &in;
+	ostream &out;
+public:
+	ChessBoard (istream &in, ostream &out) : in {in}, out {out} {}
+};
+```
+
+Better: but what if we don't want to use stream at all?
+
+Your chessboard class should not be interacting at all
+
+Single responsibility principle: "A class should have only one reason to change"
+
+game state and communication are two reason to change
+
+Better: Communicate with chessboard via params and results and occasionally via exns
+
+So should main do all the communication and then call ChessBoard methods?
+
+No, hard to reuse code if it is in main
+
+Should have a class to manage interaction, that is separate from the game state class.
+
+Pattern: Model View Controller (MVC)
+
+Separate the distinct notions of the data (or state), the presentation of the data, and the control of the data
+
+Model: the main data you are manipulating (e.g. game state)
+
+View: how the model is displayed
+
+Controller: how the model is manipulated
+
+Model: 
+
+*	can have multiple views (e.g. text and graphics)
+*	doesn't need to know about their details
+*	class observer pattern (or could communicate through controller)
+
+Controller:
+
+*	mediates control flow between model and view
+*	may encapsulate turn-taking, or full game rules
+*	may communicate with the users for input (or this could be the view)
+
+By decoupling presentation and control, MVC promotes reuse
+
+### Exception Safety
+
+Consider:
+
+```cpp
+void f() {
+	MyClass *p = new MyClass;
+	MyClass mc;
+	g();
+	delete p;
+}
+```
+
+no leaks, but what if `g()` raises an exception
+
+What is guaranteed?
+
+During stack unwinding, all stack allocated data is cleaned up, dtors run, memory is reclaimed
+
+heap allocated data is not deleted
+
+If `g` throws, `*p` is leaked but `mc` is not.
+
+```cpp
+void f() {
+	MyClass *p = new MyClass;
+	MyClass m
+	try {
+		g();
+	} catch (...) {
+		delete p;
+		throw;
+	}
+	delete p;
+}
+```
+
+Tedious, error-prone, duplicates code: how else can we guarantee that something (i.e. `delete p`) will happen no matter how we exit f (i.e. normally or exceptionally)?
+
+Some language: `finally` clauses guarantee certain final actions, not C++
+
+Only thing you can count on in C++ - dtors for stack allocated data will run
+
+Use stack-allocated data as much as possible - use the guarantee to your advantage
+
+C++ idiom: RAII - Resource Acquisition Is Initialization
+
+Every resource should be wrapped in a stack-allocated object, whose dtor deletes it.
+
+```cpp
+void h() {
+	ifstream f {"file"}; // acquiring the resource ("file") = initializing the object (f)
+	// the file is guaranteed to be closed when f is popped from the stack (f's dtor runs)
+}
+```
+
+This can be done with dynamic memory
+
+`class std::unique-ptr <T>`   (`#include <memory>`) takes a `T*` in the ctor - dtor will delete the ptr.
+
+in between, can dereference just like a ptr
+
+```cpp
+void f() {
+	auto p = std::make_unique <MyClass> (/* ctor arguments*/);
+	// std::unique_ptr <MyClass>
+	// allocates a MyClass on the heap
+	MyClass mc;
+	g();
+}
+```
+
+
+}
