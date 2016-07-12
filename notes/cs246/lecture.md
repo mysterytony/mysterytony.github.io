@@ -4294,7 +4294,7 @@ void h() {
 
 This can be done with dynamic memory
 
-`class std::unique-ptr <T>`   (`#include <memory>`) takes a `T*` in the ctor - dtor will delete the ptr.
+`class std::unique_ptr <T>`   (`#include <memory>`) takes a `T*` in the ctor - dtor will delete the ptr.
 
 in between, can dereference just like a ptr
 
@@ -4309,4 +4309,189 @@ void f() {
 ```
 
 
+## Lecture 21
+
+```cpp
+void f() {
+	MyClass *p = new MyClass;
+	MyClass mc;
+	g(); // may throw
+	delete p;
 }
+
+void f() {
+	auto p = make_unique<MyClass>(); // std::unique_ptr<MyClass>
+	MyClass mc;
+	g();
+}
+```
+
+Difficulty:
+
+```cpp
+class c {...};
+...
+unique_ptr<c> p {new C{...}};
+unique_ptr<c> q = p; // won't compile
+```
+
+What happens when a `unique_ptr` is copied? don't want to delete the same ptr twice.
+
+Instead: copying is disabled for `unique_ptr`, they can only be moved.
+
+```cpp
+template<typename T> class unique_ptr {
+	T * ptr;
+
+public:
+	unique_ptr (T *p): ptr{p}{}
+	~unique_ptr() {delete ptr;}
+	unique_ptr (const unique_ptr<T> &other) = delete;
+	unique_ptr<T> &operator= (const unique_ptr <T> &other) = delete;
+	unique_ptr<T> (unique_ptr<T> &&other) : ptr{other.ptr}{ other.ptr = nullptr;}
+	unique_ptr<T> &operator= (unique_ptr<T> &other) {
+		using std::swap;
+		swap(ptr, other.ptr);
+		return *this;
+	}
+	T &operator*() {return *ptr;}
+};
+```
+
+If you need to be able to copy ptrs, `std::shared_ptr`
+
+```cpp
+void f() {
+	auto p1 = std::make_shared<MyClass> ();
+	if (...) {
+		auto p2 = p1;
+	} // p2 is popped, not deleted
+} // p1 is popped, deleted
+```
+Shared ptrs maintain a reference count, count of all shared pointers pointing at the same obj. Memory is freed when the last shared ptr holding the object is destroyed.
+
+Use shared ptrs & unique ptrs instead of raw ptrs as much as possible. Dramatically fewer opportunities for leaks.
+
+3 levels of exceptions safety for a function f:
+
+1.	Basic guarantee - if an exn occurs, the program will be in a valid state - nothing is leaked, class invariants maintained.
+2.	Strong guarantee - if an exn is raised while executing f, the state of the program will be as if f had not been called.
+3.	No-throw guarantee - f will never throw (or propagate) an exn, and will always accomplish its task.
+
+```cpp
+class A {...};
+class B {...};
+class C {
+	A a;
+	B b;
+public:
+	void f() {
+		a.method1(); // may throw (strong guarantee)
+		b.method2(); // may throw (strong guarantee)
+	}
+};
+```
+
+Is `c::f` exception safe?
+
+if `a.method1()` throws, nothing has happened yet - OK
+
+if `b.method2()` throws, effects of `method1` must be undone to offer the strong guarantee, very hard or impossible if `method1` has non-local side-effects
+
+thus, probably not exception safe.
+
+If `A::method1` and `B:method2` do not have non-local side-effects, can use copy-and-swap
+
+```cpp
+class C {
+	...
+	void f () {
+		A atemp = a;
+		B btemp = b;
+
+		atemp.method1();
+		btemp.method2() // if these throw original a & b still intact
+
+		a = atemp;
+		b = btemp; // but what if copy assignment throws
+	}
+};
+```
+
+Better if the swap was nothrow (copying ptrs cannot throw)
+
+use the pImpl idiom
+
+```cpp
+struct CImpl {
+	A a;
+	B b;
+};
+
+class C {
+	unique_ptr<CImpl> pImpl;
+	...
+	void f() {
+		auto temp = make_unique<CImpl> (*pImpl);
+		temp->a.method1();
+		temp->b.method2();
+		std::swap(pImpl, temp); // no throw
+	}
+};
+```
+
+If either `A::method1` or `B::method` offer no exception safety guarantee, then neither can `c::f`
+
+### Exception safety & the STL: vector
+
+vectors - encapsulate a heap-allocated array, follow RAII, when a stack_allocated vector goes out of scope, the internal heap-allocated array is freed.
+
+```cpp
+void f () {
+	vector <MyClass> v;
+	...
+} // v goes out of scope, array is freed, MyClass dtor runs on all objs in the vector
+
+// but
+
+void g () {
+	vector <MyClass *> v;
+	...
+} // array is freed, ptr don't have dtors, so any objects pointed at by the ptrs are not deleted.
+// v does not know whether the ptrs own the objects they point at
+
+// but
+
+void h () {
+	vector <shared_ptr<MyClass>> v;
+	...
+} // array is freed, shared_ptr dtor run, so objects are deleted if no other shared_ptr at them
+// dont have to do any explicit deallocation
+```
+
+`vector<T>::emplace_back`
+
+*	offers the strong guarantee
+*	if the array is full (i.e. size == cap)
+*	allocate a new array, copy object over (copy ctor) delete old array
+*	if a copy ctor throws, destroy the new array, original array still intact, strong guarantee
+
+But copying is expensive, and old data will be thrown away, wouldn't moving the obj be more efficient?
+
+*	alloc a new array
+*	move the obj over (move ctor) - if move ctor throws, can't offer strong guarantee, original no longer intact
+*	delete old array
+
+if the move ctor offers the no-throw guarantee, `emplace_back` will use the move ctor, otherwise it will use the copy ctor, which will be slower
+
+so your move operation should provide no throw guarantee, and you should indicate that they do:
+
+```cpp
+class MyClass {
+	...
+	MyClass (MyClass && other) noexcept {...}
+	MyClass &operator= (MyClass && other) noexcept {...}
+};
+```
+
+If you know a function will not never throw or propagate an exception, declare it `noexcept`, facilitates optimization, at minimum swap & moves should be `noexcept`
