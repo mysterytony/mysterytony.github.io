@@ -5041,7 +5041,7 @@ e-&gt;<span class="pl-en">beStruckBy</span>(*w);</pre></div>
 
 <p>This can be done with dynamic memory</p>
 
-<p><code>class std::unique-ptr &lt;T&gt;</code>   (<code>#include &lt;memory&gt;</code>) takes a <code>T*</code> in the ctor - dtor will delete the ptr.</p>
+<p><code>class std::unique_ptr &lt;T&gt;</code>   (<code>#include &lt;memory&gt;</code>) takes a <code>T*</code> in the ctor - dtor will delete the ptr.</p>
 
 <p>in between, can dereference just like a ptr</p>
 
@@ -5053,5 +5053,306 @@ e-&gt;<span class="pl-en">beStruckBy</span>(*w);</pre></div>
     <span class="pl-c1">g</span>();
 }</pre></div>
 
-<p>}</p>
+<h2>
+<a id="user-content-lecture-21" class="anchor" href="#lecture-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 21</h2>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    MyClass *p = <span class="pl-k">new</span> MyClass;
+    MyClass mc;
+    <span class="pl-c1">g</span>(); <span class="pl-c">// may throw</span>
+    <span class="pl-k">delete</span> p;
+}
+
+<span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    <span class="pl-k">auto</span> p = make_unique&lt;MyClass&gt;(); <span class="pl-c">// std::unique_ptr&lt;MyClass&gt;</span>
+    MyClass mc;
+    <span class="pl-c1">g</span>();
+}</pre></div>
+
+<p>Difficulty:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">c</span> {...};
+...
+unique_ptr&lt;c&gt; p {<span class="pl-k">new</span> C{...}};
+unique_ptr&lt;c&gt; q = p; <span class="pl-c">// won't compile</span></pre></div>
+
+<p>What happens when a <code>unique_ptr</code> is copied? don't want to delete the same ptr twice.</p>
+
+<p>Instead: copying is disabled for <code>unique_ptr</code>, they can only be moved.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> T&gt; <span class="pl-k">class</span> <span class="pl-en">unique_ptr</span> {
+    T * ptr;
+
+<span class="pl-k">public:</span>
+    <span class="pl-en">unique_ptr</span> (T *p): ptr{p}{}
+    <span class="pl-en">~unique_ptr</span>() {<span class="pl-k">delete</span> ptr;}
+    <span class="pl-en">unique_ptr</span> (<span class="pl-k">const</span> unique_ptr&lt;T&gt; &amp;other) = <span class="pl-k">delete</span>;
+    unique_ptr&lt;T&gt; &amp;<span class="pl-k">operator</span>= (<span class="pl-k">const</span> unique_ptr &lt;T&gt; &amp;other) = <span class="pl-k">delete</span>;
+    unique_ptr&lt;T&gt; (unique_ptr&lt;T&gt; &amp;&amp;other) : ptr{other.<span class="pl-smi">ptr</span>}{ other.<span class="pl-smi">ptr</span> = <span class="pl-v">nullptr</span>;}
+    unique_ptr&lt;T&gt; &amp;<span class="pl-k">operator</span>= (unique_ptr&lt;T&gt; &amp;other) {
+        <span class="pl-k">using</span> std::swap;
+        <span class="pl-c1">swap</span>(ptr, other.<span class="pl-smi">ptr</span>);
+        <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+    }
+    T &amp;<span class="pl-k">operator</span>*() {<span class="pl-k">return</span> *ptr;}
+};</pre></div>
+
+<p>If you need to be able to copy ptrs, <code>std::shared_ptr</code></p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>() {
+    <span class="pl-k">auto</span> p1 = std::make_shared&lt;MyClass&gt; ();
+    <span class="pl-k">if</span> (...) {
+        <span class="pl-k">auto</span> p2 = p1;
+    } <span class="pl-c">// p2 is popped, not deleted</span>
+} <span class="pl-c">// p1 is popped, deleted</span></pre></div>
+
+<p>Shared ptrs maintain a reference count, count of all shared pointers pointing at the same obj. Memory is freed when the last shared ptr holding the object is destroyed.</p>
+
+<p>Use shared ptrs &amp; unique ptrs instead of raw ptrs as much as possible. Dramatically fewer opportunities for leaks.</p>
+
+<p>3 levels of exceptions safety for a function f:</p>
+
+<ol>
+<li> Basic guarantee - if an exn occurs, the program will be in a valid state - nothing is leaked, class invariants maintained.</li>
+<li> Strong guarantee - if an exn is raised while executing f, the state of the program will be as if f had not been called.</li>
+<li> No-throw guarantee - f will never throw (or propagate) an exn, and will always accomplish its task.</li>
+</ol>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">A</span> {...};
+<span class="pl-k">class</span> <span class="pl-en">B</span> {...};
+<span class="pl-k">class</span> <span class="pl-en">C</span> {
+    A a;
+    B b;
+<span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">f</span>() {
+        a.<span class="pl-c1">method1</span>(); <span class="pl-c">// may throw (strong guarantee)</span>
+        b.<span class="pl-c1">method2</span>(); <span class="pl-c">// may throw (strong guarantee)</span>
+    }
+};</pre></div>
+
+<p>Is <code>c::f</code> exception safe?</p>
+
+<p>if <code>a.method1()</code> throws, nothing has happened yet - OK</p>
+
+<p>if <code>b.method2()</code> throws, effects of <code>method1</code> must be undone to offer the strong guarantee, very hard or impossible if <code>method1</code> has non-local side-effects</p>
+
+<p>thus, probably not exception safe.</p>
+
+<p>If <code>A::method1</code> and <code>B:method2</code> do not have non-local side-effects, can use copy-and-swap</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">C</span> {
+    ...
+    <span class="pl-k">void</span> <span class="pl-en">f</span> () {
+        A atemp = a;
+        B btemp = b;
+
+        atemp.<span class="pl-c1">method1</span>();
+        btemp.<span class="pl-c1">method2</span>() <span class="pl-c">// if these throw original a &amp; b still intact</span>
+
+        a = atemp;
+        b = btemp; <span class="pl-c">// but what if copy assignment throws</span>
+    }
+};</pre></div>
+
+<p>Better if the swap was nothrow (copying ptrs cannot throw)</p>
+
+<p>use the pImpl idiom</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">struct</span> <span class="pl-en">CImpl</span> {
+    A a;
+    B b;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">C</span> {
+    unique_ptr&lt;CImpl&gt; pImpl;
+    ...
+    <span class="pl-k">void</span> <span class="pl-en">f</span>() {
+        <span class="pl-k">auto</span> temp = make_unique&lt;CImpl&gt; (*pImpl);
+        temp-&gt;a.<span class="pl-c1">method1</span>();
+        temp-&gt;b.<span class="pl-c1">method2</span>();
+        <span class="pl-c1">std::swap</span>(pImpl, temp); <span class="pl-c">// no throw</span>
+    }
+};</pre></div>
+
+<p>If either <code>A::method1</code> or <code>B::method</code> offer no exception safety guarantee, then neither can <code>c::f</code></p>
+
+<h3>
+<a id="user-content-exception-safety--the-stl-vector" class="anchor" href="#exception-safety--the-stl-vector" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exception safety &amp; the STL: vector</h3>
+
+<p>vectors - encapsulate a heap-allocated array, follow RAII, when a stack_allocated vector goes out of scope, the internal heap-allocated array is freed.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span> () {
+    vector &lt;MyClass&gt; v;
+    ...
+} <span class="pl-c">// v goes out of scope, array is freed, MyClass dtor runs on all objs in the vector</span>
+
+<span class="pl-c">// but</span>
+
+<span class="pl-k">void</span> <span class="pl-en">g</span> () {
+    vector &lt;MyClass *&gt; v;
+    ...
+} <span class="pl-c">// array is freed, ptr don't have dtors, so any objects pointed at by the ptrs are not deleted.</span>
+<span class="pl-c">// v does not know whether the ptrs own the objects they point at</span>
+
+<span class="pl-c">// but</span>
+
+<span class="pl-k">void</span> <span class="pl-en">h</span> () {
+    vector &lt;shared_ptr&lt;MyClass&gt;&gt; v;
+    ...
+} <span class="pl-c">// array is freed, shared_ptr dtor run, so objects are deleted if no other shared_ptr at them</span>
+<span class="pl-c">// dont have to do any explicit deallocation</span></pre></div>
+
+<p><code>vector&lt;T&gt;::emplace_back</code></p>
+
+<ul>
+<li>  offers the strong guarantee</li>
+<li>  if the array is full (i.e. size == cap)</li>
+<li>  allocate a new array, copy object over (copy ctor) delete old array</li>
+<li>  if a copy ctor throws, destroy the new array, original array still intact, strong guarantee</li>
+</ul>
+
+<p>But copying is expensive, and old data will be thrown away, wouldn't moving the obj be more efficient?</p>
+
+<ul>
+<li>  alloc a new array</li>
+<li>  move the obj over (move ctor) - if move ctor throws, can't offer strong guarantee, original no longer intact</li>
+<li>  delete old array</li>
+</ul>
+
+<p>if the move ctor offers the no-throw guarantee, <code>emplace_back</code> will use the move ctor, otherwise it will use the copy ctor, which will be slower</p>
+
+<p>so your move operation should provide no throw guarantee, and you should indicate that they do:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">MyClass</span> {
+    ...
+    <span class="pl-en">MyClass</span> (MyClass &amp;&amp; other) noexcept {...}
+    MyClass &amp;<span class="pl-k">operator</span>= (MyClass &amp;&amp; other) noexcept {...}
+};</pre></div>
+
+<p>If you know a function will never throw or propagate an exception, declare it <code>noexcept</code>, facilitates optimization, at minimum swap &amp; moves should be <code>noexcept</code></p>
+
+<h2>
+<a id="user-content-lecture-21-1" class="anchor" href="#lecture-21-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 21</h2>
+
+<p>From last day</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">MyClass</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-en">MyClass</span>(MyClass &amp;&amp; other) noexcept {}
+    MyClass &amp;<span class="pl-k">operator</span>= (MyClass &amp;&amp; other) noexcept {}
+};</pre></div>
+
+<p>If you know a function will never throw or propagate an exception, declare it <code>noexcept</code>, facilitates optimization, at minimum swap &amp; moves should be <code>noexcept</code></p>
+
+<h3>
+<a id="user-content-casting" class="anchor" href="#casting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Casting</h3>
+
+<p>In C:</p>
+
+<div class="highlight highlight-source-c++"><pre>Node n;
+<span class="pl-k">int</span> *<span class="pl-en">ip</span> (<span class="pl-k">int</span> *) &amp;n;</pre></div>
+
+<p>cast forces c++ to treat a <code>Node *</code> as an <code>int *</code>.</p>
+
+<p>C-style casts should be avoided in C++</p>
+
+<p>If you must cast, use a c++ style cast.</p>
+
+<p>4 Kinds:</p>
+
+<ul>
+<li>  <code>static_cast</code> "sensible" casts</li>
+</ul>
+
+<p>double -&gt; int</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">double</span> d;
+<span class="pl-k">int</span> i = <span class="pl-k">static_cast</span>&lt;<span class="pl-k">int</span>&gt; (d);</pre></div>
+
+<p>3 advantages: easy to search for static cast in a text editor, type is aware, longer time needed to type</p>
+
+<p>superclass ptr -&gt; subclass ptr</p>
+
+<div class="highlight highlight-source-c++"><pre>Book *b = <span class="pl-k">new</span> Text{...};
+Text *t = <span class="pl-k">static_cast</span>&lt;Text *&gt;(b);</pre></div>
+
+<p>You are taking responsibility that <code>b</code> actually points at a Text "Trust me"</p>
+
+<ul>
+<li>  <code>reinterpret_cast</code> unsafe, implementation specific, "wired" conversion</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>Student s;
+Turtle *t = <span class="pl-k">reinterpret_cast</span>&lt;Turtle *&gt; (&amp;s);</pre></div>
+
+<ul>
+<li>  <code>const_cast</code> converting between const and non const, the only c++ cast that can cast away const</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">g</span>(<span class="pl-k">int</span> *p); <span class="pl-c">// g does not promise to keep *p constant, what if g does not actually change *p?</span>
+<span class="pl-k">void</span> <span class="pl-en">f</span>( <span class="pl-k">const</span> <span class="pl-k">int</span> *p ){ <span class="pl-c">// f can't change p</span>
+    <span class="pl-c1">g</span>(<span class="pl-k">const_cast</span>&lt;<span class="pl-k">int</span> *&gt;(p));
+}</pre></div>
+
+<ul>
+<li>  <code>dynamic_cast</code> is it safe to convert a <code>Book *</code> to a <code>Text *</code>
+</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>Book *pb = ...;
+<span class="pl-k">static_cast</span>&lt;Text *&gt;(pb) -&gt; <span class="pl-en">getTopic</span>();</pre></div>
+
+<ul>
+<li>  depends on what <code>pb</code> actually points at</li>
+<li>  Better to do a tentative cast - try it and see if it succeeds</li>
+</ul>
+
+<div class="highlight highlight-source-c++"><pre>Book *pb = ...;
+Text *pt = <span class="pl-k">dynamic_cast</span>&lt;Text *&gt; (pb);</pre></div>
+
+<p>If the cast works (<code>pb</code> really points at a <code>Text</code> or a subclass of <code>Text</code>) then <code>pt</code> points at that objects.</p>
+
+<p>If the cast fails, <code>pt</code> will be <code>nullptr</code></p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">if</span> (pt)  cout &lt;&lt; pt-&gt;<span class="pl-en">getTopic</span>();
+<span class="pl-k">else</span> cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>not a text<span class="pl-pds">"</span></span>;</pre></div>
+
+<p>But these are operations on raw pointer, we should be using smart ptrs, can we do this? YES!</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-c">// cast share_ptr to share_ptr</span>
+static_pointer_cast
+const_pointer_cast
+dynamic_pointer_cast</pre></div>
+
+<p>can use dynamic casting to make decisions based on an objects runtime type (RTTI = run-time type information)</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">whatIsIt</span>(share_ptr&lt;Book&gt; b) {
+    <span class="pl-k">if</span> (dynamic_pointer_cast&lt;Text&gt;(b)) cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Text<span class="pl-pds">"</span></span>;
+    <span class="pl-k">else</span> <span class="pl-k">if</span> (dynamic_pointer_cast&lt;Comic&gt;(b)) cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Comic<span class="pl-pds">"</span></span>;
+    <span class="pl-k">else</span> cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>Normal book<span class="pl-pds">"</span></span>;
+}</pre></div>
+
+<p>Note: dynamic casting only works on classes with at least one virtual method.</p>
+
+<p>Note: code like this is highly coupled to the <code>Book</code> class hierarchy and may indicate bad design</p>
+
+<p>Better - use virtual methods or write a visitor</p>
+
+<p>Dynamic casting also works on references</p>
+
+<div class="highlight highlight-source-c++"><pre>Text t {...};
+Book &amp;b = t;
+Text &amp;t2 = <span class="pl-k">dynamic_cast</span>&lt;Text &amp;&gt; (b);</pre></div>
+
+<p>If <code>b</code> points to a <code>Text</code>, then <code>t2</code> is a reference to the same <code>Text</code>, if not, (no such thing as a null reference) raises exception <code>bad_cast</code></p>
+
+<p>With dynamic reference casting, we can solve the polymorphic assignment problem:</p>
+
+<div class="highlight highlight-source-c++"><pre>Text &amp;Text::<span class="pl-k">operator</span>= (<span class="pl-k">const</span> Book &amp; other) { <span class="pl-c">// virtual</span>
+    Text &amp;textother = <span class="pl-k">dynamic_cast</span>&lt;Text &amp;&gt; (other); <span class="pl-c">// throws an exception if other is not a text</span>
+    <span class="pl-k">if</span> (<span class="pl-v">this</span> == &amp;textother) <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+    Book::<span class="pl-k">operator</span>= (other);
+    topic = other.<span class="pl-smi">topic</span>;
+    <span class="pl-k">return</span> *<span class="pl-v">this</span>;
+}</pre></div>
 </article></body></html>
