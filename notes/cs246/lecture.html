@@ -5355,4 +5355,227 @@ Text &amp;t2 = <span class="pl-k">dynamic_cast</span>&lt;Text &amp;&gt; (b);</pr
     topic = other.<span class="pl-smi">topic</span>;
     <span class="pl-k">return</span> *<span class="pl-v">this</span>;
 }</pre></div>
+
+<h2>
+<a id="user-content-lecture-22" class="anchor" href="#lecture-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 22</h2>
+
+<h3>
+<a id="user-content-how-virtual-methods-work" class="anchor" href="#how-virtual-methods-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How virtual methods work?</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Vec</span> {
+    <span class="pl-k">int</span> x, y;
+    <span class="pl-k">int</span> doSomething;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Vec</span> {
+    <span class="pl-k">int</span> x, y;
+    <span class="pl-k">virtual</span> <span class="pl-k">int</span> <span class="pl-en">doSomgthing</span>();
+};
+
+Vec v {<span class="pl-c1">1</span>,<span class="pl-c1">2</span>};
+Vec w {<span class="pl-c1">1</span>,<span class="pl-c1">2</span>};</pre></div>
+
+<p>Do they look the same in memory?</p>
+
+<div class="highlight highlight-source-c++"><pre>cout &lt;&lt; <span class="pl-k">sizeof</span>(v) &lt;&lt; <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> &lt;&lt; <span class="pl-k">sizeof</span>(w);
+(output) <span class="pl-c1">8</span> <span class="pl-c1">16</span></pre></div>
+
+<ul>
+<li>  First note: 8 is space for 2 ints</li>
+<li>  no space for the <code>doSomething</code> method</li>
+<li>  compiler turns method into ordinary function and store them separately from obj's</li>
+</ul>
+
+<p>Recall: <code>Book *pb = new {Book/Text/Comic}</code> <code>auto pb = make_shared&lt;Book/Text/Comic&gt;()</code>. <code>pb-&gt;isHeavy()</code></p>
+
+<p>virtual - choice of which version to run is based on the actual type of the object, which compiler can't know in advance.</p>
+
+<p>correct <code>isItHeavy</code> must be selected at runtime, how?</p>
+
+<p>For each class with virtual method, the compiler creates a table of function pointers (the vtable):</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">C</span> {
+    <span class="pl-k">int</span> x, y;
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">f</span>();
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">g</span>();
+    <span class="pl-k">void</span> <span class="pl-en">h</span>();
+    <span class="pl-k">virtual</span> <span class="pl-en">~C</span>();
+};</pre></div>
+
+<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/cs246/vtable.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/cs246/vtable.png" alt="vtable" title="vtable" style="max-width:100%;"></a></p>
+
+<p>calling a virtual method (at runtime),</p>
+
+<ul>
+<li>  fallow the <code>vptr</code> to table</li>
+<li>  fetch the pointer to the actual method from the table</li>
+<li>  follow the pointer and call the function</li>
+</ul>
+
+<p>virtual function calls incur a small overhead cost</p>
+
+<p>Also, declaring at least one virtual methods adds a <code>vptr</code> to the object, and therefore, classes with no virtual methods produce smaller objects than is some functions were virtual</p>
+
+<p>Concretely, how is an object laid out? Compiler dependent. g++: vptr first</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">A</span> {
+    <span class="pl-k">int</span> a,c;
+    <span class="pl-k">virtual</span> <span class="pl-k">void</span> <span class="pl-en">f</span>();
+};
+
+<span class="pl-k">class</span> <span class="pl-en">B</span> : <span class="pl-k">public</span> <span class="pl-en">A</span> {
+    <span class="pl-k">int</span> b, d;
+};</pre></div>
+
+<table>
+<thead>
+<tr>
+<th>class A: vptr</th>
+<th>class B: vptr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vptr</td>
+<td>vptr</td>
+</tr>
+<tr>
+<td>a</td>
+<td>a</td>
+</tr>
+<tr>
+<td>c</td>
+<td>c</td>
+</tr>
+<tr>
+<td>-</td>
+<td>b</td>
+</tr>
+<tr>
+<td>-</td>
+<td>d</td>
+</tr>
+</tbody>
+</table>
+
+<p>ptr to B looks like an pointer to A if you ignore the last two fields.</p>
+
+<h3>
+<a id="user-content-multiple-inheritance" class="anchor" href="#multiple-inheritance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multiple Inheritance</h3>
+
+<p>A class can inherit from more than one class.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">A</span> {
+    <span class="pl-k">int</span> a;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">B</span> {
+    <span class="pl-k">int</span> b;
+};
+
+<span class="pl-k">class</span> <span class="pl-en">C</span> : <span class="pl-k">public</span> <span class="pl-en">A</span>, <span class="pl-k">public</span> <span class="pl-en">B</span> {
+    <span class="pl-k">void</span> <span class="pl-en">f</span>()
+    {
+        cout &lt;&lt; a &lt;&lt; b;
+    }
+};</pre></div>
+
+<p>Challenges: suppose B inherits from A, and C inherits from A, and D inherits from B and C</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">D</span> : <span class="pl-k">public</span> <span class="pl-en">B</span>, <span class="pl-k">public</span> <span class="pl-en">C</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> d;
+};
+
+D dobj;
+dobj.a;</pre></div>
+
+<p>which <code>a</code> is this? Ambiguous - compiler rejects, needs to specify: <code>bObj.B::a</code> or <code>bObj.C::a</code></p>
+
+<p>But if B &amp; C both inherit from A, should there be one A part of D or two? should <code>B::a</code> and <code>C::a</code> be the same or different? ("two" is the default behavior)</p>
+
+<p>What if we want (deadly diamond)</p>
+
+<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/cs246/deadlydiamond.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/cs246/deadlydiamond.png" alt="deadlydiamond" title="deadlydiamond" style="max-width:100%;"></a></p>
+
+<p>Make <code>A</code> a virtual base class, employ virtual inheritance</p>
+
+<p><code>class B : virtual public A {};</code></p>
+
+<p><code>class C : virtual public A {};</code></p>
+
+<p>e.g. I/O stream hierarchy</p>
+
+<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/cs246/iostream.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/cs246/iostream.png" alt="iostream" title="iostream" style="max-width:100%;"></a></p>
+
+<p>How will this be laid out?</p>
+
+<table>
+<thead>
+<tr>
+<th>vptr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A field</td>
+</tr>
+<tr>
+<td>B field</td>
+</tr>
+<tr>
+<td>C field</td>
+</tr>
+<tr>
+<td>D field</td>
+</tr>
+</tbody>
+</table>
+
+<p>should look like an <code>A*</code> <code>B*</code> <code>C*</code> <code>D*</code>, doesn't look like a <code>C</code> object</p>
+
+<p>what does g++ do?</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vptr</td>
+</tr>
+<tr>
+<td>B fields</td>
+</tr>
+<tr>
+<td>vptr</td>
+</tr>
+<tr>
+<td>C fields</td>
+</tr>
+<tr>
+<td>D fields</td>
+</tr>
+<tr>
+<td>vptr</td>
+</tr>
+<tr>
+<td>A fields</td>
+</tr>
+</tbody>
+</table>
+
+<p>B needs to be laid out so that it can find its A part, but the distance to the A part is not known</p>
+
+<p>location of the base class is stored in the vtables</p>
+
+<p>Diagram doesn't look like all of A,B,C,D simultaneously, but slices of it do look like A,B,C,D</p>
+
+<p>ptr assignment among A,B,C,D changes the address stored in the ptr</p>
+
+<div class="highlight highlight-source-c++"><pre>D * d;
+A * a = d;
+<span class="pl-c">// change the address</span></pre></div>
 </article></body></html>

@@ -4633,3 +4633,173 @@ Text &Text::operator= (const Book & other) { // virtual
 }
 ```
 
+## Lecture 22
+
+### How virtual methods work?
+
+```cpp
+class Vec {
+	int x, y;
+	int doSomething;
+};
+
+class Vec {
+	int x, y;
+	virtual int doSomgthing();
+};
+
+Vec v {1,2};
+Vec w {1,2};
+```
+
+Do they look the same in memory?
+
+```cpp
+cout << sizeof(v) << ' ' << sizeof(w);
+(output) 8 16
+```
+*	First note: 8 is space for 2 ints
+*	no space for the `doSomething` method
+*	compiler turns method into ordinary function and store them separately from obj's
+
+Recall: `Book *pb = new {Book/Text/Comic}` `auto pb = make_shared<Book/Text/Comic>()`. `pb->isHeavy()`
+
+virtual - choice of which version to run is based on the actual type of the object, which compiler can't know in advance.
+
+correct `isItHeavy` must be selected at runtime, how?
+
+For each class with virtual method, the compiler creates a table of function pointers (the vtable):
+
+```cpp
+class C {
+	int x, y;
+	virtual void f();
+	virtual void g();
+	void h();
+	virtual ~C();
+};
+```
+
+![vtable](./vtable.png "vtable")
+
+calling a virtual method (at runtime),
+
+*	fallow the `vptr` to table
+*	fetch the pointer to the actual method from the table
+*	follow the pointer and call the function
+
+virtual function calls incur a small overhead cost
+
+Also, declaring at least one virtual methods adds a `vptr` to the object, and therefore, classes with no virtual methods produce smaller objects than is some functions were virtual
+
+Concretely, how is an object laid out? Compiler dependent. g++: vptr first
+
+```cpp
+class A {
+	int a,c;
+	virtual void f();
+};
+
+class B : public A {
+	int b, d;
+};
+```
+
+| class A: vptr | class B: vptr |
+|---------------|---------------|
+| vptr | vptr |
+| a | a |
+| c | c |
+| - | b |
+| - | d |
+
+ptr to B looks like an pointer to A if you ignore the last two fields.
+
+### Multiple Inheritance
+
+A class can inherit from more than one class.
+
+```cpp
+class A {
+	int a;
+};
+
+class B {
+	int b;
+};
+
+class C : public A, public B {
+	void f()
+	{
+		cout << a << b;
+	}
+};
+```
+
+Challenges: suppose B inherits from A, and C inherits from A, and D inherits from B and C
+
+```cpp
+class D : public B, public C {
+public:
+	int d;
+};
+
+D dobj;
+dobj.a;
+```
+
+which `a` is this? Ambiguous - compiler rejects, needs to specify: `bObj.B::a` or `bObj.C::a`
+
+But if B & C both inherit from A, should there be one A part of D or two? should `B::a` and `C::a` be the same or different? ("two" is the default behavior)
+
+What if we want (deadly diamond)
+
+![deadlydiamond](./deadlydiamond.png "deadlydiamond")
+
+Make `A` a virtual base class, employ virtual inheritance
+
+`class B : virtual public A {};`
+
+`class C : virtual public A {};`
+
+e.g. I/O stream hierarchy
+
+![iostream](./iostream.png "iostream")
+
+How will this be laid out?
+
+| vptr |
+|------|
+| A field |
+| B field |
+| C field |
+| D field |
+
+should look like an `A*` `B*` `C*` `D*`, doesn't look like a `C` object
+
+what does g++ do?
+
+| |
+|---|
+| vptr |
+| B fields |
+| vptr |
+| C fields |
+| D fields |
+| vptr |
+| A fields |
+
+B needs to be laid out so that it can find its A part, but the distance to the A part is not known
+
+location of the base class is stored in the vtables
+
+Diagram doesn't look like all of A,B,C,D simultaneously, but slices of it do look like A,B,C,D
+
+ptr assignment among A,B,C,D changes the address stored in the ptr
+
+```cpp
+D * d;
+A * a = d;
+// change the address
+```
+
