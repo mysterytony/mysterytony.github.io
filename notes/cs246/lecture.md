@@ -4803,3 +4803,210 @@ A * a = d;
 // change the address
 ```
 
+## Lecture 23
+
+Diagram isn't simultaneously an `A*` `B*` `C*` `D*`, but slices of it are.
+
+ptr assignment among A, B, C, D changes the address stored in the ptr
+
+```cpp
+D * d;
+A * a = d; // adjusts the address to the point at the `A` part
+```
+
+static/const/dynamic casting under multiple inheritance will also change the value of a ptr, if necessary. reinterpret_cast will not
+
+### Template Functions
+
+```cpp
+template<typename T> T min (T x, T y) {
+	return x < y ? x : y;
+}
+
+int f() {
+	int x = 1, y = 2;
+	int z = min (x, y); // T = int, don't have to say min<int>
+	
+	// c++ can infer T = int from the types of x + y
+	// Applies to function templates, not class templates.
+
+	char w = min('a', 'c'); // T = char
+	auto f = min(1.0, 3.0); // T = float
+}
+```
+
+For what types `T` `min` be used? (for what types `T` would the body compile?)
+
+any types for which `operator<` is defined.
+
+Recall: 
+
+```cpp
+void for_each (AbstractIterator start, AbstractIterator finish, int(*t)(int))
+{
+	while (start != finish)
+	{
+		f(*start);
+		++ start;
+	}
+}
+```
+
+works as long as `AbstractInterator` supports `*, ++, !=`, `f` can be called as a function
+
+make these template arguments:
+
+```cpp
+template<typename Iter, typename Func>
+void for_each (Iter start, Iter finish, Func f) {
+	while (start != finish)
+	{
+		f(*start);
+		++ start;
+	}
+}
+```
+
+Now `Iter` can be any type that supports `!= * ++`, including raw pointers
+
+```cpp
+void f(int n) { cout<<n<<endl; }
+int a[] = {1,2,3,4,5};
+for_each(a, a+5, f); // prints the array
+```
+
+### C++ STL library `<algorithm>`
+
+suite of template functions, many of which work over iterators.
+
+example: `for_each` (as given above, already in STL library)
+
+```cpp
+template <typename Iter, typename T>
+Iter find (Iter first, Iter last, const T & val);
+// returns an iterator to the first item in [first, last) matching val, or last if val not found
+
+template <typename Iter, typename T>
+Iter count (Iter first, Iter last, const T & val);
+// like find, but returns the number of occurrences of val
+
+template <typename InIter, typename OutIter>
+OutIter copy (InIter first, InIter last, OutIter result);
+// copies one container range [first, last) to another another starting at result
+// note: does not allocate new memory, i.e. destination must be big enough
+
+vector<int> v = {1,2,3,4,5,6,7};
+vecotr<int> w(4);
+copy(v.begin()+1, v.begin()+5, w.begin());
+// w = {2,3,4,5}
+
+template<typename InIter, typename OutIter, typename Func>
+OutIter transform (InIter first, InIter last, OutIter result, Func f) {
+	while (first != last) {
+		* result = f(*first);
+		++ result;
+		++ first;
+	}
+	return result;
+}
+
+
+int add1 (int n) { return n+1; }
+vector<int> v {2,3,5,7,11};
+vecotr<int> w (v.size());
+transform(v.begin(), v.end(), w.begin(), add1);
+// w = {2 3 6 8 12}
+```
+
+How generalized in this code?
+
+1.	what can we use for `Func`?
+2.	what can we use for `InIter` `OutIter`
+
+1.	`Func` how is `f` used? `f(*first)`
+2.	`f` can be anything that can be called a function
+3.	can write `operator()` for objects
+
+```cpp
+class Plus1 {
+public:
+	int operator() (int n) {return n+1; }
+}
+
+Plus1 p;
+p(4); // produce 5
+
+transform(v.begin(), b.end(), w.begin(), Plus1{} /*a ctor call*/);
+
+class Plus {
+	int m;
+public:
+	Plus(int m): m(m){}
+	int operator() (int n) { return n+m; }
+};
+
+transform(v.begin(), b.end(), w.begin(), Plus{1});
+```
+
+`Plus1` `Plus` their objects are called function objects.
+
+Advantage of function objects: can maintain state
+
+```cpp
+class IncreasingPlus {
+	int m = 0;
+public:
+	int operator() (int n) {return n + (m++); }
+	void reset() {m=0;}
+};
+
+vector<int> v(5,0); // 0 0 0 0 0
+vector<int> w (v.size());
+transform(v.begin(), v.end(); w.begin(), IncreasingPlus{});
+// w = {0 1 2 3 4}
+```
+
+consider: how many ints in a vector v are even?
+
+```cpp
+bool even(int n) {return n % 2 == 0;}
+int x = count_if(v.begin(), v.end(), even);
+```
+
+seems a waste to explicitly create the function even
+
+if this were Racket, we would use lambda. Do the same here.
+
+```cpp
+int x = count_if (v.begin(), v.end(), [/*reference to local var here*/](int n){return n%2 == 0;});
+auto x = [](int n){return n%2 == 0;}; // unknown name of lambda
+decltype(x) // x declared type, what ever it is, used to store lambda and more
+```
+
+### Iterator
+
+apply the notion of iteration to other data sources/destinations
+
+e.g. `streams`
+
+```cpp
+#include <iterator>
+
+vector<int> v{1,2,3,4,5};
+ostream_iterator<int> out { cout, ", " /*delimiter string*/};
+copy (v.begin(), v.end(), out); // prints 1, 2, 3, 4, 5,
+
+vector<int> v{1,2,3,4,5};
+vecotr<int> w;
+copy(v.begin(), v.end(), w.begin()); // WRONG remember copy doesn't allocate space in w.
+```
+
+it can't, it doesn't know the that w is a vector.
+
+but what if we have an iterator whose `operator=` insert a new item?
+
+```cpp
+copy(v.begin(), v.end(), back_inserter(w));
+```
+
+copies `v` to the end of `w`, allocating space

@@ -5578,4 +5578,194 @@ dobj.a;</pre></div>
 <div class="highlight highlight-source-c++"><pre>D * d;
 A * a = d;
 <span class="pl-c">// change the address</span></pre></div>
+
+<h2>
+<a id="user-content-lecture-23" class="anchor" href="#lecture-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecture 23</h2>
+
+<p>Diagram isn't simultaneously an <code>A*</code> <code>B*</code> <code>C*</code> <code>D*</code>, but slices of it are.</p>
+
+<p>ptr assignment among A, B, C, D changes the address stored in the ptr</p>
+
+<div class="highlight highlight-source-c++"><pre>D * d;
+A * a = d; <span class="pl-c">// adjusts the address to the point at the `A` part</span></pre></div>
+
+<p>static/const/dynamic casting under multiple inheritance will also change the value of a ptr, if necessary. reinterpret_cast will not</p>
+
+<h3>
+<a id="user-content-template-functions" class="anchor" href="#template-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template Functions</h3>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> T&gt; T <span class="pl-en">min</span> (T x, T y) {
+    <span class="pl-k">return</span> x &lt; y ? x : y;
+}
+
+<span class="pl-k">int</span> <span class="pl-en">f</span>() {
+    <span class="pl-k">int</span> x = <span class="pl-c1">1</span>, y = <span class="pl-c1">2</span>;
+    <span class="pl-k">int</span> z = <span class="pl-c1">min</span> (x, y); <span class="pl-c">// T = int, don't have to say min&lt;int&gt;</span>
+
+    <span class="pl-c">// c++ can infer T = int from the types of x + y</span>
+    <span class="pl-c">// Applies to function templates, not class templates.</span>
+
+    <span class="pl-k">char</span> w = <span class="pl-c1">min</span>(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>); <span class="pl-c">// T = char</span>
+    <span class="pl-k">auto</span> f = <span class="pl-c1">min</span>(<span class="pl-c1">1.0</span>, <span class="pl-c1">3.0</span>); <span class="pl-c">// T = float</span>
+}</pre></div>
+
+<p>For what types <code>T</code> <code>min</code> be used? (for what types <code>T</code> would the body compile?)</p>
+
+<p>any types for which <code>operator&lt;</code> is defined.</p>
+
+<p>Recall: </p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">for_each</span> (AbstractIterator start, AbstractIterator finish, <span class="pl-k">int</span>(*t)(<span class="pl-k">int</span>))
+{
+    <span class="pl-k">while</span> (start != finish)
+    {
+        <span class="pl-c1">f</span>(*start);
+        ++ start;
+    }
+}</pre></div>
+
+<p>works as long as <code>AbstractInterator</code> supports <code>*, ++, !=</code>, <code>f</code> can be called as a function</p>
+
+<p>make these template arguments:</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Iter, <span class="pl-k">typename</span> Func&gt;
+<span class="pl-k">void</span> <span class="pl-en">for_each</span> (Iter start, Iter finish, Func f) {
+    <span class="pl-k">while</span> (start != finish)
+    {
+        <span class="pl-c1">f</span>(*start);
+        ++ start;
+    }
+}</pre></div>
+
+<p>Now <code>Iter</code> can be any type that supports <code>!= * ++</code>, including raw pointers</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">f</span>(<span class="pl-k">int</span> n) { cout&lt;&lt;n&lt;&lt;endl; }
+<span class="pl-k">int</span> a[] = {<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>};
+<span class="pl-en">for_each</span>(a, a+<span class="pl-c1">5</span>, f); <span class="pl-c">// prints the array</span></pre></div>
+
+<h3>
+<a id="user-content-c-stl-library-algorithm" class="anchor" href="#c-stl-library-algorithm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>C++ STL library <code>&lt;algorithm&gt;</code>
+</h3>
+
+<p>suite of template functions, many of which work over iterators.</p>
+
+<p>example: <code>for_each</code> (as given above, already in STL library)</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">template </span>&lt;<span class="pl-k">typename</span> Iter, <span class="pl-k">typename</span> T&gt;
+Iter <span class="pl-en">find</span> (Iter first, Iter last, <span class="pl-k">const</span> T &amp; val);
+<span class="pl-c">// returns an iterator to the first item in [first, last) matching val, or last if val not found</span>
+
+<span class="pl-k">template </span>&lt;<span class="pl-k">typename</span> Iter, <span class="pl-k">typename</span> T&gt;
+Iter <span class="pl-en">count</span> (Iter first, Iter last, <span class="pl-k">const</span> T &amp; val);
+<span class="pl-c">// like find, but returns the number of occurrences of val</span>
+
+<span class="pl-k">template </span>&lt;<span class="pl-k">typename</span> InIter, <span class="pl-k">typename</span> OutIter&gt;
+OutIter <span class="pl-en">copy</span> (InIter first, InIter last, OutIter result);
+<span class="pl-c">// copies one container range [first, last) to another another starting at result</span>
+<span class="pl-c">// note: does not allocate new memory, i.e. destination must be big enough</span>
+
+vector&lt;<span class="pl-k">int</span>&gt; v = {<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>};
+vecotr&lt;<span class="pl-k">int</span>&gt; <span class="pl-en">w</span>(<span class="pl-c1">4</span>);
+<span class="pl-en">copy</span>(v.begin()+1, v.begin()+5, w.begin());
+<span class="pl-c">// w = {2,3,4,5}</span>
+
+<span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> InIter, <span class="pl-k">typename</span> OutIter, <span class="pl-k">typename</span> Func&gt;
+OutIter <span class="pl-en">transform</span> (InIter first, InIter last, OutIter result, Func f) {
+    <span class="pl-k">while</span> (first != last) {
+        * result = <span class="pl-c1">f</span>(*first);
+        ++ result;
+        ++ first;
+    }
+    <span class="pl-k">return</span> result;
+}
+
+
+<span class="pl-k">int</span> <span class="pl-en">add1</span> (<span class="pl-k">int</span> n) { <span class="pl-k">return</span> n+<span class="pl-c1">1</span>; }
+vector&lt;<span class="pl-k">int</span>&gt; v {<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">5</span>,<span class="pl-c1">7</span>,<span class="pl-c1">11</span>};
+vecotr&lt;<span class="pl-k">int</span>&gt; <span class="pl-en">w</span> (v.size());
+<span class="pl-en">transform</span>(v.begin(), v.end(), w.begin(), add1);
+<span class="pl-c">// w = {2 3 6 8 12}</span></pre></div>
+
+<p>How generalized in this code?</p>
+
+<ol>
+<li> what can we use for <code>Func</code>?</li>
+<li><p>what can we use for <code>InIter</code> <code>OutIter</code></p></li>
+<li><p><code>Func</code> how is <code>f</code> used? <code>f(*first)</code></p></li>
+<li> <code>f</code> can be anything that can be called a function</li>
+<li> can write <code>operator()</code> for objects</li>
+</ol>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">Plus1</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">operator</span>() (<span class="pl-k">int</span> n) {<span class="pl-k">return</span> n+<span class="pl-c1">1</span>; }
+}<span class="pl-ii"></span>
+
+Plus1 p;
+<span class="pl-en">p</span>(<span class="pl-c1">4</span>); <span class="pl-c">// produce 5</span>
+
+<span class="pl-en">transform</span>(v.begin(), b.end(), w.begin(), Plus1{} <span class="pl-c">/*a ctor call*/</span>);
+
+<span class="pl-k">class</span> <span class="pl-en">Plus</span> {
+    <span class="pl-k">int</span> m;
+<span class="pl-k">public:</span>
+    <span class="pl-en">Plus</span>(<span class="pl-k">int</span> m): m(m){}
+    <span class="pl-k">int</span> <span class="pl-en">operator</span>() (<span class="pl-k">int</span> n) { <span class="pl-k">return</span> n+m; }
+};
+
+<span class="pl-en">transform</span>(v.begin(), b.end(), w.begin(), Plus{<span class="pl-c1">1</span>});</pre></div>
+
+<p><code>Plus1</code> <code>Plus</code> their objects are called function objects.</p>
+
+<p>Advantage of function objects: can maintain state</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">class</span> <span class="pl-en">IncreasingPlus</span> {
+    <span class="pl-k">int</span> m = <span class="pl-c1">0</span>;
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">operator</span>() (<span class="pl-k">int</span> n) {<span class="pl-k">return</span> n + (m++); }
+    <span class="pl-k">void</span> <span class="pl-en">reset</span>() {m=<span class="pl-c1">0</span>;}
+};
+
+vector&lt;<span class="pl-k">int</span>&gt; <span class="pl-en">v</span>(<span class="pl-c1">5</span>,<span class="pl-c1">0</span>); <span class="pl-c">// 0 0 0 0 0</span>
+vector&lt;<span class="pl-k">int</span>&gt; <span class="pl-en">w</span> (v.size());
+<span class="pl-en">transform</span>(v.begin(), v.end(); w.begin(), IncreasingPlus{});
+<span class="pl-c">// w = {0 1 2 3 4}</span></pre></div>
+
+<p>consider: how many ints in a vector v are even?</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">bool</span> <span class="pl-en">even</span>(<span class="pl-k">int</span> n) {<span class="pl-k">return</span> n % <span class="pl-c1">2</span> == <span class="pl-c1">0</span>;}
+<span class="pl-k">int</span> x = count_if(v.begin(), v.end(), even);</pre></div>
+
+<p>seems a waste to explicitly create the function even</p>
+
+<p>if this were Racket, we would use lambda. Do the same here.</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">int</span> x = count_if (v.begin(), v.end(), [<span class="pl-c">/*reference to local var here*/</span>](<span class="pl-k">int</span> n){<span class="pl-k">return</span> n%<span class="pl-c1">2</span> == <span class="pl-c1">0</span>;});
+<span class="pl-k">auto</span> x = [](<span class="pl-k">int</span> n){<span class="pl-k">return</span> n%<span class="pl-c1">2</span> == <span class="pl-c1">0</span>;}; <span class="pl-c">// unknown name of lambda</span>
+<span class="pl-en">decltype</span>(x) <span class="pl-c">// x declared type, what ever it is, used to store lambda and more</span></pre></div>
+
+<h3>
+<a id="user-content-iterator" class="anchor" href="#iterator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Iterator</h3>
+
+<p>apply the notion of iteration to other data sources/destinations</p>
+
+<p>e.g. <code>streams</code></p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iterator<span class="pl-pds">&gt;</span></span>
+
+vector&lt;<span class="pl-k">int</span>&gt; v{<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>};
+ostream_iterator&lt;<span class="pl-k">int</span>&gt; out { cout, <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-pds">"</span></span> <span class="pl-c">/*delimiter string*/</span>};
+<span class="pl-en">copy</span> (v.begin(), v.end(), out); <span class="pl-c">// prints 1, 2, 3, 4, 5,</span>
+
+vector&lt;<span class="pl-k">int</span>&gt; v{<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>};
+vecotr&lt;<span class="pl-k">int</span>&gt; w;
+<span class="pl-en">copy</span>(v.begin(), v.end(), w.begin()); <span class="pl-c">// WRONG remember copy doesn't allocate space in w.</span></pre></div>
+
+<p>it can't, it doesn't know the that w is a vector.</p>
+
+<p>but what if we have an iterator whose <code>operator=</code> insert a new item?</p>
+
+<div class="highlight highlight-source-c++"><pre><span class="pl-en">copy</span>(v.begin(), v.end(), back_inserter(w));</pre></div>
+
+<p>copies <code>v</code> to the end of <code>w</code>, allocating space</p>
 </article></body></html>
