@@ -1,9 +1,7 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>* {
-    /*box-sizing: border-box;*/
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
 }
 
 body {
-    /*width: 980px;*/
     padding-left: 10px;
     padding-right: 10px;
     margin-right: auto;
@@ -27,8 +25,7 @@ pre {
     color: #333;
     font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
     font-size: 20px;
-    /*font: "Segoe UI";*/
-    line-height: 1.6;
+    line-height: 1.2;
     word-wrap: break-word;
 }
 
@@ -143,6 +140,7 @@ pre {
     margin-top: 15px;
     margin-bottom: 15px;
     line-height: 1.1;
+    color: #011380;
 }
 
 .markdown-body h1 {
@@ -471,7 +469,6 @@ pre {
     margin: 0;
     font-size: 85%;
     background-color: #F1F1F1;
-    /*border-radius: 3px;*/
 }
 
 .markdown-body code:before,
@@ -502,7 +499,6 @@ pre {
     line-height: 1.45;
     background-color: #FDFFCB;
     border-left: 4px solid #8E9402;
-    /*border-radius: 3px;*/
 }
 
 .markdown-body .highlight pre {
@@ -725,15 +721,423 @@ pre {
     z-index: 1;
     position: relative;
     border-color: #4078c0;
-}
+    }*/
 
-.MathJax_Display {
+
+/*.MathJax_Display {
     color: #4B0158;
     padding-top: 5px;
     padding-bottom: 5px;
-    /*border: 2px solid #210027;*/
     background-color: #FEFAFF
-}</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    font: 15px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 15px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 24px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 17px;
+    color: #000;
+}
+
+h4 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 15px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 13px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    font-size: 12px;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    font-size: 12px;
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
@@ -788,7 +1192,7 @@ MathJax.Hub.Config({
 
 <p>A capacitor is a circuit element that stores energy in an electric field. A capacitor can be constructed using two parallel conducting plates separated by distance $d$ as shown. </p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.1.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.2.1.png" target="_blank"><img src="7.2.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>Electric charge is stored on the plates, and uniform electric field exist between the conducting plates whenever there is a voltage across the capacitor. The space between the plates if filled with a dielectric material. Some capacitors use impregnated paper for a dielectric, whereas others use mica sheets, ceramics, metal films, or just air. A property of the dielectric material, called the dielectric constant, describes the relationship between the electric field strength and the capacitor voltage. Capacitor are represented by a parameter called the <strong>capacitance</strong>. The capacitance of a capacitor is proportional to the dielectric constant and the surface area of the plates and is inversely proportional to the distance between the plates. In other words, the capacitance $C$ of a capacitor is given by</p>
 
@@ -814,7 +1218,7 @@ MathJax.Hub.Config({
 
 <p>The above equation is the current-voltage relationship of a capacitor. The current and voltage adhere to the passive convention. The figure shows two alternative symbols to represent capacitors in circuit diagram. In both, the capacitor current and voltage adhere to the passive sign convention and are related to the above equation.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.2.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.2.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.2.2.png" target="_blank"><img src="7.2.2.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>Now consider the waveform shown, in which the voltage changes from a constant voltage of zero to another constant voltage of 1 over an increment of time, $\Delta t$, using the equation, we obtain</p>
 
@@ -825,7 +1229,7 @@ MathJax.Hub.Config({
 0 &amp; \quad t &gt; Dt
 \end{cases}$$</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.3.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.3.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.2.3.png" target="_blank"><img src="7.2.3.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>Thus, we obtain a pulse of height equal to $C/\Delta t$. As $\Delta t$ changes, the current will increase. Clearly, $\Delta t$ cannot decline to zero or we would experience an infinite current. An infinite current is an impossibility because it would require infinite power. Thus, an instantaneous $(Dt=0)$ change of voltage across the capacitor is not possible. In other words, we cannot have a discontinuity in $v(t)$.</p>
 
@@ -843,7 +1247,7 @@ MathJax.Hub.Config({
 
 <p>Capacitors are commercially available in a variety of types and capacitance values. Capacitor types are described in terms of the dielectric material and the construction technique. Miniature mental film capacitors are shown in the figure. Miniature hermetically sealed polycarbonate capacitors are also shown in the figure. Capacitance values typically range from picofarads $(pF)$ to microfarads $(\mu F)$.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.4.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.4.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.2.4.png" target="_blank"><img src="7.2.4.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>Two pieces of insulated wire about an inch long when twisted together will have a capacitance of about $1pF$. On the other hand, a power supply capacitor about an inch in diameter and a few inches long may have a capacitance of $0.01F$.</p>
 
@@ -864,7 +1268,7 @@ MathJax.Hub.Config({
 
 <p>$$w_c=\int_{-\infty}^{t} vC \frac{dv}{dt} = C\int_{v(-\infty)}^{v(t)} vdv =\frac 12 Cv^2 \Big|_{v(-\infty)}^{v(t)}$$</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.1.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.2.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.2.1.png" target="_blank"><img src="7.2.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>Because the capacitor was uncharged at $t=- \infty$, set $v(-\infty)=0$. Therefore</p>
 
@@ -897,7 +1301,7 @@ MathJax.Hub.Config({
 
 <p>First let us consider the parallel connection of $N$ capacitors. </p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.4.1.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.4.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.4.1.png" target="_blank"><img src="7.4.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>We wish to determine the equivalent circuit for the $N$ parallel capacitor.</p>
 
@@ -928,7 +1332,7 @@ i &amp;= C_1 \frac{dv}{dt} + C_2 \frac{dv}{dt} + ... + C_N \frac{dv}{dt} \\
 
 <p>Not let us determine the equivalent capacitance $C_s$ of a set of $N$ series-connected capacitances, as shown.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.4.3.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.4.3.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.4.3.png" target="_blank"><img src="7.4.3.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p>Using KVL for the loop, we have</p>
 
@@ -959,7 +1363,7 @@ i &amp;= C_1 \frac{dv}{dt} + C_2 \frac{dv}{dt} + ... + C_N \frac{dv}{dt} \\
 
 <p>where $N$ is the number of turns--that is, the number of times that the wire is wound around the core--$A$ is the cross-sectional area of the core in square meters; and $\mu$ is a property of the magnetic core known as the permeability. The unit of inductance called henry ($H$) in honor of the American physicist Joseph Henry. Practical inductors have inductance ranging from $1 \mu H$ to $10 H$.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.5.1.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.5.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
+<p><a href="7.5.1.png" target="_blank"><img src="7.5.1.png" alt="capacitor" title="capacitor" style="max-width:100%;"></a></p>
 
 <p><strong>Inductance is a measure of the ability of a device to store energy in the form of a magnetic field</strong>.</p>
 
@@ -979,7 +1383,7 @@ i &amp;= C_1 \frac{dv}{dt} + C_2 \frac{dv}{dt} + ... + C_N \frac{dv}{dt} \\
 
 <p>This equation says that the inductor current $i(t)$ can be found by integrating the inductor voltage from some convenient time $\tau = t_0$ until time $\tau = t$, provided that we also know the inductor current at time $t_0$. Now we are required to know only the inductor voltage from time $\tau = t_0$ until time $\tau = t$. The time $t_0$ is called the initial time, and the inductor current $i(t_0)$ is called the initial condition. Frequently, it is convenient to select $t_0=0$ as the initial time.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.5.3.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.5.3.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="7.5.3.png" target="_blank"><img src="7.5.3.png" alt="" style="max-width:100%;"></a></p>
 
 <p>Equations above describe the current-voltage relationship of an inductor. The current and voltage in these equations adhere to the passive convention. The circuit symbol for an inductor is shown above. The inductor current and voltage adhere to the passive sign convention and are related.</p>
 
@@ -990,7 +1394,7 @@ i &amp;= C_1 \frac{dv}{dt} + C_2 \frac{dv}{dt} + ... + C_N \frac{dv}{dt} \\
 \frac{10t}{t_1} &amp; 0 \leq t \leq t_1 \\
 10 &amp; t \geq t_1 \end{cases}$$</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.5.4.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.5.4.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="7.5.4.png" target="_blank"><img src="7.5.4.png" alt="" style="max-width:100%;"></a></p>
 
 <p>Let us consider a 0.1-H inductor and find the voltage waveform. Because $v=L(di/dt)$, we have (in volts)</p>
 
@@ -1031,7 +1435,7 @@ i &amp;= C_1 \frac{dv}{dt} + C_2 \frac{dv}{dt} + ... + C_N \frac{dv}{dt} \\
 
 <p>A series and parallel connection of inductors can be reduced to an equivalent simple inductor. Consider a series connection of $N$ inductors shown.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.7.1.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.7.1.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="7.7.1.png" target="_blank"><img src="7.7.1.png" alt="" style="max-width:100%;"></a></p>
 
 <p>The voltage across the series connection is</p>
 
@@ -1044,7 +1448,7 @@ v &amp;= v_1+ ... + v_N \\
 
 <p>$$v = L_s \frac{di}{dt}$$</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.7.2.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.7.2.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="7.7.2.png" target="_blank"><img src="7.7.2.png" alt="" style="max-width:100%;"></a></p>
 
 <p>we require that</p>
 
@@ -1054,7 +1458,7 @@ v &amp;= v_1+ ... + v_N \\
 
 <p>Now, consider the set of $N$ inductors in parallel, as shown.</p>
 
-<p><a href="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.7.3.png" target="_blank"><img src="///C://Users/lihen/Documents/Github/mysterytony.github.io/notes/mte120/7.7.3.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="7.7.3.png" target="_blank"><img src="7.7.3.png" alt="" style="max-width:100%;"></a></p>
 
 <p>The current $i$ is equal to the sum of the currents in the $N$ inductors:</p>
 
