@@ -2973,7 +2973,7 @@ To ensure that deletion through a superclass ptr calls the subclass dtor - decla
 7 
 ```
 
-ALWAYS make the dtor virtual in classes that are meant to be classes
+ALWAYS make the dtor virtual in classes that are meant to be super classes
 
 even if the virtual dtor does nothing
 
@@ -3064,7 +3064,7 @@ To write your own:
 
 ```cpp
 1 ﻿Text::Text (const Text &other)
-2     : Book {Text}, topic {other.topic} {}
+2     : Book {other}, topic {other.topic} {}
 3 
 4 Text &Text::operator= (const Text &other) {
 5     Book::operator= (other);
@@ -3073,7 +3073,7 @@ To write your own:
 8 }
 9 
 10 Text::Text (Text &&other)
-11     : Book {std::move(other)}, topic{std::move(other)} {}
+11     : Book {std::move(other)}, topic{std::move(other.topic)} {}
 12 
 13 
 14 Text &Text::operator= (Text &&other) {

@@ -1,0 +1,1563 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+    background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+    outline: 0;
+}
+
+.markdown-body strong {
+    font-weight: bold;
+    color: #BC0000;
+}
+
+.markdown-body h1 {
+    margin: 0.67em 0;
+}
+
+.markdown-body img {
+    border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
+}
+
+.markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+.markdown-body pre {
+    overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+.markdown-body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.markdown-body html input[disabled] {
+    cursor: default;
+}
+
+.markdown-body input {
+    line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+    padding: 0;
+}
+
+.markdown-body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+    text-decoration: underline;
+}
+
+.markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #011380;
+}
+
+.markdown-body h1 {
+    font-size: 30px;
+}
+
+.markdown-body h2 {
+    font-size: 21px;
+}
+
+.markdown-body h3 {
+    font-size: 16px;
+}
+
+.markdown-body h4 {
+    font-size: 14px;
+}
+
+.markdown-body h5 {
+    font-size: 12px;
+}
+
+.markdown-body h6 {
+    font-size: 11px;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+    margin-left: 0;
+}
+
+.markdown-body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+    opacity: 0;
+}
+
+.markdown-body .octicon {
+    font: normal normal normal 16px/1 octicons-anchor;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+    content: '\f05c';
+}
+
+.markdown-body:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.markdown-body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+    outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+.markdown-body h1 {
+
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h2 {
+
+  border-top: 4px solid #4B0000;
+  background-color: #BFADAD;
+    padding: 5px;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+
+.markdown-body h2 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+.markdown-body h6 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body dl {
+    padding: 0;
+}
+
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #012A58;
+    border-left: 4px solid #68AFFF;
+    background-color: #BAD9FB
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+}
+
+.markdown-body table th {
+    font-weight: bold;
+    color: #012C45;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #4283A9;
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #D1EEFF;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #F1F1F1;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #FDFFCB;
+    border-left: 4px solid #8E9402;
+}
+
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.markdown-body pre {
+    word-wrap: normal;
+}
+
+.markdown-body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+    content: normal;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+    color: #767676;
+    font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: normal;
+    background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+    background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+    display: block;
+}
+
+.markdown-body .plan-choice-free {
+    border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+    border-radius: 0 0 3px 3px;
+    border-top: 0;
+    margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+    margin-top: 10px;
+    display: none;
+}
+
+.markdown-body:checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+    }*/
+
+
+/*.MathJax_Display {
+    color: #4B0158;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FEFAFF
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter4</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-4-introduction-to-graph-theory" class="anchor" href="#chapter-4-introduction-to-graph-theory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 4 Introduction to Graph Theory</h1>
+
+<h2>
+<a id="user-content-41-definitions" class="anchor" href="#41-definitions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1 Definitions</h2>
+
+<p>Graph theory is the study of mathematical objects known as "graphs"--a word to which graph theorists have given a rather special meaning. So we must start be defining exactly what a graph is.</p>
+
+<h4>
+<a id="user-content-411-definition" class="anchor" href="#411-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1.1 Definition</h4>
+
+<p>A <strong>Graph</strong> $G$ is a finite nonempty set, $V(G)$, of objects, called <strong>vertices</strong>, together with a set, $E(G)$, of unordered pairs of distinct vertices. The element of $E(G)$ are called edges.</p>
+
+<p>For example, we might have</p>
+
+<p>$$V(G) = \{1,2,3,4,5\}$$</p>
+
+<p>and</p>
+
+<p>$$E(G) = \{\{1,2\},\{1,3\},\{1,4\},\{2,3\},\{2,5\},\{3,4\},\{3,5\},\{4,5\}\}$$</p>
+
+<p>For the sorts of results with which we are concerned, it is most convenient to consider the following geometric representation or diagram or <strong>drawing</strong> of a graph. On the page we draw a small circle to correspond to each vertex. For each edge we then draw a line between the corresponding pair of vertices. The only restriction on such a line is that it does not intersect the circle corresponding to any other vertex. For example, the above graph is represented in Figure 4.1 in three different ways.</p>
+
+<p><a href="4.1.png" target="_blank"><img src="4.1.png" alt="" style="max-width:100%;"></a></p>
+
+<p>If $e = \{u,v\}$ then we say that $u$ and $v$ are <strong>adjacent</strong> vertices, and that edge $e$ is <strong>incident</strong> with vertices $u$ and $v$. We can also say that the edge $e$ <strong>joins</strong> $u$ and $v$.</p>
+
+<p>Vertices adjacent to a vertex $u$ are called <strong>neighbors</strong> of $u$. The set of neighbors of $u$ is denoted $N(u)$. A graph is completely specified by the pairs of vertices that are adjacent, and the only function of a line in the drawing, representing and edge, is to indicate that two vertices are adjacent. In (i) of Figure 4.1, no edge crosses another; in (ii) of Figure 4.1, the edge $\{1,4\}$ crosses edges $(2,5)$ and $(3,5)$. A graph which can be represented with no edges crossing is said to be <strong>planar</strong>, so our graph $G$ is planar by Figure 4.1 (i).</p>
+
+<p>Some important points arise from our definition of a graph.</p>
+
+<ol>
+<li> Edges are <strong>unordered</strong> pairs of vertices. Thus the edge $(v_1, v_2)$ is not from $v_1$ to $v_2$ or vice versa; it is imply "between" $v_1$ and $v_2$. If we change Definition 4.1.1 to read "ordered pairs" we obtain the definition of a different kind of graph, a <strong>directed graph</strong> or <strong>digraph</strong>.</li>
+<li> $E(G)$, being a set, either contain a pair $(v_1,v_2)$ or it does not. Thus we do not allow the possibility of "multiple edges".</li>
+<li> The edges are pairs of <strong>distinct</strong> vertices. Hence we cannot have a loop, i.e., an edge joining a vertex to itself. Nevertheless in some circumstances it can be convenient to consider loops and/or multiple edges. If we wish to allow loops and multiple edges we will use the term <strong>multigraph</strong> instead of graph.</li>
+<li> Note that $V(G)$, and hence $E(G)$, is a <strong>finite</strong> set. If we remove this condition we find ourselves in the realm of infinite graphs--and that is a whole new ballgame.</li>
+</ol>
+
+<h2>
+<a id="user-content-42-isomorphism" class="anchor" href="#42-isomorphism" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2 Isomorphism</h2>
+
+<p>Figure 4.7(i) is the diagram of the graph $G$, where</p>
+
+<p>$$V(G)=\{p,q,r,s\} \quad E(G)=\{\{p,q\},\{p,r\},\{q,r\},\{q,s\}\}$$</p>
+
+<p>Figure 4.7(ii) is the diagram of the graph $H$, where</p>
+
+<p>$$V(G)=\{a,b,c,d\} \quad E(G)=\{\{a,b\},\{a,c\},\{a,d\},\{c,d\}\}$$</p>
+
+<p>The graphs $G$ and $H$ are not the same--$G$ has vertices $p,q,r,s$ and $H$ has vertices $a,b,c,d$--but for almost all purpose they are indistinguishable. We make this idea precise.</p>
+
+<p><a href="4.7.png" target="_blank"><img src="4.7.png" alt="" style="max-width:100%;"></a></p>
+
+<h4>
+<a id="user-content-421-definition" class="anchor" href="#421-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2.1 Definition</h4>
+
+<p>Two Graphs $G_1$ and $G_2$ are <strong>isomorphic</strong> is there exists a bijection $f:V(G_1) \rightarrow V(G_2)$ such that vertices $f(u)$ and $f(v)$ are adjacent in $G_2$ if and only if $u$ and $v$ are adjacent in $G_1$. (We might say that $f$ preserves adjacency.)</p>
+
+<p>The bijection $f$ in this definition that preserves adjacency is called an <strong>isomorphism</strong>. For example, an isomorphism from $G$ and $H$ is $g$, defined by</p>
+
+<p>$$g(p)=c \quad g(q)=a \quad g(r)=d \quad g(s)=b$$</p>
+
+<p>Another isomorphism is $h$, defined by</p>
+
+<p>$$h(p)=d \quad h(q)=a \quad h(r)=c \quad h(s)=b$$</p>
+
+<p>Figure 4.8 shows two other graphs, $G$ and $H$, that are isomorphic. One isomorphism is the mapping $f:V(G) \rightarrow V(H)$ given by</p>
+
+<p>$$f (1)=a \quad f (2)=b \quad f (3)=c \quad f (4)=h \quad f (5)=i \quad f (6)=j \quad f (7)=d \quad f (8)=e \quad f (9)=f \quad f (10)=g$$</p>
+
+<p>(This graph is called the <strong>Petersen graph</strong>)</p>
+
+<p><a href="4.8.png" target="_blank"><img src="4.8.png" alt="" style="max-width:100%;"></a></p>
+
+<p>The collection of graphs that are isomorphic to $G$ forms the <strong>isomorphism class</strong> of $G$. In almost all cases, a graph has some property if and only if all graphs in its isomorphism class have the property. Thus we generally regard isomorphic graphs as the "same" even if formally they might not be equal. Even if $G$ has only one vertex, there are infinitely many graphs in its isomorphism class. Fortunately though, the number of isomorphism classes of graphs with a given finite set of vertices is finite. For example, there are exactly 11 isomorphism classes of graphs on 4 vertices, pictured in Figure 4.9. Note that in this figure, the vertices of the graphs are not given explicitly, because however we assign vertices to the drawing, we will still get a graph in the same isomorphism class. </p>
+
+<p>The identity map on $V(G)$ is an isomorphism form the graph $G$ to itself. An isomorphism from $G$ to itself is called an <strong>automorphism</strong> of $G$.</p>
+
+<p><a href="4.9.png" target="_blank"><img src="4.9.png" alt="" style="max-width:100%;"></a></p>
+
+<h2>
+<a id="user-content-43-degree" class="anchor" href="#43-degree" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3 Degree</h2>
+
+<p>The number of edges incident with a vertex $v$ is called the <strong>degree</strong> of $v$, and is denoted by $deg(v)$. For example in G of Figure 4.7 we have $deg(p) = deg(r) = 2$ $deg(q) =3$ $deg(s)=1$; in G of Figure 4.8, all vertices have degree 3. In what follows we generally use $p$ for the number of vertices and $q$ for the number of edges.</p>
+
+<h4>
+<a id="user-content-431-theorem" class="anchor" href="#431-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3.1 Theorem</h4>
+
+<p>For any graph $G$ we have</p>
+
+<p>$$\sum_{v \in V(G)} deg(v) = 2 |E(G)|$$</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Each edge has two ends, and when we sum the degrees of the vertices, we are counting the edges twice, once for each end.
+$\square$</p>
+</blockquote>
+
+<p>This is known as the <strong>Handshaking Lemma</strong> or the <strong>Degree-Sum Formula</strong>.</p>
+
+<h4>
+<a id="user-content-432-corollary" class="anchor" href="#432-corollary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3.2 Corollary</h4>
+
+<p>The number of vertices of odd degree in a graph is even.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-1" class="anchor" href="#proof-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>The sum of all degrees is $2q$, an even number. The sum of the vertices of even degree is even. Hence the sum of the vertices of add degrees is also an even number. This implies that there must be an even number of vertices with odd degree.
+$\square$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-433-corollary" class="anchor" href="#433-corollary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3.3 Corollary</h4>
+
+<p>The average degree of a vertex in the graph G is</p>
+
+<p>$$\frac{2 |E(G)|}{|V(G)|}$$</p>
+
+<p>A graph in which every vertex has degree $k$, for some fixed $k$, is called a $k$-<strong>regular</strong> graph (or just a <strong>regular</strong> graph). We note one important class of regular graphs.</p>
+
+<h4>
+<a id="user-content-434-definition" class="anchor" href="#434-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3.4 Definition</h4>
+
+<p>A <strong>complete graph</strong> is one in which all pairs of distinct vertices are adjacent. (Thus each vertex is joined to every other vertex.) The complete graph with $p$ vertices is denoted by $K_p$, $p\geq 1$.</p>
+
+<p>In $K_n$ each vertex is adjacent to $n-1$ vertices distinct from it, thus $K_n$ is regular with degree $n-1$. The number of edges in $K_n$ is therefore ${n \choose 2}$, following Corollary 4.3.2.</p>
+
+<h2>
+<a id="user-content-44-bipartite-graphs" class="anchor" href="#44-bipartite-graphs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 Bipartite Graphs</h2>
+
+<p>A graph in which the vertices can be partitioned into two sets $A$ and $B$, so that all edges join a vertex in $A$ to a vertex in $B$, is called a <strong>bipartite</strong> graph, with <strong>bipartition</strong> $(A,B)$. The <strong>complete</strong> bipartite graph $K_{m,n}$ has all vertices in $A$ adjacent to all vertices in $B$, with $|A| = m, |B| = n$. For example, Figure 4.11 is a drawing of $K_{2,3}$.</p>
+
+<p><a href="4.11.png" target="_blank"><img src="4.11.png" alt="" style="max-width:100%;"></a></p>
+
+<h4>
+<a id="user-content-441-definition" class="anchor" href="#441-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4.1 Definition</h4>
+
+<p>For $n\geq 0$, the $n$-<strong>cube</strong> is the graph whose vertices are the $\{0,1\}$-strings of length $n$, and two strings are adjacent if and only if they differ in exactly one position.</p>
+
+<h2>
+<a id="user-content-46-paths-and-cycles" class="anchor" href="#46-paths-and-cycles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.6 Paths and Cycles</h2>
+
+<p>A subgraph of a graph $G$ is a part of $G$ (or possibly the whole of G). More rigorously we have</p>
+
+<h4>
+<a id="user-content-461-definition" class="anchor" href="#461-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.6.1 Definition</h4>
+
+<p>A <strong>subgraph</strong> of a graph $G$ is a graph whose vertex set is subset $U$ of $V(G)$ and whose edge set is a subset of those edges of $G$ that have both vertices in $U$.</p>
+
+<p>Thus if $H$ is a subgraph of $G$, then $H$ has some (perhaps all) the vertices of $G$ and some (perhaps all) the edges that, in $G$, join vertices of $H$. (Clearly we cannot have any edges in $H$ that involves vertices not in $H$.) If $V(H) = V(G)$, that is $H$ has all vertices of $G$, we say $H$ is a <strong>spanning subgraph</strong> of $G$</p>
+
+<p>If $H$ is a subgraph of $G$ and $H$ is not equal to $G$, we say it is a <strong>proper subgraph</strong> of $G$. If $D$ is a subgraph of $G$ and $C$ is a subgraph of $D$, then $C$ is a subgraph of $G$.</p>
+
+<p>A <strong>walk</strong> in a graph $G$ from $v_0$ to $v_n$, $n \geq 0$, is an alternating sequence of vertices and edges of $G$</p>
+
+<p>$$v_0e_1...v_{n-1}e_nv_n$$</p>
+
+<p>which begins with vertex $v_0$, ends with vertex $v_n$ and, for $1 \leq i \leq n$, edge $e_i = \{v_{i-1}, v_i\}$. Such a walk can also be called a $v_0 v_n$-<strong>walk</strong>. Note that the <strong>length</strong> of a walk is the number of edges in it (in this case, $n$). Also, because we can reverse a walk to get a walk from $v_n$ to $v_0$, we refer, where convenient, to a walk <strong>between</strong> a pair of vertices, instead of from one to the other. A walk is said to be <strong>closed</strong> if $v_0 = v_n$.</p>
+
+<p>A <strong>path</strong> is a walk in which all the vertices are distinct. A path that starts at $v_0$ and ends at $v_n$ is called a $v_0 v_n$-<strong>path</strong>. Observe that since all the vertices in a path are distinct, so are all the edges.</p>
+
+<p>Since graphs have no multiple edges, consecutive vertices $v_{i-1}$ and $v_i$ determine the edges $e_i$ of a walk. Hence, in describing a walk we often omit the edges.</p>
+
+<h4>
+<a id="user-content-462-theorem" class="anchor" href="#462-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.6.2 Theorem</h4>
+
+<p>If there is a walk from vertex $x$ to vertex $y$ in $G$, then there is a path from $x$ to $y$ in $G$.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-2" class="anchor" href="#proof-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>We use a form of proof by  contradiction.
+Suppose that $v_0,...,v_n$ is a walk in $G$ from $v_0 = x$ and $v_n = y$ with minimal length (along all walks from $x$ to $y$). If the walk is not a path, then $v_i = v_j$ for some $i&lt;j$, and then $v_0,...,v_i,v_{j+1},...,v_n$ would be a walk from $x$ to $y$ whose length is less than the minimum possible. But this contradicts our initial choice, and so we conclude that the vertices in our original walk are all distinct, and therefore it is a path.
+$\square$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-4633-corollary" class="anchor" href="#4633-corollary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.6.33 Corollary</h4>
+
+<p>Let $x$, $y$, $z$ be vertices of $G$. If there is a path from $x$ to $y$ in $G$ and a path from $y$ to $z$ in $G$, then there is a path from $x$ to $z$ in $G$.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-3" class="anchor" href="#proof-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>The path from $x$ to $y$ followed by the path from $y$ to $z$ is a walk from $x$ to $z$ in $G$, so by Theorem 4.6.2, there is a path from $x$ to $z$ in $G$.
+$\square$</p>
+</blockquote>
+
+<p>A <strong>cycle</strong> in a graph $G$ is a subgraph with $n$ distinct vertices $v_0,...,v_{n-1}$, $n\geq 1$ and $n$ distinct edges $\{v_0,v_1\},\{v_1,v_2\},...,\{v_{n-2},v_{n-1}\},\{v_{n-1},v_0\}$. Equivalently, a cycle is a connected graph that is regular of degree two.</p>
+
+<p>The subgraph we get from a cycle by deleting one edge is called a <strong>path</strong>. This is inconsistent with the original definition of path, because we defined a path to be a type of walk, and a walk is a sequence of vertices and edges and so is not a graph. But it is very convenient to use the word path in both senses, and we will.</p>
+
+<p>A cycle with $n$ edges is called an $n$-cycle or a cycle of length $n$. A cycle of length 1 has one vertex, $v_0$ and one edge $v_0 v_0$ which is a loop. Therefore since graphs have no loops, a graph has no cycle of length one. A cycle of length 2 has two vertices $v_0$ and $v_1$, and two distinct edges, called multiple edges, joining $v_0$ and $v_1$. Therefore, a graph has no cycle of length two. Thus the shortest possible cycle in a graph is a 3-cycle, often called a triangle.</p>
+
+<p>Note that for a cycle with $n \geq 3$ vertices $v_0,...,v_{n-1}$ then $v_i v_{i+1} ... v_{n-1}v_0,...,v_i$ and $v_iv_{i-1}...v_0v_{n-1}...v_i$ are both closed walks for each $i = 0,...,n-1$, and in this way there are $2n$ closed walks of length $n$ associated with a given $n$-cycle.</p>
+
+<p>In a cycle, every vertex has degree exactly 2. There's one condition that guarantees that a graph contains a cycle.</p>
+
+<h4>
+<a id="user-content-464-theorem" class="anchor" href="#464-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.6.4 Theorem</h4>
+
+<p>If every vertex in $G$ has degree at least 2, then $G$ contains a cycle.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-4" class="anchor" href="#proof-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $v_0v_1,...,v_k$ be a longest path in $G$. The vertex $v_0$ has $v_1$ as one neighbor, Since $v_0$ has degree at least 2, $v_0$ has another neighbor $x$. If $x4$ is not on the path, then it is a path longer than our longest path, which is a contradiction. Hence $x$ must be on the path, and $x=v_i$ for some $i \geq 2$.
+$\square$</p>
+</blockquote>
+
+<p>A spanning cycle in a graph is known as a <strong>Hamilton</strong> cycle. Although it is easy to decide if a given cycle is a Hamilton cycle, it can be surprisingly difficult to find one in a graph or to certify that is has no HAmilton cycle.</p>
+
+<h2>
+<a id="user-content-48-connectedness" class="anchor" href="#48-connectedness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.8 Connectedness</h2>
+
+<h4>
+<a id="user-content-481-definition" class="anchor" href="#481-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.8.1 Definition</h4>
+
+<p>A graph $G$ is <strong>connected</strong> if, for each two vertices $x$ and $y$, there is a path from $x$ to $y$.</p>
+
+<h4>
+<a id="user-content-482-theorem" class="anchor" href="#482-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.8.2 Theorem</h4>
+
+<p>Let $G$ be a graph and let $v$ be a vertex in $G$. If for each vertex $w$ in $G$ there is a path from $v$ to $w$ in $G$, then $G$ is connected.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-5" class="anchor" href="#proof-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>For any vertices $x$ and $y$ in $G$, there is a path from $v$ to $x$ and a path from $v$ to $y$. If we reverse the path from $v$ to $x$ we obtain a path from $x$ to $v$, and now Corollary 4.6.3 implies that there is a path from $x$ to $y$ in $G$, so $G$ is connected by Definition 4.8.1.
+$\square$</p>
+</blockquote>
+
+<p>If $G$ is a graph on $n$ vertices, then to certify that $G$ is connected according to the definition of connected, we must provide a total of ${n \choose 2}$ paths. The above theorem reduces the workload: only $n$ path are needed.</p>
+
+<h4>
+<a id="user-content-484-definition" class="anchor" href="#484-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.8.4 Definition</h4>
+
+<p>A <strong>component</strong> of $G$ is subgraph $C$ of $G$ such that</p>
+
+<ol>
+<li> $C$ is connected.</li>
+<li> No subgraph of $G$ that properly contains $C$ is connected.</li>
+</ol>
+
+<p>These two conditions may sometimes be stated in the form "a component of $G$ is a subgraph which is maximal, subject to be connected". Here when we say a subgraph $C$ of $G$ is maximal, subject to having some property, then this means that any subgraph that properly contains $C$ does not have this property.</p>
+
+<p>Note that we could have defined a component of $G$ to be the equivalence class of a vertex, relative to the relation "is joined by a walk to". Since this is indeed an equivalence relation, it follows immediately that the components of $G$ partition its vertex set.</p>
+
+<p><a href="4.21.png" target="_blank"><img src="4.21.png" alt="" style="max-width:100%;"></a></p>
+
+<p>Figure 4.21 shows a graph having three components. Note that there are paths between every pair of vertices in the same component, but not between pairs of vertices in different components. </p>
+
+<p>While it is easy to convince someone of the existence of a path between two vertices (show them the path), it is less clear how you might convince them that a path does not exist. We introduce a convenient way of doing this.</p>
+
+<p>If we are given a partition $(X,Y)$ of $V(G)$ such that there are no edges having an end in $X$ and an end in $Y$, then there is no path from any vertex in $X$ to any vertex in $Y$. So, if $X$ and $Y$ are both nonempty, $G$ is not connected. Given a subset $X$ of the vertices of $G$, the <strong>cut</strong> induced by $X$ is the set of edges that have exactly one end in $X$.</p>
+
+<h4>
+<a id="user-content-485-theorem" class="anchor" href="#485-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.8.5 Theorem</h4>
+
+<p>A graph $G$ is not connected if and only if there exists a proper nonempty subset $X$ of $V(G)$ such that the cut induced by $X$ is empty.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-6" class="anchor" href="#proof-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $G$ be a connected graph, and let $X$ be a proper nonempty subset of $V(G)$. Choose $u\in X$ and $v \in V(G) \setminus X$. Since $G$ is connected, there exists a path $x_0,...,x_n$ from $u$ to $v$. Choose $k$ as large as possible such that $x_k\in X$. Since $x_n = v \notin X, k &lt; N$, the edge $x_k x_{k+1}$ is in the cut induced by $X$ and hence this cut is not empty.
+Conversely, suppose that $G$ is not connected and let $C$ be a component of $G$. Consider the partition $(X,Y)$ of $V(G)$ where $X = V(C)$ and $Y= V(G) \setminus V(C)$. Since $C$ is connected and $G$ is not, $X$ is a proper non-empty subset of $V(G)$. Since $C$ is a component, if the vertex $y$ is adjacent to a vertex in $C$, then $y \in V(C)$. Hence the cut induced by $X$ is empty.
+$\square$</p>
+</blockquote>
+
+<h2>
+<a id="user-content-49-eulerian-circuits" class="anchor" href="#49-eulerian-circuits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.9 Eulerian Circuits</h2>
+
+<p>One of the earliest problems in graph theory is the <strong>seven bridges of Konigsberg</strong> problem. In the 18th century in the town of Konigsberg (now Kaliningard, Russia), there were 7 bridges that crossed the river Pergel, which cuts through the city and there were 2 islands in the middle of the river. The layout can be roughly represented in the following diagram.</p>
+
+<p><a href="bridge.png" target="_blank"><img src="bridge.png" alt="" style="max-width:100%;"></a></p>
+
+<p>The question is that can a resident of the city leave home, cross every bridge exactly once, and then return home? We can formulate the layout of the city as a graph: Create 4 vertices representing the land areas (two shores and two islands), and create an edge for each bridge, joining the vertices representing the two land areas on either side of the bridge. In this case, we obtain the following graph (with multiple edges):</p>
+
+<p><a href="bridgegraph.png" target="_blank"><img src="bridgegraph.png" alt="" style="max-width:100%;"></a></p>
+
+<p>In terms of graph theory, the question becomes "is there a closed walk that uses every edge exactly once?" We use a definition for this type of walk.</p>
+
+<h4>
+<a id="user-content-491-definition" class="anchor" href="#491-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.9.1 Definition</h4>
+
+<p>An Eulerian circuit of a graph $G$ is a closed walk that contains every edge of $G$ exactly once.</p>
+
+<p>In 1736, Swiss mathematician Leonhard Euler noted that there cannot be an Eulerian circuit for the 7 bridge of Konigsberg problem. The reason being that if an Eulerian circuit exists, each time we visit a vertex, we must use 2 distinct edges incident with that vertex: use one edge to go the vertex, use one edge to leave the vertex. So every vertex must have even degree. However, in this graph, every vertex has odd degree, so such walk is not possible.</p>
+
+<p>On the other hand, suppose we have a connected graph and every vertex has even degree. Does it have an Eulerian circuit? Euler noted that this is indeed true, and we give a proof here.</p>
+
+<h4>
+<a id="user-content-492-theorem" class="anchor" href="#492-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.9.2 Theorem</h4>
+
+<p>Let $G$ be a connected graph. Then $G$ has an Eulerian circuit if and only if every vertex has even degree.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-7" class="anchor" href="#proof-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>($\Rightarrow$) A closed walk contributes 2 to the degree of a vertex for each visit. Since an Eulerian circuit uses each edge of the graph exactly once, each vertex in the graph must have even degree.
+($\Leftarrow$) We will prove by strong induction on the number of edges $m$ in $G$.
+Base Case: if $G$ has 0 edges, then $G$ consists of exactly one isolated vertex. It has a trivial closed walk as an Eulerian circuit.
+Induction Hypothesis: Assume that for some $m \geq 1$, any connected graph with less than $m$ edges where every vertex has even degree has an Eulerian circuit.
+Inductive Step: Let $G$ be a connected graph with $m$ edges where every vertex has even degree. This implies that every vertex has degree at least 2. Therefore, by Theorem 4.6.4, there exists a cycle $C$ in $G$, say the vertex on the cycle in order are $v_1,...,v_k,v_1$.
+Remove edges of $C$ from $G$ and remove isolated vertices to obtain $G'$. Since every vertex is incident with either 0 or 2 edges in $C$, every vertex in $G'$ still has even degree. Now $G'$ consists of components $C_1,...,C_l$ each containing less than $m$ edges.
+By induction hypothesis, each component $C_i$ has an Eulerian circuit $W_i$. Moreover, each component must have a common vertex with $C$, for otherwise $G$ is disconnected. Let $v_{a_i}$ be one vertex of $C_i$. Rearrange the components so that $a_1 &lt; a_2 &lt; ... &lt;a_l$ and let $W_i$ start and end at $v_{a_i}$.
+Then we can construct an Eulerian circuit for $G$ by walking along $C$ and making detours $W_i$ as we hit $v_{a_i}$:
+$$v_1,...,v_{a_1-1},W_1,v_{a_1+1},...,v_{a_2-1},W_2,v_{a_2+1},...,v_{a_l-1},W_l,v_{a_l+1},...,v_k,v_1$$
+$\square$</p>
+</blockquote>
+
+<h2>
+<a id="user-content-410-bridges" class="anchor" href="#410-bridges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.10 Bridges</h2>
+
+<p>If $e \in E(G)$, we denote by $G-e$ (or by $G\setminus e$) the graph whose vertex set is $V(G)$ and whose edge set is $E(G) \setminus \{e\}$. (So $G-e$ is the graph contained from $G$ by deleting the edge $e$).</p>
+
+<h4>
+<a id="user-content-4101-definition" class="anchor" href="#4101-definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.10.1 Definition</h4>
+
+<p>An edge $e$ of $G$ is a <strong>bridge</strong> if $G-e$ has more components than $G$.</p>
+
+<p>Thus if $G$ is connected, a bridge is an edge such that $G-e$ is not connected. Figure 4.22 shows a connected graph with a bridge $e$. Some texts, and some instructors, use <strong>cut-edge</strong> as a synonym for bridge.</p>
+
+<p><a href="4.22.png" target="_blank"><img src="4.22.png" alt="" style="max-width:100%;"></a></p>
+
+<h4>
+<a id="user-content-4102-lemma" class="anchor" href="#4102-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.10.2 Lemma</h4>
+
+<p>If $e = (x,y)$ is a bridge of a connected graph $G$, the $G-e$ has precisely two components; furthermore, $x$ and $y$ are in different components.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-8" class="anchor" href="#proof-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $e = (x,y)$. If $e$ is a bridge, then $G-e$ has at least two components. Let $V_x$ be the set of vertices in the same component of $G-e$ as $x$. Let $z$ be any vertex of $G-e$ not in $V_x$. Because there exists a path from $x$ to $z$ in $G$ but not in $G-e$, every path from $x$ to $z$ in $G$ contains edge $e$ and so must be of the form
+$$xeye_2v_2e_3v_3...v_{n-1}e_nz$$
+But $ye_2v_2...e_nz$ is a path from $y$ to $z$ in $G-e$. Thus $z$ is in the same component of $G-e$ as $y$, for every vertex $z$ not in $V_x$. Hence $G-e$ has 2 components, one containing vertex $x$ and the other containing vertex $y$.
+$\square$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-4103-theorem" class="anchor" href="#4103-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.10.3 Theorem</h4>
+
+<p>An edge $e$ is a bridge of a graph $G$ if and only if it is not contained in any cycle of $G$.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-9" class="anchor" href="#proof-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>We begin by proving the following implication: if edge $e= xy$ is an edge of some cycle of $G$, then $e$ is not a bridge of $G$.
+By hypothesis, there is a cycle
+$$xe_1v_1,...,v_{n-1}e_nyex$$
+in G, then
+$$xe_1v_1,...,v_{n-1}e_ny$$
+is a path from $x$ to $y$ in $G-e$. Hence $e$ is not a bridge of $G$ by Lemma 4.10.2. This establishes the implication.</p>
+
+<p>To complete the proof, we must establish the converse--if edge $e$ is not a bridge of graph $G$, then $e$ is an edge of some cycle. Suppose $e =uv$ is not a bridge. Then $u$ and $v$ must lie in the same component of $G-e$ and so there is a path $P$ that joins them. Together with $e$ this path forms a cycle that contains $e$.
+$\square$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-4104-corollar" class="anchor" href="#4104-corollar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.10.4 Corollar</h4>
+
+<p>If there are two distinct paths from vertex $u$ to vertex $v$ in $G$, then $G$ contains a cycle.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-10" class="anchor" href="#proof-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $P_1$ and $P_2$ be distinct paths from $u$ and $v$. Suppose that $P_1$ is given by $x_0,...,x_n$ and $P_2$ is given by $y_0,...,y_m$. Thus $u = x_0 = y_0$ and $v=x_n=y_m$. Let $i$ be the first index such that $x_{i+1} \neq y_{i+1}$. Then $e = x_i, x_{i+1}$ is an edge in $P_1$ but not in $P_2$.
+Consider the walk
+$$x_i,x_{i-1},...,x_0 = u = y_0,...,y_m = v = x_n,x_{n-1},...,x_{i+1}$$
+It is a walk from $x_i$ to $x_{i+1}$ that does not use the edge $e$. So it is also a walk in $G-e$, hence $x_i,x_{i+1}$ are in the same component in $G-e$. By Lemma 4.10.2 $e$ is not a bridge. By Theorem 4.10.3, $e$ must be part of a cycle. Hence $G$ contains a cycle.
+$\square$</p>
+</blockquote>
+
+<p>We will often use the contrapositive form of this result: If graph $G$ has no cycles, then each pair of vertices is joined by at most one path.</p>
+</article></body></html>

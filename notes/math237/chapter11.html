@@ -1,0 +1,1308 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+    background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+    outline: 0;
+}
+
+.markdown-body strong {
+    font-weight: bold;
+    color: #BC0000;
+}
+
+.markdown-body h1 {
+    margin: 0.67em 0;
+}
+
+.markdown-body img {
+    border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
+}
+
+.markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+.markdown-body pre {
+    overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+.markdown-body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.markdown-body html input[disabled] {
+    cursor: default;
+}
+
+.markdown-body input {
+    line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+    padding: 0;
+}
+
+.markdown-body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+    text-decoration: underline;
+}
+
+.markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #011380;
+}
+
+.markdown-body h1 {
+    font-size: 30px;
+}
+
+.markdown-body h2 {
+    font-size: 21px;
+}
+
+.markdown-body h3 {
+    font-size: 16px;
+}
+
+.markdown-body h4 {
+    font-size: 14px;
+}
+
+.markdown-body h5 {
+    font-size: 12px;
+}
+
+.markdown-body h6 {
+    font-size: 11px;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+    margin-left: 0;
+}
+
+.markdown-body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+    opacity: 0;
+}
+
+.markdown-body .octicon {
+    font: normal normal normal 16px/1 octicons-anchor;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+    content: '\f05c';
+}
+
+.markdown-body:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.markdown-body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+    outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+.markdown-body h1 {
+
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h2 {
+
+  border-top: 4px solid #4B0000;
+  background-color: #BFADAD;
+    padding: 5px;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+
+.markdown-body h2 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+.markdown-body h6 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body dl {
+    padding: 0;
+}
+
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #012A58;
+    border-left: 4px solid #68AFFF;
+    background-color: #BAD9FB
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+}
+
+.markdown-body table th {
+    font-weight: bold;
+    color: #012C45;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #4283A9;
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #D1EEFF;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #F1F1F1;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #FDFFCB;
+    border-left: 4px solid #8E9402;
+}
+
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.markdown-body pre {
+    word-wrap: normal;
+}
+
+.markdown-body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+    content: normal;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+    color: #767676;
+    font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: normal;
+    background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+    background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+    display: block;
+}
+
+.markdown-body .plan-choice-free {
+    border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+    border-radius: 0 0 3px 3px;
+    border-top: 0;
+    margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+    margin-top: 10px;
+    display: none;
+}
+
+.markdown-body:checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+    }*/
+
+
+/*.MathJax_Display {
+    color: #4B0158;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FEFAFF
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter11</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-11-coordinate-systems" class="anchor" href="#chapter-11-coordinate-systems" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 11 Coordinate Systems</h1>
+
+<p>A <strong>coordinate system</strong> is a system for representing the location of a point in a space by an ordered $n$-tuple. We call the elements of the $n$-tuple the <strong>coordinates</strong> of the point.</p>
+
+<p>We are used to using the Cartesian coordinate system in which the location of the point is represented by the directed distance from a set of perpendicular axes which all interest at point $O$. However, you may also be used to other coordinate systems. For example, the geographic coordinate system represents location on the earth by longitude, latitude and altitude.</p>
+
+<p>We will no look at three other important coordinate systems: polar coordinates, cylindrical coordinates and spherical coordinates.</p>
+
+<h2>
+<a id="user-content-111-polar-coordinates" class="anchor" href="#111-polar-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.1 Polar Coordinates</h2>
+
+<p>As in all coordinate systems, we must have a frame of reference for our coordinate system. So, in a plane we choose a point $O$ called the <strong>pole</strong> (or origin). From $O$ we draw a ray called the <strong>polar axis</strong>. Generally, the polar axis is drawn horizontally to the right to match the positive $x$-axis in Cartesian coordinates.</p>
+
+<p>Let $P$ be any other point in the plane. We will represent the position of $P$ by the ordered pair $(r, \theta)$ where $r \geq 0$ is the length of the line $OP$ and $\theta$ is the angle between the polar axis and $OP$. We call $r$ and $\theta$ the polar coordinates of $P$.</p>
+
+<h4>
+<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<ol>
+<li> We assume, as usual, that an angle $\theta$ is considered positive if measured in the counterclockwise direction from the polar axis and negative if measured in the clockwise direction.</li>
+<li> We represent the point $O$ by the polar coordinates $(0,\theta)$ for any value of $\theta$.</li>
+<li> We are restricting $r$ to be non-negative to coincide with the interpretation of $r$ as distance. Many textbook do not put this restrictions on $r$.</li>
+<li> Since we use the distance $r$ from the pole in our representation, polar coordinates are suited for solving problems in which there is symmetry about the pole.</li>
+</ol>
+
+<p>Here is one important difference between polar coordinates and Cartesian coordinates. In Cartesian coordinates each point has a unique representation $(x,y)$. However, observe that a point $P$ can have infinitely many representations in polar coordinates. In particular</p>
+
+<p>$$(r, \theta) = (r, \theta + 2\pi k) \quad k \in \mathbb Z$$</p>
+
+<h3>
+<a id="user-content-relationship-to-cartesian-coordinates" class="anchor" href="#relationship-to-cartesian-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Relationship to Cartesian Coordinates</h3>
+
+<p>If we now place the pole $O$ at the origin of the Cartesian plane and lie the polar axis along the positive $x$-axis, we can find a relationship between the coordinates of a point $P$ in the two coordinate systems. In particular, we see from the diagram that</p>
+
+<p>$$x = r\cos \theta \quad y = r\sin \theta \quad r = \sqrt{x^2+y^2} \quad \tan \theta = \frac yx$$</p>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>The equation $\tan \theta = \frac yx$ does not uniquely determine $\theta$, since over $0 \leq \theta \leq 2\pi$ each value of $\tan \theta$ occurs twice. One must be careful to choose the $\theta$ which lies in the correct quadrant.</p>
+
+<h3>
+<a id="user-content-graphs-in-polar-coordinates" class="anchor" href="#graphs-in-polar-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Graphs in Polar Coordinates</h3>
+
+<p>The graph of an explicitly defined polar equation $r = f(\theta)$ or $\theta = f(r)$, or an implicitly defined polar equation $f(r,\theta) =0$, is a curve that consists of all points that have at least one polar representation $(r, \theta)$ that satisfies the equation of the curve.</p>
+
+<h3>
+<a id="user-content-area-in-polar-coordinates" class="anchor" href="#area-in-polar-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Area in Polar Coordinates</h3>
+
+<p>We now wish to derive the formula for computing area between curves in Polar coordinates. Clearly this will be a little different than before as it does not make sense to use rectangles to find our era. In Polar coordinates, it is natural to use sectors of a circle.</p>
+
+<p>Recall that if $\theta_1$ and $\theta_2$, $\theta_2 &gt; \theta_1$, are two angles in a circle of radius $r$, then the area between them is</p>
+
+<p>$$\frac{\theta_2 - \theta_1}{2\pi} \cdot \pi r^2 = \frac 12 r^2 (\theta_2 - \theta_1)$$</p>
+
+<p>We now derive the area as before. We divide the region bounded by $\theta = a$, $\theta = b$ and $r = f(\theta)$ into subregions $\theta_0,...,\theta_n$ of equal difference $\Delta \theta$, then for each subregion $\theta_i$, $0 \leq i \leq n$ we pick some point $\theta_i^*$ with  $\theta_i \leq \theta_i^* \leq \theta_{i+1}$. We then form the sector between $\theta_1$ and $\theta_{i+1}$ with radius $f(\theta_i^*)$. The area of this sector is</p>
+
+<p>$$\frac 12 [f(\theta_i^*)]^2\Delta \theta$$</p>
+
+<p>Hence the area is approximately</p>
+
+<p>$$\sum_{i=0}^{n-1} \frac 12 [f(\theta_i^*)]^2\Delta \theta$$</p>
+
+<p>Thus, as we let the number of subdivisions go to infinity and hence letting each of the $\Delta \theta_i$ tend to 0 we get</p>
+
+<p>$$A= \lim_{||\Delta \theta_i|| \rightarrow 0} \sum_{i=0}^{n-1} \frac 12 [f(\theta_i^*)]^2\Delta \theta = \int_a^b \frac 12 [f(\theta)]^2 d\theta$$</p>
+
+<h4>
+<a id="user-content-algorithm" class="anchor" href="#algorithm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Algorithm</h4>
+
+<p>To find the area between two curves in Polar coordinates, we use the same method we used for doing this in Cartesian coordinates.</p>
+
+<ol>
+<li> Find the points of intersections.</li>
+<li> Graph the curves and split the desired region into easily integrable regions.</li>
+<li> Integrate.</li>
+</ol>
+
+<h4>
+<a id="user-content-remark-2" class="anchor" href="#remark-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Finding points of intersection can be tricky, especially at the pole/origin which does not have a unique representation: $(0,\theta)$ for any $\theta$ represents the origin, so simply setting expressions equal to each other may "miss" that point. It is essential to sketch the region when find points of intersection.</p>
+
+<h2>
+<a id="user-content-112-cylindrical-coordinates" class="anchor" href="#112-cylindrical-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.2 Cylindrical Coordinates</h2>
+
+<p>Observe that we can extend polar coordinates to 3-dimensional space by introducing another axis, called the <strong>axis of symmetry</strong>, through the pole perpendicular to the polar plane. We then represent any point $P$ in the space by the cylindrical coordinates $(r,\theta,z)$ where $r$ and $\theta$ are as in polar coordinates and $z$ is the height above (or below) the polar plane. Thus, as in Polar coordinates, we have the restrictions $r\geq 0$, $0 \leq \theta \leq 2 \pi$.</p>
+
+<h4>
+<a id="user-content-remark-3" class="anchor" href="#remark-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Notation for cylindrical coordinates may vary from author to author. In particular, in the sciences they generally use the Standard ISO 31-11 notation which gives the cylindrical coordinates as $(\rho, \phi, z)$.</p>
+
+<p>If we place the pole at the origin and the polar axis along the positive $x$-axis as in polar coordinates and place the axis of symmetry along the $z$-axis we then can relate a point $P$ in cylindrical and Cartesian coordinates by</p>
+
+<p>$$x = r\cos \theta \quad y = \sin \theta \quad z = z \quad r = \sqrt{x^2 + y^2} \quad \tan \theta = \frac yx \quad z=z$$</p>
+
+<h4>
+<a id="user-content-remark-4" class="anchor" href="#remark-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Cylindrical coordinates are useful when there is symmetry about the axis. Thus, it is sometimes desirable to lie the polar axis and axis of symmetry along different axes.</p>
+
+<h3>
+<a id="user-content-graphs-in-cylindrical-coordinates" class="anchor" href="#graphs-in-cylindrical-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Graphs in Cylindrical Coordinates</h3>
+
+<p>As with functions $z = f(x,y)$, the graphs of functions $z = f(r,\theta)$, or more generally, $f(r,\theta,z)=0$ are surfaces in $\mathbb R^3$.</p>
+
+<h2>
+<a id="user-content-113-spherical-coordinates" class="anchor" href="#113-spherical-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.3 Spherical Coordinates</h2>
+
+<p>In 2-dimensional space, we saw that polar coordinates were useful for problems which where symmetric about the origin. We now extend this idea to another 3-dimensional coordinate system called <strong>spherical coordinates</strong>.</p>
+
+<p>As we did in cylindrical coordinates, we will use the pole $O$ and polar axis from polar coordinates and draw another axis $z$ perpendicular to the polar plane. Let $P$ be any point in 3-dimensional space. We will represent $P$ by the coordinates $(\rho, \psi, \theta)$ where $\rho \geq 0$ is the length of the line $OP$, $\theta$ is the angle between the positive $z$-axis and the line $OP$.</p>
+
+<p>Since we are keeping the same interpretation of $\theta$ from cylindrical coordinates, it tells us the orientation of $P$ around the $z$-axis. Therefore, we only want $\phi$ to indicate the "tilt" of the point with the $z$-axis. So, we restrict $0 \leq \phi \leq \pi$.</p>
+
+<p>Thus, our restrictions in spherical coordinates are $\rho \geq 0$, $0 \leq \theta &lt; 2\pi$ and $0 \leq \phi \leq \pi$.</p>
+
+<h4>
+<a id="user-content-remark-5" class="anchor" href="#remark-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>The symbols used for spherical coordinates also vary from author to author as does the order in which they are written. In mathematics, it is not uncommon to find $\rho$ replaced by $r$. The standard ISO 31-11 convection uses $\phi$ as the polar angle and $\theta$ as the angle with the positive $z$-axis. Therefore, it is very important to understand which notation is being used when reading an article.</p>
+
+<p>From the diagram, we see that we can convert a point from Cartesian coordinates to spherical coordinates with the equations:</p>
+
+<p>$$x=\rho\sin\phi\cos\theta \quad y=\rho\sin\phi\sin\theta \quad z=\rho\cos\phi \quad \rho=\sqrt{x^2+y^2+z^2} \quad \tan\theta=\frac yx \quad \cos\phi \frac{z}{\sqrt{x^2+y^2+z^2}}$$</p>
+
+<h3>
+<a id="user-content-graphs-in-spherical-coordinates" class="anchor" href="#graphs-in-spherical-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Graphs in Spherical Coordinates</h3>
+
+<p>As with cylindrical coordinates, the graph of a function $f(\rho, \phi, \theta)=0$ in spherical coordinates gives a surface in $\mathbb R^3$.</p>
+</article></body></html>

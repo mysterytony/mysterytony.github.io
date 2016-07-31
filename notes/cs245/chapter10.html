@@ -1,0 +1,1457 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+    background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+    outline: 0;
+}
+
+.markdown-body strong {
+    font-weight: bold;
+    color: #BC0000;
+}
+
+.markdown-body h1 {
+    margin: 0.67em 0;
+}
+
+.markdown-body img {
+    border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
+}
+
+.markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+.markdown-body pre {
+    overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+.markdown-body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.markdown-body html input[disabled] {
+    cursor: default;
+}
+
+.markdown-body input {
+    line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+    padding: 0;
+}
+
+.markdown-body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+    text-decoration: underline;
+}
+
+.markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #011380;
+}
+
+.markdown-body h1 {
+    font-size: 30px;
+}
+
+.markdown-body h2 {
+    font-size: 21px;
+}
+
+.markdown-body h3 {
+    font-size: 16px;
+}
+
+.markdown-body h4 {
+    font-size: 14px;
+}
+
+.markdown-body h5 {
+    font-size: 12px;
+}
+
+.markdown-body h6 {
+    font-size: 11px;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+    margin-left: 0;
+}
+
+.markdown-body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+    opacity: 0;
+}
+
+.markdown-body .octicon {
+    font: normal normal normal 16px/1 octicons-anchor;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+    content: '\f05c';
+}
+
+.markdown-body:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.markdown-body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+    outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+.markdown-body h1 {
+
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h2 {
+
+  border-top: 4px solid #4B0000;
+  background-color: #BFADAD;
+    padding: 5px;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+
+.markdown-body h2 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+.markdown-body h6 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body dl {
+    padding: 0;
+}
+
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #012A58;
+    border-left: 4px solid #68AFFF;
+    background-color: #BAD9FB
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+}
+
+.markdown-body table th {
+    font-weight: bold;
+    color: #012C45;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #4283A9;
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #D1EEFF;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #F1F1F1;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #FDFFCB;
+    border-left: 4px solid #8E9402;
+}
+
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.markdown-body pre {
+    word-wrap: normal;
+}
+
+.markdown-body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+    content: normal;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+    color: #767676;
+    font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: normal;
+    background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+    background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+    display: block;
+}
+
+.markdown-body .plan-choice-free {
+    border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+    border-radius: 0 0 3px 3px;
+    border-top: 0;
+    margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+    margin-top: 10px;
+    display: none;
+}
+
+.markdown-body:checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+    }*/
+
+
+/*.MathJax_Display {
+    color: #4B0158;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FEFAFF
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter10</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-syntax-of-predicate-logic" class="anchor" href="#syntax-of-predicate-logic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax of Predicate Logic</h1>
+
+<h4>
+<a id="user-content-the-language-of-first-order-logic" class="anchor" href="#the-language-of-first-order-logic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Language of First-Order Logic</h4>
+
+<p>The seven kinds of symbols</p>
+
+<ol>
+<li> Constants symbols
+Usually $c,d,c_1,c_2,...,d_1,d2,...$</li>
+<li> Variables
+Usually $x,y,z,...,x_1,x_2,...,y_1,y_2,...$</li>
+<li> Function symbols
+Usually $f,g,h,...,f_1,f_2,...,g_1,g_2,...$</li>
+<li> Predicate symbols
+Usually $P,Q,...,P_1,P_2,...,Q_1,Q_2...,$</li>
+<li> Connectives:
+$\lnot, \land, \lor, \rightarrow, \leftrightarrow$</li>
+<li> Quantifiers:
+$\forall, \exists$</li>
+<li> Punctuation:
+$'(' ')' '\cdot' ','$</li>
+</ol>
+
+<p>The last three kinds of symbols--connectives, quantifiers, and punctuation--will have their meaning fixed by the syntax and semantics.</p>
+
+<p>The first four kinds--constants, variables, functions, and predicates--are not restricted. They may be assigned any meaning, consistent with their kind and arity.</p>
+
+<h4>
+<a id="user-content-terms" class="anchor" href="#terms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Terms</h4>
+
+<p>In FOL, we need to consider two kinds of expressions:</p>
+
+<ul>
+<li>  those that can have a truth value, called <strong>formulas</strong>, and</li>
+<li>  those that refer to an object of the domain, called <strong>terms</strong>
+</li>
+</ul>
+
+<p>Definition: the set of terms is defined inductively as follows:</p>
+
+<ol>
+<li> Each constant symbol is a term, and each variable is a term.
+Such term are called <strong>atomic</strong> terms</li>
+<li> It $t_1,...,t_n$ are terms and $f$ is an $n$-ary function symbol, then $f(t_1,...,t_n)$ is a term. If $n=2$ (a binary function symbol), we may write $(t_1 \quad f \quad t_2)$ instead of $f(f_1,f_2)$.</li>
+<li> Nothing else is a term.</li>
+</ol>
+
+<h4>
+<a id="user-content-examples-of-terms" class="anchor" href="#examples-of-terms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples of Terms</h4>
+
+<p>Example 1:</p>
+
+<p>If 0 is constant symbol, $x$ and $y$ are variables, and $s^{(1)}$ and $+^{(2)}$ are function symbols, then 0, $x$ and $y$ are terms, as are $s(0)$ and $+(x, s(y))$.</p>
+
+<p>The expressions $s(x,y)$ and $s+x$ are not terms.</p>
+
+<p>The superscripts on the function symbols indicate the "arity" of each function:</p>
+
+<ul>
+<li>  $s^{(1)}$ indicates that $s$ is a unary function, and</li>
+<li>  $+^{(2)}$ indicates that $+$ is a binary function.</li>
+</ul>
+
+<p>Why the given examples which fail to be terms are correct:</p>
+
+<ul>
+<li>  $s(x,y)$ is not a term because $s$ is unary, not binary, and</li>
+<li>  $s+x$ is not a term because $s$ is unary, not nullary</li>
+</ul>
+
+<p>Example 2:</p>
+
+<p>Suppose $f$ is a unary function symbol, $g$ is a binary function symbol, and $a$ is a constant symbol.</p>
+
+<p>Then $g(f(a),a)$ and $f(g(a, f(a)))$ are terms.</p>
+
+<p>The expression $g(a)$ and $f(f(a), a)$ are not terms.</p>
+
+<h4>
+<a id="user-content-atomic-formulas" class="anchor" href="#atomic-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Atomic Formulas</h4>
+
+<p>As in propositional logic, a formula represents a proposition (a true/false statement). The relation symbols produce propositions.</p>
+
+<p>Definition:</p>
+
+<p>An <strong>atomic formula</strong> (or atom) is an expression of the form</p>
+
+<p>$$P(t_1,...,t_n)$$</p>
+
+<p>where $P$ is an $n$-ary relation symbol and each $t_i$ is a term $(1\leq i\leq n)$.</p>
+
+<p>If $P$ has arity 2, the atom $P(t_1, t_2)$ may alternatively be written  $(t_1 \quad P \quad t_2)$.</p>
+
+<p>The relation symbols produce propositions. In detail, semantically, the relation will evaluate to true if the tuple of interest lies in the relation, and to false otherwise.</p>
+
+<h4>
+<a id="user-content-general-formulas" class="anchor" href="#general-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General Formulas</h4>
+
+<p>We define the set of formulas of first-order logic inductively as follows.</p>
+
+<ol>
+<li> An atomic formula is a formula.</li>
+<li> If $\alpha$ is a formula, then $(\lnot \alpha)$ is a formula.</li>
+<li> If $\alpha$ and $\beta$ are formulas, and $\star$ is a binary connective symbol, then $(\alpha \star \beta)$ is a formula.</li>
+<li> If $\alpha$ is a formula and $x$ is a variable, then each of $(\forall x \cdot \alpha)$ and $(\exists x \cdot \alpha)$ is a formula</li>
+<li> Nothing else is a formula</li>
+</ol>
+
+<p>In case 4, the formula $\alpha$ is called the <strong>scope</strong> for the quantifier. The quantifier keeps the same scope if it is included in a larger formula.</p>
+
+<p>The <strong>scope</strong> of a variable is determined by the quantifier. We need to keep careful track of the scope because</p>
+
+<ul>
+<li>  the same variable can occur in different places in a formula, and</li>
+<li>  we will soon discuss <strong>substitutions</strong>, where understanding the scope is crucial to doing the substitution correctly.</li>
+</ul>
+
+<p>Here is a natural example of a first-order formula which uses the quantifier $\forall$:</p>
+
+<p>$$\begin{align*}
+\mathcal{D} &amp;= \mathbb{R} \\
+\varphi &amp;=  (x^2 \geq 0) \text{ ,then construct the formula} \\
+&amp; (\forall x \cdot (x^2 \geq 0))
+\end{align*}$$</p>
+
+<p>In more detail, let $\mathcal{L}$ be a language having</p>
+
+<ul>
+<li>  constants: $\{0\}$</li>
+<li>  variables: $\{x\}$</li>
+<li>  functions: $\{*^{(2)}\}$</li>
+<li>  relations: $\{\geq^{(2)}\}$</li>
+</ul>
+
+<p>Then we may define atomic terms $0$ and $x$, and</p>
+
+<p>$$\begin{align*}
+\text{term } &amp;: \quad (x*x) \\
+\text{atomic formula} &amp;: \quad ((x*x)\geq 0) \\
+\text{formula} &amp;: \quad (\forall x \cdot ((x*x)\geq 0))
+\end{align*}$$</p>
+
+<p>We may then interpret this model via the model $\mathcal{M}$, having:</p>
+
+<p>$$\begin{align*}
+\mathcal{D} = dom (\mathcal{M}) &amp;= \mathbb{R} \\
+0^{\mathcal{M}} &amp;= 0 \\
+*^{\mathcal{M}} &amp;= \text{ usual multiplication} \\
+\geq^{\mathcal{M}} &amp;= \text{ usual } \geq \text{ in } \mathbb{R}
+\end{align*}$$</p>
+
+<p>which interprets the formula as the familiar (true) statement from arithmetic that <strong>the square of any real number is a non-negative real number</strong>.</p>
+
+<h4>
+<a id="user-content-parse-trees" class="anchor" href="#parse-trees" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parse Trees</h4>
+
+<p>Parse trees for FOL formulas are similar to parse trees for propositional formulas.</p>
+
+<ul>
+<li>  Quantifiers $\forall x$ and $\exists y$ form nodes in the same way as negation (i.e., only the one sub-tree)</li>
+<li>  A predicate $P(t_1,...t_n)$ has node labeled $P$ with a sub-tree for each of the terms $t_1,...,t_n$</li>
+</ul>
+
+<p>As always, the domain must be understood before we define variables, predicates and so on.</p>
+
+<p>The domain need not be stated inside the formula itself.</p>
+
+<p>For the formula:</p>
+
+<p>$$
+\left(
+\forall x \cdot
+    \left(\left(
+        P(x) \rightarrow Q(x)
+    \right)
+        \land S(x,y)
+    \right)
+\right)
+$$</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>$\forall x$</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>$\land$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>$\rightarrow$</td>
+<td></td>
+<td>$S$</td>
+<td></td>
+</tr>
+<tr>
+<td>$P$</td>
+<td>$Q$</td>
+<td></td>
+<td>$x$</td>
+<td>$y$</td>
+</tr>
+<tr>
+<td>$x$</td>
+<td>$x$</td>
+<td></td>
+<td>$x$</td>
+<td>$y$</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="user-content-semantics-interpretations" class="anchor" href="#semantics-interpretations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantics: Interpretations</h4>
+
+<p>We shall cover more about syntax later, but we first start the discussion of semantics.</p>
+
+<p>Definition: Fix a set $\mathcal{L}$ of constant symbols, function symbols, and relation symbols.</p>
+
+<p>An <strong>interpretation</strong>, or <strong>model</strong>, $\mathcal{M}$ (for the set $\mathcal{L}$) consists of</p>
+
+<ul>
+<li>  A non-empty set $dom(\mathcal{M})$, called the domain (or universe) of $\mathcal{M}$.</li>
+<li>  For each constant symbol $c$, a member $c^\mathcal{M}$ of $dom(\mathcal{M})$.</li>
+<li>  For each function symbol $f^{(i)}$, an $i$-ary function $f^\mathcal{M}$.</li>
+<li><p>For each relation symbol $R^{(i)}$, an $i$-ary relation $\mathcal{R}^{\mathcal{M}}$.</p></li>
+<li><p>We use the symbol $\mathcal{L}$ for the set of symbols because, in model theory (the subject to which this material properly belongs), this set is called a <strong>language</strong>.</p></li>
+</ul>
+
+<h4>
+<a id="user-content-values-of-variable-free-terms" class="anchor" href="#values-of-variable-free-terms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Values of Variable-Free Terms</h4>
+
+<p>For terms and formulas that contain no variables (and hence contain no quantifiers), an interpretation suffices to specify their meaning. The meaning arises in the obvious fashion from the syntax of the term or formula.</p>
+
+<p>Definition, fix an interpretation $\mathcal{M}$. For each term $t$ containing no variables, the value of $t$ under interpretation $\mathcal{M}$, denoted $t^{\mathcal{M}}$, is as follows:</p>
+
+<ul>
+<li>  If $t$ is a constant $c$, the value $t^{\mathcal{M}}$ is $c^\mathcal{M}$.</li>
+<li>  If $t$ is $f(t_1,...,t_n)$, the value $t^\mathcal{M}$ is $f^\mathcal{M}(t_1^\mathcal{M},...,t_n^\mathcal{M})$</li>
+</ul>
+
+<p>Note that the definition of $t^\mathcal{M}$ uses the recursive definition of the term $t$ from earlier.</p>
+
+<p>The value of a term is always a member of the domain of $\mathcal{M}$.</p>
+
+<h4>
+<a id="user-content-formulas-with-variable-free-terms" class="anchor" href="#formulas-with-variable-free-terms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Formulas with Variable-Free Terms</h4>
+
+<p>Formulas get values in much the same fashion as terms, except that values of formulas lie in $\{F,T\}$.</p>
+
+<p>Definition: Fix an interpretation $\mathcal{M}$. For each formula $\alpha$ containing no variables (and hence containing no quantifiers), the value of $\alpha$ under interpretation $\mathcal{M}$, denoted $\alpha^\mathcal{M}$, is as follows:</p>
+
+<ul>
+<li>  If $\alpha$ is $R(t_1,...,t_n)$ then</li>
+</ul>
+
+<p>$$\alpha^\mathcal{M} =
+\begin{cases}
+T \quad \text{if } \langle t_1^\mathcal{M},...,t_n^\mathcal{M} \rangle \in \mathcal{R}^\mathcal{M} \\
+F \quad \text{otherwise}
+\end{cases}$$</p>
+
+<ul>
+<li>  If $\alpha$ is $(lnot \beta)$ or $(\beta \star \gamma)$ for a binary connective $\star$, then $\alpha^\mathcal{M}$ is determined by $\beta^\mathcal{M}$ and $\gamma^\mathcal{M}$ in the same way as for propositional logic.</li>
+</ul>
+
+<hr>
+
+<p>ends page 166</p>
+</article></body></html>

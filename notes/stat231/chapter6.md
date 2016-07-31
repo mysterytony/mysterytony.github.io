@@ -248,3 +248,98 @@ Residual plots can be used to check the model assumptions. Here are three residu
 2.	Plot points $(\hat{\mu}_1, \hat{r}_i)$ if the model is satisfactory the points should lie more or less horizontally within a constant band around the line $\hat{r}_i=0$
 3.	Plot a Normal qqplot of the residuals. If the model is satisfactory the points should lie more or less along a straight line.
 
+## 6.3 Comparing the Means of Two Populations
+
+#### Two Gaussian Population with Common Variance
+
+Suppose $Y_{11},...,Y_{1n}$ is a random sample from the $G(\mu_1, \sigma)$ distribution and independently $Y_{21},...,Y_{2n}$ is a random sample from the $G(\mu_2, \sigma)$ distribution. Notice that we have assumed that both populations have the same variance $\sigma^2$. We use double subscripts for the $Y$'s here, the first index to indicate the population from which the sample was drawn, the second to indicate which draw from that population. We could easily conform withe the notation of (6.1) by stacking these two sets of observations in a vector of $n =n_1+ n_2$ observations:
+
+$$(Y_{11},...,Y_{1n},Y_{21},...,Y_{2n})^T$$
+
+and obtain the conclusions below as a special case of the linear model. Below we derive the estimates from the likelihood directly.
+
+The likelihood function for $\mu_1, \mu_2,\sigma$ is
+
+$$L(\mu_1,\mu_2,\sigma) = \prod_{j=1}^2\prod_{i=1}^{n_j} \frac{1}{\sqrt{2\pi}\sigma} \exp\left[ -\frac{1}{2\sigma^2}(y_{ji}-\mu_j)^2 \right]$$
+
+Maximization of the likelihood function gives the maximum likelihood estimators:
+
+$$\tilde \mu_1 = \frac{1}{n_1}\sum_{i=1}^{n_1}Y_{1i}=\bar{Y_1}$$
+
+$$\tilde \mu_2 = \frac{1}{n_2}\sum_{i=1}^{n_2}Y_{2i}=\bar{Y_2}$$
+
+$$\tilde \sigma^2 = \frac{1}{n_1+n_2}\sum_{j=1}^2\sum_{i=1}^{n_j} (Y_{ji}-\tilde \mu_j)^2$$
+
+An estimator of the variance $\sigma^2$ (sometimes referred to as the pooled estimator of variance) adjusted for the degree of freedom is
+
+$$S_p^2 = \frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}$$
+
+$$= \frac{n_1+n_2}{n_1+n_2-2} \tilde \sigma^2$$
+
+where
+
+$$S_j^2 = \frac{1}{n_j-1}\sum_{i=1}^{n_j}(Y_{ji}-\bar{Y}_j)^2, j=1,2$$
+
+are the sample variance obtained from the individual samples. The estimator $S_p^2$ can be written as a **weighted average** of the estimator $S_j^2$. In fact
+
+$$S_p^2 = \frac{w_1S_1^2+w_2S_2^2}{w_1+w_2}$$
+
+where the weights are $w_j = n_j-1$. Although you could substitute weights other than $n_j-1$, when you poll various estimators in order to obtain one that is better than any of those being pooled, you should do so with weights that relate to a measure of precision of the estimators. For sample variances, the number of degrees of freedom is such an indicator.
+
+We will use the estimator $S_p^2$ for $\sigma^2$ rather than $\tilde \sigma^2$ since $E(S_p^2)=\sigma^2$
+
+#### Confidence Intervals for $\mu_1-\mu_2$
+
+To determine whether the two populations differ and by how much we will need to generate confidence intervals for the difference $\mu_1 - \mu_2$. First note that the maximum likelihood estimator of this difference is $\bar{Y_1}-\bar{Y_2}$ which has expected value
+
+$$E(\bar{Y_1}-\bar{Y_2}) = \mu_1 - \mu_2$$
+
+and variance
+
+$$Var(\bar{Y_1}-\bar{Y_2})= \sigma^2(\frac{1}{n_1}+\frac{1}{n_2})$$
+
+It naturally follows that an estimator of $Var(\bar{Y_1}-\bar{Y_2})$ from the pooled data is
+
+$$S_p^2(\frac{1}{n_1}+\frac{1}{n_2})$$
+
+and that this has $n_1+n_2-2$ degrees of freedom. This provides at least an intuitive justification for the following:
+
+#### Theorem 41
+
+If $Y_{12},...,Y_{1n_1}$ is a random sample from the $G(\mu_1, \sigma)$ distribution and independently $Y_{22},...,Y_{2n_2}$ is a random sample from the $G(\mu_2, \sigma)$ then
+
+$$\frac{(\bar{Y_1}-\bar{Y_2})-(\mu_1-\mu_2)}{S_p\sqrt{\frac{1}{n_1}+ \frac{1}{n_2}}} \sim t(n_1+n_2-2)$$
+
+and
+
+$$\frac{(n_1+n_2-2)S_p^2}{\sigma^2} \sim \mathcal X^2(n_1+n_2-2)$$
+
+Confidence intervals or tests of hypothesis for $\mu_1-\mu_2$ and $\sigma$ can be obtained by using these pivotal quantities. In particular, a $100p\%$ confidence interval for $\mu_1-\mu_2$ is given by
+
+$$\bar{y_1}-\bar{y_2} \pm as_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$$
+
+where $P(-a \leq T \leq a) = p$ and $T \sim t(n_1+n_2-2)$.
+
+#### Two Gaussian Populations with Unequal Variance
+
+The procedures above assumes that the two Gaussian distributions have the same standard deviations. Sometimes this isn't a reasonable assumption (it can be tested using a likelihood ratio test, but we will not do this here) and we must assume that $Y_{11},...,Y_{1n_1}$ is random sample from the $G(\mu_1,\sigma_1)$ distribution and independently $Y_{21},...,Y_{2n_2}$ is random sample from the $G(\mu_2,\sigma_2)$ distribution but $\sigma_1 \neq \sigma^2$. In this case there is no exact pivotal quantity which can be used to obtain a confidence interval for the difference in means $\mu_1-\mu_2$. However the random variable
+
+$$\frac{\bar{Y_1}-\bar{Y_2}-(\mu_1-\mu_2)}{\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}}$$
+
+has approximately a $G(0,1)$ distribution, especially if $n_1$ and $n_2$ are both large.
+
+To illustrate its use, consider the durability of paint example, where $s_1^2 = 1.2800$ and $s_2^2 = 3.5127$. These appear quite different but they are in squared units and $n_1$ and $n_2$ are small; the stand deviation $s_1 = 1.13$ and $s_2 = 1.97$ do not provide evidence against the hypothesis that $\sigma_1 = \sigma_2$ if a likelihood ratio test is carried out. Nevertheless, let us obtain a 95% confidence interval for $\mu_1-\mu_2$. This result approximate $95\%$ confidence interval for $\mu_1-\mu_2$. This resulting approximate $95\%$ confidence interval is
+
+$$\bar{y_1}-\bar{y_2} \pm 1.96 \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$$
+
+#### Comparing Means Using Paired Data
+
+Often experimental studies designed to compare means are conducted with pair of units, where the response within a pair are not independent. 
+
+#### Pairing and Experimental Design
+
+In setting where the population can be arranged in pairs, the estimation of a difference in means, $\mu_1-\mu_2$, can often be made more precise by using pairing in the study. The condition for this is that the association (correlation) between $Y_1$ and $Y_2$ are positive.
+
+#### Final Remarks
+
+When you see data from a **comparative study** (that is, one whose objective is to compare two distributions, often through their means), you have to determine whether it involves paired data or note. Of course, a sample of $Y_{1i}$ and $Y_{2i}$ cannot be from a paired study unless there are equal numbers of each, but if there are equal numbers the study might be either "paired" or "unpaired". Note also that there is subtle difference in the study populations in paired and unpaired studies. In the former it is pairs of individual units that form the population where as in the latter there separate individual units for $Y_1$ and $Y_2$ measurements.

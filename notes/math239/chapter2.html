@@ -1,9 +1,7 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>* {
-    /*box-sizing: border-box;*/
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
 }
 
 body {
-    /*width: 980px;*/
     padding-left: 10px;
     padding-right: 10px;
     margin-right: auto;
@@ -27,8 +25,7 @@ pre {
     color: #333;
     font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
     font-size: 20px;
-    /*font: "Segoe UI";*/
-    line-height: 1.6;
+    line-height: 1.2;
     word-wrap: break-word;
 }
 
@@ -52,6 +49,7 @@ pre {
 
 .markdown-body img {
     border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
 }
 
 .markdown-body hr {
@@ -142,6 +140,7 @@ pre {
     margin-top: 15px;
     margin-bottom: 15px;
     line-height: 1.1;
+    color: #011380;
 }
 
 .markdown-body h1 {
@@ -469,8 +468,7 @@ pre {
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: #DBDBDB;
-    /*border-radius: 3px;*/
+    background-color: #F1F1F1;
 }
 
 .markdown-body code:before,
@@ -501,7 +499,6 @@ pre {
     line-height: 1.45;
     background-color: #FDFFCB;
     border-left: 4px solid #8E9402;
-    /*border-radius: 3px;*/
 }
 
 .markdown-body .highlight pre {
@@ -545,7 +542,7 @@ pre {
 }
 
 .markdown-body .pl-c {
-    color: #969896;
+    color: #009B00;
 }
 
 .markdown-body .pl-c1,
@@ -724,15 +721,433 @@ pre {
     z-index: 1;
     position: relative;
     border-color: #4078c0;
-}
+    }*/
 
-.MathJax_Display {
+
+/*.MathJax_Display {
     color: #4B0158;
     padding-top: 5px;
     padding-bottom: 5px;
-    /*border: 2px solid #210027;*/
     background-color: #FEFAFF
-}</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
@@ -1049,7 +1464,127 @@ MathJax.Hub.Config({
 
 <p>$$\Phi_{A^{*}}(x)=(1-\Phi_A(x))^{-1}$$</p>
 
-<hr>
+<blockquote>
+<h4>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
 
-<p>ends page 44</p>
+<p>(a)
+$$\Phi_{AB}(x) = \sum_{s \in AB} x ^{l(s)} = \sum_{a\in A} \sum_{b \in B} x^{l(ab)}$$
+since $s=ab$ for unique $a \in A$ and $b \in B$. But $\text{length} (ab) = \text{length}(a) + \text{length}(b)$ for all $\{0,1\}$-string $a$, $b$, so
+$$\begin{align*} \Phi_{AB}(x) &amp;= \sum_{a \in A} \sum_{b\in B} x^{l(a)+l(b)} \\
+&amp;= \sum_{a\in A}x^{l(a)} \sum_{b \in B}x^{l(b)} \\
+&amp;= \Phi_A(x) \Phi_B(x) \end{align*}$$
+(b)
+$$\Phi_{A^*}(x) = \sum_{k \geq 0} \Phi_A^k (x)$$
+by the Sum Lemma, since $A^*$ is unambiguous. Note that $\epsilon \notin A$, so the constant term of $\Phi_A(x)$ is $0$. Not $\Phi_{A^k} (x) = (\Phi_A(x))^k$ from part (a), so
+$$\Phi_{A^*}(x) = \sum_{k \geq 0} (\Phi_A(x))^k = (1-\Phi_A(x))^{-1}$$
+by Geometric Series
+$\square$</p>
+</blockquote>
+
+<h2>
+<a id="user-content-27-decomposition-using-blocks" class="anchor" href="#27-decomposition-using-blocks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.7 Decomposition Using Blocks</h2>
+
+<p>The following problems involve considering strings subject to a condition on their blocks.</p>
+
+<h4>
+<a id="user-content-271-problem" class="anchor" href="#271-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.7.1 Problem</h4>
+
+<p>Let $b_n$ by the number of $\{0,1\}$-strings of length $n$ in which no block has length exactly two. Prove that</p>
+
+<p>$$b_n = [x^n] \frac{1-x^2+x^3}{1-2x+x^2-x^3} \quad n \geq 0$$</p>
+
+<p>Let $B$ be the set of all $\{0,1\}$-strings in which no block has length exactly two. Consider decomposing a string after each block of 1s. Except possibly for the first and last piece, each piece has the form</p>
+
+<p>$$\{0,000,0000,...\}\{1,111,1111,...\}$$</p>
+
+<p>The first piece may consist only of 1s and last piece may consist only of 0s. This gives the expression</p>
+
+<p>$$B = \{\epsilon, 1,111,1111,...\}(\{0,000,0000,...\}\{1,111,1111,...\})^*\{\epsilon,0,000,0000,...\}$$</p>
+
+<p>Moreover, since the decomposition rule is unambiguous, the expression is unambiguous. So</p>
+
+<p>$$\begin{align*}
+\Phi_B(x) &amp;= \frac{(1+x+x^3+x^4+...)^2}{1-(x+x^3+x^4+...)^2} \\
+&amp;= \frac{(1+x+\frac{x^3}{1-x})^2}{1- (x+\frac{x^3}{1-x})^2} \\
+&amp;= \frac{1+x+\frac{x^3}{1-x}}{1-(x+\frac{x^3}{1-x})} \\
+&amp;= \frac{1-x^2+x^3}{1-2x +x^2-x^3} \end{align*}$$</p>
+
+<h4>
+<a id="user-content-272-problem" class="anchor" href="#272-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.7.2 Problem</h4>
+
+<p>Find the generating series with respect to length for $\{0,1\}$-strings in which an odd block of 0's is never followed by an odd block of 1's.</p>
+
+<p>Let $S$ be the set of all $\{0,1\}$-string in which an odd block of "0"s is never followed by an odd block of "1"s. We decompose a binary string after each block of 1s, so a string has required property if and only if each of the pieces has. Decomposing all $\{0,1\}$-strings in this way gives rise to the unambiguous expression</p>
+
+<p>$$\{0,1\}^* = \{1\}^*(\{0\}\{0\}^*\{1\}\{1\}^*)^*\{0\}^*$$</p>
+
+<p>We are excluding pieces of the form $\{0\}\{00\}^*\{1\}\{11\}^*$. So</p>
+
+<p>$$S = \{1\}^* M^* \{0\}^*$$</p>
+
+<p>where</p>
+
+<p>$$M = \{0\}\{0\}^*\{1\}\{1\}^* \ \{0\}\{00\}^*\{1\}\{11\}^* $$</p>
+
+<p>Thus</p>
+
+<p>$$\Psi_M(x) = \frac{x}{1-x}\frac{x}{1-x}-\frac{x}{1-x^2}\frac{x}{1-x^2} = \frac{x^3(2+x)}{(1-x^2)^2}$$</p>
+
+<p>and the required generating series is</p>
+
+<p>$$\Psi_{1^* M^* 0^*} = \frac{(1+x)^2}{1-2x^2(1+x)}$$</p>
+
+<h2>
+<a id="user-content-28-recursive-decompositions-of-binary-strings" class="anchor" href="#28-recursive-decompositions-of-binary-strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.8 Recursive Decompositions of Binary Strings</h2>
+
+<p>Another type of decomposition that is often useful is a <strong>recursive</strong> decomposition, in which a set id decomposed in terms of itself. For example, let $S$ be the set of all $\{0,1\}$-strings. We can define $S$ in the following way.</p>
+
+<ol>
+<li> The empty string in $S$</li>
+<li> Any other element of $S$ consists of a symbol (either 0 or 1) followed by an element of $S$</li>
+</ol>
+
+<p>Such a definition, in which the set $S$ is defined in terms of itself, is called a <strong>recursive definition</strong>. This leads immediately to the recursive decomposition.</p>
+
+<p>$$S = \{\epsilon\} \cup \{0,1\} S$$</p>
+
+<p>Here the right side gives an unambiguous expression for $S$ and so from this we obtain</p>
+
+<p>$$\Phi_S (x) = 1+ \Phi_{\{0,1\}}(x) \Phi_S(x)$$</p>
+
+<p>Solving for $\Phi_S(x)$ gives</p>
+
+<p>$$(1-\Phi_{\{0,1\}}(x))\Phi_S(x) = 1$$</p>
+
+<p>so</p>
+
+<p>$$\Phi_S(x) = (1-\Phi_{\{0,1\}}(x))^{-1} = (1-2x)^{-1} = \sum_{n \geq 2^n x^n}$$</p>
+
+<p>as expected.</p>
+
+<p>Below we give a different solution to Problem 2.3.2 based on a recursive decomposition; we restate the problem here for convenience.</p>
+
+<h4>
+<a id="user-content-281-problem" class="anchor" href="#281-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.8.1 Problem</h4>
+
+<p>Let $a_n$ be the number of $\{0,1\}$-strings of length $n$ which contain no three consecutive 1's. Prove that</p>
+
+<p>$$a_n = [x^n] \frac{1+x+x^2}{1-x-x^2-x^3} \quad \text{for } n \geq 0$$</p>
+
+<p>Let $S$ be the set of all $\{0,1\}$-strings that do not contain three consecutive 1s. Consider decomposing a string after the first occurrence of 0. The strings $\{\epsilon, 1,11\}$ are indecomposable. Every other string $\sigma \in S$ can be written as $\sigma = \sigma_1 \sigma_2$ where $\sigma_1 \in \{0,10,110\}$ and $\sigma_2 \in S$. This gives rise to the expression</p>
+
+<p>$$S = \{\epsilon, 1, 11 \} \cup \{0,10,110\} S$$</p>
+
+<p>Moreover the right hand size is an unambiguous expression, so</p>
+
+<p>$$\Phi_S(x) = (1+x+x^2) + (x+x^2+x^3) \Phi_S(x)$$</p>
+
+<p>Solving this gives</p>
+
+<p>$$\Phi_S(x) = \frac{1+x+x^2}{1-x-x^2-x^3}$$</p>
+
+<p>as required.</p>
+
+<p>In the previous problem we forbade the substring $111$. The technique used does not adapt well to more complicated forbidden substrings, but such problems can be handled using the method outlined in the following two problems.</p>
 </article></body></html>

@@ -1,0 +1,1447 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+    background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+    outline: 0;
+}
+
+.markdown-body strong {
+    font-weight: bold;
+    color: #BC0000;
+}
+
+.markdown-body h1 {
+    margin: 0.67em 0;
+}
+
+.markdown-body img {
+    border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
+}
+
+.markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+.markdown-body pre {
+    overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+.markdown-body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.markdown-body html input[disabled] {
+    cursor: default;
+}
+
+.markdown-body input {
+    line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+    padding: 0;
+}
+
+.markdown-body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+    text-decoration: underline;
+}
+
+.markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #011380;
+}
+
+.markdown-body h1 {
+    font-size: 30px;
+}
+
+.markdown-body h2 {
+    font-size: 21px;
+}
+
+.markdown-body h3 {
+    font-size: 16px;
+}
+
+.markdown-body h4 {
+    font-size: 14px;
+}
+
+.markdown-body h5 {
+    font-size: 12px;
+}
+
+.markdown-body h6 {
+    font-size: 11px;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+    margin-left: 0;
+}
+
+.markdown-body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+    opacity: 0;
+}
+
+.markdown-body .octicon {
+    font: normal normal normal 16px/1 octicons-anchor;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+    content: '\f05c';
+}
+
+.markdown-body:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.markdown-body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+    outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+.markdown-body h1 {
+
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h2 {
+
+  border-top: 4px solid #4B0000;
+  background-color: #BFADAD;
+    padding: 5px;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+
+.markdown-body h2 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+.markdown-body h6 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body dl {
+    padding: 0;
+}
+
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #012A58;
+    border-left: 4px solid #68AFFF;
+    background-color: #BAD9FB
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+}
+
+.markdown-body table th {
+    font-weight: bold;
+    color: #012C45;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #4283A9;
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #D1EEFF;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #F1F1F1;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #FDFFCB;
+    border-left: 4px solid #8E9402;
+}
+
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.markdown-body pre {
+    word-wrap: normal;
+}
+
+.markdown-body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+    content: normal;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+    color: #767676;
+    font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: normal;
+    background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+    background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+    display: block;
+}
+
+.markdown-body .plan-choice-free {
+    border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+    border-radius: 0 0 3px 3px;
+    border-top: 0;
+    margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+    margin-top: 10px;
+    display: none;
+}
+
+.markdown-body:checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+    }*/
+
+
+/*.MathJax_Display {
+    color: #4B0158;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FEFAFF
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter14</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-14-double-integrals" class="anchor" href="#chapter-14-double-integrals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 14 Double Integrals</h1>
+
+<h2>
+<a id="user-content-141-definition-of-double-integrals" class="anchor" href="#141-definition-of-double-integrals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>14.1 Definition of Double Integrals</h2>
+
+<p>Recall, to find the area under a continuous curve $y = f(x)$ over a closed interval $[a,b]$ we used a single integral which we define as a limit of Riemann sums:</p>
+
+<p>$$\int_a^b f(x) dx = \lim_{n \rightarrow \infty} \sum_{i=1}^n f(x_i) \Delta x_i$$</p>
+
+<p>where $\Delta x_i$ is the length of the $i$-th subinterval in some decomposition (i.e. partition) of the interval $[a,b]$ and $x_i$ is some point in the $i$-th subinterval.</p>
+
+<p>We found that the single integral had many applications beside calculating areas under curves. We can use single integrals for finding mass of thin rods, calculating work, and for finding volumes of revolution. However, what if we want to calculate the mass of a thin plate, or to find the volume of some complicated regions? For these, we use double integrals.</p>
+
+<p>Let $D$ be a closed and bounded set in $\mathbb R^2$ whose boundary is a piecewise smooth closed curve. Let $f(x,y)$ be a function which is bounded on $D$, that is, there exists a number $M$ such that $|f(x,y)|\leq M$ for all $(x,y) \in D$.</p>
+
+<p>Subdivide $D$ by means of straight lines parallel to the axes, forming a partition $P$ of $D$. Label the $n$ rectangles that lie completely in $D$, in some specific order, and denote their areas by $\Delta A_i, i=1,...,n$. Choose a point $(x_i,y_i)$ in the $i$-th rectangle and from the Riemann sum</p>
+
+<p>$$\sum_{i=1}^n f(x_i, y_i) \Delta A_i$$</p>
+
+<h4>
+<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>Let $D \subset \mathbb R^2$ be closed and bounded. Let $P$ be a partition of $D$ as described above, and let $|\Delta P|$ denote the length of the longest side of all rectangles in partition $P$. A function $f(x,y)$ which is bounded on $D$ is <strong>integrable</strong> on $D$ if all Riemann sums approaches the same value as $|\Delta P| \rightarrow 0$</p>
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>If $f(x,y)$ is integrable on a closed bounded set $D$, then we define the <strong>double integral</strong> of $f$ on $D$ as</p>
+
+<p>$$\iint_D f(x,y) dA = \lim_{\Delta P \rightarrow 0} \sum_{i=1}^n f(x_i, y_i) \Delta A_i$$</p>
+
+<p>Is there any guarantee that the limiting process in the definition of the double integral actually leads to a unique value, i.e., that the limit exists? It is possible to define weird functions for which the limit does not exist, i.e., which are not integrable on $D$. However, if $f$ is continuous on $D$, it can be proved that $f$ is integrable on $D$, that is the double integral of $f$ does exist. Functions which are discontinuous on $D$ may be integrable on $D$. For example, if $f$ is continuous in $D$ except at points which lie on a curve $C$ ($f$ is piece-wise continuous), then $f$ is integrable. The proof of these results are beyond the scope of this course.</p>
+
+<h3>
+<a id="user-content-interpretation-of-the-double-integral" class="anchor" href="#interpretation-of-the-double-integral" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interpretation of the Double Integral</h3>
+
+<p>When you encounter the double integral symbol</p>
+
+<p>$$\iint_D f(x,y) dA$$</p>
+
+<p>think of "limit of a sum". In itself, the double integral is a mathematically defined object. It has many interpretations depending on the meaning that you assign to the integrand $f(x,y)$. The "$dA$" in the double integral symbol should remind you of the area of a rectangle in a partition of $D$.</p>
+
+<h3>
+<a id="user-content-double-integral-as-area" class="anchor" href="#double-integral-as-area" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Double Integral as Area</h3>
+
+<p>The simplest interpretation is when you specialize $f$ to be the constant function with value unity:</p>
+
+<p>$$f(x,y)=1 \quad \text{for all } (x,y) \in D$$</p>
+
+<p>Then the Riemann sum simply sums the areas of all rectangles in $D$, and the double integral serves to define the area $A(D)$ of the set $D$:</p>
+
+<p>$$A(D) = \iint_D 1 \, dA$$</p>
+
+<h3>
+<a id="user-content-double-integral-as-volume" class="anchor" href="#double-integral-as-volume" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Double Integral as Volume</h3>
+
+<p>If $f(x,y) \geq 0$ for all $(x,y) \in D$, then the double integral</p>
+
+<p>$$\iint_D f(x,y) dA$$</p>
+
+<p>can be interpreted as the volume $V(S)$ of the 3-D set defined by</p>
+
+<p>$$S = \{(x,y,z) | 0 \leq z \leq f(x,y), (x,y)\in D \}$$</p>
+
+<p>which represents the solid below the surface $z = f(x,y)$ and above the set $D$ in the $xy$-plane. The justification is as follows.</p>
+
+<p>The partition $P$ of $D$ decomposes the solid $S$ into vertical "columns". The height of the column above the $i$-th rectangle is approximately $f(x_i,y_i)$, and so its volume is approximately</p>
+
+<p>$$f(x_i,y_i)\Delta A_i$$</p>
+
+<p>The Riemann sum thus approximates the volume $V(S)$:</p>
+
+<p>$$V(S) \approx \sum_{i=1}^n f(x_i,y_i) \Delta A_i$$</p>
+
+<p>As $|\Delta P| \rightarrow 0$ the partition becomes increasingly fine, so the error in the approximation will tend to zero. Thus, the volume $V(S)$ is</p>
+
+<p>$$V(S) = \iint_D f(x,y) dA$$</p>
+
+<h3>
+<a id="user-content-double-integral-as-mass" class="anchor" href="#double-integral-as-mass" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Double Integral as Mass</h3>
+
+<p>Think of a thin flat plate of metal whose density varies with position. Since the plate is thin, it is reasonable to describe the varying density by an "area density", that is a function $f(x,y)$ that gives the mass per unit area at position $(x,y)$. In other words, the mass of a small rectangle of area $\Delta A_i$ located at position $(x_i,y_i)$ will approximately</p>
+
+<p>$$\Delta M_i \approx f(x_i, y_i) \Delta A_i$$</p>
+
+<p>The Riemann sum corresponding to a partition $P$ of $D$ will approximate the total $M$ of the plate $D$, and the double integral of $f$ over $F$, being the limit of the sum, will represent the total mass:</p>
+
+<p>$$M = \iint_D f(x,y) dA$$</p>
+
+<h3>
+<a id="user-content-double-integral-as-probability" class="anchor" href="#double-integral-as-probability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Double Integral as Probability</h3>
+
+<p>Let $f(x,y)$ be the probability density of a continuous 2-D random variable $(X,Y)$. The probability that $(X,y) \in D$, a given subset of $\mathbb R^2$, is</p>
+
+<p>$$P((X,Y)\in D) = \iint_D f(x,y) dA$$</p>
+
+<h3>
+<a id="user-content-average-value-of-a-function" class="anchor" href="#average-value-of-a-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Average Value of a Function</h3>
+
+<p>The double integral is also used to define the average value of a function $f(x,y)$ over a set $D \subset \mathbb R^2$.</p>
+
+<p>Recall for a function of one variable, $f(x)$, the average value of $f$ over an interval $[a,b]$, denoted $f_{av}$, is defined by</p>
+
+<p>$$f_{av} = \frac{1}{b-a} \in_a^b f(x) dx$$</p>
+
+<p>Similarly, for a function of two variables $f(x,y)$, we can define the average value of $f$ over a closed and bounded subset $D$ of $\mathbb R^2$ by</p>
+
+<p>$$f_{av} = \frac{1}{A(D)} \iint_D f(x,y) dA$$</p>
+
+<h3>
+<a id="user-content-properties-of-the-double-integral" class="anchor" href="#properties-of-the-double-integral" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties of the Double Integral</h3>
+
+<p>The basic properties of single integrals can be generalized to double integrals. We do not give the proofs but point out that the results are plausible if one thinks in terms of Riemann sums.</p>
+
+<h4>
+<a id="user-content-theorem-1-linearity" class="anchor" href="#theorem-1-linearity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1 Linearity</h4>
+
+<p>If $D \subset \mathbb R^2$ is a closed and bounded set and $f$ and $g$ are two integrable functions on $D$, then for any constant $c$:</p>
+
+<p>$$\iint_D (f+g) \, dA = \iint_D f \, dA + \iint_D g \, dA$$</p>
+
+<p>$$\iint_D c f \, dA = c \iint f \, dA$$</p>
+
+<h4>
+<a id="user-content-theorem-2-basic-inequality" class="anchor" href="#theorem-2-basic-inequality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2 Basic Inequality</h4>
+
+<p>If $D \subset \mathbb R^2$ is a closed and bounded set and $f$ and $g$ are two integrable functions on $D$ such that $f(x,y) \leq g(x,y)$ for all $(x,y) \in D$, then</p>
+
+<p>$$\iint_D f \, dA \leq \iint_D g \, dA$$</p>
+
+<h4>
+<a id="user-content-theorem-3-absolute-value-inequality" class="anchor" href="#theorem-3-absolute-value-inequality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3 Absolute Value Inequality</h4>
+
+<p>If $D \subset \mathbb R^2$ is a closed and bounded set and $f$ is an integrable function on $D$, then</p>
+
+<p>$$\left| \iint_D f \, dA \right| \leq \iint_D |f| \, dA$$</p>
+
+<h4>
+<a id="user-content-theorem-4-decomposition" class="anchor" href="#theorem-4-decomposition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4 Decomposition</h4>
+
+<p>Assume $D\in \mathbb R^2$ is closed and bounded set and $f$ is an integrable function on $D$. If $D$ is decomposed into two closed and bounded subsets $D_1$ and $D_2$ by a piecewise smooth curve $C$, then</p>
+
+<p>$$\iint_D f \, dA = \iint_{D_1} f \, dA + \iint_{D_2} f \, dA$$</p>
+
+<h4>
+<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<ol>
+<li> The Basic Inequality can be used to obtain an estimate for a double integral that cannot be evaluated exactly.</li>
+<li> The decomposition property is essential for dealing with complicated regions of integration and with discontinuous integrands.</li>
+</ol>
+
+<h2>
+<a id="user-content-142-iterated-integrals" class="anchor" href="#142-iterated-integrals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>14.2 Iterated Integrals</h2>
+
+<p>It is clear that double integrals can be evaluated approximately by using a computer to evaluate a suitable Riemann sum. The accuracy would depend on how find a partition you choose. But it is natural to ask: is it possible to calculate double integral exactly, using methods that work for single integrals? For sufficiently simple functions and regions of integration, the answer is YES. The idea is to write the double integral as a succession of two single integrals, called an <strong>iterated integral</strong>. We will derive a method for doing this by using the interpretation of the double integral as volume.</p>
+
+<p>Let $D$ be a region in the $xy$-plane and let $f$ be a function such that $f(x,y) \geq 0$ for all $(x,y) \in D$. If $V$ denotes the volume of the solid above $D$ and below the surface $z = f(x,y)$, then we have</p>
+
+<p>$$V = \iint_D f(x,y) dA$$</p>
+
+<p>Assume that the region $D$ lies between vertical lines $x = x_l$ and $x= x_u$ with $x_l &lt; x_u$ and has top curve $y = y_u(x)$ and bottom curve $y = y_l(x)$. That is, $D$ is described by the inequalities</p>
+
+<p>$$y_l(x) \leq y \leq y_u(x) \quad x_l \leq x \leq x_u$$</p>
+
+<p>Now, recall from Calculus 2 that we can find a volume of a region by integrating over all possible cross-sectional areas. That is,</p>
+
+<p>$$V = \int_{x_l}^{x_u} A(x) dx$$</p>
+
+<p>where $A(x)$ is the cross-sectional area of the solid for any fixed value of $x$. But, we know that the cross-sectional area $A(x)$ is the area under the cross-section $z=f(x,y)$, and thus is given by a single integral</p>
+
+<p>$$A(x) = \int_{y_l(x)}^{y_u(x)} f(x,y) dy$$</p>
+
+<p>Hence the volume of the region is</p>
+
+<p>$$V = \int_{x_l}^{x_u} \int_{y_l(x)}^{y_u(x)} f(x,y) \, dy \, dx$$</p>
+
+<p>Thus, we have</p>
+
+<p>$$\iint_D f(x,y) \, dA = \int_{x_l}^{x_u} \int_{y_l(x)}^{y_u(x)} f(x,y) \, dy \, dx$$</p>
+
+<p>as desired.</p>
+
+<h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
+<p>Let $D \subset \mathbb R^2$ be defined by</p>
+
+<p>$$y_l(x) \leq y \leq y_u(x) \quad x_l \leq x \leq x_u$$</p>
+
+<p>where $y_l(x)$ and $y_u(x)$ are continuous for $x_l \leq x \leq x_u$. If $f(x,y)$ is continuous on $D$, then</p>
+
+<p>$$\iint_D f(x,y) dA = \int_{x_l}^{x_u} \int_{y_l(x)}^{y_u(x)} f(x,y) \, dy \, dx$$</p>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Although the parenthesis around the inner integral are usually omitted, we must evaluate it first. Moreover, as in our interpretation of volume above, when evaluating the inner integral, we are integrating with respect to $y$ while hold $x$ constant. That is we are using <strong>partial integration</strong>.</p>
+
+<p>Suppose now that the set $D$ can be described by inequalities of the form</p>
+
+<p>$$x_l(y) \leq x \leq x_u(y) \quad y_l \leq y \leq y_u$$</p>
+
+<p>where $y_l$ and $y_u$ are constants and $x_l(y)$ and $x_u(y)$ are continuous functions of $y$ on the interval</p>
+
+<p>$$y_l \leq y \leq y_u$$</p>
+
+<p>Then, by reversing the roles of $x$ and $y$ in Theorem 1, the double integral $\iint_D f(x,y) \, dA$ can be written as an iterated integral in the order "$x$ first, then $y$":</p>
+
+<p>$$\iint_D f(x,y) dA = \int_{y_l}^{y_u} \int_{x_l(y)}^{x_u(y)} f(x,y) \, dy \, dx$$</p>
+
+<p>When evaluating a double integral one must take into account two factors:</p>
+
+<ul>
+<li>  The shape of the region $D$</li>
+<li>  the form of the integrand $f(x,y)$</li>
+</ul>
+
+<p>Either of these factors may make it desirable or even essential to use one order of integration instead of the other.</p>
+
+<p>For more complicated regions we may not be able to apply our method above so easily. For example an annulus cannot be described by the usual inequalities since a vertical or a horizontal lines may intersect the boundary of $D$ in more than two points. A simple approach to evaluating the double integral where $D$ is the annulus is to let $D_1$ and $D_2$ denote the discs of radius $R_1$ and $R_2$ respectively. Then by the Decomposition Theorem and so the required integral is</p>
+
+<p>$$\iint_D f(x,y) \, dA = \iint_{D_2} f(x,y) \, dA - \iint_{D_1} f(x,y) \, dA$$</p>
+
+<p>Both integrals on the right can be written as iterated integrals in the usual way. However, for this or even more complicated regions, we can often make it simpler by applying a change of variables.</p>
+
+<h2>
+<a id="user-content-143-the-change-of-variable-theorem" class="anchor" href="#143-the-change-of-variable-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>14.3 The Change of Variable Theorem</h2>
+
+<p>A mapping $F$ from $\mathbb R^2$ to $\mathbb R^2$ can be used to simplify a double integral</p>
+
+<p>$$\iint_{D_{xy}} G(x,y) \, dA$$</p>
+
+<p>either by changing the integrand $G(x,y)$, or by deforming the set $D_{xy}$ in the $xy$-plane into a simpler shape $D_{uv}$ in the $uv$-plane. The process is called a <strong>change of variables</strong> in the double integral. In this type of calculation it is convenient to replace the symbol "$dA$" in the double integral by "$dx \, dy$" if one is working in the $xy$-plane, and by "$du \, dv$" if one is working in the $uv$-plane.</p>
+
+<p>In order to derive the change of variable formula for double integrals, we need the formula which describes how areas are related under a mapping $F$ given by</p>
+
+<p>$$(x,y) = F(u,v) = (f(u,v),g(u,v))$$</p>
+
+<p>The geometric interpretation of the Jacobian gives us</p>
+
+<p>$$\Delta A_{xy} \approx \left| \frac{\partial (x,y)}{\partial (u,v)} \right| \Delta A_{uv}$$</p>
+
+<p>for $\Delta u$ and $\Delta v$ sufficiently small where the Jacobian $\frac{\partial (x,y)}{\partial (u,v)}$ is evaluated at a point in the region. Notice that we have interchanged the roles of $(x,y)$ and $(u,v)$ in equations, as compared to Section 13.2.</p>
+
+<h4>
+<a id="user-content-theorem-1-change-of-variable-theorem" class="anchor" href="#theorem-1-change-of-variable-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1 Change of Variable Theorem</h4>
+
+<p>Let each of $D_{uv}$ and $D_{xy}$ be a closed bounded set whose boundary is a piecewise-smooth closed curve. Let</p>
+
+<p>$$(x,y)=F(u,v) =(f(u,v),g(u,v))$$</p>
+
+<p>be an one-to-one mapping of $D_{uv}$ into $D_{xy}$ with $f,g \in C^1$, and $\frac{\partial (x,y)}{\partial (u,v)} \neq 0$ except for possibly on a finite collection of piecewise-smooth curves in $D_{uv}$. If $G(x,y)$ is continuous on $D_{xy}$, then</p>
+
+<p>$$\iint_{D_{xy}} G(x,y) \, dx \, dy = \iint_{D_{uv}} H(f(u,v),g(u,v)) \frac{\partial (x,y)}{\partial (u,v)} \, du \, dv$$</p>
+
+<h3>
+<a id="user-content-double-integrals-in-polar-coordinates" class="anchor" href="#double-integrals-in-polar-coordinates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Double Integrals in Polar Coordinates</h3>
+
+<p>If the boundary of the region is a circle centered on the origin, or a circle that passes through the origin, it will often helpful to transform from polar to Cartesian coordinates. Recall that the mapping from polar to Cartesian coordinates is</p>
+
+<p>$$(x,y)=F(r,\theta)=(r\cos\theta,r\sin\theta)$$</p>
+
+<p>which has Jacobian,</p>
+
+<p>$$\frac{\partial (x,y)}{\partial (r,\theta)} = r$$</p>
+
+<p>Hence, we must restrict $r &gt;0$ so that the mapping is one-to-one and the Jacobian is non-zero so that we can apply the Change of Variable Theorem. Note that we can make this restriction even if the origin is in the region as the integral over a single point is 0.</p>
+
+<p>Because polar coordinates have a simple geometric interpretation one can obtain the $r$ and $\theta$ limits of integration directly from the diagram in the $xy$-plane, without drawing the region $D_{r\theta}$ in the same way as we did for finding areas in polar coordinates in Chapter 11.</p>
+</article></body></html>

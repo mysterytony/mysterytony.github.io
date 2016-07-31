@@ -1,0 +1,1556 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    color: #333;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+    background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+    outline: 0;
+}
+
+.markdown-body strong {
+    font-weight: bold;
+    color: #BC0000;
+}
+
+.markdown-body h1 {
+    margin: 0.67em 0;
+}
+
+.markdown-body img {
+    border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
+}
+
+.markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+.markdown-body pre {
+    overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+.markdown-body input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.markdown-body html input[disabled] {
+    cursor: default;
+}
+
+.markdown-body input {
+    line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+    padding: 0;
+}
+
+.markdown-body input {
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+    text-decoration: underline;
+}
+
+.markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body hr:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #011380;
+}
+
+.markdown-body h1 {
+    font-size: 30px;
+}
+
+.markdown-body h2 {
+    font-size: 21px;
+}
+
+.markdown-body h3 {
+    font-size: 16px;
+}
+
+.markdown-body h4 {
+    font-size: 14px;
+}
+
+.markdown-body h5 {
+    font-size: 12px;
+}
+
+.markdown-body h6 {
+    font-size: 11px;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+    margin-left: 0;
+}
+
+.markdown-body code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+    opacity: 0;
+}
+
+.markdown-body .octicon {
+    font: normal normal normal 16px/1 octicons-anchor;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+    content: '\f05c';
+}
+
+.markdown-body:before {
+    display: table;
+    content: "";
+}
+
+.markdown-body:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.markdown-body .anchor {
+    display: inline-block;
+    padding-right: 2px;
+    margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+    outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+.markdown-body h1 {
+
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h2 {
+
+  border-top: 4px solid #4B0000;
+  background-color: #BFADAD;
+    padding: 5px;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+
+.markdown-body h2 .anchor {
+    line-height: 1;
+}
+
+.markdown-body h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h4 {
+    font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+    line-height: 1.2;
+}
+
+.markdown-body h5 {
+    font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+.markdown-body h6 .anchor {
+    line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown-body hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.markdown-body li>p {
+    margin-top: 16px;
+}
+
+.markdown-body dl {
+    padding: 0;
+}
+
+.markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #012A58;
+    border-left: 4px solid #68AFFF;
+    background-color: #BAD9FB
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+}
+
+.markdown-body table th {
+    font-weight: bold;
+    color: #012C45;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #4283A9;
+}
+
+.markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #D1EEFF;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #F1F1F1;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.markdown-body .highlight {
+    margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #FDFFCB;
+    border-left: 4px solid #8E9402;
+}
+
+.markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.markdown-body pre {
+    word-wrap: normal;
+}
+
+.markdown-body pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+    content: normal;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+
+.markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+    color: #767676;
+    font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-weight: normal;
+    background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+    background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+    display: block;
+}
+
+.markdown-body .plan-choice-free {
+    border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+    border-radius: 0 0 3px 3px;
+    border-top: 0;
+    margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+    margin-top: 10px;
+    display: none;
+}
+
+.markdown-body:checked+.radio-label {
+    z-index: 1;
+    position: relative;
+    border-color: #4078c0;
+    }*/
+
+
+/*.MathJax_Display {
+    color: #4B0158;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FEFAFF
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter9</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-9-critical-points" class="anchor" href="#chapter-9-critical-points" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 9 Critical Points</h1>
+
+<p>Recall from single variable calculus that if $x=a$ is a local extremeum of $f(x)$, then either $f'(a) = 0$ or $f'(a)$ does not exist. Such points are of interest and are called critical points of $f$. But recall that a critical point is not necessarily a local extremeum. For example $f(x) =x ^3$ at $x=0$.</p>
+
+<p>In this chapter, we extend these ideas to functions $f(x,y)$. The second degree Taylor polynomial will be used to generalize the second derivative test for local extrema. These ideas will be applied to optimization problems in Chapter 10.</p>
+
+<h2>
+<a id="user-content-91-local-extrema-and-critical-points" class="anchor" href="#91-local-extrema-and-critical-points" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.1 Local Extrema and Critical Points</h2>
+
+<p>We begin with the definition of local extrema.</p>
+
+<h4>
+<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>A point $(a,b)$ is a <strong>local maximum point</strong> of $f$ if $f(x,y) \leq f(a,b)$ for all $(x,y)$ in some neighborhood of $(a,b)$.</p>
+
+<p>A point $(a,b)$ is a <strong>local minimum point</strong> of $f$ if $f(x,y) \geq f(a,b)$ for all $(x,y)$ in some neighborhood of $(a,b)$.</p>
+
+<p>Thinking geometrically, if $(a,b)$ is a local maximum/minimum point of $f$ and $f$ has continuous partial derivatives, then $(a,b)$ is a local maximum/minimum point of the cross-sections $f(x,b)$ and $f(a,y)$. Thus $(a,b)$ is a critical point of both of these cross-sections and so both partial derivatives of $f$ will be zero and the tangent plane will be horizontal.</p>
+
+<h4>
+<a id="user-content-theorem-1" class="anchor" href="#theorem-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1</h4>
+
+<p>If $(a,b)$ is a local maximum or minimum point of $f$, then</p>
+
+<p>$$f_x(a,b) = 0 = f_y(a,b)$$</p>
+
+<p>or at least one of $f_x$ or $f_y$ does not exist at $(a,b)$.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>proof</h4>
+
+<p>Consider the function $g$ defined by $g(x) = f(x,b)$. If $(a,b)$ is a local maximum/minimum point of $f$, then $x=a$ is a local maximum/minimum point of $g$, and hence either $g'(a)=0$ or $g'(a)$ does not exist. Thus it follows that either $f_x(a,b) = 0$ or $f_x(a,b)$ does not exist. A similar argument gives $f_y(a,b) = 0$ or $f_y(a,b)$ does not exist.</p>
+</blockquote>
+
+<h4>
+<a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>A point $(a,b)$ in the domain of $f(x,y)$ is called a <strong>critical point</strong> of $f$ if</p>
+
+<p>$$\frac{\partial f}{\partial x}(a,b) = 0 = \frac{\partial f}{\partial y}(a,b)$$</p>
+
+<p>or if at least one of the partial derivatives does not exist at $(a,b)$.</p>
+
+<h4>
+<a id="user-content-definition-2" class="anchor" href="#definition-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>A critical point $(a,b)$ of $f(x,y)$ is called a <strong>saddle point</strong> of $f$ if in every neighborhood of $(a,b)$ there exist points $(x_1,y_1)$ and $(x_2, y_2)$ such that</p>
+
+<p>$$f(x_1,y_1) &gt; f(a,b) \text{ and } f(x_2,y_2) &lt; f(a,b)$$</p>
+
+<p>The problem that we are faced with has two parts:</p>
+
+<ol>
+<li> Given $f(x,y)$, find all critical points of $f$.</li>
+<li> Determine whether the critical points are local maxima, minima or saddle points.</li>
+</ol>
+
+<h4>
+<a id="user-content-remark" class="anchor" href="#remark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<ol>
+<li> It is essential to solve equations systematically, by considering all possible cases, in order to find all critical points.</li>
+<li> You should be aware that we can only explicitly find the critical points for simple functions $f$. The equations</li>
+</ol>
+
+<p>$$\frac{\partial f}{\partial x} = 0 \quad \frac{\partial f}{\partial y} = 0$$</p>
+
+<p>are a system of equations which are generally non-linear, and there is no general algorithms for solving such systems exactly. There are, however, numerical methods for finding approximate solutions, one of which is a generalization of Newton's method. If you review the one variable case, you might see how to generalize it, using the tangent plane.</p>
+
+<h2>
+<a id="user-content-92-the-second-derivative-test" class="anchor" href="#92-the-second-derivative-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.2 The Second Derivative Test</h2>
+
+<h3>
+<a id="user-content-review-of-the-1-d-case" class="anchor" href="#review-of-the-1-d-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Review of the 1-D Case</h3>
+
+<p>For $f(x)$ the second degree Taylor polynomial approximation is</p>
+
+<p>$$f(x) \approx f(a) + f'(a)(x-a) + \frac 12 f''(a)(x-a)^2$$</p>
+
+<p>for $x$ sufficiently close to $a$. If $x=a$ is a critical point of $f$, then $f'(a) = 0$, and the approximation can be rearranged to give</p>
+
+<p>$$f(x) - f(a) = \approx \frac 12 f''(a)(x-a)^2$$</p>
+
+<p>Thus, for $x$ sufficiently close to $a$, $f(x)-f(a)$ has the same sign as $f''(a)$. If $f''(a) &gt; 0$, then $f(x)-f(a) &gt;0$ for sufficiently close to $a$, and $x=a$ is a local minimum point. If $f''(a) &lt; 0$ then $f(x)-f(a)&lt;0$ for $x$ sufficiently close to $a$, and $x=a$ is a local maximum point. There is no conclusion if $f''(a)=0$.</p>
+
+<h3>
+<a id="user-content-the-2-d-case" class="anchor" href="#the-2-d-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The 2-D Case</h3>
+
+<p>For $f(x,y) \in C^2$, the second degree Taylor polynomial approximation is</p>
+
+<p>$$f(x,y) = P_{2,(a,b)}(x,y)$$</p>
+
+<p>for $(x,y)$ sufficiently close to $(a,b)$. If $(a,b)$ is a critical point of $f$ such that</p>
+
+<p>$$f_x(a,b) = 0 = f_y(a,b)$$</p>
+
+<p>then the approximation can be rearranged to yield</p>
+
+<p>$$f(x,y)-f(a,b) \approx \frac 12 [f_{xx}(a,b)(x-a)^2+2f_{xy}(a,b)(x-a)(y-b)+f_{yy}(a,b)(y-b)^2]$$</p>
+
+<p>for $(x,y)$ sufficiently close to $(a,b)$. The sign of the expression on the right will determine the sign of $f(x,y)-f(a,b)$, and hence whether $(a,b)$ is a local maximum, local minimum or saddle point.</p>
+
+<p>The expression on the right is called a <strong>quadratic form</strong>, and at this state is is necessary to discuss some property of these objects.</p>
+
+<h3>
+<a id="user-content-quadratic-forms" class="anchor" href="#quadratic-forms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quadratic Forms</h3>
+
+<h4>
+<a id="user-content-definition-3" class="anchor" href="#definition-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
+<p>A function $Q$ of the form</p>
+
+<p>$$Q(u,v) = a_{11}u^2 + 2a_{12}uv + a_{22}v^2$$</p>
+
+<p>where $a_{11}, a_{12}, a_{22}$ are constants, is called a <strong>quadratic form</strong> on $\mathbb R^2$.</p>
+
+<p>It is important to observe that one can use matrix notation and write</p>
+
+<p>$$Q(u,v) = \begin{bmatrix} u &amp; v \end{bmatrix} \begin{bmatrix} a_{11} &amp; a_{12} \\ a_{12} &amp; a_{22} \end{bmatrix} \begin{bmatrix} u \\ v \end{bmatrix}$$</p>
+
+<p>so that a quadratic form on $\mathbb R^2$ is determined by a $2 \times 2$ symmetric matrix.</p>
+
+<p>We classify quadratic forms on $\mathbb R^2$ in the following way:</p>
+
+<ol>
+<li> If $Q(u,v) &gt; 0$ for all $(u,v) \neq (0,0)$, then $Q(u,v)$ is said to be <strong>positive definite</strong>.</li>
+<li> If $Q(u,v) &lt; 0$ for all $(u,v) \neq (0,0)$, then $Q(u,v)$ is said to be <strong>negative definite</strong>.</li>
+<li> If $Q(u,v) &lt; 0$ for some $(u,v)$ and $Q(u,v) &gt; 0$ for some other $(u,v)$, then $Q(u,v)$ is said to be <strong>indefinite</strong>.</li>
+<li> If $Q(u,v)$ does not satisfy any of 1-3, then $Q(u,v)$ is said to be <strong>semidefinite</strong>.</li>
+</ol>
+
+<p>These terms are also used to describe the corresponding symmetric matrices.</p>
+
+<h4>
+<a id="user-content-remark-1" class="anchor" href="#remark-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Semidefinite quadratic forms may be split into two classes, positive semidefinite and negative semidefinite.</p>
+
+<p>If $A$ is not a diagonal matrix, the nature of $A$ (or of $Q(u,v)$) is not immediately obvious. For example, even if all entries of $A$ are positive, it does not follow that $A$ is a positive definite matrix.</p>
+
+<p>Having introduced quadratic forms, we return to the equation. Let</p>
+
+<p>$$u =x-a \quad v = y-b$$</p>
+
+<p>so that</p>
+
+<p>$$f(x,y)-f(a,b) \approx \frac 12 [f_{xx}(a,b)u^2 + 2f_{xy}(a,b)uv +f_{yy}(a,b)v^2]$$</p>
+
+<p>The matrix of the quadratic form on the right is the Hessian matrix of $f$ at $(a,b)$:</p>
+
+<p>$$Hf(a,b) = \begin{bmatrix} f_{xx}(a,b) &amp; f_{xy}(a,b) \\ f_{xy}(a,b) &amp; f_{yy}(a,b) \end{bmatrix}$$</p>
+
+<p>It is thus plausible that if $Hf(a,b)$ is positive definite, then</p>
+
+<p>$$f(x,y)-f(a,b) &gt; 0 $$</p>
+
+<p>for all $(u,v) \neq (0,0).$ i.e. for all $(a,b) \neq (a,b)$ (assuming, of course, that $(x,y)$ is sufficiently close to $(a,b)$ so that the approximation is sufficiently accurate). In other words, if $Hf(a,b)$ is positive definite, it is plausible that $(a,b)$ is a local minimum point of $f$. One can give similar arguments in the cases where $Hf(a,b)$ is negative definite or indefinite, leading to the following theorem.</p>
+
+<h4>
+<a id="user-content-theorem-1-second-partial-derivative-test" class="anchor" href="#theorem-1-second-partial-derivative-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 1 Second Partial Derivative Test</h4>
+
+<p>Suppose that $f(x,y) \in C^2$ in some neighborhood of $(a,b)$ and that $f_x(a,b)=0=f_y(a,b)$.</p>
+
+<ol>
+<li> If $Hf(a,b)$ is positive definite, then $(a,b)$ is a local minimum point of $f$.</li>
+<li> If $Hf(a,b)$ is negative definite, then $(a,b)$ is a local maximum point of $f$.</li>
+<li> If $Hf(a,b)$ is indefinite, then $(a,b)$ is a saddle point point of $f$.</li>
+</ol>
+
+<h4>
+<a id="user-content-remark-2" class="anchor" href="#remark-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<ol>
+<li> The argument preceding the theorem is not a proof, since it involves an approximation. One can use Taylor's formula and a continuity argument to give. See Section 9.3.</li>
+<li> Note the analogy with the second derivative test for functions of one variable. The requirement $g''(a) &gt; 0$, which implies a local minimum, is replaced by the requirement that the matrix of second partial derivatives $Hf(a,b)$ be positive definite.</li>
+</ol>
+
+<p>To help us classify the Hessian matrix we can use the following theorem from the theory of quadratic forms.</p>
+
+<h4>
+<a id="user-content-theorem-2" class="anchor" href="#theorem-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 2</h4>
+
+<p>If $Q(u,v) = a_{11}u^2 + 2a_{12}uv + a_{22}v^2$ and $D =a_{11}a_{22}-a_{12}^2$ then</p>
+
+<ol>
+<li> $Q$ is positive definite if and only if $D&gt;0$ and $a_{11} &gt; 0$.</li>
+<li> $Q$ is negative definite if and only if $D&gt;0$ and $a_{11} &lt; 0$.</li>
+<li> $Q$ is indefinite if and only if $D &lt; 0$.</li>
+<li> $Q$ is semidefinite if and only if $D=0$.</li>
+</ol>
+
+<h4>
+<a id="user-content-remark-3" class="anchor" href="#remark-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>Observe that $D$ is the determinant of the associated symmetric matrix.</p>
+
+<h3>
+<a id="user-content-degenerate-critical-points" class="anchor" href="#degenerate-critical-points" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Degenerate Critical Points</h3>
+
+<p>We have seen that quadratic forms (i.e. symmetric matrices) can be classified into four types: positive definite, negative definite, indefinite and semidefinite. Note that the second partial derivative test gives a conclusion in the first three cases but makes no reference to the semidefinite case. In fact, if $Hf(a,b)$ is semidefinite, the critical point $(a,b)$ may be a local maximum point, a local minimum point or a saddle point. We justify this statement by considering the functions</p>
+
+<p>$$f(x,y) = x^4 + y^4 \quad g(x,y) = x^4 - y^4 \quad h(x,y) = -x^4-y^4 $$</p>
+
+<p>For each function $(0,0)$ is the only critical point, and the Hessian matrix at $(0,0)$ is the zero matrix, which is semidefinite. However, since</p>
+
+<p>$$\begin{align*}
+f(x,y)-f(0,0) \geq 0 &amp; \quad \text{for all } (x,y) \\
+g(x,0)-g(0,0) \geq 0 &amp; \quad \text{for all } x \\
+g(0,y)-g(0,0) \leq 0 &amp; \quad \text{for all } y \\
+h(x,y)-h(0,0) \leq 0 &amp; \quad \text{for all } (x,y) \end{align*}$$</p>
+
+<p>it follows that $(0,0)$ is a local minimum point for $f$, a saddle point for $g$ and a local maximum point for $h$.</p>
+
+<p>If $Hf(a,b)$ is semidefinite, so that the second partial derivative test gives no conclusion, we say that the critical point $(a,b)$ is <strong>degenerate</strong>. In order to classify the critical point, one has to investigate the sign of $f(x,y)-f(a,b)$ in a small neighborhood of $(a,b)$.</p>
+
+<h3>
+<a id="user-content-generalizations" class="anchor" href="#generalizations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generalizations</h3>
+
+<p>The definitions of local maximum point, local minimum point and critical point can be generalized in the obvious way to function $f$ of $n$ variables.</p>
+
+<p>The Hessian matrix of $f$ at $a$ is the $n \times n$ symmetric matrix given by</p>
+
+<p>$$Hf(a) = \left[ \frac{\partial^2 f}{\partial x_i \partial y_j}(a) \right]$$</p>
+
+<p>where $ii,j = 1,2,...,n$. The Hessian matrix can be classified as positive definite, negative definite, indefinite or semidefinite by considering the associated quadratic form in $\mathbb R^n$</p>
+
+<p>$$Q(u) = \sum_{i,j=1}^n \frac{\partial^2 f}{\partial x_i \partial y_j}(a,b)u_iu_j$$</p>
+
+<p>as in $\mathbb R^2$. The second derivative test as stated in $\mathbb R^2$ now holds in $\mathbb R^n$. It can be justified heuristically by using the second degree Taylor polynomial approximation,</p>
+
+<p>$$f(x) = P_{2,a}(x)$$</p>
+
+<p>which leads to</p>
+
+<p>$$f(x)-f(a) = \frac{1}{2!}\sum_{i,j=1}^n \frac{\partial^2 f}{\partial x_i \partial y_j}(a,b)(x_i-a_i)(x_j-a_j)$$</p>
+
+<p>generalizing equation.</p>
+
+<p>For $n=2$, we have seen that one can classify $Hf(a,b)$ by using the determinant. This can be extended to the general case.</p>
+
+<h3>
+<a id="user-content-level-curves-near-a-critical-point" class="anchor" href="#level-curves-near-a-critical-point" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Level Curves Near a Critical Point</h3>
+
+<p>Consider a function $f \in C^2$. In Section 7.2 we discussed the fact that if $\nabla f(a,b) \neq (0,0)$, then the level curve of $f$ through $(a,b)$ is a smooth curve (at least sufficiently close to $(a,b)$). Also by continuity, $\nabla f(x,y) \neq(0,0)$ for all $(x,y)$ in some neighborhood of $(a,b)$. Thus, if $\nabla f(a,b) \neq (0,0)$, there will be some neighborhood of $(a,b)$ in which the level curves of $f$ are smooth non-intersecting curves.</p>
+
+<p>A point at which $\nabla f(a,b) \neq (0,0)$ is called a <strong>regular point</strong> of $f$.</p>
+
+<p>Assume that $f$ has continuous second partial derivatives, and approximate $f$ by its Taylor polynomial $P_{2,(a,b)}(x,y)$, calculated at the critical point:</p>
+
+<p>$$f(x,y)\approx f(a,b)+\frac 12 [f_{xx}(a,b)(x-a)^2+2f_{xy}(a,b)(x-a)(y-b)+f_{yy}(a,b)(y-b)^2]$$</p>
+
+<p>The constant term $f(a,b)$ and the factor $\frac 12$ in the equation do not make a significant difference to the shape of the level curves. So, it is plausible (and can be proven) that the level curves of $f$ will be approximated by the the level curves of $P_{2,(a,b)}(x,y)$ for $(x,y)$ sufficiently close to $(a,b)$.</p>
+
+<p>Performing the translation $u = x-a$ and $v = y-b$, we get a quadratic form</p>
+
+<p>$$Q(u,v) = a_{11} u^2 + 2a_{12}uv + a_{22}v^2$$</p>
+
+<p>Therefore, to approximate the level curves of $f$ near a critical point, we can sketch the level curves of the associated quadratic form $Q(u,v)$.</p>
+
+<h3>
+<a id="user-content-convex-functions" class="anchor" href="#convex-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Convex Functions</h3>
+
+<h3>
+<a id="user-content-1-d-case" class="anchor" href="#1-d-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1-D Case</h3>
+
+<p>We say that a twice differentiable function $f(x)$ is <strong>strictly convex</strong> if $f''(x)&gt;0$ for all $x$ and $f$ is <strong>convex</strong> if $f''(x) \geq 0$ for all $x$. Thus the term convex means "concave up." Convex functions have two interesting properties.</p>
+
+<h4>
+<a id="user-content-theorem-3" class="anchor" href="#theorem-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 3</h4>
+
+<p>If $f(x)$ is twice continuously differentiable and strictly convex, then</p>
+
+<ol>
+<li> $f(x) &gt; L_a(x) = f(a) +f'(x)(x-a)$ for all $x\neq a$, for any $a\in\mathbb R$.</li>
+<li> For $a&lt;b$, $f(x)&lt;f(a)+\frac{f(b)-f(a)}{b-a}(x-a)$ for $x\in (a,b)$</li>
+</ol>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-1" class="anchor" href="#proof-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>(1) Follows from Taylor's Theorem: $f(x) = L_a(x) + \frac{f''(c)}{2}(x-a)^2$ where $c$ is between $a$ and $x$. Thus $R_{1,a}(x)&gt;0$ for $x\neq a$, giving $f(x) &gt; L_a(x)$ for all $x\neq a$.
+(2) Let $g(x)=f(x)-\left[ f(a)+\frac{f(b)-f(a)}{b-a}(x-a) \right]$, Then $g(a) =g(b)=0$ and $g''(x)=f''(x)&gt;0$. We must show that $g(x)&gt;0$ for $x \in (a,b)$. By the Mean Value Theorem $\frac{f(b)-f(a)}{b-a}=f'(c)$ for some $c\in (a,b)$. Note that $g'(x) = f'(x)-\frac{f(b)-f(a)}{b-a} = f'(x)-f'(c)$. Thus $g'(c)-0$. Since $g''(x)&gt;0$ then $g'(0)$ is strictly increasing. Since $g'(c)=0$ then $g'(x)&lt;0$ on $[a,c)$ and $g'(x)&gt;0$ on $(c,d]$. This implies that $g(x)$ is strictly decreasing on $[a,c]$ and strictly increasing on $[c,b]$. Since $g(a)=0$ then $g(x)&lt;0$ on $(a,c]$ and on $[c,b)$. Therefore $g(x)&lt;0$ on $(a,b)$, as required.
+$\square$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-remark-4" class="anchor" href="#remark-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>(1) says that the graph of $f$ lies above any tangent line, and (2) says that any secant line lies above the graph of $f$.</p>
+
+<h3>
+<a id="user-content-2-d-case" class="anchor" href="#2-d-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2-D Case</h3>
+
+<p>Suppose $f(x,y)$ has continuous second partial derivatives. We say that $f$ is <strong>strictly convex</strong> if $Hf(x,y)$ is positive definite for all $(x,y)$. By Theorem 2, $f$ is strictly convex means $f_{xx}&gt;0$ and $f_{xx}f_{yy}-f_{xy}^2 &gt;0$ for all $(x,y)$. We get a result which is analogous to Theorem 3.</p>
+
+<h4>
+<a id="user-content-theorem-4" class="anchor" href="#theorem-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 4</h4>
+
+<p>If $f(x,y)$ has continuous second partial derivatives and is strictly convex, then</p>
+
+<ol>
+<li> $f(x,y)&gt;L_{(a,b)}(x,y)$ for all $(x,y)\neq (a,b)$, and</li>
+<li> $f(a_1 + t(b_1-a_1), a_2 + t(b_2-a_2)) &lt; f(a_1,a_2) + t[f(b_1,b_2)-f(a_1,a_2)]$ for $0&lt;t&lt;1$, $(a_1,a_2) \neq (b_1,b_2)$.</li>
+</ol>
+
+<p>(proof omitted, see book page 104)</p>
+
+<h4>
+<a id="user-content-remark-5" class="anchor" href="#remark-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>(1) says that the graph of $f$ lies above the tangent plane and (2) says that the cross-section of the graph of $f$ above the line segment from $(a_1,a_2)$ to $(b_1,b_2)$ lies below the secant line.</p>
+
+<h4>
+<a id="user-content-theorem-5" class="anchor" href="#theorem-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem 5</h4>
+
+<p>If $f(x,y)\in C^2$ is strictly convex and has a critical point $(c,d)$, then $f(x,y) &gt; f(c,d)$ for all $(x,y) \neq (c,d)$ and $f$ has no other critical point.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-2" class="anchor" href="#proof-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Note that $L_{(c,d)}(x,y)=f(c,d)$. Thus, $f(x,y)&gt;f(c,d)$ for all $(x,y) \neq (c,d)$ by Theorem 4, part (1). If $f$ has a second critical point $(c_1,d_1)$, then by the reasoning just given $f(c_1,d_1)&gt;f(c,d)$ and $f(c,d)&gt;f(c_1,d_,1)$ which is a contradiction.
+$\square$</p>
+</blockquote>
+
+<h2>
+<a id="user-content-93-proof-of-the-second-partial-derivative-test" class="anchor" href="#93-proof-of-the-second-partial-derivative-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.3 Proof of the Second Partial Derivative Test</h2>
+
+<p>We now want to prove part(1) of the second derivative test. The proof depends significantly on the hypothesis that the second partials of $f$ are continuous, and on a plausible property of positive definite matrices: if you make a small change to the entries of a positive definite matrix the new matrix is positive definite. This is proved separately as a lemma.</p>
+
+<h4>
+<a id="user-content-lemma-1" class="anchor" href="#lemma-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lemma 1</h4>
+
+<p>Let $\begin{bmatrix} a &amp; b \\ b &amp; c \end{bmatrix}$ be a positive definite matrix. If $|\tilde a - a|$, $|\tilde b - b|$ and $|\tilde c - c|$ are sufficiently small, then $\begin{bmatrix} \tilde a &amp; \tilde b \\ \tilde b &amp; \tilde c \end{bmatrix}$ is positive definite.</p>
+
+<blockquote>
+<h4>
+<a id="user-content-proof-3" class="anchor" href="#proof-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proof</h4>
+
+<p>Let $Q$ and $\tilde Q$ be the quadratic forms determined by the given matrices, i.e.
+$$Q(u,v) = au^2 + 2buv +cu^2$$
+and similarly for $\tilde Q (u,v)$, We perform the change of variables
+$$u = r \cos \theta \quad v = r \sin \theta$$
+to obtain
+$$Q(u,v) = r^2 p(\theta)$$
+where
+$$p(\theta) = a \cos^2 \theta + 2b \cos \theta \sin \theta + c \sin^2 \theta$$
+Since for $r=1$, $Q(u,v) = p(\theta)$, and $Q$ is positive definite, we must have $p(\theta) &gt;0$ for all $\theta$, $0 \leq \theta \leq 2\pi$.
+Let
+$$k = \min_{0 \leq \theta \leq 2 \pi} p(\theta)$$
+Then $k&gt;0$ and by equation,
+$$Q(u,v) \geq kr^2 \quad \text{for all } (u,v) \neq (0,0)$$
+We are given that $|\tilde a - a|$, $|\tilde b-b|$ and $|\tilde c - c|$ are sufficiently small. Let
+$$\delta = \min \{|\tilde a - a|$, $|\tilde b-b|$, $|\tilde c - c| \}$$
+By equation and the triangle inequality
+$$\begin{align*} |Q(u,v)-\tilde Q(u,v)| &amp;\leq |\tilde a - a|u^2 + 2|\tilde b - b||u||v| + |\tilde c-c|v^2 \\
+&amp;\leq \delta(u^2 + 2|u||v||v^2) \\
+&amp;= \delta(|u|+|v|)^2 \\
+&amp;= \delta r^2 (|\cos \theta| + |\sin \theta|)^2 \\
+&amp;&lt; 4 \delta r^2 \end{align*}$$
+We now choose $\delta = \frac 18 k$. Then
+$$|Q(u,v)-\tilde Q(u,v)| &lt; \frac 12 kr^2$$
+which implies
+$$\begin{align*} \tilde Q(u,v) &amp;\geq Q(u,v) - \frac 12 kr^2 \\
+&amp;\geq kr^2 - \frac 12 kr^2 \\
+&amp;= \frac 12 kr^2\end{align*}$$
+This allows that $\tilde Q(u,v)&gt;0$ for all $(u,v) \neq (0,0)$. Therefore, $\tilde Q(u,v)$ is positive definite.
+$\square$</p>
+</blockquote>
+
+<h4>
+<a id="user-content-remark-6" class="anchor" href="#remark-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark</h4>
+
+<p>The lemma is also true if "positive definite" is replaced by "negative definite" or "indefinite".</p>
+
+<p>(The rest of Section 9.3 is omitted, see book page 105 to 107)</p>
+</article></body></html>

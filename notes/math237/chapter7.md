@@ -134,6 +134,22 @@ One cannot visualize the graph $w=f(x,y,z)$ of a function $f(x,y,z)$, because fo
 
 $$f(x,y,z)=k, \quad \text{where } k\in R(f)$$
 
+We now discuss the interpretation of the gradient $\nabla f(a,b,c)$, for $f(x,y,z)$. As noted in Section 7.2, Theorem 7.2.1 applies in this case. That is, $\nabla f(a,b,c)$ gives the direction of the largest rate of change of $f$. We now generalize Theorem 7.2.2 to the case $f(x,y,z)$. As one might guess, we have:
+
 #### Theorem 1
 
 If $f(x,y,z)\in C^1$ in a neighborhood of $(a,b,c)$ and $\nabla f(a,b,c) \neq (0,0,0)$, then $\nabla f(a,b,c)$ is orthogonal to the level surface $f(x,y,z)=k$ through $(a,b,c)$
+
+The detail are similar to the proof of Theorem 7.2.2.
+
+Observe that Theorem 1 gives a quick way to find the equation of the tangent plane of a surface in $\mathbf R^3$ given by
+
+$$f(x,y,z) = k$$
+
+If $x \in \mathbf R^3$ is an arbitrary point in the tangent plane to the surface at the point $a \in \mathbf R^3$, then the vector $x-a$ lies in the tangent plane, and by Theorem 1, is orthogonal to $\nabla f(a)$, leading to
+
+$$\nabla f(a) \cdot (x - a) = 0$$
+
+Since this equation is satisfied for all $x$ in the tangent plane, it is the equation of the tangent plane. In component form, we have
+
+$$f_x(a,b,c)(x-a) + f_y(a,b,c)(y-b) + f_z(a,b,c)(z-c) = 0 $$

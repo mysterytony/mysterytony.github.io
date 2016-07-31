@@ -1,9 +1,7 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>* {
-    /*box-sizing: border-box;*/
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
 }
 
 body {
-    /*width: 980px;*/
     padding-left: 10px;
     padding-right: 10px;
     margin-right: auto;
@@ -27,8 +25,7 @@ pre {
     color: #333;
     font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
     font-size: 20px;
-    /*font: "Segoe UI";*/
-    line-height: 1.6;
+    line-height: 1.2;
     word-wrap: break-word;
 }
 
@@ -52,6 +49,7 @@ pre {
 
 .markdown-body img {
     border: 0;
+    box-shadow: 5px 5px 5px #D6D6D6;
 }
 
 .markdown-body hr {
@@ -142,6 +140,7 @@ pre {
     margin-top: 15px;
     margin-bottom: 15px;
     line-height: 1.1;
+    color: #011380;
 }
 
 .markdown-body h1 {
@@ -469,8 +468,7 @@ pre {
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: #DBDBDB;
-    /*border-radius: 3px;*/
+    background-color: #F1F1F1;
 }
 
 .markdown-body code:before,
@@ -501,7 +499,6 @@ pre {
     line-height: 1.45;
     background-color: #FDFFCB;
     border-left: 4px solid #8E9402;
-    /*border-radius: 3px;*/
 }
 
 .markdown-body .highlight pre {
@@ -545,7 +542,7 @@ pre {
 }
 
 .markdown-body .pl-c {
-    color: #969896;
+    color: #009B00;
 }
 
 .markdown-body .pl-c1,
@@ -724,15 +721,433 @@ pre {
     z-index: 1;
     position: relative;
     border-color: #4078c0;
-}
+    }*/
 
-.MathJax_Display {
+
+/*.MathJax_Display {
     color: #4B0158;
     padding-top: 5px;
     padding-bottom: 5px;
-    /*border: 2px solid #210027;*/
     background-color: #FEFAFF
-}</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    }*/
+
+
+/* Extracted and interpreted from adcstyle.css and frameset_styles.css */
+
+
+/* body */
+
+body {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    color: #000;
+    /*font: 20px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font: 20px Georgia, serif;
+    line-height: 1.3;
+}
+
+p {
+    text-indent: 50px;
+}
+
+/* links */
+
+a:link {
+    color: #00f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f60;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f60;
+    text-decoration: underline;
+}
+
+
+/* html tags */
+
+
+/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+
+
+/** html code {
+    font-size: 101%;
+}
+
+* html pre {
+    font-size: 101%;
+    }*/
+
+
+/* code */
+
+pre,
+code {
+    font-size: 20px;
+    font-family: monaco, courier, consolas, monospace;
+}
+
+code {
+    background-color: #EFEFEF;
+    padding: 3px;
+}
+
+pre {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #c7cfd5;
+    background: #f1f5f9;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #94B0F7;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+blockquote {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5C7;
+    background: #F9F9F1;
+    margin: 20px 0;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3px;
+    border-left-width: 3px;
+    border-left-color: #E6E770;
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+hr {
+    color: #919699;
+    size: 1;
+    width: 100%;
+    noshade: "noshade"
+}
+
+
+/* headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;*/
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 25px;
+    color: #000;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5em;
+    font-size: 30px;
+    color: #000;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #919699;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-left-color: #000565;
+    padding-left: 5px;
+}
+
+h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 25px;
+    color: #000;
+}
+
+h4 {
+    /*margin-top: 2em;*/
+    /*margin-top: 5px;*/
+    margin-bottom: .5em;
+    font-size: 23px;
+    color: #000;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 21px;
+    color: #000;
+}
+
+h6 {
+    margin-top: 20px;
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+
+/* lists */
+
+ul {
+    list-style: square outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+li {
+    margin-top: 7px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin: 0 0 0 30px;
+    padding: 0 0 12px 6px;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    margin: 7px 0 0 30px;
+    padding: 0 0 0 10px;
+}
+
+ul ul {
+    margin-left: 40px;
+    padding: 0 0 0 6px;
+}
+
+li>p {
+    display: inline
+}
+
+li>p+p {
+    display: block
+}
+
+li>a+p {
+    display: block
+}
+
+
+/* table */
+
+table {
+    border-top: 1px solid #919699;
+    border-left: 1px solid #919699;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 4px 8px 4px 8px;
+    background: #E2E2E2;
+    /*font-size: 12px;*/
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table th p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+table td {
+    padding: 8px;
+    /*font-size: 12px;*/
+    vertical-align: top;
+    border-bottom: 1px solid #919699;
+    border-right: 1px solid #919699;
+}
+
+table td p {
+    margin-bottom: 0px;
+}
+
+table td p + p {
+    margin-top: 5px;
+}
+
+table td p + p + p {
+    margin-top: 5px;
+}
+
+
+/* forms */
+
+form {
+    margin: 0;
+}
+
+button {
+    margin: 3px 0 10px 0;
+}
+
+input {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+select {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 3px 0;
+}
+
+textarea {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+img {
+    max-height: 400px; /* you can use % */
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: #B4B4B4;
+    border-width: 2px;
+}
+
+.markdown-body .pl-c {
+    color: #009B00;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+    color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+    color: #333;
+}
+
+.markdown-body .pl-ent {
+    color: #63a35c;
+}
+
+.markdown-body .pl-k {
+    color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+    color: #183691;
+}
+
+.markdown-body .pl-v {
+    color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+    color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+    color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+    color: #008080;
+}
+
+.markdown-body .pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.markdown-body .pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.markdown-body .pl-md {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+    color: #1d3e81;
+}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
@@ -758,59 +1173,110 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter8</title></head><body><article class="markdown-body"><h1 id="sequent-calculus-lk"><a name="user-content-sequent-calculus-lk" href="#sequent-calculus-lk" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sequent Calculus (LK)</h1>
-<h4 id="motivation"><a name="user-content-motivation" href="#motivation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Motivation</h4>
+<title>chapter8</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-sequent-calculus-lk" class="anchor" href="#sequent-calculus-lk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sequent Calculus (LK)</h1>
+
+<h4>
+<a id="user-content-motivation" class="anchor" href="#motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation</h4>
+
 <ul>
-<li>A strength of Natural Deduction is that it gives well with our intuition in searching for and writing proofs.</li>
-<li>A weakness of Natural Deduction is that there is no algorithm for searching for proofs.</li>
-<li>Introducing sequent calculus provides a proof system in which there is an algorithm for finding a proof, if one exists.</li>
+<li>  A strength of Natural Deduction is that it gives well with our intuition in searching for and writing proofs.</li>
+<li>  A weakness of Natural Deduction is that there is no algorithm for searching for proofs.</li>
+<li>  Introducing sequent calculus provides a proof system in which there is an algorithm for finding a proof, if one exists.</li>
 </ul>
-<h4 id="definition"><a name="user-content-definition" href="#definition" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Definition</h4>
+
+<h4>
+<a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Definition</h4>
+
 <p>Idea: make a proof system that manipulates <strong>assumptions</strong> as well as the formula that is being proven.</p>
+
 <p>Let $\Gamma$ and $\Delta$ be sets of formula, we call $\Gamma \vdash \Delta$ a <strong>sequent</strong>.</p>
+
 <p>We write $\Gamma \vdash \Delta$ to indicate that $\Gamma$ proves <strong>at least one</strong> formula in $\Delta$.</p>
+
 <p><strong>Notation:</strong> in sequent we write</p>
+
 <ul>
-<li>$\Gamma,\varphi$ for $\Gamma \cup \{\varphi\}$ and</li>
-<li>$\Gamma, \Delta$ for $\Gamma \cup \Delta$</li>
+<li>  $\Gamma,\varphi$ for $\Gamma \cup \{\varphi\}$ and</li>
+<li>  $\Gamma, \Delta$ for $\Gamma \cup \Delta$</li>
 </ul>
-<h4 id="identity-rules"><a name="user-content-identity-rules" href="#identity-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Identity Rules</h4>
+
+<h4>
+<a id="user-content-identity-rules" class="anchor" href="#identity-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Identity Rules</h4>
+
 <p>$$\frac{}{\Gamma, \varphi \vdash \varphi, \Delta} \text{(Axiom)}$$</p>
+
 <p>$$\frac{\Gamma \vdash \varphi, \Delta \quad \Gamma, \varphi \vdash \Delta}{\Gamma \vdash \Delta} \text{(Cut)}$$</p>
-<h4 id="logical-rules"><a name="user-content-logical-rules" href="#logical-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Logical Rules:</h4>
+
+<h4>
+<a id="user-content-logical-rules" class="anchor" href="#logical-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logical Rules:</h4>
+
 <p>$$\frac{\Gamma\vdash\varphi,\Delta}{\Gamma,(\lnot\varphi)\vdash\Delta} (\lnot L)$$</p>
+
 <p>$$\frac{\Gamma,\varphi \vdash \Delta}{\Gamma\vdash(\lnot\varphi),\Delta}(\lnot R)$$</p>
+
 <p>$$\frac{\Gamma\vdash\varphi,\Delta \quad \Gamma, \psi\vdash\Delta}{\Gamma,(\varphi\rightarrow\psi)\vdash\Delta}(\rightarrow L)$$</p>
+
 <p>$$\frac{\Gamma,\varphi\vdash\psi,\Delta}{\Gamma\vdash(\varphi\rightarrow\psi),\Delta}(\rightarrow R)$$</p>
+
 <p>The formula $(\lnot \varphi)$ and $(\varphi \rightarrow \psi)$ in the $\lnot L$, $\lnot R$, $\rightarrow L$ and $\rightarrow R$ rules are called <strong>principal formula</strong> of the inference.</p>
+
 <p>The formula $\varphi$ is called the <strong>cut formula</strong> in the Cut inference.</p>
+
 <p>Note: in many (more formal) definitions of LK, sequents are formed by two <strong>sequences</strong> of formula; then additional <strong>structural inference rules</strong>, such as exchange (allowing to swap formula in the sequence), contraction (allowing to remove adjacent duplicate formula), etc., are needed.</p>
+
 <p>Similarly, $\bot \vdash_{LK} \varphi$ for any formula $\varphi$.</p>
-<h4 id="soundness"><a name="user-content-soundness" href="#soundness" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Soundness</h4>
+
+<h4>
+<a id="user-content-soundness" class="anchor" href="#soundness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Soundness</h4>
+
 <p>If $\Gamma\vdash\varphi$ then $\Gamma \models \varphi$</p>
-<h4 id="weakening"><a name="user-content-weakening" href="#weakening" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Weakening</h4>
-<p>If $\Gamma\vdash_{LK}\Delta$ then also $\Gamma, \Gamma&rsquo; \vdash_{LK} \Delta, \Delta&rsquo;$ for any sets of formula $\Gamma&rsquo;$ and $\Delta&rsquo;$.</p>
-<h4 id="deduction-theorem"><a name="user-content-deduction-theorem" href="#deduction-theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deduction theorem</h4>
+
+<h4>
+<a id="user-content-weakening" class="anchor" href="#weakening" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Weakening</h4>
+
+<p>If $\Gamma\vdash_{LK}\Delta$ then also $\Gamma, \Gamma' \vdash_{LK} \Delta, \Delta'$ for any sets of formula $\Gamma'$ and $\Delta'$.</p>
+
+<h4>
+<a id="user-content-deduction-theorem" class="anchor" href="#deduction-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deduction theorem</h4>
+
 <p>If $\Gamma \vdash (\varphi \rightarrow \psi), \Delta$ then also $\Gamma, \varphi \vdash \psi, \Delta$. We get $\Gamma, \varphi \vdash \varphi\rightarrow\psi,\psi,\Delta$ by weakening from our assumption; then</p>
+
 <p>$$\frac{\frac{\vdots}{\Gamma,\varphi\vdash\varphi\rightarrow\psi,\psi,\Delta}(Wkn) \quad \frac{\frac{}{\Gamma,\varphi\vdash\varphi,\psi\Delta}(Ax) \quad \frac{}{\Gamma,\varphi,\psi\vdash\psi,\Delta}(Ax)}{\Gamma,\varphi,\varphi\rightarrow\psi\vdash\psi,\Delta}(\rightarrow L)}{\Gamma,\varphi \vdash, \psi, \Delta} (Cut)$$</p>
-<h4 id="completeness-reduction-from-hilbert-system"><a name="user-content-completeness-reduction-from-hilbert-system" href="#completeness-reduction-from-hilbert-system" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Completeness: reduction from Hilbert System</h4>
+
+<h4>
+<a id="user-content-completeness-reduction-from-hilbert-system" class="anchor" href="#completeness-reduction-from-hilbert-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Completeness: reduction from Hilbert System</h4>
+
 <p>If $\Gamma\models\varphi$ then $\Gamma\vdash\varphi$.</p>
-<h4 id="cut-elimination-motivation"><a name="user-content-cut-elimination-motivation" href="#cut-elimination-motivation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Cut Elimination - Motivation</h4>
+
+<h4>
+<a id="user-content-cut-elimination---motivation" class="anchor" href="#cut-elimination---motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cut Elimination - Motivation</h4>
+
 <p>Apart from the Cut rule, all rules have the property that the formula above the line are subformula of the formula below the line.</p>
+
 <p>So if we could eliminate the Cut rule, then we would be able to search for a proof algorithmically.</p>
+
 <ul>
-<li>Start with the conclusion at the bottom</li>
-<li>Select a formula in the conclusion to decompose (going upwards) according to one of the non-Cut rules.</li>
-<li>The new formula get simpler at every step</li>
-<li>There are finitely many choices available ( and finitely many new branches created) at every step.</li>
-<li>Hence after finitely many steps, our process will terminate.</li>
-<li>If at that point all branches have arrived at the Axiom, then we have a proof. Otherwise, no proof exists.</li>
+<li>  Start with the conclusion at the bottom</li>
+<li>  Select a formula in the conclusion to decompose (going upwards) according to one of the non-Cut rules.</li>
+<li>  The new formula get simpler at every step</li>
+<li>  There are finitely many choices available ( and finitely many new branches created) at every step.</li>
+<li>  Hence after finitely many steps, our process will terminate.</li>
+<li>  If at that point all branches have arrived at the Axiom, then we have a proof. Otherwise, no proof exists.</li>
 </ul>
-<h4 id="theorem"><a name="user-content-theorem" href="#theorem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Theorem</h4>
+
+<h4>
+<a id="user-content-theorem" class="anchor" href="#theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theorem</h4>
+
 <p>For every proof of a sequent $\Gamma\vdash\Delta$ in LK there is also proof of the same sequent in LK\{Cut}</p>
-<h4 id="remark-on-the-proof"><a name="user-content-remark-on-the-proof" href="#remark-on-the-proof" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Remark on the Proof</h4>
+
+<h4>
+<a id="user-content-remark-on-the-proof" class="anchor" href="#remark-on-the-proof" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remark on the Proof</h4>
+
 <p>It bears repeating that the induction step performs induction simultaneously on</p>
+
 <ul>
-<li>the size of the proof, and</li>
-<li>complexity of the cut formula.</li>
-</ul></article></body></html>
+<li>  the size of the proof, and</li>
+<li>  complexity of the cut formula.</li>
+</ul>
+</article></body></html>

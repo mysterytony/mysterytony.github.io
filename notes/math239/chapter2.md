@@ -266,6 +266,116 @@ b.	If the expression $A^{\*}$ is unambiguous, then
 
 $$\Phi_{A^{\*}}(x)=(1-\Phi_A(x))^{-1}$$
 
----
+>#### Proof
+(a)
+$$\Phi_{AB}(x) = \sum_{s \in AB} x ^{l(s)} = \sum_{a\in A} \sum_{b \in B} x^{l(ab)}$$
+since $s=ab$ for unique $a \in A$ and $b \in B$. But $\text{length} (ab) = \text{length}(a) + \text{length}(b)$ for all $\\{0,1\\}$-string $a$, $b$, so
+$$\begin{align\*} \Phi_{AB}(x) &= \sum_{a \in A} \sum_{b\in B} x^{l(a)+l(b)} \\\
+&= \sum_{a\in A}x^{l(a)} \sum_{b \in B}x^{l(b)} \\\
+&= \Phi_A(x) \Phi_B(x) \end{align\*}$$
+(b)
+$$\Phi_{A^\*}(x) = \sum_{k \geq 0} \Phi_A^k (x)$$
+by the Sum Lemma, since $A^\*$ is unambiguous. Note that $\epsilon \notin A$, so the constant term of $\Phi_A(x)$ is $0$. Not $\Phi_{A^k} (x) = (\Phi_A(x))^k$ from part (a), so
+$$\Phi_{A^\*}(x) = \sum_{k \geq 0} (\Phi_A(x))^k = (1-\Phi_A(x))^{-1}$$
+by Geometric Series
+$\square$
 
-ends page 44
+## 2.7 Decomposition Using Blocks
+
+The following problems involve considering strings subject to a condition on their blocks.
+
+#### 2.7.1 Problem
+
+Let $b_n$ by the number of $\\{0,1\\}$-strings of length $n$ in which no block has length exactly two. Prove that
+
+$$b_n = [x^n] \frac{1-x^2+x^3}{1-2x+x^2-x^3} \quad n \geq 0$$
+
+Let $B$ be the set of all $\\{0,1\\}$-strings in which no block has length exactly two. Consider decomposing a string after each block of 1s. Except possibly for the first and last piece, each piece has the form
+
+$$\\{0,000,0000,...\\}\\{1,111,1111,...\\}$$
+
+The first piece may consist only of 1s and last piece may consist only of 0s. This gives the expression
+
+$$B = \\{\epsilon, 1,111,1111,...\\}(\\{0,000,0000,...\\}\\{1,111,1111,...\\})^\*\\{\epsilon,0,000,0000,...\\}$$
+
+Moreover, since the decomposition rule is unambiguous, the expression is unambiguous. So
+
+$$\begin{align\*}
+\Phi_B(x) &= \frac{(1+x+x^3+x^4+...)^2}{1-(x+x^3+x^4+...)^2} \\\
+&= \frac{(1+x+\frac{x^3}{1-x})^2}{1- (x+\frac{x^3}{1-x})^2} \\\
+&= \frac{1+x+\frac{x^3}{1-x}}{1-(x+\frac{x^3}{1-x})} \\\
+&= \frac{1-x^2+x^3}{1-2x +x^2-x^3} \end{align\*}$$
+
+#### 2.7.2 Problem
+
+Find the generating series with respect to length for $\\{0,1\\}$-strings in which an odd block of 0's is never followed by an odd block of 1's.
+
+Let $S$ be the set of all $\\{0,1\\}$-string in which an odd block of "0"s is never followed by an odd block of "1"s. We decompose a binary string after each block of 1s, so a string has required property if and only if each of the pieces has. Decomposing all $\\{0,1\\}$-strings in this way gives rise to the unambiguous expression
+
+$$\\{0,1\\}^\* = \\{1\\}^\*(\\{0\\}\\{0\\}^\*\\{1\\}\\{1\\}^\*)^\*\\{0\\}^\*$$
+
+We are excluding pieces of the form $\\{0\\}\\{00\\}^\*\\{1\\}\\{11\\}^\*$. So
+
+$$S = \\{1\\}^\* M^\* \\{0\\}^\*$$
+
+where
+
+$$M = \\{0\\}\\{0\\}^\*\\{1\\}\\{1\\}^\* \\ \\{0\\}\\{00\\}^\*\\{1\\}\\{11\\}^\* $$
+
+Thus
+
+$$\Psi_M(x) = \frac{x}{1-x}\frac{x}{1-x}-\frac{x}{1-x^2}\frac{x}{1-x^2} = \frac{x^3(2+x)}{(1-x^2)^2}$$
+
+and the required generating series is
+
+$$\Psi_{1^\* M^\* 0^\*} = \frac{(1+x)^2}{1-2x^2(1+x)}$$
+
+## 2.8 Recursive Decompositions of Binary Strings
+
+Another type of decomposition that is often useful is a **recursive** decomposition, in which a set id decomposed in terms of itself. For example, let $S$ be the set of all $\\{0,1\\}$-strings. We can define $S$ in the following way.
+
+1.	The empty string in $S$
+2.	Any other element of $S$ consists of a symbol (either 0 or 1) followed by an element of $S$
+
+Such a definition, in which the set $S$ is defined in terms of itself, is called a **recursive definition**. This leads immediately to the recursive decomposition.
+
+$$S = \\{\epsilon\\} \cup \\{0,1\\} S$$
+
+Here the right side gives an unambiguous expression for $S$ and so from this we obtain
+
+$$\Phi_S (x) = 1+ \Phi_{\\{0,1\\}}(x) \Phi_S(x)$$
+
+Solving for $\Phi_S(x)$ gives
+
+$$(1-\Phi_{\\{0,1\\}}(x))\Phi_S(x) = 1$$
+
+so
+
+$$\Phi_S(x) = (1-\Phi_{\\{0,1\\}}(x))^{-1} = (1-2x)^{-1} = \sum_{n \geq 2^n x^n}$$
+
+as expected.
+
+Below we give a different solution to Problem 2.3.2 based on a recursive decomposition; we restate the problem here for convenience.
+
+#### 2.8.1 Problem
+
+Let $a_n$ be the number of $\\{0,1\\}$-strings of length $n$ which contain no three consecutive 1's. Prove that
+
+$$a_n = [x^n] \frac{1+x+x^2}{1-x-x^2-x^3} \quad \text{for } n \geq 0$$
+
+Let $S$ be the set of all $\\{0,1\\}$-strings that do not contain three consecutive 1s. Consider decomposing a string after the first occurrence of 0. The strings $\\{\epsilon, 1,11\\}$ are indecomposable. Every other string $\sigma \in S$ can be written as $\sigma = \sigma_1 \sigma_2$ where $\sigma_1 \in \\{0,10,110\\}$ and $\sigma_2 \in S$. This gives rise to the expression
+
+$$S = \\{\epsilon, 1, 11 \\} \cup \\{0,10,110\\} S$$
+
+Moreover the right hand size is an unambiguous expression, so
+
+$$\Phi_S(x) = (1+x+x^2) + (x+x^2+x^3) \Phi_S(x)$$
+
+Solving this gives
+
+$$\Phi_S(x) = \frac{1+x+x^2}{1-x-x^2-x^3}$$
+
+as required.
+
+In the previous problem we forbade the substring $111$. The technique used does not adapt well to more complicated forbidden substrings, but such problems can be handled using the method outlined in the following two problems.
+
