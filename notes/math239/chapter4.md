@@ -18,7 +18,7 @@ $$E(G) = \\{\\{1,2\\},\\{1,3\\},\\{1,4\\},\\{2,3\\},\\{2,5\\},\\{3,4\\},\\{3,5\\
 
 For the sorts of results with which we are concerned, it is most convenient to consider the following geometric representation or diagram or **drawing** of a graph. On the page we draw a small circle to correspond to each vertex. For each edge we then draw a line between the corresponding pair of vertices. The only restriction on such a line is that it does not intersect the circle corresponding to any other vertex. For example, the above graph is represented in Figure 4.1 in three different ways.
 
-![](4.1.png)
+![](http://tonyli.tk/notes/math239/4.1.png)
 
 If $e = \\{u,v\\}$ then we say that $u$ and $v$ are **adjacent** vertices, and that edge $e$ is **incident** with vertices $u$ and $v$. We can also say that the edge $e$ **joins** $u$ and $v$.
 
@@ -43,7 +43,7 @@ $$V(G)=\\{a,b,c,d\\} \quad E(G)=\\{\\{a,b\\},\\{a,c\\},\\{a,d\\},\\{c,d\\}\\}$$
 
 The graphs $G$ and $H$ are not the same--$G$ has vertices $p,q,r,s$ and $H$ has vertices $a,b,c,d$--but for almost all purpose they are indistinguishable. We make this idea precise.
 
-![](4.7.png)
+![](http://tonyli.tk/notes/math239/4.7.png)
 
 #### 4.2.1 Definition
 
@@ -63,13 +63,13 @@ $$f (1)=a \quad f (2)=b \quad f (3)=c \quad f (4)=h \quad f (5)=i \quad f (6)=j 
 
 (This graph is called the **Petersen graph**)
 
-![](4.8.png)
+![](http://tonyli.tk/notes/math239/4.8.png)
 
 The collection of graphs that are isomorphic to $G$ forms the **isomorphism class** of $G$. In almost all cases, a graph has some property if and only if all graphs in its isomorphism class have the property. Thus we generally regard isomorphic graphs as the "same" even if formally they might not be equal. Even if $G$ has only one vertex, there are infinitely many graphs in its isomorphism class. Fortunately though, the number of isomorphism classes of graphs with a given finite set of vertices is finite. For example, there are exactly 11 isomorphism classes of graphs on 4 vertices, pictured in Figure 4.9. Note that in this figure, the vertices of the graphs are not given explicitly, because however we assign vertices to the drawing, we will still get a graph in the same isomorphism class. 
 
 The identity map on $V(G)$ is an isomorphism form the graph $G$ to itself. An isomorphism from $G$ to itself is called an **automorphism** of $G$.
 
-![](4.9.png)
+![](http://tonyli.tk/notes/math239/4.9.png)
 
 ## 4.3 Degree
 
@@ -113,7 +113,7 @@ In $K_n$ each vertex is adjacent to $n-1$ vertices distinct from it, thus $K_n$ 
 
 A graph in which the vertices can be partitioned into two sets $A$ and $B$, so that all edges join a vertex in $A$ to a vertex in $B$, is called a **bipartite** graph, with **bipartition** $(A,B)$. The **complete** bipartite graph $K_{m,n}$ has all vertices in $A$ adjacent to all vertices in $B$, with $|A| = m, |B| = n$. For example, Figure 4.11 is a drawing of $K_{2,3}$.
 
-![](4.11.png)
+![](http://tonyli.tk/notes/math239/4.11.png)
 
 #### 4.4.1 Definition
 
@@ -206,7 +206,7 @@ These two conditions may sometimes be stated in the form "a component of $G$ is 
 
 Note that we could have defined a component of $G$ to be the equivalence class of a vertex, relative to the relation "is joined by a walk to". Since this is indeed an equivalence relation, it follows immediately that the components of $G$ partition its vertex set.
 
-![](4.21.png)
+![](http://tonyli.tk/notes/math239/4.21.png)
 
 Figure 4.21 shows a graph having three components. Note that there are paths between every pair of vertices in the same component, but not between pairs of vertices in different components. 
 
@@ -227,11 +227,11 @@ $\square$
 
 One of the earliest problems in graph theory is the **seven bridges of Konigsberg** problem. In the 18th century in the town of Konigsberg (now Kaliningard, Russia), there were 7 bridges that crossed the river Pergel, which cuts through the city and there were 2 islands in the middle of the river. The layout can be roughly represented in the following diagram.
 
-![](bridge.png)
+![](http://tonyli.tk/notes/math239/bridge.png)
 
 The question is that can a resident of the city leave home, cross every bridge exactly once, and then return home? We can formulate the layout of the city as a graph: Create 4 vertices representing the land areas (two shores and two islands), and create an edge for each bridge, joining the vertices representing the two land areas on either side of the bridge. In this case, we obtain the following graph (with multiple edges):
 
-![](bridgegraph.png)
+![](http://tonyli.tk/notes/math239/bridgegraph.png)
 
 In terms of graph theory, the question becomes "is there a closed walk that uses every edge exactly once?" We use a definition for this type of walk.
 
@@ -269,7 +269,7 @@ An edge $e$ of $G$ is a **bridge** if $G-e$ has more components than $G$.
 
 Thus if $G$ is connected, a bridge is an edge such that $G-e$ is not connected. Figure 4.22 shows a connected graph with a bridge $e$. Some texts, and some instructors, use **cut-edge** as a synonym for bridge.
 
-![](4.22.png)
+![](http://tonyli.tk/notes/math239/4.22.png)
 
 #### 4.10.2 Lemma
 
@@ -296,7 +296,7 @@ is a path from $x$ to $y$ in $G-e$. Hence $e$ is not a bridge of $G$ by Lemma 4.
 >To complete the proof, we must establish the converse--if edge $e$ is not a bridge of graph $G$, then $e$ is an edge of some cycle. Suppose $e =uv$ is not a bridge. Then $u$ and $v$ must lie in the same component of $G-e$ and so there is a path $P$ that joins them. Together with $e$ this path forms a cycle that contains $e$.
 $\square$
 
-#### 4.10.4 Corollar
+#### 4.10.4 Corollary
 
 If there are two distinct paths from vertex $u$ to vertex $v$ in $G$, then $G$ contains a cycle.
 

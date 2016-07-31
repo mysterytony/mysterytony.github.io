@@ -21,9 +21,9 @@ Circuits that contain capacitors and inductors can be represented by differentia
 
 Thevenin and Norton equivalent circuits simplify the analysis of first-order circuits by showing that all first-order circuits are equivalent to one of two simple first-order circuits. Below shows how this is accomplished. A first-order circuit is partitioned into two parts. One part is the circuit--everything except that capacitor or inductor. If it is a capacitor, then the rest of the circuit is replaced by its Thevenin equivalent circuit. The result is a simple first-order circuit--a series circuit consisting of a voltage source, a resistor, and a capacitor. On the other hand, if the energy storage element is an inductor, then the rest of the circuit is replaced by its Norton equivalent circuit. The result is another simple first-order circuit--a parallel circuit consisting of a current source, a resistor, and an inductor. Indeed, all first-order circuits are equivalent to one of these two simple first-order circuits.
 
-![](./8.2.1.png)
+![](http://tonyli.tk/notes/mte120/8.2.1.png)
 
-![](./8.2.2.png)
+![](http://tonyli.tk/notes/mte120/8.2.2.png)
 
 When the input to a circuit is sinusoidal, the steady-state response is also sinusoidal. Furthermore, the frequency of the response sinusoid must be the same as the frequency of the input sinusoid. The circuit shown above is at steady state before the switch is closed. The steady-state capacitor voltage will be
 
@@ -95,9 +95,9 @@ Let's represent the circuit in Figure 8.3-1b by a differential equation. The cap
 
 $$i(t) = C \frac{d}{dt} v(t)$$
 
-![](./8.3.1.png)
+![](http://tonyli.tk/notes/mte120/8.3.1.png)
 
-![](./8.3.2.png)
+![](http://tonyli.tk/notes/mte120/8.3.2.png)
 
 The same current $i(t)$, passes through the resistor. Apply KVL to Figure 8.3-1b to get
 
@@ -187,7 +187,7 @@ $$\tau = \frac{x(\infty) - x(0)}{\frac{d}{dt}x(t) \Big|_{y=0}}$$
 
 Figure 8.3-3 shows a plot of $x(t)$ versus $t$. We can determine the values of (1) the slope of the plot at time $t=0$, (2) the initial value of $x(t)$, and (3) the final value of $x(t)$ from this plot. The equation can be used to calculate the time constant from these values. Equivalently, Fiture 8.3-3 shows how to measure the time constant from a plot of $x(t)$ versus $t$.
 
-![](./8.3.3.png)
+![](http://tonyli.tk/notes/mte120/8.3.3.png)
 
 Next, we apply these result to the RC circuit in Figure 8.3-1. Comparing the equations we see that
 

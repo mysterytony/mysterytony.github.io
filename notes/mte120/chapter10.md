@@ -4,7 +4,7 @@
 
 Consider the experiment illustrated in Figure 10.1-1.
 
-![](10.1.1.png)
+![](http://tonyli.tk/notes/mte120/10.1.1.png)
 
 Here, a function generator provides the input to a linear circuit and the oscilloscope displays the output, or response, of the linear circuit. The linear circuit itself consists of resistors, capacitors, inductors, and perhaps dependent sources and/or op amps. The function generator allows us to choose from several types of input function. These input functions are called waveforms or waves. A typical function generator will provide square waves, pulse waves, triangular waves, and sinusoidal waves.
 
@@ -36,7 +36,7 @@ We can choose the output of our circuit to be any voltage or current that is of 
 
 To summarize, an ac circuit is a steady-state circuit in which all of the inputs are sinusoidal and have the same frequency. All of the currents and voltages of an ac circuit are sinusoidal at the input frequency.
 
-![](10.2.1.png)
+![](http://tonyli.tk/notes/mte120/10.2.1.png)
 
 Consider the sinusoidal function
 
@@ -72,7 +72,7 @@ Notice that an advance or delay of a full period leaves a sinusoid unchanged, th
 
 Next, consider the problem of obtaining an analytic representation $A \cos(\omega t + \theta)$ of a sinusoid that is given graphically. This problem is frequently encountered by engineers and engineering students in the laboratory. Frequently, an engineer will see a sinusoidal displayed on an oscilloscope and need to represent that voltage using an equation. The analytic representation of the sinusoid is obtained in three steps. The first two are straightforward. The first requires some attention. The procedure is illustrated in Figure 10.2-5, which shows two sinusoidal voltages.
 
-![](10.2.5.png)
+![](http://tonyli.tk/notes/mte120/10.2.5.png)
 
 1.	 Measure the amplitude, $A$. The location of the time axis may not be obvious when the sinusoidal voltage is displayed on an oscilloscope, so it may be more convenient to measure the peak-to-peak amplitude $2A$ as shown.
 2.	Measure the period $T$ in s and calculate the frequency $\omega = 2\pi / T$ in rad/s.
@@ -99,7 +99,7 @@ Figure 10.3-1a shows the phasor as a complex number $\mathbf{V}$, represented by
 
 $$A = |\mathbf{V}| \quad \theta = \angle \mathbf{V}$$
 
-![](10.3.1.png)
+![](http://tonyli.tk/notes/mte120/10.3.1.png)
 
 Figure 10.3-1b shows an alternate representation of the phasor $\mathbf{V}$. As before, $\mathbf{V}$ is represented by a point in the complex plane. In Figure 10.3-1b, the real numbers $a$ and $b$ are identified by the projections of the point onto the real and imaginary axis. Consequently, $a$ is called the **real part** of $\mathbf{V}$ and $b$ is called the **imaginary part** of $\mathbf{V}$. We write
 
@@ -111,7 +111,7 @@ $$\mathbf{V} = a+ jb$$
 
 where $j = \sqrt{-1}$
 
-![](10.3.2.png)
+![](http://tonyli.tk/notes/mte120/10.3.2.png)
 
 Figure 10.3-2 shows a phasor $\mathbf{V}$ with $Re\\{\mathbf{V}\\}<0$. Notice that $\theta$, not $\psi$ is the angle of $\mathbf{V}$. Since a phasor can be expressed in both rectangular and polar forms, we write
 
@@ -233,7 +233,7 @@ Consequently,
 
 $$\mathbf V (\omega) = \mathbf Z (\omega) \mathbf I (\omega)$$
 
-![](10.4.1.png)
+![](http://tonyli.tk/notes/mte120/10.4.1.png)
 
 which is **Ohm's law for ac circuits**. The admittance of an element of an ac circuit is the reciprocal of its impedance. The admittance is denoted as $\mathbf Y (\omega)$ so
 
@@ -261,7 +261,7 @@ By convention, we label the capacitor by its impedance in the frequency domain a
 
 $$\mathbf V_C(\omega) = \frac{1}{j\omega C} \mathbf I_C(\omega)$$
 
-![](10.4.2.png)
+![](http://tonyli.tk/notes/mte120/10.4.2.png)
 
 Figure 10.4-3 shows an inductor in an ac circuit. We know that the inductor current is a sinusoid at the input frequency, so we can write
 
@@ -283,9 +283,9 @@ We label the inductor by its impedance in the frequency domain as shown in Figur
 
 $$\mathbf V_L(\omega) = j \omega L \mathbf I_L(\omega)$$
 
-![](10.4.3.png)
+![](http://tonyli.tk/notes/mte120/10.4.3.png)
 
-![](10.4.4.png)
+![](http://tonyli.tk/notes/mte120/10.4.4.png)
 
 A resistor from an ac circuit in Figure 10.4-4a. We know that the resistor voltage is a sinusoid at the input frequency so we can write
 
@@ -306,7 +306,7 @@ $$\mathbf V_R(\omega) = R \mathbf I_R(\omega)$$
 
 Notice that in the time domain, voltage and currents are represented as sinusoids, while in the frequency domain, voltages and currents are represented as phasors. In the time domain,resistors, capacitors, and inductors are represented by their resistance, capacitance, or inductance, while in the frequency domain, resistors, capacitors, and inductors are represented by their impedance.
 
-![](10.4.9.png)
+![](http://tonyli.tk/notes/mte120/10.4.9.png)
 
 Consider a dependent source in an ac circuit as shown in Figure 10.4-9a. The controlling current $i_a(t)$ is a sinusoid at the input frequency.
 
@@ -344,7 +344,7 @@ We say that the impedance $\b Z_eq$ is equivalent to the series combination of $
 
 $$\b Z_{eq} = \b Z_1 + ... + \b Z_n$$
 
-![](10.5.1.png)
+![](http://tonyli.tk/notes/mte120/10.5.1.png)
 
 The voltage across the impedance $\b Z_1$ and $\b Z_2$ in Figure 10.5-1a are given by
 
@@ -352,7 +352,7 @@ $$\b V_1 = \b Z_1 \b I = \frac{\b Z_1}{\b Z_1 + \b Z_2} \b V \quad \b V_2 = \b Z
 
 These equations show how $\b V$, the voltage across the series impedances, is divided between the individual impedances. They are called the voltage division equations.
 
-![](10.5.2.png)
+![](http://tonyli.tk/notes/mte120/10.5.2.png)
 
 Figure 10.5-2a shows a circuit called "Circuit A" connected to two parallel impedances. Using KVL in Figure 10.5-2a shows that
 
@@ -402,7 +402,7 @@ The node equations are a set of simultaneous equations in which the unknowns are
 
 After writing the solving the node equations, we can determine all of the voltages and currents of the ac circuit using Ohm's and Kirchhoff's laws.
 
-![](10.6.1.png)
+![](http://tonyli.tk/notes/mte120/10.6.1.png)
 
 Figure 10.6-1 illustrates techniques for expressing the element voltage and currents in terms of the node voltages. Figure 10.6-1a shows a generic circuit having node voltages $\b V_1$ and $\b V_2$ and element voltage $\b V_a$. We see that
 
@@ -425,7 +425,7 @@ The mesh equations are a set of simultaneous equations in which the unknowns are
 
 After writing and solving the mesh equations, we can determine all of the voltages and currents of the ac circuit using Ohm's and Kirchhoff's laws.
 
-![](10.6.6.png)
+![](http://tonyli.tk/notes/mte120/10.6.6.png)
 
 Figure 10.6-6 illustrates techniques for expressing the element voltages and currents in terms of the mesh voltages. Figure 10.6-6a shows a generic circuit element that is in two meshes having mesh current $I_1$ and $I_2$. $I_a$ is the element current of the generic element. We see that
 
@@ -455,9 +455,9 @@ Figure 10.7-2c indicates that the Thevenin impedance $Z_t$ is the equivalent imp
 
 $$V_{oc} = Z_t I_{sc}$$
 
-![](10.7.1.png)
+![](http://tonyli.tk/notes/mte120/10.7.1.png)
 
-![](10.7.11.png)
+![](http://tonyli.tk/notes/mte120/10.7.11.png)
 
 The circuits connected to Circuit B in Figure 10.7-11a and b are equivalent to each other. The circuit in Figure 10.7-11b is the Norton equivalent of the circuit in Figure 10.7-11a, and the circuit in Figure 10.7-11a is the Thevenin equivalent of the circuit in Figure 10.7-11b. Consequently, we can replace a series combination of a voltage source and impedance by a parallel combination of a current source and an impedance, or vice versa, without changing the value of any current or voltage in circuit B. This equivalence is commonly referred to as a source transformation.
 
@@ -471,7 +471,7 @@ Phasors representing the voltage or current of a circuit are time quantities tra
 
 **A phasor diagram is a graphical representation of phasors and their relationship on the complex plane.**
 
-![](10.9.1.png)
+![](http://tonyli.tk/notes/mte120/10.9.1.png)
 
 Let us consider the series RLC circuit represented in the time domain in Figure 10.9-1a and in the frequency domain in Figure 10.9-1b. The phasor current in Figure 10.9-1b is
 
@@ -507,5 +507,5 @@ $$V_S = V_R + (V_L + V_C) = R I_m + j \left( \omega L - \frac{1}{\omega C} \righ
 
 This phasor is shown in the complex plane in Figure 10.9-2c
 
-![](10.9.2.png)
+![](http://tonyli.tk/notes/mte120/10.9.2.png)
 

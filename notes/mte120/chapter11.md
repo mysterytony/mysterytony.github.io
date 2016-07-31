@@ -25,7 +25,7 @@ $$p(t) = v(t)i(t)$$
 
 The unit of power is watts (W). We can always calculate the instantaneous power because no restrictions have been placed on either $v(t)$ or $i(t)$. The instantaneous power can be a quite complicated function of $t$ when $v(t)$ or $i(t)$ is itself a complicated function of $t$.
 
-![](11.3.1.png)
+![](http://tonyli.tk/notes/mte120/11.3.1.png)
 
 Suppose that the voltage $v(t)$ is period function having period $T$. That is
 

@@ -737,7 +737,7 @@ pre {
 
 /* body */
 
-body {
+.markdown-body body {
     margin: 20px auto;
     width: 80%;
     background-color: #fff;
@@ -747,28 +747,28 @@ body {
     line-height: 1.3;
 }
 
-p {
+.markdown-body p {
     text-indent: 50px;
 }
 
 /* links */
 
-a:link {
+.markdown-body a:link {
     color: #00f;
     text-decoration: none;
 }
 
-a:visited {
+.markdown-body a:visited {
     color: #00a;
     text-decoration: none;
 }
 
-a:hover {
+.markdown-body a:hover {
     color: #f60;
     text-decoration: underline;
 }
 
-a:active {
+.markdown-body a:active {
     color: #f60;
     text-decoration: underline;
 }
@@ -848,7 +848,7 @@ blockquote {
     /* IE */
 }
 
-hr {
+.markdown-body hr {
     color: #919699;
     size: 1;
     width: 100%;
@@ -1173,93 +1173,48 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>chapter11</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-chapter-11-ac-steady-state-power" class="anchor" href="#chapter-11-ac-steady-state-power" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 11 AC Steady-State Power</h1>
-
-<h2>
-<a id="user-content-111-introduction" class="anchor" href="#111-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.1 Introduction</h2>
-
+<title>chapter11</title></head><body><article class="markdown-body"><h1 id="chapter-11-ac-steady-state-power"><a name="user-content-chapter-11-ac-steady-state-power" href="#chapter-11-ac-steady-state-power" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 11 AC Steady-State Power</h1>
+<h2 id="111-introduction"><a name="user-content-111-introduction" href="#111-introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>11.1 Introduction</h2>
 <p>In this chapter, we continue our study of ac circuits. In particular, we will see the following: </p>
-
 <ul>
-<li>  The power supplied or received by any element of an ac circuit can be conveniently calculated after representing the circuit in the frequency domain. 
-Power in ac circuits is an important topic. Engineers have developed an extensive vocabulary to describe power in an ac circuit. We’ll encounter average power,real and reactive power, complex power, the power factor, rms values, and more. </li>
-<li>  AC circuits that contain coupled inductors and/or ideal transformers can be conveniently analyzed in the frequency domain.
-Both coupled inductors and ideal transformers consist of magnetically coupled coils. (Coils may be tightly coupled or loosely coupled. The coils of an ideal transformer are perfectly coupled.) After representing coupled inductors and transformers in the frequency domain, we will be able to analyze ac circuits containing these devices.</li>
+<li>The power supplied or received by any element of an ac circuit can be conveniently calculated after representing the circuit in the frequency domain. <br />
+    Power in ac circuits is an important topic. Engineers have developed an extensive vocabulary to describe power in an ac circuit. We’ll encounter average power,real and reactive power, complex power, the power factor, rms values, and more. </li>
+<li>AC circuits that contain coupled inductors and/or ideal transformers can be conveniently analyzed in the frequency domain.<br />
+    Both coupled inductors and ideal transformers consist of magnetically coupled coils. (Coils may be tightly coupled or loosely coupled. The coils of an ideal transformer are perfectly coupled.) After representing coupled inductors and transformers in the frequency domain, we will be able to analyze ac circuits containing these devices.</li>
 </ul>
-
-<h2>
-<a id="user-content-112-electric-power" class="anchor" href="#112-electric-power" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.2 Electric Power</h2>
-
+<h2 id="112-electric-power"><a name="user-content-112-electric-power" href="#112-electric-power" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>11.2 Electric Power</h2>
 <p>Human civilization’s progress has been enhanced by society’s ability to control and distribute energy. Electricity serves as a carrier of energy to the user. Energy present in a fossil fuel or a nuclear fuel is converted to electric power to transport and readily distribute it to customers. By means of transmission lines, electric power is transmitted and distributed to essentially all the residences, industries, and commercial buildings in the United States and Canada.</p>
-
 <p>Electric power may be transported readily with low attendant losses, and improved methods for safe handling of electric power have been developed over the past 90 years. Furthermore, methods of converting fossil fuels to electric power are well developed, economical, and safe. Means of converting solar and nuclear energy to electric power are currently in various stages of development or of proven safety. Geothermal energy, tidal energy, and wind energy may also be converted to electric power. The kinetic energy of falling water may readily be used to generate hydroelectric power.</p>
-
-<h2>
-<a id="user-content-113-instantaneous-power-and-average-power" class="anchor" href="#113-instantaneous-power-and-average-power" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.3 Instantaneous Power and Average Power</h2>
-
+<h2 id="113-instantaneous-power-and-average-power"><a name="user-content-113-instantaneous-power-and-average-power" href="#113-instantaneous-power-and-average-power" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>11.3 Instantaneous Power and Average Power</h2>
 <p>We are interested in determining the power generated and absorbed in a circuit or in an element of a circuit. Electrical engineers talk about several types of power, for example, instantaneous power, average power, and complex power. We will start with an examination of the instantaneous power, which is the product of the time-domain voltage and current associated with one or more circuit elements. The instantaneous power is likely to be a complicated function of time. This prompts us to look for a simpler measure of the power generated and absorbed in  a circuit element, such as the average power.</p>
-
 <p>Consider the circuit element shown in Figure 11.3-1. Notice that the element voltage $v(t)$ and the element current $i(t)$ adhere to the passive convention. The <strong>instantaneous power</strong> delivered to this circuit element is the product of the voltage $v(t)$ and the current $i(t)$, so that</p>
-
 <p>$$p(t) = v(t)i(t)$$</p>
-
 <p>The unit of power is watts (W). We can always calculate the instantaneous power because no restrictions have been placed on either $v(t)$ or $i(t)$. The instantaneous power can be a quite complicated function of $t$ when $v(t)$ or $i(t)$ is itself a complicated function of $t$.</p>
-
-<p><a href="11.3.1.png" target="_blank"><img src="11.3.1.png" alt="" style="max-width:100%;"></a></p>
-
+<p><img alt="" src="http://tonyli.tk/notes/mte120/11.3.1.png" /></p>
 <p>Suppose that the voltage $v(t)$ is period function having period $T$. That is</p>
-
 <p>$$v(t) = v(t+T)$$</p>
-
 <p>because the voltage repeats every $T$ seconds. Then, for a linear circuit, the current will also be periodic function having the same period, so</p>
-
 <p>$$i(t) = i(t+T)$$</p>
-
 <p>Therefore, the instantaneous power is</p>
-
 <p>$$p(t) = v(t)i(t) = v(t+T)i(t+T)$$</p>
-
 <p>The <em>average value</em> of a periodic function is the integral of the time function over a complete period, divided by the period. We use a capital $P$ to denote average power and a lowercase $p$ to denote instantaneous power. Therefore, the average power $P$ is given by</p>
-
 <p>$$P = \frac{1}{T} \int_{t_0}^{t_0+T} p(t)dt$$</p>
-
 <p>where $t_0$ is an arbitrary starting point in time.</p>
-
 <p>Next, suppose that the voltage $v(t)$ is sinusoidal, that is</p>
-
 <p>$$v(t) = V_m \cos (\omega t + \theta_V)$$</p>
-
 <p>Then, for a linear circuit at steady state, the current will also be sinusoidal and will have the same frequency, so</p>
-
 <p>$$i(t) = I_m \cos (\omega t + \theta_I)$$</p>
-
 <p>The period and frequency of $v(t)$ and $i(t)$ are related by</p>
-
 <p>$$\omega = \frac{2\pi}{T}$$</p>
-
 <p>The instantaneous power delivered to the element is</p>
-
 <p>$$p(t) = V_m I_m \cos (\omega t + \theta_V) \cos (\omega t + \theta_I)$$</p>
-
 <p>Using the trigonometric identity for the product of two cosine functions,</p>
-
 <p>$$p(t) = \frac{V_m I_m}{2} [\cos (\theta_V - \theta_I) + \cos (2\omega t + \theta_V + \theta_I)]$$</p>
-
 <p>We see that the instantaneous power has two terms. The first term within the brackets is independent of time, and the second term varies sinusoidally over time at twice the radian frequency of $v(t)$.</p>
-
 <p>The average power delivered to the element is</p>
-
 <p>$$P = \frac 1T \int_0^T \frac{V_m I_m}{2} [\cos (\theta_V - \theta_I) + \cos (2\omega t + \theta_V + \theta_I)] dt$$</p>
-
 <p>where we have chosen $t_0 = 0$. Then we have</p>
-
 <p>$$P = \frac{V_m I_m \cos(\theta_V - \theta_I)}{2T} \int_0^T dt + \frac{V_m I_m}{2T} \int_0^T \cos (2\omega t+\theta_V + \theta_I)dt$$</p>
-
 <p>The second integral is zero because the average value of the cosine function over a complete period is zero. Then we have</p>
-
 <p>$$P = \frac{V_m I_m}{2} \cos (\theta_V - \theta_I)$$</p>
-
-<h2>
-<a id="user-content-114-effective-value-of-a-periodic-waveform" class="anchor" href="#114-effective-value-of-a-periodic-waveform" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.4 Effective Value of a Periodic Waveform</h2>
-</article></body></html>
+<h2 id="114-effective-value-of-a-periodic-waveform"><a name="user-content-114-effective-value-of-a-periodic-waveform" href="#114-effective-value-of-a-periodic-waveform" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>11.4 Effective Value of a Periodic Waveform</h2></article></body></html>

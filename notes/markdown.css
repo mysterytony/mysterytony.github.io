@@ -737,7 +737,7 @@ pre {
 
 /* body */
 
-body {
+.markdown-body body {
     margin: 20px auto;
     width: 80%;
     background-color: #fff;
@@ -747,28 +747,28 @@ body {
     line-height: 1.3;
 }
 
-p {
+.markdown-body p {
     text-indent: 50px;
 }
 
 /* links */
 
-a:link {
+.markdown-body a:link {
     color: #00f;
     text-decoration: none;
 }
 
-a:visited {
+.markdown-body a:visited {
     color: #00a;
     text-decoration: none;
 }
 
-a:hover {
+.markdown-body a:hover {
     color: #f60;
     text-decoration: underline;
 }
 
-a:active {
+.markdown-body a:active {
     color: #f60;
     text-decoration: underline;
 }
@@ -848,7 +848,7 @@ blockquote {
     /* IE */
 }
 
-hr {
+.markdown-body hr {
     color: #919699;
     size: 1;
     width: 100%;
