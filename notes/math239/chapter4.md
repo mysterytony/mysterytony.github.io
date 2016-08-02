@@ -177,7 +177,7 @@ Let $v_0v_1,...,v_k$ be a longest path in $G$. The vertex $v_0$ has $v_1$ as one
 $\square$
 
 
-A spanning cycle in a graph is known as a **Hamilton** cycle. Although it is easy to decide if a given cycle is a Hamilton cycle, it can be surprisingly difficult to find one in a graph or to certify that is has no HAmilton cycle.
+A spanning cycle in a graph is known as a **Hamilton** cycle. Although it is easy to decide if a given cycle is a Hamilton cycle, it can be surprisingly difficult to find one in a graph or to certify that is has no Hamilton cycle.
 
 ## 4.8 Connectedness
 

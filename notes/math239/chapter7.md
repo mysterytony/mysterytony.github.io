@@ -8,13 +8,13 @@ A Graph $G$ is **planar** it if has a drawing in the plane so that its edge inte
 
 For example, the 3-cube, which we previously considered is a planar graph, with a planar embedding given in Figure 7.1. A planar graph may have a number of essentially different embeddings.
 
-![](tonyli.tk/notes/math239/7.1.png)
+![](http://tonyli.tk/notes/math239/7.1.png)
 
 It is clear that a graph is planar if and only if each of its components is planar. So it is often sufficient to consider only connected planar graphs and connected planar embeddings.
 
 A planar embedding partitions the plane into connected regions called **faces**; one of these regions, called the outer face, is unbounded. For example, the planar embedding given in Figure 7.2 has 4 faces, identified as $f_1,f_2,f_3,f_4$ in the diagram. In this case, the outer face is $f_4$.
 
-![](tonyli.tk/notes/math239/7.2.png)
+![](http://tonyli.tk/notes/math239/7.2.png)
 
 Consider a planar embedding a connected graph $G$. The subgraph formed by the vertices and edges in a face is called the **boundary** of the face. We say that two faces are **adjacent** if they are incident with a common edge. Assume, for the moment, that $G$ is connected. As one moves around the entire perimeter of a face $f$, one encounters the vertices and edges in a fixed order, say
 
@@ -78,7 +78,7 @@ Consider the two geometric solids in Figure 7.7; the cube and tetrahedron. These
 
 For each platonic solid, we can obtain a planar embedding in which all vertices have the same degree $d \geq 3$ and all faces have the same degree $d^\* \geq 3$;
 
-![](tonyli.tk/notes/math239/7.7.png)
+![](http://tonyli.tk/notes/math239/7.7.png)
 
 see Figure 7.8. We call a graph **platonic** if it admits a planar embedding in which each vertex has the same degree $d \geq 3$ and each face has the same degree $d^\* \geq 3$. We will show that the only platonic graphs are those in Figure 7.8, from which it is easy to deduce that there are just five platonic solids.
 
@@ -94,7 +94,7 @@ $$\\{(3,3),(3,4),(4,3),(3,5)(5,3)\\}$$
 
 (proof omitted)
 
-![](tonyli.tk/notes/math239/7.8.png)
+![](http://tonyli.tk/notes/math239/7.8.png)
 
 #### 7.4.3 Lemma
 
@@ -148,7 +148,7 @@ First we need some language to properly state our result.
 
 An **edge subdivision** of a graph $G$ is obtained by applying the following operation, independently, to each edge of $G$: replace the edge by a path of length 1 or more; if the path has length $m>1$, then there are $m−1$ new vertices and $m−1$ new edges created; if the path has length $m =1$, then the edge is unchanged. For example, Figure 7.11 shows a graph $H$, and an edge subdivision $G$ of $H$.
 
-![](tonyli.tk/notes/math239/7.11.png)
+![](http://tonyli.tk/notes/math239/7.11.png)
 
 Note that the operation of edge subdivision does not change planarity: if $G$ is a planar graph, then all edge subdivisions of $G$ are planar; if $G$ is nonplanar, then all edge subdivisions of $G$ are nonplanar. Similarly, note that if a graph $G$ has a nonplanar subgraph,then $G$ is nonplanar.
 

@@ -162,7 +162,7 @@ In the minimum spanning tree (MST) problem, we are given a connected graph $G$ a
 
 For example, in the graph to the left, we have a connected graph with the edges being labeled with their weights. In the graph to the right, we have a spanning tree of total weight 31. But is there another spanning tree of smaller weight?
 
-![](tonyli.tk/notes/math239/spanningtree.png)
+![](http://tonyli.tk/notes/math239/spanningtree.png)
 
 This problem is useful in the design of various networks, such as computer networks, road networks, and power grids. The edge weights would represent the costs of building between the two locations. A minimum spanning tree would represent the least amount of cost required to completely connect every location.
 
@@ -182,7 +182,7 @@ In the second iteration, we look at the edges in the cut induced by $\\{a,c\\}$,
 
 We repeat this process until we have a spanning tree. We claim that the tree we produce is a minimum spanning tree.
 
-![](tonyli.tk/notes/math239/prim.png)
+![](http://tonyli.tk/notes/math239/prim.png)
 
 Prim's algorithm is a greedy algorithm, meaning at each step in the process, we pick the edge that is "best" for our problem. But how do we know that it will always produce a tree of minimum wight? This requires the following proof. For any graph $H$, we will use the notation $w(H) \sum_{e \in E(H)} w(e)$.
 

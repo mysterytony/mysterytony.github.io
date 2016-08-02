@@ -1185,7 +1185,7 @@ MathJax.Hub.Config({
 
 <p><strong>Job assignment problem</strong>. We are given a set $A$ of workers and a set $B$ of jobs, and for each job, the set of workers capable of doing the job. We want to assign as many jobs as possible to workers able to do them, but each worker is to be assigned to at most one job, and each job is to be assigned to at most one worker.</p>
 
-<p><a href="tonyli.tk/notes/math239/8.1.png" target="_blank"><img src="tonyli.tk/notes/math239/8.1.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="https://camo.githubusercontent.com/9dcf959d9691209d54ebf14f7b010bab43f9252e/687474703a2f2f746f6e796c692e746b2f6e6f7465732f6d6174683233392f382e312e706e67" target="_blank"><img src="https://camo.githubusercontent.com/9dcf959d9691209d54ebf14f7b010bab43f9252e/687474703a2f2f746f6e796c692e746b2f6e6f7465732f6d6174683233392f382e312e706e67" alt="" data-canonical-src="http://tonyli.tk/notes/math239/8.1.png" style="max-width:100%;"></a></p>
 
 <p>Why is the job assignment problem equivalent to the maximum matching problem of bipartite graphs? For the data of the job assignment problem we can construct a bipartite graph $G$ with vertex set $A \cup B$ and with $u \in A$ adjacent to $v\in B$ if and only if worker $u$ can do job $v$. Conversely, given a bipartite graph with bipartition $A,B$ we make a worker for each element of $A$ a job for each element of $B$ and declare worker $u$ to be able to do job $v$ if and only if $u,v \in E(G)$. The condition that jobs be assigned to workers that can do them, means that an assignment is a set of edges. The condition that each worker be assigned to at most one job and that each job be assigned to at most one worker, corresponds to the condition that the assigned edges form a matching.</p>
 
