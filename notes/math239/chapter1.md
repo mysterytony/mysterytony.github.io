@@ -244,7 +244,7 @@ $$\Phi_{A_1\times\cdots\times A_k}(x)=\Phi_A1(x)\cdots \Phi_Ak(x)$$
 #### 1.8.5 Theorem
 
 For any positive integer $k$ and non-negative integer $n$,
-$$(1-x)^{-k}=\sum_{n\geq 0}{n+k-1 \choose k-1}n^n$$
+$$(1-x)^{-k}=\sum_{n\geq 0}{n+k-1 \choose k-1}x^n$$
 
 >#### Proof
 Let $S_n$ be the set of all $k$-tuples $(a_1,...,a_k)\in\mathbb{N}_0^k$ with $a_1+...+a_k=n$

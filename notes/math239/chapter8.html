@@ -1,4 +1,4 @@
-/* {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* {
 }
 
 body {
@@ -1147,3 +1147,150 @@ img {
 .markdown-body .pl-mo {
     color: #1d3e81;
 }
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>chapter8</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-chapter-8-matchings" class="anchor" href="#chapter-8-matchings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chapter 8 Matchings</h1>
+
+<h2>
+<a id="user-content-81-matching" class="anchor" href="#81-matching" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.1 Matching</h2>
+
+<p>A <strong>matching</strong> in a graph $G$ is a set $M$ of edges of $G$ such that no two edges in $M$ have a common end. (Another way to express the condition is that in the spanning subgraph of $G$ with edge set $M$, every vertex has degree at most 1.) So $M$ matches certain pairs of adjacent vertices--hence the name. The thick edges in Figure 8.1 form a matching. We say that a vertex $v$ of $G$ is <strong>saturated</strong> by $M$, or that $M$ <strong>saturates</strong> $v$, if $v$ is incident with an edge in $M$. Of course, every graph has a matching; for example the empty set $\emptyset$ is always a matching. The question we will be most interested in is to find a largest matching in $G$, called a <strong>maximum matching</strong> of $G$. In Figure 8.1 the matching $M$ indicated there has size 3, and therefore is not a maximum matching, since it is easy to find a matching of size 4. A special kind of maximum matching is one having size $p/2$, that is, one that saturates every vertex, called a <strong>perfect matching</strong>. Of course, not every graph has a perfect matching.</p>
+
+<p>We will be concentrating on matching problems for bipartite graphs. Here is a way to restate the problem in case $G$ is bipartite.</p>
+
+<p><strong>Job assignment problem</strong>. We are given a set $A$ of workers and a set $B$ of jobs, and for each job, the set of workers capable of doing the job. We want to assign as many jobs as possible to workers able to do them, but each worker is to be assigned to at most one job, and each job is to be assigned to at most one worker.</p>
+
+<p><a href="tonyli.tk/notes/math239/8.1.png" target="_blank"><img src="tonyli.tk/notes/math239/8.1.png" alt="" style="max-width:100%;"></a></p>
+
+<p>Why is the job assignment problem equivalent to the maximum matching problem of bipartite graphs? For the data of the job assignment problem we can construct a bipartite graph $G$ with vertex set $A \cup B$ and with $u \in A$ adjacent to $v\in B$ if and only if worker $u$ can do job $v$. Conversely, given a bipartite graph with bipartition $A,B$ we make a worker for each element of $A$ a job for each element of $B$ and declare worker $u$ to be able to do job $v$ if and only if $u,v \in E(G)$. The condition that jobs be assigned to workers that can do them, means that an assignment is a set of edges. The condition that each worker be assigned to at most one job and that each job be assigned to at most one worker, corresponds to the condition that the assigned edges form a matching.</p>
+
+<p>If we have a matching $M$ of $G$, certain kinds of paths are useful for obtaining a larger matching. We say that a path $v_0,...,v_n$ is an <strong>alternating path</strong> with respect to $M$ if one of the following is true</p>
+
+<p>$$\{v_i, v_{i+1}\} \in M \text{ if } i \text{ is even and }\{v_i, v_{i+1}\} \notin M \text{ if } i \text{ is odd}$$</p>
+
+<p>That is, edges of the path are alternately in and not in $M$. An <strong>augmenting path</strong> with respect to $M$ is an alternating path joining two distinct vertices neither of which is saturated by $M$. Note that augmenting paths have odd length because they begin and end with non-matching edges.</p>
+
+<h4>
+<a id="user-content-811-lemma" class="anchor" href="#811-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.1.1 Lemma</h4>
+
+<p>If $M$ has an augmenting path, it is not a maximum matching.</p>
+
+<h2>
+<a id="user-content-82-covers" class="anchor" href="#82-covers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.2 Covers</h2>
+
+<p>A <strong>cover</strong> of a graph $G$ is a set $C$ of vertices such that every edge of $G$ has at least one end in $C$. It is easy to find large covers, just as it is easy to find small matchings. For example, in any graph $G$, $V(G)$ is a cover. Also, if $G$ is bipartite with bipartition $A,B$, then $A$ is a cover, and so is $B$. A very useful observation about matchings and covers is the following.</p>
+
+<h4>
+<a id="user-content-821-lemma" class="anchor" href="#821-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.2.1 Lemma</h4>
+
+<p>If $M$ is a matching of $G$ and $C$ is a cover of $G$, then $|M| \leq |C|$.</p>
+
+<h4>
+<a id="user-content-822-lemma" class="anchor" href="#822-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.2.2 Lemma</h4>
+
+<p>If $M$ is matching and $C$ is a cover and $|M|=|C|$, then $M$ is a maximum matching and $C$ is a minimum cover.</p>
+
+<h2>
+<a id="user-content-83-konigs-theorem" class="anchor" href="#83-konigs-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.3 Konig's Theorem</h2>
+
+<h4>
+<a id="user-content-831-theorem" class="anchor" href="#831-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.3.1 Theorem</h4>
+
+<p>In a bipartite graph the maximum size of a matching is the minimum size of a cover.</p>
+
+<p>Through minimum covers have the same size as maximum matching in bipartite graphs, this is not true in general.</p>
+
+<p>Let $A,B$ be a bipartition of $G$, and let $M$ be a matching of $G$. In the following <strong>$XY$ construction</strong> we use alternating paths to define sets $X,Y$ and show that they they have certain properties. This will allow us to prove Konig's Theorem, and also to give an efficient algorithm to find a maximum matching.</p>
+
+<p>Let $X_0$ be the set of vertices in $A$ not saturated by $M$ and let $Z$ denote the set of vertices in $G$ that are joined by to a vertex in $X_0$ by an alternating path. If $v \in Z$ we use $P(v)$ to denote an alternating path that joins $v$ to $X_0$. Now define:</p>
+
+<ol>
+<li> $X = A \cap Z$</li>
+<li> $Y = B \cap Z$</li>
+</ol>
+
+<p>Notice that any alterning path $P(v)$ has even length if $v\in X$ and odd length if $v \in Y$. Since the first edge of any alternating path beginning at a vertex in $X_0$ is not a matching edge, and every second edge is a matching edge, it follows that</p>
+
+<ul>
+<li>  If $v\in X$, then the last edge of $P(v)$ is in $M$</li>
+<li>  if $v\in Y$, then the last edge of $P(v)$ is not in $M$.</li>
+</ul>
+
+<p>One more easy observation: If $w$ is a vertex of an alternating path $P(v)$ from $X_0$ to $v\in Z$ then $w \in Z$.</p>
+
+<h4>
+<a id="user-content-832-lemma" class="anchor" href="#832-lemma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.3.2 Lemma</h4>
+
+<p>Let $M$ be a matching of bipartite graph $G$ with bipartition $A,B$ and let $X$ and $Y$ be defined above. Then:</p>
+
+<ol>
+<li> there is no edge of $G$ from $X$ to $B \setminus Y$</li>
+<li> $C = Y \cup (A \setminus X)$ is a cover of $G$</li>
+<li> There is no edge of $M$ from $Y$ to $A \setminus X$</li>
+<li> $|M|=|C|-|U|$ where $U$ is the set of unsaturated vertices in $Y$.</li>
+<li> There is an augmenting path to each vertex in $U$.</li>
+</ol>
+
+<h4>
+<a id="user-content-an-algorithm-for-maximum-matching-in-bipartite-graphs" class="anchor" href="#an-algorithm-for-maximum-matching-in-bipartite-graphs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An algorithm for maximum matching in bipartite graphs</h4>
+
+<p>The $XY$ -construction and Lemma 8.3.2 essentially provides an algorithm to find a maximum matching:</p>
+
+<p>Step 1: Begin with any matching $M$.</p>
+
+<p>Step 2: Construct $X$ and $Y$.</p>
+
+<p>Step 3:  If there is an unsaturated vertex $v$ in $Y$, find an augmenting path $P(v)$ ending at $v$, use it to construct a larger matching $M_0$, and replace $M$ by $M_0$. Then go to Step 2.</p>
+
+<p>Step 4: If every vertex in $Y$ is saturated, stop. $M$ is a maximum matching, and $C = Y \cup (A \setminus X)$ is a cover of minimum size.</p>
+
+<h2>
+<a id="user-content-84-application-of-konigs-theorem" class="anchor" href="#84-application-of-konigs-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.4 Application of Konig's Theorem</h2>
+
+<h4>
+<a id="user-content-841-theorem-halls-theorem" class="anchor" href="#841-theorem-halls-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.4.1 Theorem (Hall's Theorem)</h4>
+
+<p>A bipartite graph $G$ with bipartition $A,B$ has a matching saturating every vertex in $A$, if and only if very subset $D$ of $A$ satisfies</p>
+
+<p>$$|N(D)| \geq |D|$$</p>
+
+<h2>
+<a id="user-content-86-perfect-matchings-in-bipartite-graphs" class="anchor" href="#86-perfect-matchings-in-bipartite-graphs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.6 Perfect Matchings in Bipartite Graphs</h2>
+
+<h4>
+<a id="user-content-861-corollary" class="anchor" href="#861-corollary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.6.1 Corollary</h4>
+
+<p>A bipartite graph $G$ with bipartition $A,B$ has a perfect matching if and only if $|A| =|B|$ and every subset $D$ of $A$ satisfies</p>
+
+<p>$$|N(D)| \geq |D|$$</p>
+
+<h4>
+<a id="user-content-862-theorem" class="anchor" href="#862-theorem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.6.2 Theorem</h4>
+
+<p>If $G$ is a $k$-regular bipartite graph with $k \geq 1$, then $G$ has a perfect matching.</p>
+</article></body></html>
