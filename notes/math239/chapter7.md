@@ -60,7 +60,7 @@ For each positive integer $p$, we prove this result by induction on $q$. Since $
 
 As a tree has no cycles, any planar embedding of a tree has just one face, and the theorem holds.
 
-So assume $q > p-1$, and assume inductively that Euler's formula is true for any connected graph on $p$ vertices with fewer than $q$ edges. Suppose that we have a planar embedding of $G$ with $f$ faces. Since $q \geq p$ we see that $G$ is not a tree and therefore it has an edge $e=uv$ that is not a bridge. Then we also have a planar embedding of $G \subminus e$ (the graph we get from $G$ by deleting the edge $e$). Since $G \setminus e$ has $p$ vertices and $q-1$ edges and is connected, it follows by induction that if it has $f_1$ faces, then
+So assume $q > p-1$, and assume inductively that Euler's formula is true for any connected graph on $p$ vertices with fewer than $q$ edges. Suppose that we have a planar embedding of $G$ with $f$ faces. Since $q \geq p$ we see that $G$ is not a tree and therefore it has an edge $e=uv$ that is not a bridge. Then we also have a planar embedding of $G \setminus e$ (the graph we get from $G$ by deleting the edge $e$). Since $G \setminus e$ has $p$ vertices and $q-1$ edges and is connected, it follows by induction that if it has $f_1$ faces, then
 
 $$p-(q-1)+f_2=2$$
 
