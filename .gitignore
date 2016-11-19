@@ -1,2 +1,4 @@
 # visual studio code stuff
 .vscode/
+
+.DS_store

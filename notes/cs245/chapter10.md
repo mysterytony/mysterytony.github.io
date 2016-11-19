@@ -205,5 +205,3 @@ F \quad \text{otherwise}
 
 *	If $\alpha$ is $(lnot \beta)$ or $(\beta \star \gamma)$ for a binary connective $\star$, then $\alpha^\mathcal{M}$ is determined by $\beta^\mathcal{M}$ and $\gamma^\mathcal{M}$ in the same way as for propositional logic.
 
----
-ends page 166
