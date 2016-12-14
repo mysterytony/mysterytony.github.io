@@ -1,0 +1,27 @@
+<style>
+	.center {
+		line-height: 200px;
+		height: 100%;
+		text-align: center;
+		 /*border: 3px solid green; */
+	}
+	/* If the text has multiple lines, add the following: */
+	
+	.center p {
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		line-height: 50px;
+		transform: translate(-50%, -50%);
+		font-size: 50px;
+		color: white;
+		text-shadow: 2px 2px 5px rgb(88, 43, 10);
+	}
+</style>
+
+<div class="center">
+	<P>
+		Hi there,<br />{{ time }}
+	</p>
+</div>
