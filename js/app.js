@@ -45,11 +45,8 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
 		$scope.contents = response.data;
 	});
 
-	$http.get("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US").then(function (response) {
-		$scope.bgsrc = "http://www.bing.com/" + response.data.images[0].url;
-	}, function (response) {
-	});
-
+	$scope.bgsrc = "https://source.unsplash.com/random";
+	
 	$scope.linkClick = (name) => {
 		if (name !== "back") {
 			// go down
