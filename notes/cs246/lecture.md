@@ -1978,7 +1978,7 @@ Options:
 
 1. Provide a default ctor
 2. For stack array:
-`Vec moreVecs[3] = {{0,0} {1,3} {2,4}};`
+`Vec moreVecs[3] = {{0,0}, {1,3}, {2,4}};`
 3. For heap arrays: create an array of ptrs
 `Vec **moreVec = new Vec*[3]`
 
