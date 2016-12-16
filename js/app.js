@@ -47,7 +47,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
 
 	$scope.bgsrc = "https://source.unsplash.com/random";
 	
-	$scope.linkClick = (name) => {
+	$scope.linkClick = function (name) {
 		if (name !== "back") {
 			// go down
 			var result = $.grep($scope.contents, function (e) { return e.name === name; });
@@ -70,26 +70,28 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
 		}
 	};
 
+	$state.go('app.home', {})
 });
 
 app.controller('HomeCtrl', function ($scope, $interval) {
 	$scope.time = moment().format('MMMM Do YYYY, h:mm:ss a');
-	$interval(() => {
+	$interval(function() {
 		$scope.time = moment().format('MMMM Do YYYY, h:mm:ss a');
 	}, 1000);
 });
 
 app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
+	componentHandler.upgradeAllRegistered();
 	if (("" + $stateParams.filename).endsWith('.pdf')) {
 		window.open("notes/" + $stateParams.foldername + "/" + $stateParams.filename);
 		$("#viewer-card").html("Notes are shown in a separate window");
 	} else {
-		$http.get("notes/" + $stateParams.foldername + "/" + $stateParams.filename).then((response) => {
+		$http.get("notes/" + $stateParams.foldername + "/" + $stateParams.filename).then(function (response) {
 			var body = {
 				"text": response.data,
 				"mode": "markdown"
 			}
-			$http.post("https://api.github.com/markdown", JSON.stringify(body)).then((result) => {
+			$http.post("https://api.github.com/markdown", JSON.stringify(body)).then(function(result) {
 				$("#viewer-card").html(result.data);
 				MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 			});
@@ -100,6 +102,6 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
 
 });
 
-app.controller('EmailCtrl', ($scope) => {
+app.controller('EmailCtrl', function($scope) {
 
 });

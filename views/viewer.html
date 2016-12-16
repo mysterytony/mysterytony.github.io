@@ -695,10 +695,21 @@
 	.markdown-body blockquote:after {
 		display: none;
 	}
+
+	.viewer-close {
+		text-decoration: none;
+		color: rgb(100, 43, 2);
+	}
 </style>
 
 <div class="mdl-card viewer">
-	<div  class="markdown-body"  id="viewer-card">
-		<div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+	<div class="markdown-body" id="viewer-card">
+		<div id="viewer-spinner" class="mdl-spinner mdl-js-spinner is-active"></div>
+	</div>
+	<div class="mdl-card__menu">
+		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ui-sref="app.home">
+			<i class="material-icons">close</i>
+		</button>
 	</div>
 </div>
