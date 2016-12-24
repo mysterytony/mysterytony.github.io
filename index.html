@@ -25,6 +25,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
 
+    <script src="js/jquery.snow.min.1.0.js"></script>
     <script src="js/app.js"></script>
 
     <script>
@@ -63,6 +64,10 @@
             },
             showProcessingMessages: false
         });
+        
+        $(document).ready(function () {
+            $.fn.snow();
+        });
     </script>
 
 <script>
@@ -81,7 +86,7 @@
         ga('create', 'UA-75666948-1', 'auto');
         ga('send', 'pageview');
 
-    </script>
+</script>
 
 
 </head>
