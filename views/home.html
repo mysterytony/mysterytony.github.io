@@ -7,7 +7,7 @@
 	}
 	/* If the text has multiple lines, add the following: */
 	
-	.center p {
+	.center p.title {
 		margin: 0;
 		position: absolute;
 		top: 50%;
@@ -18,10 +18,20 @@
 		color: white;
 		text-shadow: 2px 2px 5px rgb(88, 43, 10);
 	}
+
+	.warning {
+		background-color: yellow;
+		font-size: 15px;
+		font-weight: 2em;
+		padding: 10px;
+	}
 </style>
 
 <div class="center">
-	<P>
+	<p class="warning">
+		The old domain is expired. Current temporary url is <a href="https://mysterytony.github.io">https://mysterytony.github.io</a>.
+	</p>
+	<P class="title">
 		Hi there,<br />{{ time }}
 	</p>
 </div>
