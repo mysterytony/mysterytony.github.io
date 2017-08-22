@@ -59,8 +59,6 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
 			} else { // show one lecture
 				result = $.grep($scope.links, function (e) { return e.name === name; });
 				$location.path("app/viewer/" + folderName + "/" + result[0].file);
-				var layout = document.querySelector('.mdl-layout');
-				layout.MaterialLayout.toggleDrawer();
 			}
 
 		} else {
@@ -99,6 +97,48 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
 		});
 	}
 
+	$scope.printContent = function() {
+		var newWindow = window.open();
+	
+
+		var script = `$(function () {
+      window.componentHandler.upgradeAllRegistered();
+      MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX"],
+        tex2jax: {
+          inlineMath: [
+            ['$', '$']
+          ],
+          displayMath: [
+            ['$$', '$$']
+          ],
+          processEscapes: false
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js"],
+          TagSide: "right",
+          TagIndent: ".8em",
+          MultLineWidth: "85%",
+          equationNumbers: {
+            autoNumber: "AMS",
+          },
+          unicode: {
+            fonts: "STIXGeneral,'Arial Unicode MS'"
+          }
+        },
+        showProcessingMessages: false
+      });
+		});`;
+		
+		newWindow.document.write($("#viewer-card").html());
+		var my_awesome_script = newWindow.document.createElement('script');
+		
+		my_awesome_script.innerHTML = script;
+		
+		newWindow.document.head.appendChild(my_awesome_script);
+	}
 
 });
 
