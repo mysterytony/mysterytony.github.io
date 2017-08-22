@@ -45,7 +45,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
 		$scope.contents = response.data;
 	});
 
-	$scope.bgsrc = "https://source.unsplash.com/random";
+	$scope.bgsrc = "https://unsplash.it/3840/2160?random";
 	
 	$scope.linkClick = function (name) {
 		if (name !== "back") {

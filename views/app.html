@@ -51,7 +51,7 @@
 	<header class="mdl-layout__header mdl-layout__header--transparent">
 		<div class="mdl-layout__header-row">
 			<!-- Title -->
-			<span class="mdl-layout-title">He Nan Li (Tony)</span>
+			<span class="mdl-layout-title"><a class="mdl-navigation__link" ui-sref='app.home' style="font-size: 1.5em;">He Nan Li (Tony)</a></span>
 			<!-- Add spacer, to align navigation to the right -->
 			<div class="mdl-layout-spacer"></div>
 			<!-- Navigation -->
@@ -68,15 +68,10 @@
 	<div class="mdl-layout__drawer" id="drawer">
 		<span class="mdl-layout-title">{{ content_title }}</span>
 		<nav class="mdl-navigation">
-			<a ng-if="content_title !== 'Course Notes'" class="mdl-navigation__link" href="" ng-click="linkClick('back')"><i class="material-icons">keyboard_backspace</i>Back</a>
+			<a ng-if="content_title !== 'Course Notes'" class="mdl-navigation__link" href="" ng-click="linkClick('back')"><i class="material-icons">keyboard_backspace</i> Back</a>
 			<a ng-repeat="link in links" class="mdl-navigation__link" href="" ng-click="linkClick(link.name)">{{link.name}}</a>
 		</nav>
 	</div>
 	<main ui-view class="mdl-layout__content" style="height: 100%">
-
 	</main>
-
-	<span style="margin: auto; color: white; text-shadow: 2px 2px 5px rgb(88, 43, 10); margin-bottom: 16px;">
-		<a target="_blank" href="https://github.com/mysterytony/mysterytony.github.io/issues" style="text-decoration: none; color: white;">Create an issue for typo and bug</a>
-	</span>
 </div>
