@@ -2,7 +2,7 @@
 
 ## Browse
 
-Go to !(http://tonyli.me/) to view my blog.
+Go to <http://tonyli.me/> to view my blog.
 
 The corresponding note markdown page can be found in github under `"/notes/"` folder.
 
