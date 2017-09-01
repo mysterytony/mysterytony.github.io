@@ -84,7 +84,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
     }
   });
 
-  $scope.bgsrc = "https://source.unsplash.com/random";
+  $scope.bgsrc = "https://unsplash.it/2048/1080?random";
   
   $scope.clickDoc = function(i) {
     if ($scope.tree.docs[i]) {
