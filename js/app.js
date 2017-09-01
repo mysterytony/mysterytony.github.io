@@ -112,18 +112,11 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
     dialog.showModal();
   }
 
-  // $scope.linkClick = function (name) {
-  // 	var result = $.grep($scope.contents, function (e) { return e.name === name; });
-  //   if (result.length > 0) { // show lectures
-  //     var r = result[0];
-  //     $scope.links = r.lectures;
-  //     $scope.content_title = result[0].name;
-  //     folderName = result[0].folder;
-  //   } else { // show one lecture
-  //     result = $.grep($scope.links, function (e) { return e.name === name; });
-  //     $location.path("app/viewer/" + folderName + "/" + result[0].doc);
-  //   }
-  // };
+  $scope.showUpdates = function() {
+    $http.get("update").then(function(response){
+      $scope.showDialog("Website Update", response.data);
+    });
+  }
   
   $scope.goBack = function() {
     // go back
@@ -138,10 +131,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
 });
 
 app.controller('HomeCtrl', function ($scope, $interval) {
-  $scope.time = moment().format('MMMM Do YYYY, h:mm:ss a');
-  $interval(function() {
-    $scope.time = moment().format('MMMM Do YYYY, h:mm:ss a');
-  }, 1000);
+
 });
 
 app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
@@ -149,14 +139,20 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
   $stateParams.filepath = $stateParams.filepath.split(',').join('/');
   if (($stateParams.filepath).endsWith('.md')) {
     $http.get($stateParams.filepath).then(function (response) {
-      var body = {
-        "text": response.data,
-        "mode": "markdown"
-      }
-      $http.post("https://api.github.com/markdown", JSON.stringify(body)).then(function(result) {
-        $("#viewer-card").html(result.data);
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-      });
+      // var body = {
+      //   "text": response.data,
+      //   "mode": "markdown"
+      // }
+
+      var md = window.markdownit();
+      var result = md.render(response.data);
+      $("#viewer-card").html(result);
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+      // $http.post("https://api.github.com/markdown", JSON.stringify(body)).then(function(result) {
+      //   $("#viewer-card").html(result.data);
+      //   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      // });
 
     });
   } else {
@@ -165,54 +161,11 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
   }
 
   $scope.printContent = function() {
-    var newWindow = window.open();
-  
-
-    var script = `
-      MathJax.Hub.Config({
-        config: ["MMLorHTML.js"],
-        extensions: ["tex2jax.js"],
-        jax: ["input/TeX"],
-        tex2jax: {
-          inlineMath: [
-            ['$', '$']
-          ],
-          displayMath: [
-            ['$$', '$$']
-          ],
-          processEscapes: false
-        },
-        TeX: {
-          extensions: ["AMSmath.js", "AMSsymbols.js"],
-          TagSide: "right",
-          TagIndent: ".8em",
-          MultLineWidth: "85%",
-          equationNumbers: {
-            autoNumber: "AMS",
-          },
-          unicode: {
-            fonts: "STIXGeneral,'Arial Unicode MS'"
-          }
-        },
-        showProcessingMessages: false
-      });`;
-    
-    var md_style = newWindow.document.createElement('link');
-    md_style.rel = "stylesheet";
-    md_style.type = "text/css";
-    md_style.href = "../style/md.css";
-
-    var my_awesome_script = newWindow.document.createElement('script');
-    my_awesome_script.innerHTML = script;
-    
-    var md_body = newWindow.document.createElement('div');
-    md_body.className = 'markdown-body';
-    md_body.innerHTML = $("#viewer-card").innerHTML;
-
-    newWindow.document.appendChild(md_body);
-
-    newWindow.document.head.appendChild(my_awesome_script);
-    newWindow.document.head.appendChild(md_style);
+    $http.get('/views/print.html').then(function(response) {
+      let printWindow = window.open('', '_blank');
+      response.data = response.data.replace('{{md-body}}', $("#viewer-card").html());
+      printWindow.document.write(response.data);
+    });
     
   }
 

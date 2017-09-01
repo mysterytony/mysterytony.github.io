@@ -51,7 +51,13 @@
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-			<span class="mdl-layout-title"><a class="mdl-navigation__link" ui-sref='app.home' style="font-size: 1.5em;">He Nan Li (Tony)</a></span>
+      <span class="mdl-layout-title"><a class="mdl-navigation__link" ui-sref='app.home' style="font-size: 1.5em;">He Nan Li (Tony)</a></span>
+      <span id="update-span" ng-click="showUpdates()">
+        <i class="material-icons">update</i>
+        <span class="mdl-tooltip" data-mdl-for="update-span">
+          show updates
+        </span>
+      </span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
@@ -66,9 +72,9 @@
     </div>
   </header>
   <div class="mdl-layout__drawer" id="drawer">
-    <span class="mdl-layout-title">
+    <span class="mdl-layout-title" id="{{tree.name}}">
       {{ tree.name }}
-      <div class="mdl-tooltip" data-mdl-for="tt3">
+      <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="{{tree.name}}">
         {{tree.description}}
       </div>
     </span>
@@ -77,20 +83,20 @@
       <a ng-repeat="link in links" class="mdl-navigation__link" href="" ng-click="linkClick(link.name)">{{link.name}}</a> -->
       <a ng-if="tree.parentFolder" class="mdl-navigation__link" href="" ng-click="goBack()"><i class="material-icons">keyboard_backspace</i>Back</a></a>
 
-      <a href="" ng-repeat="folder in tree.folders track by $index" class="mdl-navigation__link" ng-click="clickFolder($index)">
+      <a id="{{folder.name}}" href="" ng-repeat="folder in tree.folders track by $index" class="mdl-navigation__link" ng-click="clickFolder($index)">
         <i class="material-icons">folder</i>
         {{folder.name}}
-        <div class="mdl-tooltip" data-mdl-for="tt3">
+        <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="{{folder.name}}">
           {{folder.description}}
         </div>
       </a>
 
       <hr />
 
-      <a href="" ng-repeat="doc in tree.docs track by $index" class="mdl-navigation__link" ng-click="clickDoc($index)">
+      <a id="{{doc.name}}" href="" ng-repeat="doc in tree.docs track by $index" class="mdl-navigation__link" ng-click="clickDoc($index)">
         <i class="material-icons">insert_drive_file</i>
         {{doc.name}}
-        <div class="mdl-tooltip" data-mdl-for="tt3">
+        <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="{{doc.name}}">
         {{doc.description}}
         </div>
       </a>
