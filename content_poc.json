@@ -1,0 +1,13 @@
+{
+  "name": "CS 136",
+  "folder": "cs136",
+  "description": "lool",
+  "folders": [],
+  "docs": [
+    {
+      "name": "Section 8",
+      "description": "lol",
+      "doc": "section8.md"
+    }
+  ]
+}

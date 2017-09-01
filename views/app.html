@@ -5,78 +5,100 @@
 
 <!-- Uses a transparent header that draws on top of the layout's background -->
 <style>
-	.demo-layout-transparent {
-		background: url({{bgsrc}}) center / cover;
-		height: 100%;
-	}
-	
-	.demo-layout-transparent .mdl-layout__header,
-	.demo-layout-transparent .mdl-layout__drawer-button {
-		/* This background is dark, so we set text to white. Use 87% black instead if
+  .demo-layout-transparent {
+    background: url({{bgsrc}}) center / cover;
+    height: 100%;
+  }
+  
+  .demo-layout-transparent .mdl-layout__header,
+  .demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
      your background is light. */
-		color: white;
-		text-shadow: 2px 2px 5px rgb(88, 43, 10);
-	}
-	
-	.codeWithLove {
-		vertical-align: middle;
-	}
-	
-	.mdl-navigation__link.ng-enter {
-		-webkit-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-		-moz-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-		-ms-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-		-o-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-		transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-		position: relative;
-		display: block;
-	}
-	
-	.mdl-navigation__link.ng-enter.ng-enter-active,
-	.mdl-navigation__link.ng-leave {
-		opacity: 1;
-		top: 0;
-		height: 30px;
-	}
-	
-	.mdl-navigation__link.ng-leave.ng-leave-active,
-	.mdl-navigation__link.ng-enter {
-		opacity: 0;
-		top: -50px;
-		height: 0px;
-	}
+    color: white;
+    text-shadow: 2px 2px 5px rgb(88, 43, 10);
+  }
+  
+  .codeWithLove {
+    vertical-align: middle;
+  }
+  
+  .mdl-navigation__link.ng-enter {
+    -webkit-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+  }
+  
+  .mdl-navigation__link.ng-enter.ng-enter-active,
+  .mdl-navigation__link.ng-leave {
+    opacity: 1;
+    top: 0;
+    height: 30px;
+  }
+  
+  .mdl-navigation__link.ng-leave.ng-leave-active,
+  .mdl-navigation__link.ng-enter {
+    opacity: 0;
+    top: -50px;
+    height: 0px;
+  }
 </style>
 
 <div class="demo-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-	<header class="mdl-layout__header mdl-layout__header--transparent">
-		<div class="mdl-layout__header-row">
-			<!-- Title -->
-			<span class="mdl-layout-title">He Nan Li (Tony)</span>
-			<!-- Add spacer, to align navigation to the right -->
-			<div class="mdl-layout-spacer"></div>
-			<!-- Navigation -->
-			<nav class="mdl-navigation">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">He Nan Li (Tony)</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
 
-				<a class="mdl-navigation__link" ui-sref="app.home"><i class="fa fa-home" style="font-size:24px"></i></a>
-				<a class="mdl-navigation__link" target="_blank" title="Tony on Github" href="https://github.com/mysterytony"><i class="fa fa-github" style="font-size:24px"></i></a>
-				<a class="mdl-navigation__link" target="_blank" title="Tony on LinkedIn" href="https://ca.linkedin.com/in/tony-li-281b59b9"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
-				<a class="mdl-navigation__link" target="_blank" title="Tony's Resume" href="Resume_2016.pdf"><i class="fa fa-file-text" style="font-size:24px"></i></a>
-				<a class="mdl-navigation__link" ui-sref="app.email" title="Email Me"><i class="fa fa-address-card" style="font-size:24px"></i></a>
-			</nav>
-		</div>
-	</header>
-	<div class="mdl-layout__drawer" id="drawer">
-		<span class="mdl-layout-title">{{ content_title }}</span>
-		<nav class="mdl-navigation">
-			<a ng-if="content_title !== 'Course Notes'" class="mdl-navigation__link" href="" ng-click="linkClick('back')"><i class="material-icons">keyboard_backspace</i>Back</a>
-			<a ng-repeat="link in links" class="mdl-navigation__link" href="" ng-click="linkClick(link.name)">{{link.name}}</a>
-		</nav>
-	</div>
-	<main ui-view class="mdl-layout__content" style="height: 100%">
+        <a class="mdl-navigation__link" ui-sref="app.home"><i class="fa fa-home" style="font-size:24px"></i></a>
+        <a class="mdl-navigation__link" target="_blank" title="Tony on Github" href="https://github.com/mysterytony"><i class="fa fa-github" style="font-size:24px"></i></a>
+        <a class="mdl-navigation__link" target="_blank" title="Tony on LinkedIn" href="https://ca.linkedin.com/in/tony-li-281b59b9"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+        <a class="mdl-navigation__link" target="_blank" title="Tony's Resume" href="Resume_2016.pdf"><i class="fa fa-file-text" style="font-size:24px"></i></a>
+        <a class="mdl-navigation__link" ui-sref="app.email" title="Email Me"><i class="fa fa-address-card" style="font-size:24px"></i></a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer" id="drawer">
+    <span class="mdl-layout-title">{{ tree.name }}</span>
+    <nav class="mdl-navigation">
+      <!-- <a ng-if="content_title !== {topLevelTitle}" class="mdl-navigation__link" href="" ng-click="goBack()"><i class="material-icons">keyboard_backspace</i>Back</a>
+      <a ng-repeat="link in links" class="mdl-navigation__link" href="" ng-click="linkClick(link.name)">{{link.name}}</a> -->
+      <a ng-if="tree.parentFolder" class="mdl-navigation__link" href="" ><i class="material-icons">keyboard_backspace</i>Back</a></a>
 
-	</main>
+      <a href="" ng-repeat="folder in tree.folders track by $index" class="mdl-navigation__link" ng-click="clickFolder($index)">{{folder.name}}|{{folder.description}}</a>
 
-	<span style="margin: auto; color: white; text-shadow: 2px 2px 5px rgb(88, 43, 10); margin-bottom: 16px;">
-		<a target="_blank" href="https://github.com/mysterytony/mysterytony.github.io/issues" style="text-decoration: none; color: white;">Create an issue for typo and bug</a>
-	</span>
+      <hr />
+
+      <a href="" ng-repeat="doc in tree.docs track by $index" class="mdl-navigation__link" ng-click="clickDoc($index)">{{doc.name}}|{{doc.description}}</a>
+
+    </nav>
+  </div>
+  
+  <dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title">{{dialogTitle}}</h4>
+    <div class="mdl-dialog__content">
+      <p>
+        {{dialogContent}}
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button" ng-click="closeDialog()">OK</button>
+    </div>
+  </dialog>
+
+
+  <main ui-view class="mdl-layout__content" style="height: 100%">
+
+  </main>
+
+  <span style="margin: auto; color: white; text-shadow: 2px 2px 5px rgb(88, 43, 10); margin-bottom: 16px;">
+    <a target="_blank" href="https://github.com/mysterytony/mysterytony.github.io/issues" style="text-decoration: none; color: white;">Create an issue for typo and bug</a>
+  </span>
 </div>
