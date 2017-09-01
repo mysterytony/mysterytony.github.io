@@ -74,7 +74,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
           folders.push(constructFolderTree(subfolder, subfolder));
         }
 
-        folders.setDocsAndFolders(subDocs, subFolders);
+        folder.setDocsAndFolders(subDocs, subFolders);
         return folder;
       } else if (jsonData.hasOwnProperty('doc')){
         // currently it is a doc
@@ -84,7 +84,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
     }
   });
 
-  $scope.bgsrc = "https://unsplash.it/2048/1080?random";
+  $scope.bgsrc = "https://unsplash.it/1920/1080?random";
   
   $scope.clickDoc = function(i) {
     if ($scope.tree.docs[i]) {
@@ -168,8 +168,7 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
     var newWindow = window.open();
   
 
-    var script = `$(function () {
-      window.componentHandler.upgradeAllRegistered();
+    var script = `
       MathJax.Hub.Config({
         config: ["MMLorHTML.js"],
         extensions: ["tex2jax.js"],
@@ -196,15 +195,25 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
           }
         },
         showProcessingMessages: false
-      });
-    });`;
+      });`;
     
-    newWindow.document.write($("#viewer-card").html());
+    var md_style = newWindow.document.createElement('link');
+    md_style.rel = "stylesheet";
+    md_style.type = "text/css";
+    md_style.href = "../style/md.css";
+
     var my_awesome_script = newWindow.document.createElement('script');
-    
     my_awesome_script.innerHTML = script;
     
+    var md_body = newWindow.document.createElement('div');
+    md_body.className = 'markdown-body';
+    md_body.innerHTML = $("#viewer-card").innerHTML;
+
+    newWindow.document.appendChild(md_body);
+
     newWindow.document.head.appendChild(my_awesome_script);
+    newWindow.document.head.appendChild(md_style);
+    
   }
 
 });
@@ -241,7 +250,7 @@ class Folder {
   }
 
   getPath() {
-    if (!this.parentFolder) return 'content,' + this.folder;
+    if (!this.parentFolder) return this.folder;
 
     return this.parentFolder.getPath() + ',' + this.folder;
   }

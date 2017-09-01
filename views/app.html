@@ -66,17 +66,34 @@
     </div>
   </header>
   <div class="mdl-layout__drawer" id="drawer">
-    <span class="mdl-layout-title">{{ tree.name }}</span>
+    <span class="mdl-layout-title">
+      {{ tree.name }}
+      <div class="mdl-tooltip" data-mdl-for="tt3">
+        {{tree.description}}
+      </div>
+    </span>
     <nav class="mdl-navigation">
       <!-- <a ng-if="content_title !== {topLevelTitle}" class="mdl-navigation__link" href="" ng-click="goBack()"><i class="material-icons">keyboard_backspace</i>Back</a>
       <a ng-repeat="link in links" class="mdl-navigation__link" href="" ng-click="linkClick(link.name)">{{link.name}}</a> -->
-      <a ng-if="tree.parentFolder" class="mdl-navigation__link" href="" ><i class="material-icons">keyboard_backspace</i>Back</a></a>
+      <a ng-if="tree.parentFolder" class="mdl-navigation__link" href="" ng-click="goBack()"><i class="material-icons">keyboard_backspace</i>Back</a></a>
 
-      <a href="" ng-repeat="folder in tree.folders track by $index" class="mdl-navigation__link" ng-click="clickFolder($index)">{{folder.name}}|{{folder.description}}</a>
+      <a href="" ng-repeat="folder in tree.folders track by $index" class="mdl-navigation__link" ng-click="clickFolder($index)">
+        <i class="material-icons">folder</i>
+        {{folder.name}}
+        <div class="mdl-tooltip" data-mdl-for="tt3">
+          {{folder.description}}
+        </div>
+      </a>
 
       <hr />
 
-      <a href="" ng-repeat="doc in tree.docs track by $index" class="mdl-navigation__link" ng-click="clickDoc($index)">{{doc.name}}|{{doc.description}}</a>
+      <a href="" ng-repeat="doc in tree.docs track by $index" class="mdl-navigation__link" ng-click="clickDoc($index)">
+        <i class="material-icons">insert_drive_file</i>
+        {{doc.name}}
+        <div class="mdl-tooltip" data-mdl-for="tt3">
+        {{doc.description}}
+        </div>
+      </a>
 
     </nav>
   </div>
@@ -94,11 +111,8 @@
   </dialog>
 
 
-  <main ui-view class="mdl-layout__content" style="height: 100%">
+  <main ui-view class="mdl-layout__content" style="height: 100%; padding-bottom: 10px;">
 
   </main>
 
-  <span style="margin: auto; color: white; text-shadow: 2px 2px 5px rgb(88, 43, 10); margin-bottom: 16px;">
-    <a target="_blank" href="https://github.com/mysterytony/mysterytony.github.io/issues" style="text-decoration: none; color: white;">Create an issue for typo and bug</a>
-  </span>
 </div>

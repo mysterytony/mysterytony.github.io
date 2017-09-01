@@ -1,13 +1,40 @@
 {
-  "name": "CS 136",
-  "folder": "cs136",
-  "description": "lool",
-  "folders": [],
-  "docs": [
+  "name": "Content",
+  "folder": "content",
+  "description": "",
+  "folders": [
     {
-      "name": "Section 8",
-      "description": "lol",
-      "doc": "section8.md"
+      "name": "CS 136",
+      "folder": "cs136",
+      "description": "lool",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Section 8",
+          "description": "lol",
+          "doc": "section8.md"
+        },
+        {
+          "name": "Section 9",
+          "description": "lol",
+          "doc": "section9.md"
+        }
+      ]
+    },
+    {
+      "name": "Stat 230",
+      "folder": "stat230",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.pdf"
+        }
+      ]
     }
-  ]
+  ],
+  "docs": []
+  
 }
