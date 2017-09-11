@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../style/md.css">
+  <script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    window.onload = function () {
+      MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX"],
+        tex2jax: {
+          inlineMath: [
+            ['$', '$']
+          ],
+          displayMath: [
+            ['$$', '$$']
+          ],
+          processEscapes: false
+        },
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js"],
+          TagSide: "right",
+          TagIndent: ".8em",
+          MultLineWidth: "85%",
+          equationNumbers: {
+            autoNumber: "AMS",
+          },
+          unicode: {
+            fonts: "STIXGeneral,'Arial Unicode MS'"
+          }
+        },
+        showProcessingMessages: false
+      });
+    }
+
+    function init(md) {
+      document.querySelector('body.markdown-body').innerHTML = md;
+    }
+  </script>
+</head>
+
+<body class="markdown-body">
+    {{md-body}}
+</body>
+
+</html>
