@@ -1,7 +1,3 @@
-Because the flaw in JavaScript's design, always use `===` for comparison instead of `==`
-
----
-
 `NaN` is special and not equal to any other numbers, including itself:
 
 ```js

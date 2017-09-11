@@ -1,141 +1,496 @@
-[
-	{
-		"name": "CS 136",
-		"folder": "cs136",
-		"lectures": [
-			{"name": "Section 9", "file": "section9.md"},
-			{"name": "Section 10", "file": "section10.md"},
-			{"name": "Section 11", "file": "section11.md"},
-			{"name": "Section 12", "file": "section12.md"}
-		]
-	},
-	{
-		"name": "CS 245",
-		"folder": "cs245",
-		"lectures": [
-			{"name": "Chapter 1", "file": "chapter1.md"},
-			{"name": "Chapter 2", "file": "chapter2.md"},
-			{"name": "Chapter 3", "file": "chapter3.md"},
-			{"name": "Chapter 4", "file": "chapter4.md"},
-			{"name": "Chapter 5", "file": "chapter5.md"},
-			{"name": "Chapter 6", "file": "chapter6.md"},
-			{"name": "Chapter 7", "file": "chapter7.md"},
-			{"name": "Chapter 8", "file": "chapter8.md"},
-			{"name": "Chapter 9", "file": "chapter9.md"},
-			{"name": "Chapter 10", "file": "chapter10.md"}
-		]
-	},
-	{
-		"name": "CS 246",
-		"folder": "cs246",
-		"lectures": [
-			{"name": "Chapter 1", "file": "chapter1.md"},
-			{"name": "Chapter 2", "file": "chapter2.md"},
-			{"name": "Brad Lushman Lecture Notes", "file": "lecture.md"}
-		]
-	},
-	{
-		"name": "JavaScript",
-		"folder": "js",
-		"lectures": [
-			{"name": "JavaScript Notes", "file": "jsnotes.md"}
-		]
-	},
-	{
-		"name": "LS 101",
-		"folder": "ls101",
-		"lectures": [
-			{"name": "Module 1", "file": "lecture1.md"},
-			{"name": "Module 2", "file": "lecture2.md"},
-			{"name": "Module 3", "file": "lecture3.md"},
-			{"name": "Module 4", "file": "lecture4.md"},
-			{"name": "Module 5", "file": "lecture5.md"},
-			{"name": "Module 6", "file": "lecture6.md"},
-			{"name": "Module 7", "file": "lecture7.md"},
-			{"name": "Module 8", "file": "lecture8.md"},
-			{"name": "Module 9", "file": "lecture9.md"},
-			{"name": "Module 10", "file": "lecture10.md"},
-			{"name": "Module 11", "file": "lecture11.md"},
-			{"name": "Module 12", "file": "lecture12.md"}
-		]
-	},
-	{
-		"name": "MATH 136",
-		"folder": "math136",
-		"lectures": [
-			{"name": "Chapter 4", "file": "chapter4.md"},
-			{"name": "Chapter 5", "file": "chapter5.md"},
-			{"name": "Chapter 6", "file": "chapter6.md"}
-		]
-	},
-	{
-		"name": "MATH 237",
-		"folder": "math237",
-		"lectures": [
-			{"name": "Chapter 1", "file": "chapter1.md"},
-			{"name": "Chapter 2", "file": "chapter2.md"},
-			{"name": "Chapter 3", "file": "chapter3.md"},
-			{"name": "Chapter 4", "file": "chapter4.md"},
-			{"name": "Chapter 5", "file": "chapter5.md"},
-			{"name": "Chapter 6", "file": "chapter6.md"},
-			{"name": "Chapter 7", "file": "chapter7.md"},
-			{"name": "Chapter 8", "file": "chapter8.md"},
-			{"name": "Chapter 9", "file": "chapter9.md"},
-			{"name": "Chapter 10", "file": "chapter10.md"},
-			{"name": "Chapter 11", "file": "chapter11.md"},
-			{"name": "Chapter 12", "file": "chapter12.md"},
-			{"name": "Chapter 13", "file": "chapter13.md"},
-			{"name": "Chapter 14", "file": "chapter14.md"},
-			{"name": "Chapter 15", "file": "chapter15.md"}
-		]
-	},
-	{
-		"name": "MATH 239",
-		"folder": "math239",
-		"lectures": [
-			{"name": "Chapter 1", "file": "chapter1.md"},
-			{"name": "Chapter 2", "file": "chapter2.md"},
-			{"name": "Chapter 3", "file": "chapter3.md"},
-			{"name": "Chapter 4", "file": "chapter4.md"},
-			{"name": "Chapter 5", "file": "chapter5.md"},
-			{"name": "Chapter 7", "file": "chapter7.md"},
-			{"name": "Chapter 8", "file": "chapter8.md"}
-		]
-	},
-	{
-		"name": "MTE 120",
-		"folder": "mte120",
-		"lectures": [
-			{"name": "Chapter 7", "file": "chapter7.md"},
-			{"name": "Chapter 8", "file": "chapter8.md"},
-			{"name": "Chapter 10", "file": "chapter10.md"},
-			{"name": "Chapter 11", "file": "chapter11.md"}
-		]
-	},
-	{
-		"name": "STAT 230",
-		"folder": "stat230",
-		"lectures": [
-			{"name": "Chapter 4", "file": "chapter4.pdf"},
-			{"name": "Chapter 5", "file": "chapter5.pdf"},
-			{"name": "Chapter 7", "file": "chapter7.pdf"},
-			{"name": "Chapter 8", "file": "chapter8.pdf"},
-			{"name": "Chapter 9", "file": "chapter9.md"},
-			{"name": "Chapter 10", "file": "chapter10.md"}
-		]
-	},
-	{
-		"name": "STAT 231",
-		"folder": "stat231",
-		"lectures": [
-			{"name": "Chapter 1", "file": "chapter1.md"},
-			{"name": "Chapter 2", "file": "chapter2.md"},
-			{"name": "Chapter 3", "file": "chapter3.md"},
-			{"name": "Chapter 4", "file": "chapter4.md"},
-			{"name": "Chapter 5", "file": "chapter5.md"},
-			{"name": "Chapter 6", "file": "chapter6.md"},
-			{"name": "Chapter 7", "file": "chapter7.md"},
-			{"name": "Chapter 8", "file": "chapter8.md"}
-		]
-	}
-]
+{
+  "name": "Content",
+  "folder": "content",
+  "description": "",
+  "folders": [
+    {
+      "name": "CS 136",
+      "folder": "cs136",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Section 8",
+          "description": "",
+          "doc": "section8.md"
+        },
+        {
+          "name": "Section 9",
+          "description": "",
+          "doc": "section9.md"
+        },
+        {
+          "name": "Section 10",
+          "description": "",
+          "doc": "section10.md"
+        },
+        {
+          "name": "Section 11",
+          "description": "",
+          "doc": "section11.md"
+        },
+        {
+          "name": "Section 12",
+          "description": "",
+          "doc": "section12.md"
+        }
+      ]
+    },
+    {
+      "name": "CS 245",
+      "folder": "cs245",
+      "description": "",
+      "folders": [],
+      "docs":[
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "chapter1.md"
+        },
+        {
+          "name": "Chapter 2",
+          "description": "",
+          "doc": "chapter2.md"
+        },
+        {
+          "name": "Chapter 3",
+          "description": "",
+          "doc": "chapter3.md"
+        },
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.md"
+        },
+        {
+          "name": "Chapter 5",
+          "description": "",
+          "doc": "chapter5.md"
+        },
+        {
+          "name": "Chapter 6",
+          "description": "",
+          "doc": "chapter6.md"
+        },
+        {
+          "name": "Chapter 7",
+          "description": "",
+          "doc": "chapter7.md"
+        },
+        {
+          "name": "Chapter 8",
+          "description": "",
+          "doc": "chapter8.md"
+        },
+        {
+          "name": "Chapter 9",
+          "description": "",
+          "doc": "chapter9.md"
+        },
+        {
+          "name": "Chapter 10",
+          "description": "",
+          "doc": "chapter10.md"
+        }
+      ]
+    },
+    {
+      "name": "CS 246",
+      "folder": "cs246",
+      "description": "",
+      "folders": [],
+      "docs":[
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "chapter1.md"
+        },
+        {
+          "name": "Chapter 2",
+          "description": "",
+          "doc": "chapter2.md"
+        },
+        {
+          "name": "Lecture",
+          "description": "Brad Lushman's Lecture Notes",
+          "doc": "lecture.md"
+        }
+      ]
+    },
+    {
+      "name": "ECE 124",
+      "folder": "ece124",
+      "description": "",
+      "folders": [],
+      "docs":[
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "ch1.md"
+        }
+      ]
+    },
+    {
+      "name": "ECON 101",
+      "folder": "econ101",
+      "description": "",
+      "folders": [],
+      "docs":[
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "ch1.md"
+        }
+      ]
+    },
+    {
+      "name": "JavaScript Notes",
+      "folder": "js",
+      "description": "",
+      "folders": [],
+      "docs":[
+        {
+          "name": "Note",
+          "description": "",
+          "doc": "jsnotes.md"
+        }
+      ]
+    },
+    {
+      "name": "LS 101",
+      "folder": "ls101",
+      "description": "",
+      "folders": [],
+      "docs":[
+        {
+          "name": "Lecture 1",
+          "description": "",
+          "doc": "lecture1.md"
+        },
+        {
+          "name": "Lecture 2",
+          "description": "",
+          "doc": "lecture2.md"
+        },{
+          "name": "Lecture 3",
+          "description": "",
+          "doc": "lecture3.md"
+        },
+        {
+          "name": "Lecture 4",
+          "description": "",
+          "doc": "lecture4.md"
+        },
+        {
+          "name": "Lecture 5",
+          "description": "",
+          "doc": "lecture5.md"
+        },
+        {
+          "name": "Lecture 6",
+          "description": "",
+          "doc": "lecture6.md"
+        },
+        {
+          "name": "Lecture 7",
+          "description": "",
+          "doc": "lecture7.md"
+        },
+        {
+          "name": "Lecture 8",
+          "description": "",
+          "doc": "lecture8.md"
+        },
+        {
+          "name": "Lecture 9",
+          "description": "",
+          "doc": "lecture9.md"
+        },
+        {
+          "name": "Lecture 10",
+          "description": "",
+          "doc": "lecture10.md"
+        },
+        {
+          "name": "Lecture 11",
+          "description": "",
+          "doc": "lecture11.md"
+        },
+        {
+          "name": "Lecture 12",
+          "description": "",
+          "doc": "lecture12.md"
+        }
+      ]
+    },
+    {
+      "name": "Math 136",
+      "folder": "math136",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.md"
+        },
+        {
+          "name": "Chapter 5",
+          "description": "",
+          "doc": "chapter5.md"
+        },
+        {
+          "name": "Chapter 6",
+          "description": "",
+          "doc": "chapter6.md"
+        }
+      ]
+    },
+    {
+      "name": "Math 237",
+      "folder": "math237",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "chapter1.md"
+        },
+        {
+          "name": "Chapter 2",
+          "description": "",
+          "doc": "chapter2.md"
+        },{
+          "name": "Chapter 3",
+          "description": "",
+          "doc": "chapter3.md"
+        },
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.md"
+        },
+        {
+          "name": "Chapter 5",
+          "description": "",
+          "doc": "chapter5.md"
+        },
+        {
+          "name": "Chapter 6",
+          "description": "",
+          "doc": "chapter6.md"
+        },
+        {
+          "name": "Chapter 7",
+          "description": "",
+          "doc": "chapter7.md"
+        },
+        {
+          "name": "Chapter 8",
+          "description": "",
+          "doc": "chapter8.md"
+        },
+        {
+          "name": "Chapter 9",
+          "description": "",
+          "doc": "chapter9.md"
+        },
+        {
+          "name": "Chapter 10",
+          "description": "",
+          "doc": "chapter10.md"
+        },
+        {
+          "name": "Chapter 11",
+          "description": "",
+          "doc": "chapter11.md"
+        },
+        {
+          "name": "Chapter 12",
+          "description": "",
+          "doc": "chapter12.md"
+        },
+        {
+          "name": "Chapter 13",
+          "description": "",
+          "doc": "chapter13.md"
+        },
+        {
+          "name": "Chapter 14",
+          "description": "",
+          "doc": "chapter14.md"
+        },
+        {
+          "name": "Chapter 15",
+          "description": "",
+          "doc": "chapter15.md"
+        }
+      ]
+    },
+    {
+      "name": "Math 239",
+      "folder": "math239",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "chapter1.md"
+        },
+        {
+          "name": "Chapter 2",
+          "description": "",
+          "doc": "chapter2.md"
+        },
+        {
+          "name": "Chapter 3",
+          "description": "",
+          "doc": "chapter3.md"
+        },
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.md"
+        },
+        {
+          "name": "Chapter 5",
+          "description": "",
+          "doc": "chapter5.md"
+        },
+        {
+          "name": "Chapter 6",
+          "description": "",
+          "doc": "chapter6.md"
+        },
+        {
+          "name": "Chapter 7",
+          "description": "",
+          "doc": "chapter7.md"
+        },
+        {
+          "name": "Chapter 8",
+          "description": "",
+          "doc": "chapter8.md"
+        }
+      ]
+    },
+    {
+      "name": "MTE 120",
+      "folder": "mte120",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 7",
+          "description": "",
+          "doc": "chapter7.md"
+        },
+        {
+          "name": "Chapter 8",
+          "description": "",
+          "doc": "chapter8.md"
+        },
+        {
+          "name": "Chapter 10",
+          "description": "",
+          "doc": "chapter10.md"
+        },
+        {
+          "name": "Chapter 11",
+          "description": "",
+          "doc": "chapter11.md"
+        }
+      ]
+    },
+    {
+      "name": "Stat 230",
+      "folder": "stat230",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.pdf"
+        },
+        {
+          "name": "Chapter 5",
+          "description": "",
+          "doc": "chapter5.pdf"
+        },
+        {
+          "name": "Chapter 7",
+          "description": "",
+          "doc": "chapter7.pdf"
+        },
+        {
+          "name": "Chapter 8",
+          "description": "",
+          "doc": "chapter8.pdf"
+        },
+        {
+          "name": "Chapter 9",
+          "description": "",
+          "doc": "chapter9.md"
+        },
+        {
+          "name": "Chapter 10",
+          "description": "",
+          "doc": "chapter10.md"
+        }
+      ]
+    },
+    {
+      "name": "Stat 231",
+      "folder": "stat231",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Chapter 1",
+          "description": "",
+          "doc": "chapter1.md"
+        },
+        {
+          "name": "Chapter 2",
+          "description": "",
+          "doc": "chapter2.md"
+        },
+        {
+          "name": "Chapter 3",
+          "description": "",
+          "doc": "chapter3.md"
+        },
+        {
+          "name": "Chapter 4",
+          "description": "",
+          "doc": "chapter4.md"
+        },
+        {
+          "name": "Chapter 5",
+          "description": "",
+          "doc": "chapter5.md"
+        },
+        {
+          "name": "Chapter 6",
+          "description": "",
+          "doc": "chapter6.md"
+        },
+        {
+          "name": "Chapter 7",
+          "description": "",
+          "doc": "chapter7.md"
+        },
+        {
+          "name": "Chapter 8",
+          "description": "",
+          "doc": "chapter8.md"
+        }
+      ]
+    }
+  ],
+  "docs": []
+  
+}

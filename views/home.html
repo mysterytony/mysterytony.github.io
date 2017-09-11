@@ -1,179 +1,202 @@
 <style>
-	.center {
-		line-height: 200px;
-		height: 100%;
-		text-align: center;
-	}
+  .center {
+    line-height: 200px;
+    height: 100%;
+    text-align: center;
+  }
 
-	.warning {
-		background-color: yellow;
-		font-size: 15px;
-		font-weight: 2em;
-		padding: 10px;
-	}
+  .warning {
+    background-color: yellow;
+    font-size: 15px;
+    font-weight: 2em;
+    padding: 10px;
+  }
 
-	.card-about,
-	.card-experience,
-	.card-project {
-		width: 100%;
-	}
+  .card-about,
+  .card-experience,
+  .card-project,
+  .card-education {
+    width: 100%;
+  }
 
-	.card-about-title {
-		background-image: url('../me.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		height: 350px;
-	}
+  .card-about-title {
+    background-image: url('../me.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 350px;
+  }
 
-	.card-about .mdl-card__title-text {
-		color: white;
-	}
+  .card-about .mdl-card__title-text {
+    color: white;
+  }
 
-	.home-grid {
-		width: 80%;
-	}
+  .home-grid {
+    width: 80%;
+  }
 
-	.card-experience .mdl-card__supporting-text {
-		text-align: left;
-	}
+  .card-experience .mdl-card__supporting-text {
+    text-align: left;
+  }
+
+  .card-experience .mdl-card__supporting-text h6 {
+    margin-top: 0px;
+  }
 </style>
 
 <div class="center">
-	<div class="mdl-grid home-grid">
-		<div class="mdl-cell mdl-cell--4-col">
-			<div class="mdl-card mdl-shadow--6dp card-about">
-				<div class="mdl-card__title card-about-title">
-					<h1 class="mdl-card__title-text">About Me</h1>
-				</div>
-				<div class="mdl-card__supporting-text">
-					Hi! I am a third year computer science in the University of Waterloo. Experienced in C/C++, ASP.net, Java EE, NodeJS and
-					SQL Server. Interested in algorithm design and system architecture.
-				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Read More
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="mdl-cell mdl-cell--8-col">
-			<div class="mdl-card mdl-shadow--6dp card-experience">
-				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">BDO Canada LLP</h2> <img style="position: absolute; right: 2px; top: 2px;" src="../img/bdo.png">
-				</div>
-				<div class="mdl-card__supporting-text" id="bdo">
-					<ul style="padding-top: 0px; margin-top: 0px;">
-						<li>
-							Designed and implemented software solutions using ASP.NET, C#, Azure, MSSQL and Angular according to business requirements
-							for a successful release.
-						</li>
-						<li>
-							Drafted, revised and finalized detail design documents, translating business requirements into technical solutions.
-						</li>
-						<li>
-							Implemented new functionalities with Service Bus and SignalR technology. Improve search experience and speed by utilizing
-							memory cache and indexing technology within the software solution. Spot, verify, document and fix various software
-							defects.
-						</li>
-						<li>
-							Performed extensive penetration testing with reference to OWASP Top 10 Projects by using SqlMap and ZAP. Prepared a detail
-							report on potential issues and recommendations. Implemented new security mechanism to prevent SQL injection.
-						</li>
-					</ul>
-				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Read More
-					</a>
-				</div>
-			</div>
+  <div class="mdl-grid home-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <div class="mdl-card mdl-shadow--6dp card-about">
+        <div class="mdl-card__title card-about-title">
+          <h1 class="mdl-card__title-text">About Me</h1>
+        </div>
+        <div class="mdl-card__supporting-text">
+          I am a software engineer with extensive experience in C/C++, ASP.net, Java EE, NodeJS and SQL Server. Interested in algorithm design, system architecture and UI/UX design.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/henan-li/" target="_blank">
+            Read More
+          </a>
+        </div>
+      </div>
 
-			<div class="mdl-card mdl-shadow--6dp card-experience" style="margin-top: 20px">
-				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">Bluejay Network Inc.</h2> <img style="position: absolute; right: 2px; top: 2px;" src="../img/bluejaynetworks.png">
-				</div>
-				<div class="mdl-card__supporting-text" id="bluejaynetwork">
-					<ul style="padding-top: 0px; margin-top: 0px;">
-						<li>
-							Implemented a cross-platform mobile application using Cordova, Ionic and AngularJS. Planned, prepared and executed agile
-							sprints and scrums with colleagues.
-						</li>
-						<li>
-							Developed a backwards compatible REST API using Java EE, Hibernate, Spring MVC, Maven and MySQL.
-						</li>
-						<li>
-							Planned, prepared and executed agile sprints and scrums with colleagues.
-						</li>
-					</ul>
-				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-							Read More
-						</a>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="mdl-card mdl-shadow--6dp card-education" style="margin-top: 20px;">
+          <div class="mdl-card__title">
+            <h1 class="mdl-card__title-text">Education</h1>
+          </div>
+          <div class="mdl-card__supporting-text">
+            <img style="width: 90%" src="../img/uw.png"><br /> 
+            3A Computer Science, Honors Program, Digital Hardware Option
+            <br />
+            University of Waterloo
+          </div>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col">
+      <div class="mdl-card mdl-shadow--6dp card-experience">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">BDO Canada LLP</h2><img style="position: absolute; right: 10px; top: 5px;" src="../img/bdo.png">
+          <br />
+        </div>
+        <div class="mdl-card__supporting-text" id="bdo">
+          <h6>Software Engineer Intern</h6>
+          <ul style="padding-top: 0px; margin-top: 0px;">
+            <li>
+              Designed and implemented software solutions using ASP.NET, C#, Azure, MSSQL and Angular according to business requirements
+              for a successful release.
+            </li>
+            <li>
+              Drafted, revised and finalized detail design documents, translating business requirements into technical solutions.
+            </li>
+            <li>
+              Implemented new functionalities with Service Bus and SignalR technology. Improve search experience and speed by utilizing
+              memory cache and indexing technology within the software solution. Spot, verify, document and fix various software
+              defects.
+            </li>
+            <li>
+              Performed extensive penetration testing with reference to OWASP Top 10 Projects by using SqlMap and ZAP. Prepared a detail
+              report on potential issues and recommendations. Implemented new security mechanism to prevent SQL injection.
+            </li>
+          </ul>
+        </div>
+      </div>
 
-	<div class="mdl-grid home-grid">
-		<div class="mdl-cell mdl-cell--4-col">
-			<div class="mdl-card mdl-shadow--6dp card-project">
-				<div class="mdl-card__title mdl-card--expand">
-					<h2 class="mdl-card__title-text">Side Project: MarkX</h2>
-				</div>
-				<div class="mdl-card__supporting-text">
-					A compiler for a new markup language similar to markdown. Applied LR parse compiling to achieve linear time efficiency. Built
-					with MEAN stack and deployed on Openshift. Took the initiative to convene a team of my friends to implement MarkX.
-				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://tonyli.me/markx/" target="_blank">
-						Read More
-					</a>
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="">
-						Github
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="mdl-cell mdl-cell--4-col">
-			<div class="mdl-card mdl-shadow--6dp card-project">
-				<div class="mdl-card__title mdl-card--expand">
-					<h2 class="mdl-card__title-text">Side Project: ExpressCPP</h2>
-				</div>
-				<div class="mdl-card__supporting-text">
-					A RESTful framework built with C/C++, similar to ExpressJS. Utilized Winsock2 library on Windows and socket library on UNIX
-					to achieve cross-platform. Assembled the same group of people to develop ExpressCPP.
-				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Read More
-					</a>
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Github
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="mdl-cell mdl-cell--4-col">
-			<div class="mdl-card mdl-shadow--6dp card-project">
-				<div class="mdl-card__title mdl-card--expand">
-					<h2 class="mdl-card__title-text">Side Project: KaleidoScope</h2>
-				</div>
-				<div class="mdl-card__supporting-text">
-					A cross-platform application designed to simplify file and content sharing between friends and devices. Built with NodeJS,
-					MySQL, Java and Objective-C hosted on Openshift. Utilized Fabric UI to provide consistent user-friendly interface and
-					experience.
-				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Read More
-					</a>
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Github
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="mdl-card mdl-shadow--6dp card-experience" style="margin-top: 20px">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Bluejay Network Inc.</h2> <img style="position: absolute; right: 10px; top: 5px;" src="../img/bluejaynetworks.png">
+        </div>
+        <div class="mdl-card__supporting-text" id="bluejaynetwork">
+          <h6>Software Engineer Intern</h6>
+          <ul style="padding-top: 0px; margin-top: 0px;">
+            <li>
+              Implemented a cross-platform mobile application using Cordova, Ionic and AngularJS. Planned, prepared and executed agile
+              sprints and scrums with colleagues.
+            </li>
+            <li>
+              Developed a backwards compatible REST API using Java EE, Hibernate, Spring MVC, Maven and MySQL.
+            </li>
+            <li>
+              Planned, prepared and executed agile sprints and scrums with colleagues.
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mdl-card mdl-shadow--6dp card-experience" style="margin-top: 20px">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">The University of British Columbia</h2> <img style="position: absolute; right: 10px; top: 5px; height: 100px;" src="../img/ubc.png">
+        </div>
+        <div class="mdl-card__supporting-text" id="bluejaynetwork">
+          <h6>Software Engineer Intern</h6>
+          <ul style="padding-top: 0px; margin-top: 0px;">
+            <li>
+              Collaborated and brainstormed an iOS application with an immunology professor for a community project. Drafted UI mock-ups and navigation transitions.
+            </li>
+            <li>
+              Designed user interface, logics and models. Implemented with Objective-C in XCode. Applied multithreading to provide smoother user experience.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mdl-grid home-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <div class="mdl-card mdl-shadow--6dp card-project">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">Side Project: MarkX</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          A compiler for a new markup language similar to markdown. Applied LR parse compiling to achieve linear time efficiency. Built
+          with MEAN stack and deployed on Openshift. Took the initiative to convene a team of my friends to implement MarkX.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://tonyli.me/markx/" target="_blank">
+            Read More
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://github.com/mysterytony/markx" target="_blank">
+            Github
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <div class="mdl-card mdl-shadow--6dp card-project">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">Side Project: ExpressCPP</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          A RESTful framework built with C/C++, similar to ExpressJS. Utilized Winsock2 library on Windows and socket library on UNIX
+          to achieve cross-platform. Assembled the same group of people to develop ExpressCPP.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://alephteam.github.io/ExpressCPP/" target="_blank">
+            Read More
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://github.com/AlephTeam/ExpressCPP" target="_blank">
+            Github
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <div class="mdl-card mdl-shadow--6dp card-project">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">Side Project: KaleidoScope</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          A cross-platform application designed to simplify file and content sharing between friends and devices. Built with NodeJS,
+          MySQL, Java and Objective-C hosted on Openshift. Utilized Fabric UI to provide consistent user-friendly interface and
+          experience.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://github.com/AlephTeam/KaleidoScope" target="_blank">
+            Github
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

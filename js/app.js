@@ -45,8 +45,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
     dialog.close();
   }
 
-  // TODO: to be changed back later
-  $http.get("content_poc.json").then(function (response) {
+  $http.get("content.json").then(function (response) {
     $scope.tree = new Folder(response.data.name, response.data.folder, response.data.description, null);
 
     let docs = [];
@@ -139,21 +138,10 @@ app.controller('ViewerCtrl', function ($scope, $stateParams, $http) {
   $stateParams.filepath = $stateParams.filepath.split(',').join('/');
   if (($stateParams.filepath).endsWith('.md')) {
     $http.get($stateParams.filepath).then(function (response) {
-      // var body = {
-      //   "text": response.data,
-      //   "mode": "markdown"
-      // }
-
       var md = window.markdownit();
       var result = md.render(response.data);
       $("#viewer-card").html(result);
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-
-      // $http.post("https://api.github.com/markdown", JSON.stringify(body)).then(function(result) {
-      //   $("#viewer-card").html(result.data);
-      //   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-      // });
-
     });
   } else {
     window.open($stateParams.filepath);
