@@ -489,6 +489,24 @@
           "doc": "chapter8.md"
         }
       ]
+    },
+    {
+      "name": "Math 235",
+      "folder": "math235",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Theorems",
+          "description": "",
+          "doc": "Theorems.md"
+        },
+        {
+          "name": "Problems",
+          "description": "",
+          "doc": "Problems.md"
+        }
+      ]
     }
   ],
   "docs": []
