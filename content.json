@@ -507,6 +507,19 @@
           "doc": "Problems.md"
         }
       ]
+    },
+    {
+      "name": "Japan 101R",
+      "folder": "japan101r",
+      "description": "",
+      "folders": [],
+      "docs": [
+        {
+          "name": "Lecture",
+          "description": "Genki I Second Edition",
+          "doc": "lecture.md"
+        }
+      ]
     }
   ],
   "docs": []
