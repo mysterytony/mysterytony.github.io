@@ -37,14 +37,6 @@ app.run(function ($rootScope) {
 app.controller('AppCtrl', function ($scope, $http, $state, $location) {
   window.componentHandler.upgradeAllRegistered();
 
-  var dialog = document.querySelector('dialog');
-  if (! dialog.showModal) {
-    dialogPolyfill.registerDialog(dialog);
-  }
-  $scope.closeDialog = function() {
-    dialog.close();
-  }
-
   $http.get("content.json").then(function (response) {
     $scope.tree = new Folder(response.data.name, response.data.folder, response.data.description, null);
 
@@ -102,13 +94,7 @@ app.controller('AppCtrl', function ($scope, $http, $state, $location) {
   }
 
   $scope.showDialog = function(title, message) {
-    $scope.dialogTitle = title;
-    $scope.dialogContent = message;
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
+    alert(title + "\n" + message);
   }
 
   $scope.showUpdates = function() {
