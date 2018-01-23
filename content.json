@@ -118,32 +118,6 @@
       ]
     },
     {
-      "name": "ECE 124",
-      "folder": "ece124",
-      "description": "",
-      "folders": [],
-      "docs":[
-        {
-          "name": "Chapter 1",
-          "description": "",
-          "doc": "ch1.md"
-        }
-      ]
-    },
-    {
-      "name": "ECON 101",
-      "folder": "econ101",
-      "description": "",
-      "folders": [],
-      "docs":[
-        {
-          "name": "Chapter 1",
-          "description": "",
-          "doc": "ch1.md"
-        }
-      ]
-    },
-    {
       "name": "JavaScript Notes",
       "folder": "js",
       "description": "",
@@ -487,37 +461,6 @@
           "name": "Chapter 8",
           "description": "",
           "doc": "chapter8.md"
-        }
-      ]
-    },
-    {
-      "name": "Math 235",
-      "folder": "math235",
-      "description": "",
-      "folders": [],
-      "docs": [
-        {
-          "name": "Theorems",
-          "description": "",
-          "doc": "Theorems.md"
-        },
-        {
-          "name": "Problems",
-          "description": "",
-          "doc": "Problems.md"
-        }
-      ]
-    },
-    {
-      "name": "Japan 101R",
-      "folder": "japan101r",
-      "description": "",
-      "folders": [],
-      "docs": [
-        {
-          "name": "Lecture",
-          "description": "Genki I Second Edition",
-          "doc": "lecture.md"
         }
       ]
     }
