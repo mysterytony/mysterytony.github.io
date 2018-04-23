@@ -9,7 +9,7 @@
     background: url({{bgsrc}}) center / cover;
     height: 100%;
   }
-  
+
   .demo-layout-transparent .mdl-layout__header,
   .demo-layout-transparent .mdl-layout__drawer-button,
   #update-span {
@@ -18,11 +18,11 @@
     color: white;
     text-shadow: 2px 2px 5px rgb(88, 43, 10);
   }
-  
+
   .codeWithLove {
     vertical-align: middle;
   }
-  
+
   .mdl-navigation__link.ng-enter {
     -webkit-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
     -moz-transition: 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
@@ -32,14 +32,14 @@
     position: relative;
     display: block;
   }
-  
+
   .mdl-navigation__link.ng-enter.ng-enter-active,
   .mdl-navigation__link.ng-leave {
     opacity: 1;
     top: 0;
     height: 30px;
   }
-  
+
   .mdl-navigation__link.ng-leave.ng-leave-active,
   .mdl-navigation__link.ng-enter {
     opacity: 0;
@@ -52,23 +52,29 @@
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title"><a class="mdl-navigation__link" ui-sref='app.home' style="font-size: 1.5em;">He Nan Li (Tony)</a></span>
-      <button class="mdl-button mdl-js-button mdl-button--icon" id="update-span" ng-click="showUpdates()">
-        <i class="material-icons">update</i>
-        <span class="mdl-tooltip" data-mdl-for="update-span">
-          show updates
-        </span>
-      </button>
+      <span class="mdl-layout-title">
+        <a class="mdl-navigation__link" ui-sref='app.home' style="font-size: 1.5em;">He Nan Li (Tony)</a>
+      </span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
 
-        <a class="mdl-navigation__link" ui-sref="app.home"><i class="fa fa-home" style="font-size:24px"></i></a>
-        <a class="mdl-navigation__link" target="_blank" title="Tony on Github" href="https://github.com/mysterytony"><i class="fa fa-github" style="font-size:24px"></i></a>
-        <a class="mdl-navigation__link" target="_blank" title="Tony on LinkedIn" href="https://ca.linkedin.com/in/tony-li-281b59b9"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
-        <a class="mdl-navigation__link" target="_blank" title="Tony's Resume" href="Resume.pdf"><i class="fa fa-file-text" style="font-size:24px"></i></a>
-        <a class="mdl-navigation__link" ui-sref="app.email" title="Email Me"><i class="fa fa-address-card" style="font-size:24px"></i></a>
+        <a class="mdl-navigation__link" ui-sref="app.home">
+          <i class="fa fa-home" style="font-size:24px"></i>
+        </a>
+        <a class="mdl-navigation__link" target="_blank" title="Tony on Github" href="https://github.com/mysterytony">
+          <i class="fa fa-github" style="font-size:24px"></i>
+        </a>
+        <a class="mdl-navigation__link" target="_blank" title="Tony on LinkedIn" href="https://ca.linkedin.com/in/tony-li-281b59b9">
+          <i class="fa fa-linkedin-square" style="font-size:24px"></i>
+        </a>
+        <a class="mdl-navigation__link" target="_blank" title="Tony's Resume" href="Resume.pdf">
+          <i class="fa fa-file-text" style="font-size:24px"></i>
+        </a>
+        <a class="mdl-navigation__link" ui-sref="app.email" title="Email Me">
+          <i class="fa fa-address-card" style="font-size:24px"></i>
+        </a>
       </nav>
     </div>
   </header>
@@ -80,7 +86,9 @@
       </div>
     </span>
     <nav class="mdl-navigation">
-      <a ng-if="tree.parentFolder" class="mdl-navigation__link" href="" ng-click="goBack()"><i class="material-icons">keyboard_backspace</i>Back</a></a>
+      <a ng-if="tree.parentFolder" class="mdl-navigation__link" href="" ng-click="goBack()">
+        <i class="material-icons">keyboard_backspace</i>Back</a>
+      </a>
 
       <a id="{{folder.name}}" href="" ng-repeat="folder in tree.folders track by $index" class="mdl-navigation__link" ng-click="clickFolder($index)">
         <i class="material-icons">folder</i>
@@ -96,7 +104,7 @@
         <i class="material-icons">insert_drive_file</i>
         {{doc.name}}
         <div ng-if="doc.description !==''" class="mdl-tooltip mdl-tooltip--large" data-mdl-for="{{doc.name}}">
-        {{doc.description}}
+          {{doc.description}}
         </div>
       </a>
 
